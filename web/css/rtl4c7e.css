@@ -1,0 +1,398 @@
+.rtl {
+  direction: rtl; 
+}
+
+.ltr {
+  direction: ltr; 
+}
+
+.rtl .header-navigation ul.navigation-box>li>.submenu>li>a{
+	text-align: right;
+}
+
+.rtl .owl-carousel{
+	direction: ltr;
+}
+
+.rtl .topbar-one__links a+a{
+	margin-left: 0px;
+	margin-right: 30px;
+	border-left: none;
+	padding-left: 0px;
+	padding-right: 30px;
+	border-right: 1px dashed rgba(225, 227, 226, 0.2);
+}
+
+.rtl .topbar-one__link i{
+	margin-right: 0px;
+	margin-left: 10px;
+}
+
+.rtl .topbar-one__social a+a{
+	margin-left: 0px;
+	margin-right: 30px;
+}
+
+.rtl .header-navigation ul.navigation-box>li:first-child{
+	margin-left: 30px;
+}
+
+.rtl .slider-two__carousel{
+	text-align: right;
+}
+
+.rtl .about-one{
+	text-align: right;
+}
+
+.rtl .about-one__content .row:before{
+	left: 55.5%;
+}
+
+.rtl .about-two__img-2{
+	-webkit-transform: translateX(55%) translateY(50%);
+    transform: translateX(55%) translateY(50%);
+}
+
+.rtl .about-two__img::before{
+	display: none;
+}
+
+.rtl .about-two__content{
+	text-align: right;
+}
+
+.rtl .about-two__list li{
+	padding-left: 0px;
+	padding-right: 25px;
+}
+
+.rtl .about-two__list li i{
+	left: inherit;
+	right: 0px;
+}
+
+.rtl .service-one__single-inner{
+	text-align: right;
+}
+
+.rtl .service-one__title-block{
+	text-align: right;
+}
+
+.rtl .video-one{
+	right: inherit;
+	left: 0px;
+}
+
+.rtl .testimonials-one{
+	text-align: right;
+}
+
+.rtl .project-one__content{
+	text-align: right;
+}
+
+.rtl .feature-one__person{
+	left: inherit;
+	right: 5%;
+}
+
+.rtl .feature-one__block{
+	text-align: right;
+}
+
+.rtl .feature-one__icon i{
+	margin-right: 0px;
+	margin-left: 30px;
+}
+
+.rtl .feature-one__block::after{
+	left: inherit;
+	right: -200px;
+}
+
+.rtl .blog-one__single{
+	text-align: right;
+}
+
+.rtl .blog-one__meta a:first-child{
+	margin-right: 0px;
+	margin-left: 10px;
+}
+
+.rtl .site-footer__upper{
+	text-align: right;
+}
+
+.rtl .footer-widget__links li a:before{
+	left: inherit;
+	right: 0px;
+	content: '\f104';
+}
+
+.rtl .footer-widget__links li a{
+	padding-left: 0px;
+	padding-right: 10px;
+}
+
+.rtl .footer-widget__social a+a{
+	margin-left: 0px;
+	margin-right: 10px;
+}
+
+.rtl .header-navigation .container .right-side-box{
+	right: 0px;
+}
+
+.rtl .about-one__feature{
+	text-align: right;
+}
+
+.rtl .about-three .block-title{
+	text-align: right;
+}
+
+.rtl .testimonials-two .testimonials-one__carousel{
+	margin: 0px;
+}
+
+.rtl .testimonials-one__nav-right {
+    border-right: 1px solid #848484;
+	border-left: none;
+    padding-right: 20px;
+	padding-left: 0px;
+    margin-right: 20px;
+	margin-left: 0px;
+}
+
+.rtl .fact-one__single{
+	text-align: right;
+}
+
+.rtl .fact-one__icon{
+	margin-right: 0px;
+	margin-left: 20px;
+}
+
+.rtl .thm-btn i{
+	margin-left: 0px;
+	margin-right: 13px;
+}
+
+.rtl .team-one__social a+a{
+	margin-left: 0px;
+	margin-right: 25px;
+}
+
+.rtl .about-six__content{
+	text-align: right;
+}
+
+.rtl .about-six__home-four .about-six__image{
+	right: -70px;
+}
+
+.rtl .video-two__home-4 .video-two__image:before{
+	left: -100px;
+}
+
+.rtl .video-two__home-4-text{
+	text-align: right;
+}
+
+.rtl .service-page-one .service-one__single i{
+	left: inherit;
+	right: 40px;
+}
+
+.rtl .testimonials-five__content{
+	text-align: right;
+}
+
+.rtl .testimonials-five__content .block-title{
+	text-align: right !important;
+}
+
+.rtl .testimonials-five__stars{
+	float: right;
+}
+
+.rtl .testimonials-five .owl-theme .owl-nav{
+	text-align: right;
+}
+
+.rtl .testimonials-five  .testimonials-one__nav-right {
+    border-left: 1px solid #848484;
+	border-right: 0px;
+    padding-left: 20px;
+    padding-right: 0px;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.rtl .about-five .block-title{
+	text-align: right;
+}
+
+.rtl .contact-form-one__form-wrap{
+	text-align: right;
+}
+
+.rtl .elementor-element.elementor-element-63b7d493.elementor-widget.elementor-widget-indext_testimonials .testimonials-one__nav-right {
+    border-left: 1px solid #848484;
+    border-right: none;
+    padding-left: 20px;
+    padding-right: 0px;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.rtl .history-one__row:nth-child(even) .history-one__image{
+	padding-right: 0px;
+	padding-left: 70px;
+}
+
+.rtl .history-one__row:nth-child(even) .history-one__content{
+	padding-left: 0px;
+	padding-right: 70px;
+	text-align: right;
+}
+
+.rtl .elementor-element.elementor-element-213a876.elementor-widget.elementor-widget-indext_team3 .block-title{
+	text-align: right;
+}
+
+.rtl .two.team-single-area{
+	text-align: right;
+}
+
+.rtl .team-member-info-box ul{
+	padding: 0px;
+}
+
+.rtl .team-member-content-box{
+	text-align: right;
+}
+
+.rtl .skills-area h3{
+	text-align: right;
+}
+
+.rtl .resume h3{
+	text-align: right;
+}
+
+.rtl .resume .info-box .title{
+	text-align: right;
+}
+
+.rtl .resume .info-box .content{
+	text-align: right;
+}
+
+.rtl .resume .info-box .content{
+	text-align: right;
+}
+
+.rtl .sidebar__questions-form input, 
+.rtl .sidebar__questions-form textarea{
+	padding-right: 20px;
+}
+
+.rtl .sidebar__questions{
+	text-align: right;
+}
+
+.rtl .faq-page{
+	text-align: right;
+}
+
+.rtl .faq-page .accrodion-title h4:before{
+	right: -50px;
+}
+
+.rtl .faq-page .accrodion-title{
+	padding-right: 70px;
+}
+
+.rtl #appoinment_content{
+	text-align: right;
+}
+
+.rtl .ui-widget.ui-widget-content{
+	text-align: right;
+}
+
+.rtl .service-three .service-one__single-inner{
+	text-align: center;
+}
+
+.rtl .service-details{
+	text-align: right;
+}
+
+.rtl .service-details__feature-list{
+	padding: 0px;
+}
+
+.rtl .service-details__feature-list li i{
+	margin-right: 0px;
+	margin-left: 15px;
+}
+
+.rtl .project-one__content{
+	padding-right: 40px;
+}
+
+.rtl .project-details{
+	text-align: right;
+}
+
+.rtl .mrsidebar{
+	text-align: right;
+}
+
+.rtl .sidebar__search input{
+	padding-right: 30px;
+}
+
+.rtl .sidebar__search button[type=submit]{
+	right: inherit;
+	left: 30px;
+}
+
+.rtl .sidebar__post-content{
+	padding-left: 0px;
+	padding-right: 20px;
+}
+
+.rtl .widget ul{
+	padding: 0px;
+}
+
+.rtl .mrsidebar .subscribe-widget h3 i{
+	margin-right: 0px;
+	margin-left: 10px;
+}
+
+.rtl .mrsingle .post-share.pull-right{
+	right: inherit;
+	left: 0px;
+}
+
+.rtl .mr_comments_area{
+	text-align: right;
+}
+
+.rtl .comment_author{
+	left: 0px;
+}
+
+.rtl .comment-form{
+	text-align: right;
+}
+
+.rtl .contact-form-one__form-wrap{
+	text-align: right;
+}

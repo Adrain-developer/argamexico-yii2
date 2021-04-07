@@ -1,0 +1,368 @@
+
+#appoinment_content .select-input {
+  width: 100%;
+  font-weight: normal;
+  height: 60px;
+}
+#appoinment_content .select-input + .ui-selectmenu-button {
+  width: 100%;
+  font-weight: normal;
+  height: 60px;
+  border: none;
+  outline: none;
+  background: none;
+  border: 1px solid #e3e3e3;
+  border-radius: 0;
+}
+#appoinment_content .select-input + .ui-selectmenu-button span.ui-selectmenu-text {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  height: 100%;
+  line-height: 48px;
+  color: #222;
+  padding: 0 24px;
+  vertical-align: middle;
+}
+#appoinment_content .select-input + .ui-selectmenu-button span.ui-icon {
+  background: transparent url(../images-2/select-box-arrow.png) 0 0 no-repeat;
+  width: 14px;
+  height: 8px;
+  top: 40%;
+  right: 20px;
+}
+#appoinment_content .select-input .ui-selectmenu-button span.ui-selectmenu-text {
+  font-weight: normal;
+  color: #cacac9;
+}
+#appoinment_content .vehicle-year .thm-spinner {
+  width: 70%;
+  display: inline-block;
+  margin-right: 15px;
+}
+#appoinment_content .vehicle-year .vehicle-year {
+    /* width: 24%; */
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+}
+#appoinment_content .thm-spinner {
+  height: 10px;
+  border: none;
+  background: #f5f5f5;
+}
+#appoinment_content .thm-spinner .ui-widget-header {
+  background: #ff5860;
+}
+#appoinment_content .thm-spinner.ui-slider .ui-slider-handle {
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  background: #ff5860;
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  top: -10px;
+}
+#appoinment_content input[type="text"] {
+  color: #222;
+}
+#appoinment_content ul.special-checkbox {
+  font-size: 0;
+}
+:focus {
+    outline: unset !important;
+}
+#appoinment_content ul.special-checkbox li {
+  display: inline-block;
+  color: #555;
+  font-size: 14px;
+  line-height: 18px;
+  margin-right: 17px;
+  cursor: pointer;
+}
+#appoinment_content ul.special-checkbox li.active .input-checker {
+  border: none;
+}
+#appoinment_content ul.special-checkbox li.active .input-checker:before {
+  content: '\f14a';
+  font-family: 'FontAwesome';
+  font-size: 21px;
+  color: #ff5860;
+}
+#appoinment_content ul.special-checkbox li .input-checker {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  margin-right: 18px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+
+.appointment-page  { 
+    padding-top: 10%;
+}
+.appointment-page  h2 {
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    margin: 0 20%;
+    padding: 1% 0;
+}
+.appointment-page  h3{
+    font-size: 16px;
+    font-weight: 300;
+    color:#fff;
+}
+.appoint {
+    padding: 80px 15% 10px 15%;
+}
+.appoint p{
+    font-size: 16px;
+    font-weight: 600;
+    color:#333333;
+    line-height:23px;
+}
+.information{
+    height:60px;
+    margin-bottom: 30px;
+}
+.information_siral{
+    font-size: 24px;
+    font-weight: 700;
+    color:#fff; 
+    float:left;
+    width:4%;
+    background:#ff5860;
+    text-align:center;
+    height:60px;
+    padding-top: 15px;
+}
+.information_details {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+    float: right;
+    width: 96%;
+    background: #f5f5f5;
+    height: 60px;
+    padding-top: 15px;
+    padding-left: 30px;
+}
+.information_column{}
+.information_column h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000 ;
+    text-transform: uppercase;
+    padding: 15px 0;
+}
+
+select.form-control.selectclase {
+    border: 1px solid #e1e1e1;
+    height: 50px;
+    border-radius: 0px;
+    font-size: 13px;
+    font-weight: 500; 
+    color:#cacac9; 
+}
+.information_input input{
+    border: 1px solid #e1e1e1;
+    height: 50px;
+    border-radius: 0px;
+    font-size: 13px;
+    font-weight: 500;
+    color:#cacac9; 
+}
+ 
+ 
+.informatino_two{
+     height:60px;
+}
+.appoinment_content_area {
+    padding: 30px 0;
+    overflow: hidden;
+}
+.checkbox_colunn {
+    width: 14%;
+    float: left;
+}
+.checkbox_colunn form{
+    font-size: 14px;
+    font-weight: 500;
+    color:#cececd; 
+}
+.form_column h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+.form_column input{
+     border: 1px solid #e1e1e1;
+     height: 50px;
+     border-radius: 0px;
+     font-size: 13px;
+
+     font-weight: 500;
+     color:#cacac9;
+     width: 100%;
+     padding: 0 30px;
+}
+.form_textarea{}.form_textarea {
+    padding-top: 20px;
+}
+.form_textarea h2{
+    font-size: 14px;
+    font-weight: 700;
+    color:#000; 
+    text-transform:uppercase;
+    padding-bottom: 20px;
+}
+
+
+.form_textarea textarea {
+    border: 1px solid #e1e1e1;
+    height: 100%;
+    border-radius: 0px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #cacac9;
+    width: 100%;
+    padding: 20px;
+}
+.appoinment_form {
+    overflow: hidden;
+    padding: 60px 0 100px 0;
+}
+.information_check_box{
+    font-size: 14px;
+    font-weight: 500;
+    color: #cececd; 
+}
+.information_check_box span { 
+    float: left;
+    padding-left: 0px;
+    padding-top: 1px;
+}
+.information_check_box i {
+    float: left;
+    padding-top: 3px;
+    width:18px;
+    height:18px;
+    font-size:18px;
+}
+i.fa.fa-check-square {
+    background: #fff;
+    color: #ff5860;
+}
+.fa.fa-check-square {
+   margin-right: 6px;
+}
+.information_check_box {
+    width: 15%;
+    float: left;
+}
+.checkbox-middel {
+    width: 10%; 
+} 
+input.check {
+    width: 15px;
+    height: 15px;
+    border:1px solid #e1e1e1;
+    font-size: 14px;
+    font-weight: 500;
+    color: #cececd;
+}
+
+.appoint_button {
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+    background: #ff5860;
+    width: 140px;
+    height: 45px;
+    border: 0px solid;
+    border-radius: 0px;
+}
+
+.form_textarea_contact {
+    padding-left: 10px;
+    padding-top: 18px;
+}
+ .contact_details input{
+     border: 1px solid #e1e1e1;
+    height: 50px;
+    border-radius: 0px;
+    font-size: 13px;
+    font-weight: 500;
+    color:#cacac9; 
+}
+.form_textarea_contact textarea {
+    border: 1px solid #e1e1e1;
+    border-radius: 0;
+    color: #222;
+    font-size: 13px;
+    font-weight: 500;
+    height: 295px;
+    margin-top: 22px;
+    padding: 15px;
+    width: 100%;
+}
+.contact_button{
+    border:0px solid;
+    border-radius:0px;
+    width:100px;
+    height:45px;
+    background:#ff5860;
+    color:#fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-align:center;
+    padding-top:5px;
+    float:right;
+    margin-top:20px;
+}
+.contact_button:hover{
+    background:#ff5860;
+    color:#fff; 
+}
+
+.form_column h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+.form_textarea_contact h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    text-transform: captilize;
+}
+
+#appoinment_content input {
+    border: 1px solid #e3e3e3;
+    width: 100%;
+    height: 60px;
+    padding: 0 30px;
+}
+
+#appoinment_content .hvr-bounce-to-right:before {
+    background-color: #222
+}
+
+section.one.service-details {
+    padding-bottom: 0;
+}
+section.two.service-details {
+    padding-top: 0;
+}
