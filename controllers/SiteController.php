@@ -66,7 +66,7 @@ class SiteController extends Controller
 
     public function actionFire()
     {
-        return $this->render('arga-fire');
+        return $this->render('fire');
     }
 
     /**

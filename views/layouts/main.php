@@ -5,6 +5,7 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -132,7 +133,7 @@ AppAsset::register($this);
                 <div class="main-navigation">
                     <ul class=" navigation-box @@extra_class">
                         <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="index.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">ARGA Group</a></li>
-                        <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="./arga-fire.php" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
+                        <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="<?= Url::toRoute(['site/fire']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
                             <ul role="menu" class="submenu">
                                 <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="about-one/index.html">Mantenimiento y Recarga de equipos de emergencia</a></li>
                                 <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="projects-one/index.html">Extintores de polvos universales (Fuegos ABC)</a></li>

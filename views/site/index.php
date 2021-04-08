@@ -159,7 +159,7 @@ $this->title = 'ARGA México';
 				<div class="elementor-widget-container">
 
 				<section class=" service-one">
-					<img src="../wp-content/uploads/2020/05/cog-1-1.png" class="service-one__cog" alt="">
+					<img src="./web/images/cog-1-1.png" class="service-one__cog" alt="">
 					<img src="../wp-content/uploads/2020/05/caren-1-1.png" class="service-one__moc" alt="">
 					<div class="container">
 						<div class="row">
