@@ -64,6 +64,11 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionFire()
+    {
+        return $this->render('arga-fire');
+    }
+
     /**
      * Login action.
      *

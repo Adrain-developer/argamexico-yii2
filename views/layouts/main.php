@@ -109,8 +109,8 @@ AppAsset::register($this);
 
                 <!-- /.topbar-one__link -->
 
-                <a href="support%40mail.html" class="topbar-one__link"><i class="indext-icon-envelope"></i>
-                    <!-- /.indext-icon-envelope -->support@mail.com</a>
+                <a href="https://mail.google.com" class="topbar-one__link"><i class="indext-icon-envelope"></i>
+                    <!-- /.indext-icon-envelope -->argaconsultores.mexico@gmail.com</a>
 
 
             </div><!-- /.topbar-one__links -->
@@ -125,154 +125,51 @@ AppAsset::register($this);
                 <!-- Brand and toggle get grouped for better mobile display -->
 
                 <div class="logo-box"> <div class="navbar-brand">
-                        <a href="index.html" title="indext"><img src="wp-content/uploads/2020/05/full-light-logo.png" alt="logo" style="" /></a>                        </div>
+                        <a href="index.php" title="indext"><img src="./web/images/logo2.jpg" alt="logo" style="" /></a></div>
                     <div class="mobile-nav-toggler"> <span class="fa fa-bars"></span> </div> </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="main-navigation">
                     <ul class=" navigation-box @@extra_class">
-                        <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-45 dropdown active current"><a title="Home" href="index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Home</a>
+                        <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="index.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">ARGA Group</a></li>
+                        <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="./arga-fire.php" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-44 active"><a title="Home Page 01" href="index.html">Home Page 01</a></li>
-                                <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41"><a title="Home Page 02" href="home-two/index.html">Home Page 02</a></li>
-                                <li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a title="Home Page 03" href="home-three/index.html">Home Page 03</a></li>
-                                <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39"><a title="Home Page 04" href="home-four/index.html">Home Page 04</a></li>
-                                <li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38"><a title="Home Page 05" href="home-five/index.html">Home Page 05</a></li>
-                                <li id="menu-item-870" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-870"><a title="RTL Home 06" href="rtl-home/index.html">RTL Home 06</a></li>
-                                <li id="menu-item-1579" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1579"><a title="One Page Home" href="one-page-home/index.html">One Page Home</a></li>
+                                <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="about-one/index.html">Mantenimiento y Recarga de equipos de emergencia</a></li>
+                                <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="projects-one/index.html">Extintores de polvos universales (Fuegos ABC)</a></li>
+                                <li id="menu-item-412" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-412"><a  href="projects-one/index.html">Extintores de polvo químico seco (Fuego de clase BC)</a></li>
+                                <li id="menu-item-411" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-411"><a  href="projects-two/index.html">Extintor de CO2</a></li>
+                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="projects-three/index.html">Extintores hídricos cargados con agua o con espuma AR-AFFF</a></li>
+                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="projects-three/index.html">Extintor de HFC-236-FA Hexafl</a></li>
+                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="projects-three/index.html">Pruebas de recipientes de baja y alta presión</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Company" href="about-one/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Company</a>
+                        <li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413 dropdown"><a title="Consultoría" href="330-2/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultoría</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="About Us" href="about-one/index.html">About Us</a></li>
-                                <li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-37"><a title="Mission &amp; Vison" href="about-two/index.html">Mission &#038; Vison</a></li>
-                                <li id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42"><a title="Our History" href="our-history/index.html">Our History</a></li>
-                                <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-420 dropdown"><a title="Projects Style" href="projects-one/index.html">Projects Style</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-412" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-412"><a title="Projects Style 01" href="projects-one/index.html">Projects Style 01</a></li>
-                                        <li id="menu-item-411" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-411"><a title="Projects Style 02" href="projects-two/index.html">Projects Style 02</a></li>
-                                        <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a title="Projects Style 03" href="projects-three/index.html">Projects Style 03</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-409"><a title="Projects Details" href="projects-details/index.html">Projects Details</a></li>
-                                <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-417"><a title="Our Team" href="team-page/index.html">Our Team</a></li>
-                                <li id="menu-item-697" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-697"><a title="Team Details" href="team-details/index.html">Team Details</a></li>
-                                <li id="menu-item-408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-408"><a title="Testimonials" href="testimonials-one/index.html">Testimonials</a></li>
-                                <li id="menu-item-1065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1065"><a title="Testimonials Two" href="testimonials-two-2/index.html">Testimonials Two</a></li>
-                                <li id="menu-item-585" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-585"><a title="FAQ’s" href="faqs/index.html">FAQ’s</a></li>
-                                <li id="menu-item-665" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-665"><a title="Appointment" href="appointment/index.html">Appointment</a></li>
-                                <li id="menu-item-687" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687"><a title="Pricing" href="pricing/index.html">Pricing</a></li>
-                                <li id="menu-item-676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-676"><a title="Pricing Details" href="pricing-details/index.html">Pricing Details</a></li>
+                                <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a href="services-one/index.html">Estudios  Regulatorios  de  la Secretaria <br>del Trabajo y Prevencion Social</a></li>
+                                <li id="menu-item-909" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-909"><a href="home-building-repair-3/index.html">Estudios  de Salud e Higiene Laboral</a></li>
+                                <li id="menu-item-910" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-910"><a href="home-building-repair-2/index.html">Protección Civil</a></li>
+                                <li id="menu-item-912" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="building-construction/index.html">Medio Ambiente</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413 dropdown"><a title="Services" href="330-2/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Services</a>
+                        <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Traning" href="about-01/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Traning</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-418 dropdown"><a title="Our All Services" href="services-one/index.html">Our All Services</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-419"><a title="Services One" href="services-one/index.html">Services One</a></li>
-                                        <li id="menu-item-415" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-415"><a title="Services Two" href="services-two/index.html">Services Two</a></li>
-                                        <li id="menu-item-414" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-414"><a title="Services Three" href="services-three/index.html">Services Three</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-909" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-909"><a title="Roof Renovation &#038; Repair" href="home-building-repair-3/index.html">Roof Renovation &#038; Repair</a></li>
-                                <li id="menu-item-910" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-910"><a title="Home Building &#038; Repair" href="home-building-repair-2/index.html">Home Building &#038; Repair</a></li>
-                                <li id="menu-item-912" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a title="Building &#038; Construction" href="building-construction/index.html">Building &#038; Construction</a></li>
-                                <li id="menu-item-911" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-911"><a title="Home Building &#038; Repair" href="home-building-repair/index.html">Home Building &#038; Repair</a></li>
-                                <li id="menu-item-913" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-913"><a title="Architecture Design" href="architecture-design/index.html">Architecture Design</a></li>
+                                <li id="menu-item-659" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a title="About" href="about-01/index.html">Seguridad Industrial</a></li>
+                                <li id="menu-item-932" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a title="Miscellaneous 01" href="section-title/index.html">Protección Civil y Emergencias</a></li>
+                                <li id="menu-item-964" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"><a title="Miscellaneous 02" href="company/index.html">Desarrollo Humano y Organizacional</a></li>
+                                <li id="menu-item-706" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a title="Team" href="team-01/index.html">Curso combate contra incendios</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Elements" href="about-01/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Elements</a>
+                        <li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Lab" href="shop/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Labs</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-659" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-659 dropdown"><a title="About" href="about-01/index.html">About</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-644" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-644"><a title="About 01" href="about-01/index.html">About 01</a></li>
-                                        <li id="menu-item-648" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-648"><a title="About 02" href="about-02/index.html">About 02</a></li>
-                                        <li id="menu-item-653" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-653"><a title="About 03" href="about-03/index.html">About 03</a></li>
-                                        <li id="menu-item-658" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-658"><a title="About 04" href="about-04/index.html">About 04</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-932" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-932 dropdown"><a title="Miscellaneous 01" href="section-title/index.html">Miscellaneous 01</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-933" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-933"><a title="Section Title" href="section-title/index.html">Section Title</a></li>
-                                        <li id="menu-item-937" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-937"><a title="Text Block" href="text-block/index.html">Text Block</a></li>
-                                        <li id="menu-item-945" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-945"><a title="Featured Block" href="featured-block/index.html">Featured Block</a></li>
-                                        <li id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-951"><a title="Call to Action" href="call-to-action/index.html">Call to Action</a></li>
-                                        <li id="menu-item-955" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-955"><a title="Skills Style" href="skills-style/index.html">Skills Style</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-964" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-964 dropdown"><a title="Miscellaneous 02" href="company/index.html">Miscellaneous 02</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-963" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-963"><a title="Company" href="company/index.html">Company</a></li>
-                                        <li id="menu-item-962" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-962"><a title="Articles" href="articles/index.html">Articles</a></li>
-                                        <li id="menu-item-973" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-973"><a title="Special Offers" href="special-offers/index.html">Special Offers</a></li>
-                                        <li id="menu-item-974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-974"><a title="Service Prices" href="pricing-details-text/index.html">Service Prices</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-706" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-706 dropdown"><a title="Team" href="team-01/index.html">Team</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-705" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-705"><a title="Team 01" href="team-01/index.html">Team 01</a></li>
-                                        <li id="menu-item-704" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-704"><a title="Team 02" href="team-02/index.html">Team 02</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-730" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-730 dropdown"><a title="Services" href="services-01/index.html">Services</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-729" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-729"><a title="Services 01" href="services-01/index.html">Services 01</a></li>
-                                        <li id="menu-item-728" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-728"><a title="Services 02" href="services-02/index.html">Services 02</a></li>
-                                        <li id="menu-item-727" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-727"><a title="Services 03" href="services-03/index.html">Services 03</a></li>
-                                        <li id="menu-item-726" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-726"><a title="Services 04" href="services-04/index.html">Services 04</a></li>
-                                        <li id="menu-item-725" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-725"><a title="Services 05" href="services-05/index.html">Services 05</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-739 dropdown"><a title="Projects" href="projects-01/index.html">Projects</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-738" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-738"><a title="Projects 01" href="projects-01/index.html">Projects 01</a></li>
-                                        <li id="menu-item-737" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-737"><a title="Projects 02" href="projects-02/index.html">Projects 02</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-760" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-760 dropdown"><a title="Testimonials" href="testimonials-01/index.html">Testimonials</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-759" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-759"><a title="Testimonials 01" href="testimonials-01/index.html">Testimonials 01</a></li>
-                                        <li id="menu-item-758" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-758"><a title="Testimonials 02" href="testimonials-02/index.html">Testimonials 02</a></li>
-                                        <li id="menu-item-757" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-757"><a title="Testimonials 03" href="testimonials-03/index.html">Testimonials 03</a></li>
-                                        <li id="menu-item-756" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-756"><a title="Testimonials 04" href="testimonials-04/index.html">Testimonials 04</a></li>
-                                        <li id="menu-item-755" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-755"><a title="Testimonials 05" href="testimonials-05/index.html">Testimonials 05</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-774" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-774 dropdown"><a title="Features" href="features-01/index.html">Features</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-773" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-773"><a title="Features 01" href="features-01/index.html">Features 01</a></li>
-                                        <li id="menu-item-772" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-772"><a title="Features 02" href="features-02/index.html">Features 02</a></li>
-                                        <li id="menu-item-771" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-771"><a title="Features 03" href="features-03/index.html">Features 03</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-788 dropdown"><a title="Why Choose Us" href="why-choose-us-01/index.html">Why Choose Us</a>
-                                    <ul role="menu" class="submenu">
-                                        <li id="menu-item-787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-787"><a title="Why Choose Us 01" href="why-choose-us-01/index.html">Why Choose Us 01</a></li>
-                                        <li id="menu-item-786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-786"><a title="Why Choose Us 02" href="why-choose-us-02/index.html">Why Choose Us 02</a></li>
-                                        <li id="menu-item-785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-785"><a title="Why Choose Us 03" href="why-choose-us-03/index.html">Why Choose Us 03</a></li>
-                                    </ul>
-                                </li>
+                                <li id="menu-item-1641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="shop/index.html">LAB</a></li>
+                                <li id="menu-item-1640" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="cart/index.html">LAB</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Shop" href="shop/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Shop</a>
-                            <ul role="menu" class="submenu">
-                                <li id="menu-item-1641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a title="Shop" href="shop/index.html">Shop</a></li>
-                                <li id="menu-item-1640" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a title="Cart" href="cart/index.html">Cart</a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35 dropdown"><a title="News" href="blog-classic/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">News</a>
-                            <ul role="menu" class="submenu">
-                                <li id="menu-item-491" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-491"><a title="News Grid" href="blog-grid-2/index.html">News Grid</a></li>
-                                <li id="menu-item-422" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-422"><a title="News Classic" href="blog-classic/index.html">News Classic</a></li>
-                                <li id="menu-item-550" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-550"><a title="Single Post" href="ratione-voluptatem-sequi-nesciunt-neque-porro-quisquam-est-qui-do-3/index.html">Single Post</a></li>
-                                <li id="menu-item-551" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-551"><a title="Error Page" href="404.html">Error Page</a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-405"><a title="Contact" href="contact/index.html" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Contact</a></li>
+                       
                     </ul>
                 </div><!-- /.navbar-collapse -->
                 <div class="right-side-box">
-                    <a href="appointment/index.html" class="thm-btn site-header__qoute-btn">Get Quote<i class="fa fa-long-arrow-right"></i>
+                    <a href="appointment/index.html" class="thm-btn site-header__qoute-btn">Contácto<i class="fa fa-long-arrow-right"></i>
                     </a><!-- /.thm-btn -->
                 </div>
             </div>
@@ -337,7 +234,7 @@ AppAsset::register($this);
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/owl.carousel.min431f.js?ver=2.1.2' id='owl-carousel-js'></script>
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/TweenMax.min431f.js?ver=2.1.2' id='TweenMax-js'></script>
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/waypoints.min431f.js?ver=2.1.2' id='waypoints-js'></script>
-    <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/html5lightbox431f.js?ver=2.1.2' id='html5lightbox-js'></script>
+    <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/html5lightbox/html5lightbox431f.js?ver=2.1.2' id='html5lightbox-js'></script>
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/wow.min431f.js?ver=2.1.2' id='wow-js'></script>
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-ui431f.js?ver=2.1.2' id='jquery-ui-js'></script>
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/knob431f.js?ver=2.1.2' id='knob-js'></script>
