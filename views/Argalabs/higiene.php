@@ -181,11 +181,11 @@ use yii\helpers\Url;
 														</div><!-- /.col-lg-6 -->
 														<div class="col-lg-6 col-md-6 d-flex">
 															<div id="lab1" class="history-one__content my-auto">
-																<h3 class="history-one__title">NOM-035-SEMARNAT-1993
+																<h3 class="history-one__title">NOM-010-STPS-2014
 																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Métodos de medición</p><!-- /.history-one__year -->
+																<p class="history-one__year">Evaluación de sustancias químicas</p><!-- /.history-one__year -->
 
-																<p class="history-one__text">Para determinar la concentración de partículas suspendidas totales en el aire ambiente y el procedimiento para la calibración de los equipos de medición.
+																<p class="history-one__text">De acuerdo a la Norma NOM-010-STPS-2014 Condiciones de seguridad e higiene en los centros de trabajo donde se manejen, transporten, procesen o almacenen sustancias químicas capaces de generar contaminación en el medio ambiente laboral (cromatografía de gases, absorción atómica, fisicoquímicos y gravimétricos).
 
 																</p><!-- /.history-one__text -->
 															</div><!-- /.history-one__content -->
@@ -202,9 +202,9 @@ use yii\helpers\Url;
 														</div><!-- /.col-lg-6 -->
 														<div class="col-lg-6 col-md-6 d-flex">
 															<div id="lab2" class="history-one__content my-auto">
-																<h3 class="history-one__title">NOM-043-SEMARNAT-1993</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Seguridad, prevención y protección</p><!-- /.history-one__year -->
-																<p class="history-one__text">Niveles máximos permisibles de emisión a la atmósfera de partículas sólidas provenientes de fuentes fijas.
+																<h3 class="history-one__title">NOM-011-STPS-2001</h3><!-- /.history-one__title -->
+																<p class="history-one__year">Evaluación de ruido</p><!-- /.history-one__year -->
+																<p class="history-one__text">De acuerdo a la NOM-011-STPS-2001, Condiciones de Seguridad e Higiene en los Centros de Trabajo donde se Genere Ruido.
 
 																</p><!-- /.history-one__text -->
 															</div><!-- /.history-one__content -->
@@ -221,10 +221,10 @@ use yii\helpers\Url;
 														</div><!-- /.col-lg-6 -->
 														<div class="col-lg-6 col-md-6 d-flex">
 															<div id="lab3" class="history-one__content my-auto">
-																<h3 class="history-one__title">NOM-081-SEMARNAT-1994
+																<h3 class="history-one__title">NOM-012-STPS-2012
 																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Límites máximos permisibles de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Emisión de ruido de las fuentes fijas y su método de medición.
+																<p class="history-one__year">Condiciones de seguridad y salud</p><!-- /.history-one__year -->
+																<p class="history-one__text">En los centros de trabajo donde se manejen fuentes de radiación ionizante.<br>Condiciones de seguridad e higiene en los centros de trabajo donde se generen radiaciones electromagnéticas no ionizantes.
 
 																</p><!-- /.history-one__text -->
 															</div><!-- /.history-one__content -->
@@ -241,10 +241,10 @@ use yii\helpers\Url;
 														</div><!-- /.col-lg-6 -->
 														<div class="col-lg-6 col-md-6 d-flex">
 															<div id="lab4" class="history-one__content my-auto">
-																<h3 class="history-one__title">NOM-085-SEMARNAT-2011
+																<h3 class="history-one__title">NOM-015-STPS-2001
 																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Contaminación atmosférica y Niveles máximos permisibles de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Emisión de los equipos de combustión de calentamiento indirecto y su medición.
+																<p class="history-one__year">Evaluación de condiciones térmicas</p><!-- /.history-one__year -->
+																<p class="history-one__text">Elevadas o abatidas de acuerdo a la norma NOM-015-STPS-2001.
 
 																</p><!-- /.history-one__text -->
 															</div><!-- /.history-one__content -->
@@ -260,10 +260,10 @@ use yii\helpers\Url;
 														</div><!-- /.col-lg-6 -->
 														<div class="col-lg-6 col-md-6 d-flex">
 															<div id="lab5" class="history-one__content my-auto">
-																<h3 class="history-one__title">NADF-004-AMBT-2004
+																<h3 class="history-one__title">NOM-022-STPS-2008
 																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Condiciones de medición y los límites máximos permisibles para</p><!-- /.history-one__year -->
-																<p class="history-one__text">Vibraciones mecánicas, que deberán cumplir los responsables de fuentes emisoras en el DistritoFederal.
+																<p class="history-one__year">Evaluación de electricidad estática</p><!-- /.history-one__year -->
+																<p class="history-one__text">En los centros de trabajo de acuerdo a la NOM-022-STPS-2008.Que establece los límites máximos permisibles de emisión de ruido de las fuentes fijas y su método de medición.
 
 																</p><!-- /.history-one__text -->
 															</div><!-- /.history-one__content -->
@@ -279,12 +279,10 @@ use yii\helpers\Url;
 														</div><!-- /.col-lg-6 -->
 														<div class="col-lg-6 col-md-6 d-flex">
 															<div id="lab6" class="history-one__content my-auto">
-																<h3 class="history-one__title">NADF-005-AMBT-2013
+																<h3 class="history-one__title">NOM-024-STPS-2015
 																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Condiciones de medición y los límites máximos permisibles de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Emisiones sonoras, que deberán cumplir los responsables de fuentes emisoras.
-
-																</p><!-- /.history-one__text -->
+																<p class="history-one__year">Vibraciones y Condiciones de seguridad e higiene en los centros de trabajo.</p><!-- /.history-one__year -->
+																
 															</div><!-- /.history-one__content -->
 														</div><!-- /.col-lg-6 -->
 													</div><!-- /.row history-one__row -->
@@ -298,118 +296,10 @@ use yii\helpers\Url;
 														</div><!-- /.col-lg-6 -->
 														<div class="col-lg-6 col-md-6 d-flex">
 															<div id="lab7" class="history-one__content my-auto">
-																<h3 class="history-one__title">NADF-011-AMBT-20013
+																<h3 class="history-one__title">NOM-025-STPS-2008
 																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Límites máximos permisibles de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Emisiones de compuestos orgánicos volátiles en fuentes fijas de jurisdicción del Distrito Federal que utilizan solventes orgánicos o productos que los contienen.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/lab8.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="lab8" class="history-one__content my-auto">
-																<h3 class="history-one__title">NMX-AA-056-1980
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Contaminación Atmosférica, fuentes fijas</p><!-- /.history-one__year -->
-																<p class="history-one__text">Determinación de Bióxido de Azufre, Trióxido de Azufre Y Neblinas de Ácido Sulfúrico en los gases que fluyen por un conducto.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/lab9.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="lab9" class="history-one__content my-auto">
-																<h3 class="history-one__title">US EPA 29
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Emisiones de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Metales provenientes de fuentes fijas.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/lab0.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="lab0" class="history-one__content my-auto">
-																<h3 class="history-one__title">US EPA 7E
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Óxido de Nitrógeno.</p><!-- /.history-one__year -->
-
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/lab01.jpeg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="lab01" class="history-one__content my-auto">
-																<h3 class="history-one__title">US EPA 18
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Compuestos Orgánicos Volátiles.</p><!-- /.history-one__year -->
-
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/lab02.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="lab02" class="history-one__content my-auto">
-																<h3 class="history-one__title">NAEDF-003-AIRE-2016
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Emisiones Contaminantes en Crematorios.</p><!-- /.history-one__year -->
-
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/lab03.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="lab03" class="history-one__content my-auto">
-																<h3 class="history-one__title">NOM-AA-090-1986
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Determinación de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Neblina de Ácido Fosfórico en los Gases que fluyen por un conducto.
+																<p class="history-one__year">Evaluación de las condiciones de iluminación</p><!-- /.history-one__year -->
+																<p class="history-one__text">De acuerdo a la Norma NOM-025-STPS-2008.
 
 																</p><!-- /.history-one__text -->
 															</div><!-- /.history-one__content -->

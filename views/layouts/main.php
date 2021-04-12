@@ -143,7 +143,7 @@ AppAsset::register($this);
                         <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="<?= Url::toRoute(['argafire/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
                             <ul role="menu" class="submenu">
                                 <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/index#norma']);?>">Mantenimiento y Recarga de equipos de emergencia</a></li>
-                                <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="<?= Url::toRoute(['site/fire#norma']);?>">Productos</a></li>
+                                <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="#">Productos</a></li>
                                 <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="<?= Url::toRoute(['argafire/index#norma']);?>">Normatividad</a></li>
                             </ul>
                         </li>
@@ -169,10 +169,10 @@ AppAsset::register($this);
                         </li>
                         <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Traning" href="<?= Url::toRoute(['argatraning/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Traning</a>
                             <ul role="menu" class="submenu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a title="About" href="about-01/index.html">Seguridad Industrial</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a title="Miscellaneous 01" href="section-title/index.html">Protección Civil y Emergencias</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a title="About" href="#">Seguridad Industrial</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a title="Miscellaneous 01" href="#">Protección Civil y Emergencias</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"><a title="Miscellaneous 02" href="company/index.html">Desarrollo Humano y Organizacional</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a title="Team" href="team-01/index.html">Curso combate contra incendios</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a title="Team" href="#">Curso combate contra incendios</a></li>
                             </ul>
                         </li>
                     </ul>

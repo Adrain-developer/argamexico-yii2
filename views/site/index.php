@@ -21,34 +21,29 @@ $this->title = 'ARGA México';
 										<div class="elementor-widget-container">
 											<section class=" slider-two slider-two__home-five">
 												<div class="slider-two__carousel owl-carousel owl-theme">
-
-
-
-													<div class="item slider-two__slider-1" style="background-image: url(web/images/1.jpg);">
+													<div class="item slider-two__slider-1" style="background-image: url(web/images/bannerlabs.jpg);">
 														<div class="container">
 															<h2 class="slider-one__title">
-																<span class="slider-two__linear-text">Llegamos a todos los estados</span> <br>
-																de la República Mexicana
-															</h2>
+																<span class="slider-two__linear-text">ARGA Labs llega a todos los estados</span> <br>
+																de la República Mexicana 																
+															</h2>															
 															<p class="slider-one__text">con Laboratorios Certificados ante la <strong>NOM-154-SCFI-2005</strong></p>
 															<!-- /.slider-two__text -->
-															<a href="#" class="thm-btn slider-two__btn">Conocer más</a>
+															<a href="<?= Url::toRoute(['argalabs/index']);?>" class="thm-btn slider-two__btn">Conocer más</a>
 
 														</div>
 
 													</div>
 
-
-
-													<div class="item slider-two__slider-1" style="background-image: url(web/images/2.jpg);">
+													<div class="item slider-two__slider-1" style="background-image: url(web/images/bannerConsultores.jpg);">
 														<div class="container">
 															<h2 class="slider-one__title">
-																<span class="slider-two__linear-text">División de Ingeniería y</span> <br>
-																Mantenimiento
+																<span class="slider-two__linear-text">En ARGA Consultores</span> <br>
+																Evaluamos las condiciones de trabajo
 															</h2>
-															<p class="slider-one__text">Para equipos de emergencia.</p>
+															<p class="slider-one__text">En el ambiente laboral.</p>
 															<!-- /.slider-two__text -->
-															<a href="#" class="thm-btn slider-two__btn">Conocer más</a>
+															<a href="<?= Url::toRoute(['argaconsultores/index']);?>" class="thm-btn slider-two__btn">Conocer más</a>
 
 														</div>
 
@@ -57,12 +52,12 @@ $this->title = 'ARGA México';
 													<div class="item slider-two__slider-1" style="background-image: url(web/images/3.jpg);">
 														<div class="container">
 															<h2 class="slider-one__title">
-																<span class="slider-two__linear-text"> Especialistas en</span> <br>
-																Estudios de Higiene y Seguridad
+																<span class="slider-two__linear-text"> En ARGA Traning</span> <br>
+																Encontraras una extensa cartera de cursos 
 															</h2>
-															<p class="slider-one__text">Iluminación, ruido, vibraciones, temperaturas adversas, tierras físicas</p>
+															<p class="slider-one__text">Registrados ante la <strong>STPS</strong></p>
 															<!-- /.slider-two__text -->
-															<a href="#" class="thm-btn slider-two__btn">Conocer más</a>
+															<a href="<?= Url::toRoute(['argatraning/index']);?>" class="thm-btn slider-two__btn">Conocer más</a>
 
 														</div>
 
@@ -184,9 +179,9 @@ $this->title = 'ARGA México';
 															<div class="service-one__single">
 																<div class="service-one__single-inner">
 																	<i class="icon indext-icon-robot-arm"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['site/fire']);?>">ARGA Fire</a></h2>
+																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argafire/index']);?>">ARGA<br>Fire</a></h2>
 																	<!-- /.service-one__title -->
-																	<p class="service-one__text">Lorem ipsum dolor sit amet consectur adipisicing elit, sed do eiusmod tempor incididunt labore.
+																	<p class="service-one__text">Mantenimiento y recarga<br>Equipos de emergencia.
 
 																	</p><!-- /.service-one__text -->
 																</div><!-- /.service-one__single-inner -->
@@ -196,9 +191,9 @@ $this->title = 'ARGA México';
 															<div class="service-one__single">
 																<div class="service-one__single-inner">
 																	<i class="icon indext-icon-dump-truck"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="#">ARGA Consultores</a></h2>
+																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argaconsultores/index']);?>">ARGA<br>Consultores</a></h2>
 																	<!-- /.service-one__title -->
-																	<p class="service-one__text">Lorem ipsum dolor sit amet consectur adipisicing elit, sed do eiusmod tempor incididunt labore.
+																	<p class="service-one__text">Estudios para evaluar <br>Condiciones de trabajo.
 
 																	</p><!-- /.service-one__text -->
 																</div><!-- /.service-one__single-inner -->
@@ -208,9 +203,9 @@ $this->title = 'ARGA México';
 															<div class="service-one__single">
 																<div class="service-one__single-inner">
 																	<i class="icon indext-icon-home"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="#">ARGA Traning</a></h2>
+																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argatraning/index']);?>">ARGA<br>Traning</a></h2>
 																	<!-- /.service-one__title -->
-																	<p class="service-one__text">Lorem ipsum dolor sit amet consectur adipisicing elit, sed do eiusmod tempor incididunt labore.
+																	<p class="service-one__text">Cursos registrados ante<br><strong>STPS</strong>
 
 																	</p><!-- /.service-one__text -->
 																</div><!-- /.service-one__single-inner -->
@@ -220,9 +215,9 @@ $this->title = 'ARGA México';
 															<div class="service-one__single">
 																<div class="service-one__single-inner">
 																	<i class="icon indext-icon-sketch"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="#">ARGA Labs</a></h2>
+																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argalabs/index']);?>">ARGA Labs</a></h2>
 																	<!-- /.service-one__title -->
-																	<p class="service-one__text">Lorem ipsum dolor sit amet consectur adipisicing elit, sed do eiusmod tempor incididunt labore.
+																	<p class="service-one__text">Fuentes fijas<br>Higiene laboral
 
 																	</p><!-- /.service-one__text -->
 																</div><!-- /.service-one__single-inner -->
@@ -252,13 +247,13 @@ $this->title = 'ARGA México';
 										<div class="elementor-widget-container">
 											<section class=" cta-three text-center" id="taller" style="background-image: url(web/images/9.jpg);">
 												<div class="container">
-													<h2 class="cta-three__title">Taller de recarga de extintores
+													<h2 class="cta-three__title">Conoce la <strong>normatividad</strong>
 													</h2><!-- /.cta-three__title -->
-													<p class="cta-three__text">Contamos con certificaciones a <strong>nivel Nacional.</strong>
+													<p class="cta-three__text">Que respalda a <strong>ARGA Fire</strong>
 
 													</p>
 													<!-- /.cta-three__text -->
-													<a href="#" class="cta-three__btn thm-btn">Solicitar más informes</a><!-- /.thm-btn -->
+													<a href="<?= Url::toRoute(['argafire/index#norma']);?>" class="cta-three__btn thm-btn">Ver Normativas</a><!-- /.thm-btn -->
 												</div><!-- /.container -->
 											</section>
 										</div>
