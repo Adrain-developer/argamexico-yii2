@@ -130,4 +130,10 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionConsultores()
+    {
+        return $this->render('consultores');
+    }
+
 }

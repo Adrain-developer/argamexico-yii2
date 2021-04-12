@@ -24,7 +24,14 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
-    </style>
+<style>
+    .site-header__header-one .header-navigation ul.navigation-box>li.current>a,
+	.site-header__header-one .header-navigation ul.navigation-box>li:hover>a {
+		
+		color: #751004 !important;
+	}
+</style>
+
     <link rel='stylesheet' id='wp-block-library-css'  href='<?= Yii::$app->homeUrl ?>web/css/style.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
     <link rel='stylesheet' id='contact-form-7-css'  href='<?= Yii::$app->homeUrl ?>web/css/styles91d5.css?ver=5.4' type='text/css' media='all' />
 
@@ -66,12 +73,12 @@ AppAsset::register($this);
     <link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;ver=5.6.2' type='text/css' media='all' />
 
 
-    <script type='text/javascript' src='web/js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
-    <script type='text/javascript' src='web/js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
+    <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
+    <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
 </head>
 <body class="home page-template page-template-tpl-default-elementor page-template-tpl-default-elementor-php page page-id-16 theme-indext woocommerce-no-js menu-layer elementor-default elementor-kit-68 elementor-page elementor-page-16">
 <?php $this->beginBody() ?>
-<div class="preloader"><span></span></div>
+ <div class="preloader"><span></span></div>
 <main class="theme-layout boxed_wrapper ">
 <div class="topbar-one">
     <div class="container">
@@ -126,47 +133,48 @@ AppAsset::register($this);
                 <!-- Brand and toggle get grouped for better mobile display -->
 
                 <div class="logo-box"> <div class="navbar-brand">
-                        <a href="index.php" title="indext"><img src="./web/images/logo2.jpg" alt="logo" style="" /></a></div>
+                        <a href="<?= Url::toRoute(['./index.php']);?>" title="indext"><img src='<?= Yii::$app->homeUrl ?>web/images/logo2.png' alt="logo" style="" /></a></div>
                     <div class="mobile-nav-toggler"> <span class="fa fa-bars"></span> </div> </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="main-navigation">
                     <ul class=" navigation-box @@extra_class">
-                        <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="index.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">ARGA Group</a></li>
-                        <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="<?= Url::toRoute(['site/fire']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
+                        <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="<?= Url::toRoute(['./index.php']);?>" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Inicio</a></li>
+                        <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="<?= Url::toRoute(['argafire/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="about-one/index.html">Mantenimiento y Recarga de equipos de emergencia</a></li>
-                                <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="projects-one/index.html">Extintores de polvos universales (Fuegos ABC)</a></li>
-                                <li id="menu-item-412" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-412"><a  href="projects-one/index.html">Extintores de polvo químico seco (Fuego de clase BC)</a></li>
-                                <li id="menu-item-411" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-411"><a  href="projects-two/index.html">Extintor de CO2</a></li>
-                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="projects-three/index.html">Extintores hídricos cargados con agua o con espuma AR-AFFF</a></li>
-                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="projects-three/index.html">Extintor de HFC-236-FA Hexafl</a></li>
-                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="projects-three/index.html">Pruebas de recipientes de baja y alta presión</a></li>
+                                <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/index#norma']);?>">Mantenimiento y Recarga de equipos de emergencia</a></li>
+                                <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="<?= Url::toRoute(['site/fire#norma']);?>">Productos</a></li>
+                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="<?= Url::toRoute(['argafire/index#norma']);?>">Normatividad</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413 dropdown"><a title="Consultoría" href="330-2/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultoría</a>
+                        <li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413 dropdown"><a title="Consultoría" href="<?= Url::toRoute(['argaconsultores/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultores</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a href="services-one/index.html">Estudios  Regulatorios  de  la Secretaria <br>del Trabajo y Prevencion Social</a></li>
-                                <li id="menu-item-909" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-909"><a href="home-building-repair-3/index.html">Estudios  de Salud e Higiene Laboral</a></li>
-                                <li id="menu-item-910" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-910"><a href="home-building-repair-2/index.html">Protección Civil</a></li>
-                                <li id="menu-item-912" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="building-construction/index.html">Medio Ambiente</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a href="<?= Url::toRoute(['argaconsultores/index#cseguridad']);?>">Condiciones de seguridad</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-909"><a href="<?= Url::toRoute(['argaconsultores/index#c111']);?>">Seguridad, prevención y protección</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-910"><a href="<?= Url::toRoute(['argaconsultores/index#c222']);?>">Protección y dispositivos</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c333']);?>">Materiales de seguridad</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c444']);?>">Equipo de protección personal</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c555']);?>">Recipientes</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c666']);?>">Actividades</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c777']);?>">Administración de trabajo y seguridad</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c888']);?>">Instalaciones eléctricas</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c000']);?>">Servicios preventivos</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Traning" href="about-01/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Traning</a>
+                        <li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Lab" href="<?= Url::toRoute(['argalabs/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Labs</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-659" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a title="About" href="about-01/index.html">Seguridad Industrial</a></li>
-                                <li id="menu-item-932" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a title="Miscellaneous 01" href="section-title/index.html">Protección Civil y Emergencias</a></li>
-                                <li id="menu-item-964" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"><a title="Miscellaneous 02" href="company/index.html">Desarrollo Humano y Organizacional</a></li>
-                                <li id="menu-item-706" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a title="Team" href="team-01/index.html">Curso combate contra incendios</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="<?= Url::toRoute(['argalabs/evaluaciones']);?>">Fuetes fijas y emisiones a la Atmósfera</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/higiene']);?>">Higiene laboral</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Lab" href="shop/index.html" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Labs</a>
+                        <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Traning" href="<?= Url::toRoute(['argatraning/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Traning</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-1641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="shop/index.html">LAB</a></li>
-                                <li id="menu-item-1640" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="cart/index.html">LAB</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a title="About" href="about-01/index.html">Seguridad Industrial</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a title="Miscellaneous 01" href="section-title/index.html">Protección Civil y Emergencias</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"><a title="Miscellaneous 02" href="company/index.html">Desarrollo Humano y Organizacional</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a title="Team" href="team-01/index.html">Curso combate contra incendios</a></li>
                             </ul>
                         </li>
-                       
                     </ul>
                 </div><!-- /.navbar-collapse -->
                 <div class="right-side-box">
@@ -183,7 +191,7 @@ AppAsset::register($this);
             <div class="close-btn"><span class="icon flaticon-remove"></span></div>
 
             <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html" title="indext"><img src="wp-content/uploads/2020/05/full-light-logo.png" alt="logo" style="" /></a></div>
+                <div class="nav-logo"><a href="<?= Url::toRoute(['./index.php']);?>" title="indext"><img src="/arga/web/images/logo2.png" alt="logo" style="" /></a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
                 <!--Social Links-->
 

@@ -6851,7 +6851,7 @@ textarea.leave-comment__input {
 * 24. history styles
 */
 .history-one {
-	background-color: #fff2f2;
+	background-color: #cfd1d43d;
 	padding: 120px 0;
 }
 
@@ -6876,7 +6876,7 @@ textarea.leave-comment__input {
 	left: 50%;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
-	background-color: #f2e6e6;
+	background-color: #cfd1d43d;
 }
 
 .history-one__sep:before {
