@@ -89,11 +89,11 @@ AppAsset::register($this);
 
 
                 <div class="social-links-style1">
-                    <a href="#" style="background-color:; color: "><span class="fab fa-facebook"></span></a>
-                    <a href="#" style="background-color:; color: "><span class="fab fa-stack-overflow"></span></a>
-                    <a href="https://www.facebook.com/" style="background-color:; color: "><span class="fab fa-twitter"></span></a>
-                    <a href="#" style="background-color:; color: "><span class="fab fa-yelp"></span></a>
-                    <a href="#" style="background-color:; color: "><span class="fab fa-youtube"></span></a>
+                    <a href="https://www.facebook.com/ARGA-Consultores-M%C3%A9xico-448930612267259"><span class="fab fa-facebook"></span></a>
+                    <a  href="https://www.facebook.com/ARGA-Consultores-M%C3%A9xico-448930612267259"><span class="fab fa-whatsapp"></span></a>
+                     <!--<a href="#"><span class="fab fa-twitter"></span></a>
+                    <a href="#"><span class="fab fa-yelp"></span></a>
+                   <a href="#"><span class="fab fa-youtube"></span></a>-->
                 </div>
 
             </div>
@@ -178,7 +178,7 @@ AppAsset::register($this);
                     </ul>
                 </div><!-- /.navbar-collapse -->
                 <div class="right-side-box">
-                    <a href="appointment/index.html" class="thm-btn site-header__qoute-btn">Contácto<i class="fa fa-long-arrow-right"></i>
+                    <a href="<?= Url::toRoute(['/contact.php']);?>" class="thm-btn site-header__qoute-btn">Contácto<i class="fa fa-long-arrow-right"></i>
                     </a><!-- /.thm-btn -->
                 </div>
             </div>
