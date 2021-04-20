@@ -64,5 +64,9 @@ class ArgafireController extends Controller
         return $this->render('index');
     }
 
+    public function actionCatalogo(){
+        return $this->render('catalogo');
+    }
+
 
 }
