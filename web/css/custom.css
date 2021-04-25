@@ -1,0 +1,24 @@
+@media(max-width: 1199px) {
+    .topbar-one{
+        margin-bottom: 70px;
+    } 
+    .site-header{
+        margin-bottom: 70px;
+    }
+    .mobile-nav-toggler{
+        margin-top: 50px;
+    }
+     
+}
+
+.logo-box{
+    top: 60px!important;
+}
+
+.site-header__home-one .header-navigation .logo-box{
+ background-color: #fff!important;
+}
+
+.site-header__header-one .header-navigation .logo-box{
+ padding: 0!important;
+}

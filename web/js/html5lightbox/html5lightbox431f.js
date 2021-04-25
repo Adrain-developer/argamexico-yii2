@@ -309,7 +309,7 @@ function loadHtml5LightBox(jsFolder) {
       }
       if (inst.options.initvimeo) {
         var tag = document.createElement("script");
-        tag.src = inst.options.jsfolder + "froogaloop2.min.js";
+        tag.src = inst.options.jsfolder + "/web/js/froogaloop2.min.js";
         var firstScriptTag = document.getElementsByTagName("script")[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
       }
@@ -323,7 +323,7 @@ function loadHtml5LightBox(jsFolder) {
         $("head").append(
           '<link rel="stylesheet" href="' +
             inst.options.jsfolder +
-            'icons/css/fontello.css" type="text/css" />'
+            '/web/css/fontello.css" type="text/css" />'
         );
       inst.showing = false;
       inst.supportKeyboard = function () {
