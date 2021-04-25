@@ -22,3 +22,14 @@
 .site-header__header-one .header-navigation .logo-box{
  padding: 0!important;
 }
+
+.img-view{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.img-view img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}

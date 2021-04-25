@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Productos;
 
 class ArgafireController extends Controller
 {
@@ -60,12 +61,13 @@ class ArgafireController extends Controller
      * @return string
      */
     public function actionIndex()
-    {
+    {        
         return $this->render('index');
     }
 
     public function actionCatalogo(){
-        return $this->render('catalogo');
+        $productos = Productos::find()->all();
+        return $this->render('catalogo', ['productos' => $productos]);
     }
 
 

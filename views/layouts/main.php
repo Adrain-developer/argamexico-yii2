@@ -206,7 +206,7 @@ img.emoji {
                     </ul>
                 </div><!-- /.navbar-collapse -->
                 <div class="right-side-box">
-                    <a href="<?= Url::toRoute(['/contact.php']);?>" class="thm-btn site-header__qoute-btn">Contácto<i class="fa fa-long-arrow-right"></i>
+                    <a href="<?= Url::toRoute(['/contact.php']);?>" class="thm-btn site-header__qoute-btn">Contacto<i class="fa fa-long-arrow-right"></i>
                     </a><!-- /.thm-btn -->
                 </div>
             </div>
