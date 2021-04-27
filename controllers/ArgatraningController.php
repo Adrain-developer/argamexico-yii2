@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Eventos;
 
 class ArgatraningController extends Controller
 {
@@ -61,7 +62,9 @@ class ArgatraningController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $cursos = Eventos::find()->where(['id_categoria' => '3'])->all();
+        $cursosOnline = Eventos::find()->where(['id_categoria' => '1'])->all();
+        return $this->render('index', ['cursos' => $cursos, 'cursosOnline' => $cursosOnline]);
     }
 
 

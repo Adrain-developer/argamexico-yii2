@@ -13,103 +13,54 @@
                                             <section class=" project-one project-one__home-two project-one__project-page-two">
                                                 <div class="container">
                                                     <div class="block-title text-center">
-                                                        <p class="block-title__tag-line">PORTFOLIO</p><!-- /.block-title__tag-line -->
-                                                        <h3 class="block-title__title">Checkout Our Recent Projects
+                                                        <p class="block-title__tag-line">CURSOS</p><!-- /.block-title__tag-line -->
+                                                        <h3 class="block-title__title">Consulta la información referente a nuestros cursos
                                                             <br>
-                                                            <span class="block-title__bold">We’ve Been Done
+                                                            <span class="block-title__bold">No dejes de actualizarte
                                                             </span>
                                                         </h3><!-- /.block-title__title -->
                                                     </div><!-- /.block-title -->
                                                     <ul class="list-unstyled post-filter">
-                                                        <li class="active" data-filter=".filter-item"><span>All</span></li>
+                                                        <li class="active" data-filter=".filter-item"><span>Todos</span></li>
 
 
-                                                        <li data-filter=".building-1"><span>BUILDING</span></li>
+                                                        <li data-filter=".cursos-online"><span>Cursos online</span></li>
 
 
-                                                        <li data-filter=".construction-1"><span>CONSTRUCTION</span></li>
 
-
-                                                        <li data-filter=".architechture-1"><span>ARCHITECHTURE</span></li>
-
-
-                                                        <li data-filter=".engineering-1"><span>ENGINEERING</span></li>
+                                                        <li data-filter=".cursos"><span>Cursos</span></li>
 
                                                     </ul><!-- /.list-unstyled -->
                                                     <div class="row filter-layout">
-
-                                                        <div class="col-lg-4 col-md-6 col-sm-12 filter-item building-1 ">
+                                                        <?php foreach($cursosOnline as $cursoOnline) { ?>
+                                                            <div class="col-lg-4 col-md-6 col-sm-12 filter-item cursos-online">
                                                             <div class="project-one__single">
                                                                 <div class="project-one__img">
                                                                     <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-1.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-1-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
                                                                 </div><!-- /.project-one__img -->
                                                                 <div class="project-one__content">
-                                                                    <a href="../projects-details/index.html" class="project-one__category">INDUSTRY</a>
-                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html">Welding Processing</a></h2>
+                                                                    <a href="../projects-details/index.html" class="project-one__category"><?= $cursoOnline->nombre ?></a>
+                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html"><?= $cursoOnline->descripcion ?></a></h2>
                                                                     <!-- /.project-one__title -->
                                                                 </div><!-- /.project-one__content -->
                                                             </div><!-- /.project-one__single -->
                                                         </div>
-                                                        <div class="col-lg-4 col-md-6 col-sm-12 filter-item construction-1 ">
+                                                            <?php } ?>
+
+                                                            <?php foreach($cursos as $curso) { ?>
+                                                            <div class="col-lg-4 col-md-6 col-sm-12 filter-item cursos">
                                                             <div class="project-one__single">
                                                                 <div class="project-one__img">
-                                                                    <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-2.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-2.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-2-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
+                                                                    <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-1.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-1-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
                                                                 </div><!-- /.project-one__img -->
                                                                 <div class="project-one__content">
-                                                                    <a href="../projects-details/index.html" class="project-one__category">INDUSTRY</a>
-                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html">Bridge Construction</a></h2>
+                                                                    <a href="../projects-details/index.html" class="project-one__category"><?= $curso->nombre ?></a>
+                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html"><?= $curso->descripcion ?></a></h2>
                                                                     <!-- /.project-one__title -->
                                                                 </div><!-- /.project-one__content -->
                                                             </div><!-- /.project-one__single -->
                                                         </div>
-                                                        <div class="col-lg-4 col-md-6 col-sm-12 filter-item building-1 ">
-                                                            <div class="project-one__single">
-                                                                <div class="project-one__img">
-                                                                    <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-3.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-3.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-3-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
-                                                                </div><!-- /.project-one__img -->
-                                                                <div class="project-one__content">
-                                                                    <a href="../projects-details/index.html" class="project-one__category">INDUSTRY</a>
-                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html">Machinery Manufacturing</a></h2>
-                                                                    <!-- /.project-one__title -->
-                                                                </div><!-- /.project-one__content -->
-                                                            </div><!-- /.project-one__single -->
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 col-sm-12 filter-item construction-1 ">
-                                                            <div class="project-one__single">
-                                                                <div class="project-one__img">
-                                                                    <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-4.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-4.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-4-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
-                                                                </div><!-- /.project-one__img -->
-                                                                <div class="project-one__content">
-                                                                    <a href="../projects-details/index.html" class="project-one__category">INDUSTRY</a>
-                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html">Oil &#038; Gas Productions</a></h2>
-                                                                    <!-- /.project-one__title -->
-                                                                </div><!-- /.project-one__content -->
-                                                            </div><!-- /.project-one__single -->
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 col-sm-12 filter-item architechture-1 ">
-                                                            <div class="project-one__single">
-                                                                <div class="project-one__img">
-                                                                    <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-5.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-5.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-5-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
-                                                                </div><!-- /.project-one__img -->
-                                                                <div class="project-one__content">
-                                                                    <a href="../projects-details/index.html" class="project-one__category">INDUSTRY</a>
-                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html">Factory Remodeling</a></h2>
-                                                                    <!-- /.project-one__title -->
-                                                                </div><!-- /.project-one__content -->
-                                                            </div><!-- /.project-one__single -->
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 col-sm-12 filter-item engineering-1 ">
-                                                            <div class="project-one__single">
-                                                                <div class="project-one__img">
-                                                                    <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-6.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-6.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-6-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
-                                                                </div><!-- /.project-one__img -->
-                                                                <div class="project-one__content">
-                                                                    <a href="../projects-details/index.html" class="project-one__category">INDUSTRY</a>
-                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html">Automobile Works</a></h2>
-                                                                    <!-- /.project-one__title -->
-                                                                </div><!-- /.project-one__content -->
-                                                            </div><!-- /.project-one__single -->
-                                                        </div>
+                                                            <?php } ?>
 
                                                     </div><!-- /.row -->
                                                 </div><!-- /.container -->
