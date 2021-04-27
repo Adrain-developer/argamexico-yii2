@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ProductosSearch */
@@ -31,8 +32,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'descripcion:ntext',
             'precioUnitario',
             'pathImagen',
-            //'estatus',
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'label' => 'Opciones',
+                'format' => 'html',
+                'value' => function ($model) {
+                    $urlUpdate =  Url::toRoute(['productos/update?id='.$model->id]);
+                    $urlView  =  Url::toRoute(['productos/view?id='.$model->id]);
+                    $urlDelete =  Url::toRoute(['productos/delete?id='.$model->id]);
+                    return "<a href=' $urlUpdate '><i class='fa fa-edit'></i></a>
+                    <a href=' $urlView '><i class='fa fa-eye'></i></a>
+                    <a href=' $urlDelete '><i class='fa fa-trash'></i></a>
+                    ";
+                }
+              ],
         ],
     ]); ?>
 
