@@ -11,6 +11,13 @@
      
 }
 
+@media(max-width: 770px){
+    .service-one__single {
+        flex: 1 1 100%!important;
+        max-width: 100%!important;
+    }
+}
+
 .logo-box{
     top: 60px!important;
 }
@@ -37,3 +44,5 @@
 .site-footer {
     background-color: #000000 !important;
 }
+
+
