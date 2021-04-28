@@ -268,7 +268,7 @@ $this->title = 'ARGA México';
 														<div class="service-one__content">
 
 
-															<div class="service-one__single">
+														<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon indext-icon-robot-arm"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argafire/index']); ?>">ARGA<br>Fire</a></h2>
@@ -280,7 +280,7 @@ $this->title = 'ARGA México';
 															</div><!-- /.service-one__single -->
 
 
-															<div class="service-one__single">
+														<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon indext-icon-dump-truck"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argaconsultores/index']); ?>">ARGA<br>Consultores</a></h2>
@@ -292,7 +292,7 @@ $this->title = 'ARGA México';
 															</div><!-- /.service-one__single -->
 
 
-															<div class="service-one__single">
+														<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon indext-icon-home"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argatraning/index']); ?>">ARGA<br>Traning</a></h2>
@@ -304,7 +304,7 @@ $this->title = 'ARGA México';
 															</div><!-- /.service-one__single -->
 
 
-															<div class="service-one__single">
+														<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon indext-icon-sketch"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argalabs/index']); ?>">ARGA<br>Labs</a></h2>
@@ -353,7 +353,7 @@ $this->title = 'ARGA México';
 															<div class="project-one__single">
 																<?= Html::img(Yii::$app->homeUrl . "web/images/AF1.jpg") ?>
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="#">Servicio de<br>Mantenimiento y<br>Recarga de equipos de emergencia</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/normativa']);?>">Servicio de<br>Mantenimiento y<br>Recarga de equipos de emergencia</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
@@ -362,7 +362,7 @@ $this->title = 'ARGA México';
 															<div class="project-one__single">
 																<?= Html::img(Yii::$app->homeUrl . "web/images/AR3.jpg") ?>
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="#">Conoce las normativas que ARGA <strong>Fire</strong> tiene para Uds</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/normativa']);?>">Conoce las normativas que ARGA <strong>Fire</strong> tiene para Uds</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
@@ -372,7 +372,7 @@ $this->title = 'ARGA México';
 															<div class="project-one__single">
 																<?= Html::img(Yii::$app->homeUrl . "web/images/AF2.jpg") ?>
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="#">Conoce nuestra amplia gama de productos de emergencia para la industria</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['productos/index']);?>">Conoce nuestra amplia gama de productos de emergencia para la industria</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
@@ -523,10 +523,7 @@ $this->title = 'ARGA México';
 																				<li class="active" data-filter=".filter-item"><span>All</span></li>
 
 
-																				<li data-filter=".building-1"><span>CURSOS ONLINE</span></li>
-
-
-																				<li data-filter=".construction-1"><span>SOFTWARE</span></li>
+																				<li data-filter=".building-1"><span>CURSOS ONLINE</span></li>																		
 
 
 																				<li data-filter=".architechture-1"><span>CURSOS</span></li>

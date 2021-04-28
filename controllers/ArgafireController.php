@@ -65,6 +65,11 @@ class ArgafireController extends Controller
         return $this->render('index');
     }
 
+    public function actionNormativa()
+    {        
+        return $this->render('normativa');
+    }
+
     public function actionCatalogo(){
         $productos = Productos::find()->all();
         return $this->render('catalogo', ['productos' => $productos]);

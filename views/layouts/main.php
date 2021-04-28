@@ -188,9 +188,9 @@ img.emoji {
                         <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="<?= Url::toRoute(['./index.php']);?>" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Inicio</a></li>
                         <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="<?= Url::toRoute(['argafire/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/index#norma']);?>">Mantenimiento y Recarga de equipos de emergencia</a></li>
+                                <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']);?>">Mantenimiento y Recarga de equipos de emergencia</a></li>
                                 <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="<?= Url::toRoute(['argafire/catalogo']);?>">Productos</a></li>
-                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="<?= Url::toRoute(['argafire/index#norma']);?>">Normatividad</a></li>
+                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="<?= Url::toRoute(['argafire/normativa']);?>">Normatividad</a></li>
                             </ul>
                         </li>
                         <li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413 dropdown"><a title="Consultoría" href="<?= Url::toRoute(['argaconsultores/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultores</a>
