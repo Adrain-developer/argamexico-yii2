@@ -6,6 +6,16 @@ use yii\helpers\Url;
 
 
 <style>
+
+.header-navigation ul.navigation-box>li>.submenu>li:hover>a, .thm-btn, .service-one__single:hover .service-one__single-inner, .project-one .owl-theme .owl-dots .owl-dot.active span, .video-one__btn, .cta-one, .blog-one__meta a:first-child:hover, .footer-widget__links li a:after, .service-two__carousel .owl-dots .owl-dot:hover span, .service-two__carousel .owl-dots .owl-dot.active span, .video-two__btn, .testimonials-three .owl-theme .owl-dots .owl-dot.active span, .site-header__header-four .site-header__qoute-btn:hover, .blog-one__carousel .owl-dots .owl-dot:hover span, .blog-one__carousel .owl-dots .owl-dot.active span, .history-one__sep:before, .header-navigation ul.navigation-box>li>ul>li>.submenu>li:hover>a, .post-filter li span:before, .service-details__list li:hover a, .service-details__list li.active a, .tagcloud a, .mrsidebar .subscribe-widget .theme-btn.style-four, .pagination li span, .pagination li:hover a {
+    background: #ff0505!important;
+    background-color: #ff000c!important;
+}
+
+.block-title__tag-line, .topbar-one__social a:hover, .topbar-one__link i, .site-header__header-one .header-navigation ul.navigation-box>li.current>a, .site-header__header-one .header-navigation ul.navigation-box>li:hover>a, .about-one__feature-icon, .about-one__feature-title a:hover, .block-title__base, .about-two__list li i, .service-one__single i, .feature-one__title a:hover, .blog-one__meta a:first-child, .footer-widget__links li:hover a, .site-footer__copy a, .site-footer__links a:hover, .video-two .feature-one__icon i, .about-six__fact-counter, .history-one__year, .project-one.project-one__home-two.project-one__project-page-two .project-one__title a:hover, .project-one__project-page-two .project-one__category, .project-details__social a:hover, .service-details__feature-list li i, .sidebar__search button[type=submit], .sidebar__post-date, .error-search-form button[type=submit], .contact-info-one [class*=indext-icon-], .service-one.service-page-one.service-one__home-four .service-one__single:hover i {
+    color: #ff000c!important;
+}
+
 	.block-title__tag-line,
 	.topbar-one__social a:hover,
 	.topbar-one__link i,
@@ -49,32 +59,6 @@ use yii\helpers\Url;
 		color: #2871a8 !important;
 	}
 
-	.thm-btn,
-	.service-one__single:hover .service-one__single-inner,
-	.project-one .owl-theme .owl-dots .owl-dot.active span,
-	.video-one__btn,
-	.cta-one,
-	.blog-one__meta a:first-child:hover,
-	.footer-widget__links li a:after,
-	.service-two__carousel .owl-dots .owl-dot:hover span,
-	.service-two__carousel .owl-dots .owl-dot.active span,
-	.video-two__btn,
-	.testimonials-three .owl-theme .owl-dots .owl-dot.active span,
-	.site-header__header-four .site-header__qoute-btn:hover,
-	.blog-one__carousel .owl-dots .owl-dot:hover span,
-	.blog-one__carousel .owl-dots .owl-dot.active span,
-	.history-one__sep:before,
-	.header-navigation ul.navigation-box>li>ul>li>.submenu>li:hover>a,
-	.post-filter li span:before,
-	.service-details__list li:hover a,
-	.service-details__list li.active a,
-	.tagcloud a,
-	.mrsidebar .subscribe-widget .theme-btn.style-four,
-	.pagination li span,
-	.pagination li:hover a {
-		background: #751004 !important;
-		background-color: #751004 !important;
-	}
 </style>
 
 <div data-elementor-type="wp-page" data-elementor-id="23" class="elementor elementor-23" data-elementor-settings="[]">
@@ -124,7 +108,7 @@ use yii\helpers\Url;
 																<div class="row">
 																	<div class="col-lg-4">
 																		<div class="block-title">
-																			<span class="block-title__tag-line">Nuestro Compromiso</span><!-- /.block-title__tag-line -->
+																			<span class="block-title__tag-line"><strong>Nuestro Compromiso</strong></span><!-- /.block-title__tag-line -->
 																			<h2 class="block-title__title">Con más de 17 años de<br>
 																				<span class="block-title__bold">Experiencia</span><!-- /.block-title__bold -->
 																			</h2><!-- /.block-title__title -->

@@ -30,6 +30,24 @@ AppAsset::register($this);
 		
 		color: #751004 !important;
 	}
+	.site-header__home-one .header-navigation .logo-box:after {
+    background-color: #ff000000 !important;
+}
+
+.logo-box img {
+    width: 222px !important;
+}
+
+.site-header__header-one .header-navigation .logo-box::before {
+    background-color: #ffffff !important;
+	box-shadow: 2px 2px 5px #2d2d2d87;
+}
+
+
+.site-header__home-one .header-navigation .logo-box::before {
+    left: -999px !important;
+
+}
 </style>
 
 
@@ -269,75 +287,61 @@ img.emoji {
 																<div
 																	class="site-footer__brand-carousel owl-carousel owl-theme">
 
-
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/3.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s1.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/3.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s2.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/4.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s3.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/5.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s4.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/5.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s5.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/6.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s1.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/7.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s2.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/8.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s3.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/6.png"
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s4.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 
-
-																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/1.png"
-																			alt="brand image">
-																	</div><!-- /.item -->
-
-
-																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/2.png"
-																			alt="brand image">
-																	</div><!-- /.item -->
-
-
-																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/1.png"
+                                                                    <div class="item">
+																		<img src="<?= Yii::$app->homeUrl ?>web/images/s5.png"
 																			alt="brand image">
 																	</div><!-- /.item -->
 

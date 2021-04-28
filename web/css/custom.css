@@ -33,3 +33,7 @@
     height:100%;
     object-fit:cover;
 }
+
+.site-footer {
+    background-color: #000000 !important;
+}
