@@ -247,7 +247,7 @@ use yii\helpers\Url;
 																<h3 class="history-one__title">NADF-004-AMBT-2004
 																</h3><!-- /.history-one__title -->
 																<p class="history-one__year">Condiciones de medición y los límites máximos permisibles para</p><!-- /.history-one__year -->
-																<p class="history-one__text">Vibraciones mecánicas, que deberán cumplir los responsables de fuentes emisoras en el DistritoFederal.
+																<p class="history-one__text">Vibraciones mecánicas, que deberán cumplir los responsables de fuentes emisoras.
 
 																</p><!-- /.history-one__text -->
 															</div><!-- /.history-one__content -->

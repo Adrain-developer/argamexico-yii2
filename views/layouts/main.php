@@ -48,6 +48,15 @@ AppAsset::register($this);
     left: -999px !important;
 
 }
+
+.footer-widget__social a.fa-whatsapp-f {
+	background-color: #4a6fbe !important;
+}
+
+.footer-widget__social a.fa-whatsapp-f:hover {
+	color: #4a6fbe !important;
+	background-color: #fff !important;
+}
 </style>
 
 
@@ -213,7 +222,7 @@ img.emoji {
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/higiene']);?>">Higiene laboral</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Traning" href="<?= Url::toRoute(['argatraning/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Traning</a>
+                        <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Traning" href="<?= Url::toRoute(['argatraining/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Training</a>
                             <ul role="menu" class="submenu">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a title="About" href="#">Seguridad Industrial</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a title="Miscellaneous 01" href="#">Protección Civil y Emergencias</a></li>
@@ -356,34 +365,27 @@ img.emoji {
 																		<div
 																			class="footer-widget footer-widget__about-widget">
 																			<a href="#"><img
-																					src="<?= Yii::$app->homeUrl ?>web/images/light-logo.png"
+																					src="<?= Yii::$app->homeUrl ?>web/images/arga_footer.png"
 																					width="185"
 																					class="footer-widget__logo"
 																					alt=""></a>
-																			<p class="footer-widget__text">Lorem ipsum
-																				dolor sit amet, consectetur adipisicing
-																				elit, sed do
-																				eiusmod cc tempor incididunt ut labore
-																				et dolore magna aliqua. Ut enim ad minim
-																				ard veniam,
-																				quis
-																				nostrud exercitation ullamco laboris
-																				nisi ut aliquip ex ea com- modo
-																				consequat. Duis aute
-																				irure dolor in reprehenderit in
-																				voluptate velitp esse cillum dolore eu
-																				fugiat nulla
-																				pariatur
-																				excepteur sint occaecat cupiad</p>
+																			<p class="footer-widget__text">Comprendemos y estamos comprometidos  con nuestros  grandes valores que nos llevaran a la visión de negocio que hemos establecido:
+​
+<br>• Honestidad
+<br>• Calidad      
+<br>• Compromiso
+<br>• Profesionalismo
+<br>• Discreción  
+<br>• Lealtad      </p>
 																			<!-- /.footer-widget__text -->
 
 																			<div class="footer-widget__social">
 																				<a href="#"
-																					class="fab fa-google-plus"></a>
+																					class="fab fa-whatsapp"></a>
 																				<a href="#"
-																					class="fab fa-facebook-f"></a>
-																				<a href="#" class="fab fa-dribbble"></a>
-																				<a href="#" class="fab fa-twitter"></a>
+																					class="fab fa-facebook"></a>
+																				<a href="#" 
+																					><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
 																			</div><!-- /.footer-widget__social -->
 
 																		</div><!-- /.footer-widget -->
@@ -391,25 +393,28 @@ img.emoji {
 																	<div class="col-xl-3 col-lg-3">
 																		<div
 																			class="footer-widget footer-widget__links-widget">
-																			<h2 class="footer-widget__title">Quick links
+																			<h2 class="footer-widget__title">Menú
 																			</h2><!-- /.footer-widget__title -->
 																			<ul
 																				class="footer-widget__links list-unstyled">
 
 
-																				<li><a href="#"> Company History
+																				<li><a href="<?= Url::toRoute('./index.php') ?>"> Inicio
 																					</a></li>
 
 
-																				<li><a href="#"> About Us
+																				<li><a href="<?= Url::toRoute('argafire/index') ?>"> ARGA Fire
 																					</a></li>
 
 
-																				<li><a href="#"> Contact Us
+																				<li><a href="<?= Url::toRoute('argaconsultores/index') ?>"> ARGA Consultores
 																					</a></li>
 
 
-																				<li><a href="#"> Services
+																				<li><a href="<?= Url::toRoute('argalabs/index') ?>"> ARGA Labs
+																					</a></li>
+
+																				<li><a href="<?= Url::toRoute('argatraining/index') ?>"> ARGA Training
 																					</a></li>
 
 
@@ -421,32 +426,27 @@ img.emoji {
 																	<div class="col-xl-3 col-lg-4">
 																		<div
 																			class="footer-widget footer-widget__contact-widget">
-																			<h2 class="footer-widget__title">Contact
-																				Info</h2><!-- /.footer-widget__title -->
+																			<h2 class="footer-widget__title">Información de contacto</h2><!-- /.footer-widget__title -->
 
 
-																			<p class="footer-widget__text">Lorem ipsum
-																				dolor amet consec-
-																				tetur adipisicing elit sed do
+																			<p class="footer-widget__text">ADMINISTRACION EN RIESGOS<br>GA MEXICO
 
 																			</p>
 
 
-																			<p class="footer-widget__text">Flat 20,
-																				Reynolds Neck, North Hele
-																				naville, FV77 8WS
+																			<p class="footer-widget__text">Calle 97<br>
+																				Bosques de Amalucan, Puebla, Pue. México CP 72310
 
 																			</p>
 
 
-																			<p class="footer-widget__text">+2(305)
-																				587-3407
+																			<p class="footer-widget__text">222 540 9946
 
 																			</p>
 
 
 																			<p class="footer-widget__text">
-																				info@example.com </p>
+																				info@argamexico.com </p>
 
 																		</div><!-- /.footer-widget -->
 																	</div><!-- /.col-lg-3 -->
@@ -455,31 +455,17 @@ img.emoji {
 														</div><!-- /.site-footer__upper -->
 														<div class="site-footer__bottom">
 															<div class="container">
-																<div class="site-footer__copy"><a href="#">Indext</a> <i
-																		class="fa fa-copyright"></i> 2021 All Right
-																	Reserved</div>
+																<div class="site-footer__copy"><a href="#">ADN Tecnologías</a> <i
+																		class="fa fa-copyright"></i> 2021 Todos los derechos reservados</div>
 																<!-- /.site-footer__copy -->
 																<ul class="list-unstyled site-footer__links">
-																	<li><a href="#">Terms of Service</a></li>
-																	<li><a href="#">Privacy Policy</a></li>
+																	<li><a href="#">Términos</a></li>
+																	<li><a href="#">Políticas de Privacidad</a></li>
 																</ul><!-- /.list-unstyled -->
 															</div><!-- /.container -->
 														</div><!-- /.site-footer__bottom -->
 													</footer><!-- /.site-footer -->
-													<div class="search-popup">
-														<div class="search-popup__overlay custom-cursor__overlay">
-															<div class="cursor"></div>
-															<div class="cursor-follower"></div>
-														</div><!-- /.search-popup__overlay -->
-														<div class="search-popup__inner">
-															<form action="http://old4.commonsupport.com/update/indext/"
-																method="get" class="search-popup__form">
-																<input type="search" name="s" value=""
-																	placeholder="Type here to Search...." required="">
-																<button type="submit"><i
-																		class="indext-icon-Search"></i></button>
-															</form>
-														</div><!-- /.search-popup__inner -->
+													
 													</div>
 												</div>
 											</div>
@@ -495,8 +481,7 @@ img.emoji {
 
 
 
-		<a href="#" data-target="html" class="scroll-to-target scroll-to-top" style="display: inline;"><i
-				class="indext-icon-arrow-up"></i></a>
+		<a href="#" data-target="html" class="scroll-to-target scroll-to-top" style="display: inline;"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
 
 

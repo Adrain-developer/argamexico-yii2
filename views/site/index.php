@@ -193,7 +193,7 @@ $this->title = 'ARGA México';
 
 																		<div class="col-xl-6 col-lg-6">
 																			<div class="about-one__feature">
-																				<i class="about-one__feature-icon icon indext-icon-about-1-1"></i>
+																				<i class="about-one__feature-icon icon fa fa-users"></i>
 																				<!-- /.about-one__feature-icon -->
 																				<h2 class="about-one__feature-title"><a href="#">Somos un grupo</a>
 																				</h2><!-- /.about-one__feature-title -->
@@ -206,7 +206,7 @@ $this->title = 'ARGA México';
 
 																		<div class="col-xl-6 col-lg-6">
 																			<div class="about-one__feature">
-																				<i class="about-one__feature-icon icon indext-icon-about-1-2"></i>
+																				<i class="about-one__feature-icon icon fa fa-sitemap"></i>
 																				<!-- /.about-one__feature-icon -->
 																				<h2 class="about-one__feature-title"><a href="#">Nuestras Divisiones</a>
 																				</h2><!-- /.about-one__feature-title -->
@@ -249,8 +249,8 @@ $this->title = 'ARGA México';
 									<div class="elementor-widget-container">
 
 										<section class=" service-one">
-											<img src="./web/images/cog-1-1.png" class="service-one__cog" alt="">
-											<img src="../wp-content/uploads/2020/05/caren-1-1.png" class="service-one__moc" alt="">
+											<img src="<?= Yii::$app->homeUrl ?>web/images/cog-1-1.png" class="service-one__cog" alt="">
+											<!--<img src="<?= Yii::$app->homeUrl ?>web/images/cog-1-1.png" class="service-one__moc" alt="">-->
 											<div class="container">
 												<div class="row">
 													<div class="col-lg-4">
@@ -270,7 +270,7 @@ $this->title = 'ARGA México';
 
 														<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
-																	<i class="icon indext-icon-robot-arm"></i><!-- /.indext-icon-service-1-1 -->
+																	<i class="icon fa fa-fire-extinguisher"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argafire/index']); ?>">ARGA<br>Fire</a></h2>
 																	<!-- /.service-one__title -->
 																	<p class="service-one__text">Mantenimiento y recarga<br>Equipos de emergencia.
@@ -282,7 +282,7 @@ $this->title = 'ARGA México';
 
 														<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
-																	<i class="icon indext-icon-dump-truck"></i><!-- /.indext-icon-service-1-1 -->
+																	<i class="icon fa fa-building"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argaconsultores/index']); ?>">ARGA<br>Consultores</a></h2>
 																	<!-- /.service-one__title -->
 																	<p class="service-one__text">Estudios para evaluar <br>Condiciones de trabajo.
@@ -294,8 +294,8 @@ $this->title = 'ARGA México';
 
 														<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
-																	<i class="icon indext-icon-home"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argatraning/index']); ?>">ARGA<br>Traning</a></h2>
+																	<i class="icon fa fa-cogs"></i><!-- /.indext-icon-service-1-1 -->
+																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argatraining/index']); ?>">ARGA<br>Training</a></h2>
 																	<!-- /.service-one__title -->
 																	<p class="service-one__text">Cursos registrados ante<br><strong>STPS</strong>
 
@@ -306,7 +306,7 @@ $this->title = 'ARGA México';
 
 														<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
-																	<i class="icon indext-icon-sketch"></i><!-- /.indext-icon-service-1-1 -->
+																	<i class="icon fa fa-flask"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argalabs/index']); ?>">ARGA<br>Labs</a></h2>
 																	<!-- /.service-one__title -->
 																	<p class="service-one__text">Fuentes fijas<br>Higiene laboral
@@ -439,14 +439,14 @@ $this->title = 'ARGA México';
 																				<h3 class="block-title__title"> <span class="block-title__bold">Normativas para la industria.
 																					</span>
 																				</h3><!-- /.block-title__title -->
-																				<p class="block-title__text">Pensando en la seguridad y su higiene laboral.</p>
+																				<p class="block-title__text">Pensando en la seguridad e higiene laboral.</p>
 																				<!-- /.block-title__text -->
 																			</div><!-- /.block-title -->
 
 
 																			<div class="feature-one__single">
 																				<div class="feature-one__icon">
-																					<i class="icon indext-icon-cta-1-1"></i><!-- /.indext-icon-cta-1-1 -->
+																					<i class="icon fa fa-cloud"></i><!-- /.indext-icon-cta-1-1 -->
 																				</div><!-- /.feature-one__icon -->
 																				<div class="feature-one__content">
 																					<h2 class="feature-one__title">
@@ -460,7 +460,7 @@ $this->title = 'ARGA México';
 
 																			<div class="feature-one__single">
 																				<div class="feature-one__icon">
-																					<i class="icon indext-icon-cta-1-2"></i><!-- /.indext-icon-cta-1-1 -->
+																					<i class="icon fa fa-shower"></i><!-- /.indext-icon-cta-1-1 -->
 																				</div><!-- /.feature-one__icon -->
 																				<div class="feature-one__content">
 																					<h2 class="feature-one__title">

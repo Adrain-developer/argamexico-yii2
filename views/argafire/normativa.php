@@ -90,12 +90,12 @@ $this->title = 'Fire';
 
                                                                     <br>
                                                                         <ul class="service-details__feature-list list-unstyled">
-                                                                            <li><i class="indext-icon-check-1-2"></i>NOM-002-STPS-2000 CONDICIONES DE SEGURIDAD EN LOS CENTROS DE TRABAJO</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>NOM-100-STPS-1994 CARACTERISTICAS DE FABRICACION DE EXTINTORES PRESION CONTENIDA</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>NOM-102-STPS-1994 EXTINTORES A BASE DE BIOXIDO DE CARBONO</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>NOM-103-STPS-1994 EXTINTORES A BASE DE AGUA A PRESION</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>NOM-104-STPS-2001 AGENTE EXTINGUIDOR POLVO QUIMICO SECO ABC</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>NOM-106-STPS-1994 AGENTE EXTINGUIDOR POLVO QUIMICO SECO BC BICARBONATO DE SODIO</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NOM-002-STPS-2000 CONDICIONES DE SEGURIDAD EN LOS CENTROS DE TRABAJO</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NOM-100-STPS-1994 CARACTERISTICAS DE FABRICACION DE EXTINTORES PRESION CONTENIDA</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NOM-102-STPS-1994 EXTINTORES A BASE DE BIOXIDO DE CARBONO</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NOM-103-STPS-1994 EXTINTORES A BASE DE AGUA A PRESION</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NOM-104-STPS-2001 AGENTE EXTINGUIDOR POLVO QUIMICO SECO ABC</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NOM-106-STPS-1994 AGENTE EXTINGUIDOR POLVO QUIMICO SECO BC BICARBONATO DE SODIO</li>
 
                                                                         </ul><!-- /.service-details__feature-list -->
                                                                         <br><br>
@@ -106,9 +106,9 @@ $this->title = 'Fire';
 
                                                                     <br>
                                                                         <ul class="service-details__feature-list list-unstyled">
-                                                                            <li><i class="indext-icon-check-1-2"></i>SECRETARIA DE ECONOMIA, CATALOGO DE NORMAS OFICIALES MEXICANAS</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>SECRETARIA DE TRABAJO Y PREVISION SOCIAL</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>PROTECCION CIVIL, NORMATIVIDAD DE PROTECCION CIVIL</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>SECRETARIA DE ECONOMIA, CATALOGO DE NORMAS OFICIALES MEXICANAS</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>SECRETARIA DE TRABAJO Y PREVISION SOCIAL</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>PROTECCION CIVIL, NORMATIVIDAD DE PROTECCION CIVIL</li>
 
                                                                         </ul><!-- /.service-details__feature-list -->
                                                                         <br><br>
@@ -119,9 +119,9 @@ $this->title = 'Fire';
 
                                                                     <br>
                                                                         <ul class="service-details__feature-list list-unstyled">
-                                                                            <li><i class="indext-icon-check-1-2"></i>NORMAS ISO, INTERNATIONAL ORGANIZATION FOR STANDARIZATION</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>NATIONAL FIRE PROTECTION ASSOCIATION (NFPA)</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>UNDERWRITERS LABORATORIES (UL)</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NORMAS ISO, INTERNATIONAL ORGANIZATION FOR STANDARIZATION</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NATIONAL FIRE PROTECTION ASSOCIATION (NFPA)</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>UNDERWRITERS LABORATORIES (UL)</li>
 
                                                                         </ul><!-- /.service-details__feature-list -->
                                                                         <br><br>
@@ -132,8 +132,8 @@ $this->title = 'Fire';
 
                                                                     <br>
                                                                         <ul class="service-details__feature-list list-unstyled">
-                                                                            <li><i class="indext-icon-check-1-2"></i>NOM-026-STPS-1998 COLORES Y SEÑALES DE SEGURIDAD E HIGIENE</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>NOM-003-SEGOB-2002 SEÑALES Y AVISOS PARA PROTECCION CIVIL</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NOM-026-STPS-1998 COLORES Y SEÑALES DE SEGURIDAD E HIGIENE</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>NOM-003-SEGOB-2002 SEÑALES Y AVISOS PARA PROTECCION CIVIL</li>
 
                                                                         </ul><!-- /.service-details__feature-list -->
                                                                         <br><br>
@@ -144,8 +144,8 @@ $this->title = 'Fire';
 
                                                                     <br>
                                                                         <ul class="service-details__feature-list list-unstyled">
-                                                                            <li><i class="indext-icon-check-1-2"></i>ENTIDAD MEXICANA DE ACREDITACION, UNIDADES DE VERIFICACION ACREDITADAS (NORMA 154)</li>
-                                                                            <li><i class="indext-icon-check-1-2"></i>LA ASOCIACIÓN DE NORMALIZACIÓN Y CERTIFICACIÓN, A.C</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>ENTIDAD MEXICANA DE ACREDITACION, UNIDADES DE VERIFICACION ACREDITADAS (NORMA 154)</li>
+                                                                            <li><i class="fa fa-check-circle" aria-hidden="true"></i>LA ASOCIACIÓN DE NORMALIZACIÓN Y CERTIFICACIÓN, A.C</li>
 
                                                                         </ul><!-- /.service-details__feature-list -->
                                                                         <br><br>

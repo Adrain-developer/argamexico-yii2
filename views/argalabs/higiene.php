@@ -420,13 +420,13 @@ use yii\helpers\Url;
 				<div class="elementor-widget-container">
 			<section class=" cta-three text-center" style="background-image: url(<?= Url::toRoute(['web/images/AL2.jpg']); ?>);">
 	<div class="container">
-		<h2 class="cta-three__title">EVALUACIONES EN EMPRESAS QUE
+		<h2 class="cta-three__title">FUENTES FIJAS Y EMIONES A LA ATMÓSFERA
 </h2><!-- /.cta-three__title -->
-		<p class="cta-three__text">EMITEN CONTAMINANTES A LA ATMÓSFERA
+		<p class="cta-three__text">EVALUACIONES EN EMPRESAS QUE EMITEN CONTAMINANTES A LA ATMÓSFERA.
 
 </p>
 		<!-- /.cta-three__text -->
-		<a href="<?= Url::toRoute(['argalabs/index']);?>" class="cta-three__btn thm-btn">Ver las <strong>Normativas</strong></a><!-- /.thm-btn -->
+		<a href="<?= Url::toRoute(['argalabs/evaluaciones']);?>" class="cta-three__btn thm-btn">Ver las <strong>Normativas</strong></a><!-- /.thm-btn -->
 	</div><!-- /.container -->
 </section>
 				</div>
