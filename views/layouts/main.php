@@ -169,12 +169,12 @@ img.emoji {
 
 
 
-                <a href="#" class="topbar-one__link"><i class="indext-icon-clock"></i><!-- /.indext-icon-clock -->Mon - Fri: 9.00 - 18.00</a>
+                <a href="#" class="topbar-one__link"><i class="indext-icon-clock"></i><!-- /.indext-icon-clock -->Lun - Vie: 9.00 - 18.00</a>
 
                 <!-- /.topbar-one__link -->
 
                 <a href="https://mail.google.com" class="topbar-one__link"><i class="indext-icon-envelope"></i>
-                    <!-- /.indext-icon-envelope -->argaconsultores.mexico@gmail.com</a>
+                    <!-- /.indext-icon-envelope -->info@argamexico.com</a>
 
 
             </div><!-- /.topbar-one__links -->
@@ -297,61 +297,81 @@ img.emoji {
 																	class="site-footer__brand-carousel owl-carousel owl-theme">
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s1.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('argaconsultores/index') ;?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s1.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s2.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('argafire/index') ;?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s2.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s3.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('./index.php') ?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s3.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s4.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('argalabs/index') ;?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s4.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s5.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('argatraining/index') ;?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s5.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s1.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('argaconsultores/index') ;?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s1.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s2.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('argafire/index') ;?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s2.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s3.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('./index.php') ?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s3.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s4.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute(['argalabs/index']);?>">
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s4.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
                                                                     <div class="item">
-																		<img src="<?= Yii::$app->homeUrl ?>web/images/s5.png"
-																			alt="brand image">
+																		<a href="<?= Url::toRoute('argatraining/index') ;?>" >
+																			<img src="<?= Yii::$app->homeUrl ?>web/images/s5.png"
+																				alt="brand image">
+																		</a>
 																	</div><!-- /.item -->
 
 																</div><!-- /.site-footer__brand-carousel -->
@@ -364,7 +384,7 @@ img.emoji {
 																	<div class="col-xl-6 col-lg-5">
 																		<div
 																			class="footer-widget footer-widget__about-widget">
-																			<a href="#"><img
+																			<a href="<?= Url::toRoute('./index.php') ?>"><img
 																					src="<?= Yii::$app->homeUrl ?>web/images/arga_footer.png"
 																					width="185"
 																					class="footer-widget__logo"

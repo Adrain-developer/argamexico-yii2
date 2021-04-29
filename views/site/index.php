@@ -450,10 +450,10 @@ $this->title = 'ARGA México';
 																				</div><!-- /.feature-one__icon -->
 																				<div class="feature-one__content">
 																					<h2 class="feature-one__title">
-																						<a href="#">
+																						<a href="<?= Url::toRoute(['argalabs/evaluaciones']);?>">
 																							Fuentes fijas y emisiones a la atmósfera.
 																					</h2><!-- /.feature-one__title -->
-																					<p class="feature-one__text">Conoce las<br> Normativas.</p></a><!-- /.feature-one__text -->
+																					<p class="feature-one__text">Ver las Normativas.</p></a><!-- /.feature-one__text -->
 																				</div><!-- /.feature-one__content -->
 																			</div><!-- /.feature-one__single -->
 
@@ -464,10 +464,10 @@ $this->title = 'ARGA México';
 																				</div><!-- /.feature-one__icon -->
 																				<div class="feature-one__content">
 																					<h2 class="feature-one__title">
-																						<a href="#">
+																						<a href="<?= Url::toRoute(['/argalabs/higiene']);?>">
 																							Higiene laboral.
 																					</h2><!-- /.feature-one__title -->
-																					<p class="feature-one__text">Conoce las<br> Normativas.</p></a><!-- /.feature-one__text -->
+																					<p class="feature-one__text">Ver las Normativas.</p></a><!-- /.feature-one__text -->
 																				</div><!-- /.feature-one__content -->
 																			</div><!-- /.feature-one__single -->
 
@@ -512,7 +512,7 @@ $this->title = 'ARGA México';
 																	<section class=" project-one project-one__home-two project-one__project-page-two">
 																		<div class="container">
 																			<div class="block-title text-center">
-																				<p class="block-title__tag-line">ARGA Traning</p><!-- /.block-title__tag-line -->
+																				<p class="block-title__tag-line">ARGA Training</p><!-- /.block-title__tag-line -->
 																				<h3 class="block-title__title">Tenemos las mejores soluciones para tu empresa.
 																					<br>
 																					<span class="block-title__bold">Pregúntanos por los demás servicios que tenemos para ti.

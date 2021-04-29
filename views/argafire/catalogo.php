@@ -68,7 +68,7 @@ use yii\helpers\Url;
 
 </style>
 
-<section class="inner-banner" style="background-image: url('/img/pagetitle.jpg');">
+<section class="inner-banner" style="background-image: url(<?= Url::toRoute(['web/images/AF3.jpg']); ?>);">
 
     <div class="container">
         <h2 class="inner-banner__title">PRODUCTOS</h2><!-- /.inner-banner__title -->
