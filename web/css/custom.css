@@ -20,7 +20,7 @@
 
 @media(max-width: 1199px){
     .stricky-fixed{
-        height: 180px;
+        height: 150px;
         background-color: #fff;
     }
     .header-navigation .container .logo-box {
