@@ -68,6 +68,11 @@ use yii\helpers\Url;
 
 </style>
 
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
 <section class="inner-banner" style="background-image: url(<?= Url::toRoute(['web/images/AF3.jpg']); ?>);">
 
     <div class="container">
@@ -87,76 +92,18 @@ use yii\helpers\Url;
 
 					<!--Sort By-->
 					<div class="items-sorting row  mr_shop_sorting">
-						<div class="text">
-							<p class="woocommerce-result-count">
-								Mostrando <?= count($productos) ?> productos</p>
-						</div>
+						<h4>Seleccione una categoría</h4>
 						<div class="woocommerce-form">
 							<div class="woocommerce-notices-wrapper"></div>
-							<form class="woocommerce-ordering" method="get">
-								<select name="orderby" class="orderby" aria-label="Shop order">
-									<option value="menu_order" selected='selected'>Todos</option>
-									<option value="popularity">Sort by popularity</option>
-									<option value="date">Sort by latest</option>
-									<option value="price">Sort by price: low to high</option>
-									<option value="price-desc">Sort by price: high to low</option>
+								<select name="orderby" class="orderby" aria-label="Shop order" id="select-tipo-producto">
+									<?php foreach($categorias as $categoria) { ?>
+										<option value="<?= $categoria->id ?>"><?= $categoria->nombre?></option>
+									<?php } ?>
 								</select>
-								<input type="hidden" name="paged" value="1" />
-							</form>
 						</div>
 					</div>
-
-
-
-
 					<div class="row clearfix">
-
-
-                    <?php foreach($productos as $producto){ ?>
-						<div class="col-lg-4 col-md-12">
-							<div class="product-block-two">
-								<a href="../product/album/index.html"
-									class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-									<div class="inner-box">
-										<div class="image">
-											<img width="300" height="300"
-												src="<?= Yii::$app->homeUrl . $producto->pathImagen ?>"
-												class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-												alt="" loading="lazy"
-												sizes="(max-width: 300px) 100vw, 300px" />
-											<div class="overlay">
-												<div class="shop_metas">
-													<a class="shop_link" href="#"><i
-															class="fa fa-shopping-cart"></i></a>
-													<a class="lightbox-image shop_image"
-														href="<?= Yii::$app->homeUrl . $producto->pathImagen ?>"
-														data-group="1"><span class="fa fa-search"></span></a>
-												</div>
-
-											</div>
-										</div>
-										<div class="lower-content">
-											<h4><a href="#"><?= $producto->nombre ?></a></h4>
-											<div class="price">
-												<span class="price"><span
-														class="woocommerce-Price-amount amount"><bdi><span
-																class="woocommerce-Price-currencySymbol">&#36;</span><?= $producto->precioUnitario ?></bdi></span></span>
-											</div>
-										</div>
-									</div>
-
-								</a><a href="index41d8.html?add-to-cart=813" data-quantity="1"
-									class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-									data-product_id="813" data-product_sku="woo-album"
-									aria-label="Add &ldquo;Album&rdquo; to your cart" rel="nofollow">Cotizar</a>
-							</div>
-						</div>           
-					<?php } ?>
-
-						
-
-
-					</main>
+                    <div id="result"></div>
 				</div>
 			</div>
 		</div>
@@ -166,3 +113,29 @@ use yii\helpers\Url;
 	</div>
 </section>
 <div class="clearfix"></div>
+<script>
+	$(window).on('load', function(){
+		getProductos($("#select-tipo-producto").val());
+		$("#select-tipo-producto").change(function(){
+      getProductos($("#select-tipo-producto").val());
+	});
+
+	function getProductos(idCategoria){
+		$.ajax({
+		url: "<?= Url::toRoute(['getproductos'])?>",
+		type: 'GET',
+		data: {
+			idCategoria: idCategoria
+		},
+		success: function(response){
+			$("#result").html(response);
+		},
+		error: function(xhr, text, error){
+			$("#result").html(text);
+		}
+	})
+	}
+	})
+    
+	
+</script>

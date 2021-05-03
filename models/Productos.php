@@ -13,6 +13,7 @@ use Yii;
  * @property float $precioUnitario
  * @property string $pathImagen
  * @property int $estatus
+ * @property int|null $id_categoria
  */
 class Productos extends \yii\db\ActiveRecord
 {
@@ -33,8 +34,8 @@ class Productos extends \yii\db\ActiveRecord
             [['nombre'], 'required'],
             [['descripcion'], 'string'],
             [['precioUnitario'], 'number'],
-            [['estatus'], 'integer'],
-            [['nombre'], 'string', 'max' => 250]
+            [['estatus', 'id_categoria'], 'integer'],
+            [['nombre', 'pathImagen'], 'string', 'max' => 250],
         ];
     }
 
@@ -50,6 +51,11 @@ class Productos extends \yii\db\ActiveRecord
             'precioUnitario' => 'Precio Unitario',
             'pathImagen' => 'Path Imagen',
             'estatus' => 'Estatus',
+            'id_categoria' => 'Id Categoria',
         ];
+    }
+
+    public function getCategoria(){
+        return $this->hasOne(Categorias::className(), ['id' => 'id_categoria']);
     }
 }

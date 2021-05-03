@@ -43,8 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'attributes' => [
                 'nombre',
                 'descripcion:ntext',
-                'precioUnitario',
-                'pathImagen'
+                'precioUnitario'
             ],
         ]) ?>
     </div>

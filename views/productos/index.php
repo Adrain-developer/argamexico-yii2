@@ -32,6 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'descripcion:ntext',
             'precioUnitario',
             'pathImagen',
+            [       
+                'label' => 'Categoría',
+                'value' => 'categoria.nombre',
+            ],
             [
                 'label' => 'Opciones',
                 'format' => 'html',

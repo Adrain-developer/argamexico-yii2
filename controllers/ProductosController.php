@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Productos;
+use app\models\Categorias;
 use app\models\ProductosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,20 +71,19 @@ class ProductosController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $dir_subida = 'web/images/catalogo/';
             $file = UploadedFile::getInstance($model, 'pathImagen');
-            var_dump($file);
-            #exit;
             $model->pathImagen = $dir_subida.$file->name;    
             if($model->save()){
-                #$file->saveAs($file->tempName, $model->pathImagen);    
                 move_uploaded_file($file->tempName, $model->pathImagen);            
             }else{
                 print_r($model->errors);
             }
             return $this->redirect(['view', 'id' => $model->id]);
         }
+        $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'p'])->all(), 'id', 'nombre');
 
         return $this->render('create', [
             'model' => $model,
+            'categorias' => $categorias
         ]);
     }
 
@@ -98,12 +98,31 @@ class ProductosController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $dir_subida = 'web/images/catalogo/';
+            $post = Yii::$app->request->post();
+            $file = UploadedFile::getInstance($model, 'pathImagen');
+            if(!empty($file)){
+                $model->pathImagen = $dir_subida.$file->name;
+            }
+            if(isset($post['Productos']['pathImagenActual'])){
+                echo 'isset';
+                $model->pathImagen = $post['Productos']['pathImagenActual'];
+            }                
+            if($model->save()){
+                if(!empty($file)){
+                    move_uploaded_file($file->tempName, $model->pathImagen);
+                }                            
+            }else{
+                print_r($model->errors);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
+        $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'p'])->all(), 'id', 'nombre');
 
         return $this->render('update', [
             'model' => $model,
+            'categorias' => $categorias
         ]);
     }
 

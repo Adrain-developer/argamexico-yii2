@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Categorias;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -71,8 +72,14 @@ class ArgafireController extends Controller
     }
 
     public function actionCatalogo(){
-        $productos = Productos::find()->all();
-        return $this->render('catalogo', ['productos' => $productos]);
+        $categorias = Categorias::find()->where(['tipo' => 'p'])->all();
+        return $this->render('catalogo', ['categorias' => $categorias]);
+    }
+
+    public function actionGetproductos(){
+        $post = Yii::$app->request->get();
+        $productos = Productos::find()->where(['id_categoria' => $post['idCategoria']])->all();
+        return $this->renderAjax('productos', ['productos' => $productos]);
     }
 
 
