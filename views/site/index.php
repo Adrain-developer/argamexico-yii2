@@ -362,7 +362,7 @@ $this->title = 'ARGA México';
 															<div class="project-one__single">
 																<?= Html::img(Yii::$app->homeUrl . "web/images/AR3.jpg") ?>
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/normativa']);?>">Conoce las normativas que ARGA <strong>Fire</strong> tiene para Uds</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/acreditacion']);?>">Conoce las acreditaciones que ARGA <strong>Fire</strong> tiene para Uds</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
@@ -372,7 +372,7 @@ $this->title = 'ARGA México';
 															<div class="project-one__single">
 																<?= Html::img(Yii::$app->homeUrl . "web/images/AF2.jpg") ?>
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['productos/index']);?>">Conoce nuestra amplia gama de productos de emergencia para la industria</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/catalogo']);?>">Conoce nuestra amplia gama de productos de emergencia para la industria</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
