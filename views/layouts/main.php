@@ -197,13 +197,13 @@ img.emoji {
                         <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="<?= Url::toRoute(['./index.php']);?>" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Inicio</a></li>
                         <li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="<?= Url::toRoute(['argafire/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
                             <ul role="menu" class="submenu">
-                                <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']);?>">Mantenimiento y Recarga de equipos de emergencia</a></li>
-                                <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="<?= Url::toRoute(['argafire/catalogo']);?>">Productos</a></li>
-                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="<?= Url::toRoute(['argafire/normativa']);?>">Normatividad</a></li>
+                                <li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']);?>">Mantenimiento de equipos fijos contra incendios</a></li>
+                                <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a  href="<?= Url::toRoute(['argafire/catalogo']);?>">Venta de Productos</a></li>
+                                <li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a  href="<?= Url::toRoute(['argafire/acreditacion']);?>">Acreditación</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413 dropdown"><a title="Consultoría" href="<?= Url::toRoute(['argaconsultores/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultores</a>
-                            <ul role="menu" class="submenu">
+                        <li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413"><a title="Consultoría" href="<?= Url::toRoute(['argaconsultores/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultores</a>
+                           <!-- <ul role="menu" class="submenu">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a href="<?= Url::toRoute(['argaconsultores/index#cseguridad']);?>">Condiciones de seguridad</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-909"><a href="<?= Url::toRoute(['argaconsultores/index#c111']);?>">Seguridad, prevención y protección</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-910"><a href="<?= Url::toRoute(['argaconsultores/index#c222']);?>">Protección y dispositivos</a></li>
@@ -214,21 +214,21 @@ img.emoji {
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c777']);?>">Administración de trabajo y seguridad</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c888']);?>">Instalaciones eléctricas</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c000']);?>">Servicios preventivos</a></li>
-                            </ul>
+                            </ul>-->
                         </li>
                         <li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Lab" href="<?= Url::toRoute(['argalabs/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Labs</a>
                             <ul role="menu" class="submenu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="<?= Url::toRoute(['argalabs/evaluaciones']);?>">Fuetes fijas y emisiones a la Atmósfera</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="<?= Url::toRoute(['argalabs/evaluaciones']);?>">Fuentes fijas y emisiones a la Atmósfera</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/higiene']);?>">Higiene laboral</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Traning" href="<?= Url::toRoute(['argatraining/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Training</a>
-                            <ul role="menu" class="submenu">
+                        <li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643"><a title="Traning" href="<?= Url::toRoute(['argatraining/index']);?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Training</a>
+                            <!--<ul role="menu" class="submenu">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a title="About" href="#">Seguridad Industrial</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a title="Miscellaneous 01" href="#">Protección Civil y Emergencias</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"><a title="Miscellaneous 02" href="company/index.html">Desarrollo Humano y Organizacional</a></li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a title="Team" href="#">Curso combate contra incendios</a></li>
-                            </ul>
+                            </ul>-->
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

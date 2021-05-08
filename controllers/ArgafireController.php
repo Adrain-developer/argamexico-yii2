@@ -66,9 +66,9 @@ class ArgafireController extends Controller
         return $this->render('index');
     }
 
-    public function actionNormativa()
+    public function actionAcreditacion()
     {        
-        return $this->render('normativa');
+        return $this->render('acreditacion');
     }
 
     public function actionCatalogo(){
@@ -80,6 +80,10 @@ class ArgafireController extends Controller
         $post = Yii::$app->request->get();
         $productos = Productos::find()->where(['id_categoria' => $post['idCategoria']])->all();
         return $this->renderAjax('productos', ['productos' => $productos]);
+    }
+
+    public function actionMtto(){
+        return $this->render('mtto');
     }
 
 

@@ -29,9 +29,9 @@ $this->title = 'Fire';
     <section class="inner-banner" style="background-image: url(../web/images/8.jpg);">
 
         <div class="container">
-            <h2 class="inner-banner__title">ARGA Fire</h2><!-- /.inner-banner__title -->
+            <h2 class="inner-banner__title">Acreditación</h2><!-- /.inner-banner__title -->
             <ul class="list-unstyled thm-breadcrumb">
-                <li class="breadcrumb-item"><a href="../index.php">ARGA Group &nbsp;</a></li>
+                <li class="breadcrumb-item"><a href="../index.php">Inicio &nbsp;</a></li>
                 <li class="breadcrumb-item">ARGA Fire</li>
             </ul><!-- /.thm-breadcrumb -->
         </div><!-- /.container -->
