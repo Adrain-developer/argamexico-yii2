@@ -131,6 +131,9 @@ img.emoji {
 
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 <body class="home page-template page-template-tpl-default-elementor page-template-tpl-default-elementor-php page page-id-16 theme-indext woocommerce-no-js menu-layer elementor-default elementor-kit-68 elementor-page elementor-page-16">
 
