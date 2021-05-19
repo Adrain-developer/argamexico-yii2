@@ -8,10 +8,10 @@ use yii\helpers\Url;
 /* @var $searchModel app\models\EventosSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Eventos';
+$this->title = 'Eventos/Cursos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="eventos-index container">
+<div class="eventos-index container admin-panel">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'nombre',
             'descripcion:ntext',
             'fecha',

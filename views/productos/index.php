@@ -11,7 +11,7 @@ use yii\helpers\Url;
 $this->title = 'Administración de productos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="productos-index container">
+<div class="productos-index container admin-panel">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'nombre',
             'descripcion:ntext',
             'precioUnitario',

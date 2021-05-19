@@ -32,7 +32,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get'],
                 ],
             ],
         ];
@@ -77,12 +77,14 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->render('admin');
+            //return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->render('admin');
+            //return $this->goBack();
         }
 
         $model->password = '';
@@ -134,6 +136,15 @@ class SiteController extends Controller
     public function actionConsultores()
     {
         return $this->render('consultores');
+    }
+
+    public function actionAdmin(){
+        if(Yii::$app->user->isGuest){
+            return $this->redirect(Yii::$app->urlManager->createUrl("site/login"));
+        }else{
+            return $this->render('admin');
+        }
+      
     }
 
 }

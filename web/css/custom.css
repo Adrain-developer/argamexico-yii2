@@ -58,3 +58,15 @@
 .team-one__about-page {
     background-color: #cc0e20 !important;
 }
+
+.admin-panel{
+    padding: 3em;
+}
+
+.height185{
+    min-height: 185px;
+}
+
+.marginbottom50{
+    margin-bottom: 50px;;
+}

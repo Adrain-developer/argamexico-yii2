@@ -9,7 +9,7 @@ $this->title = 'Cargar nuevo producto';
 $this->params['breadcrumbs'][] = ['label' => 'Productos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="productos-create container">
+<div class="productos-create container admin-panel">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
