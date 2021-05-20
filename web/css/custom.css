@@ -58,6 +58,7 @@
 .team-one__about-page {
     background-color: #cc0e20 !important;
 }
+
 .margin-top-form{
     margin-top: 100px;
 }
@@ -66,3 +67,16 @@
     overflow: hidden;
     background-color: #0a2327 !important;
 }
+
+.admin-panel{
+    padding: 3em;
+}
+
+.height185{
+    min-height: 185px;
+}
+
+.marginbottom50{
+    margin-bottom: 50px;;
+}
+

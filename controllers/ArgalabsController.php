@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Publicaciones;
 
 class ArgalabsController extends Controller
 {
@@ -71,7 +72,8 @@ class ArgalabsController extends Controller
 
     public function actionEvaluaciones()
     {
-        return $this->render('evaluaciones');
+        $publicaciones = Publicaciones::find()->where(['seccion' => 'labs'])->all();
+        return $this->render('evaluaciones', ['publicaciones' => $publicaciones]);
     }
 
 }

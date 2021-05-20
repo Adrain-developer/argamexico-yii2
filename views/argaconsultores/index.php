@@ -127,198 +127,27 @@ use yii\helpers\Html;
 														<p class="block-title__text"></p><!-- /.block-title__text -->
 													</div><!-- /.block-title -->
 
-
+                                                    <?php foreach($publicaciones as $publicacion){ ?>
 													<div class="row history-one__row">
 														<span class="history-one__sep"></span><!-- /.history-one__sep -->
 														<div class="col-lg-6 col-md-6">
 															<div class="history-one__image wow fadeInLeft">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/c111.jpg", ['class' => "blog-feed-img"]) ?>
+																<?= Html::img(Yii::$app->homeUrl . $publicacion->pathImagen, ['class' => "blog-feed-img"]) ?>
 															</div><!-- /.history-one__image -->
 														</div><!-- /.col-lg-6 -->
 														<div class="col-lg-6 col-md-6 d-flex">
 															<div id="c111" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-001-STPS-2008
+															<h3 class="history-one__title"><?= $publicacion->nombre?>
 																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Condiciones de seguridad en</p><!-- /.history-one__year -->
-																<p class="history-one__text">Edificios, locales, instalaciones y áreas en los centros de trabajo.
+																<p class="history-one__year"><?= $publicacion->descripcion ?></p><!-- /.history-one__year -->
+																<!--<p class="history-one__text">Edificios, locales, instalaciones y áreas en los centros de trabajo.
 
-																</p><!-- /.history-one__text -->
+																</p>--><!-- /.history-one__text -->
 															</div><!-- /.history-one__content -->
 														</div><!-- /.col-lg-6 -->
 													</div><!-- /.row history-one__row -->
+													<?php } ?>
 
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/c222.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c222" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-002-STPS-2010</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Seguridad, prevención y protección</p><!-- /.history-one__year -->
-																<p class="history-one__text">Contra incendios en los centros de trabajo.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-															<?= Html::img(Yii::$app->homeUrl . "web/images/c333.png", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c333"class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-004-STPS-1999
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Sistemas de protección y dispositivos de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Seguridad en la maquinaria y equipo que se utilice en los centros de trabajo.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-															<?= Html::img(Yii::$app->homeUrl . "web/images/c444.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c444" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-006-STPS-2014
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Manejo y almacenamiento de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Materiales, condiciones de seguridad y salud en el trabajo.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-															<?= Html::img(Yii::$app->homeUrl . "web/images/c555.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c555" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-017-STPS-2008
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Equipo de protección Personal</p><!-- /.history-one__year -->
-																<p class="history-one__text">Selección, uso y manejo en los centros de trabajo.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-															<?= Html::img(Yii::$app->homeUrl . "web/images/c666.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c666" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-020-STPS-2011
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Recipientes</p><!-- /.history-one__year -->
-																<p class="history-one__text">Sujetos a presión, recipientes criogénicos y generadores de vapor o calderas, funcionamiento y condiciones de seguridad.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-															<?= Html::img(Yii::$app->homeUrl . "web/images/c777.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c777" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-027-STPS-2008
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Actividades de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Soldadura y corte, condiciones de seguridad e higiene.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-															<?= Html::img(Yii::$app->homeUrl . "web/images/c888.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c888" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-028-STPS-2012
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Sistema para la administración de</p><!-- /.history-one__year -->
-																<p class="history-one__text">Trabajo, seguridad en los procesos y equipos críticos que manejen sustancias químicas peligrosas.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-															<?= Html::img(Yii::$app->homeUrl . "web/images/c999.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c999" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-029-STPS-2011
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Mantenimiento de las</p><!-- /.history-one__year -->																
-																<p class="history-one__text">Instalaciones eléctricas en los centros de trabajo, condiciones de seguridad.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
-
-													<div class="row history-one__row">
-														<span class="history-one__sep"></span><!-- /.history-one__sep -->
-														<div class="col-lg-6 col-md-6">
-															<div class="history-one__image wow fadeInRight">
-															<?= Html::img(Yii::$app->homeUrl . "web/images/c000.jpg", ['class' => "blog-feed-img"]) ?>
-															</div><!-- /.history-one__image -->
-														</div><!-- /.col-lg-6 -->
-														<div class="col-lg-6 col-md-6 d-flex">
-															<div id="c000" class="history-one__content my-auto">
-															<h3 class="history-one__title">NOM-030-STPS-2009
-																</h3><!-- /.history-one__title -->
-																<p class="history-one__year">Servicios preventivos de</p><!-- /.history-one__year -->																
-																<p class="history-one__text">Seguridad y salud en el trabajo, funciones y actividades.
-
-																</p><!-- /.history-one__text -->
-															</div><!-- /.history-one__content -->
-														</div><!-- /.col-lg-6 -->
-													</div><!-- /.row history-one__row -->
 
 												</div><!-- /.container -->
 											</section>
