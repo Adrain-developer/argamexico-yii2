@@ -9,6 +9,7 @@ use app\models\EventosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * EventosController implements the CRUD actions for Eventos model.
@@ -66,8 +67,16 @@ class EventosController extends Controller
     public function actionCreate()
     {
         $model = new Eventos();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $dir_subida = 'web/images/eventos/';
+            $file = UploadedFile::getInstance($model, 'pathImagen');
+            $model->pathImagen = $dir_subida.$file->name;    
+            if($model->save()){
+                move_uploaded_file($file->tempName, $model->pathImagen);            
+            }else{
+                print_r($model->errors);
+            }
+            return $this->redirect(['index']);
         }
         $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'c'])->all(), 'id', 'nombre');
 
@@ -87,8 +96,25 @@ class EventosController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id); 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $dir_subida = 'web/images/eventos/';
+            $post = Yii::$app->request->post();
+            $file = UploadedFile::getInstance($model, 'pathImagen');
+            if(!empty($file)){
+                $model->pathImagen = $dir_subida.$file->name;
+            }
+            if(isset($post['Eventos']['pathImagenActual'])){
+                echo 'isset';
+                $model->pathImagen = $post['Eventos']['pathImagenActual'];
+            }                
+            if($model->save()){
+                if(!empty($file)){
+                    move_uploaded_file($file->tempName, $model->pathImagen);
+                }                            
+            }else{
+                print_r($model->errors);
+            }
+            return $this->redirect(['index']);
         }
         $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'c'])->all(), 'id', 'nombre');
 

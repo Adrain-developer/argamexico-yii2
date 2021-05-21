@@ -36,7 +36,7 @@
                                                             <div class="col-lg-4 col-md-6 col-sm-12 filter-item cursos-online">
                                                             <div class="project-one__single">
                                                                 <div class="project-one__img">
-                                                                    <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-1.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-1-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
+                                                                    <img width="370" height="300" src="<?= Yii::$app->homeUrl . $cursoOnline->pathImagen ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="<?= Yii::$app->homeUrl . $cursoOnline->pathImagen ?> 370w, <?= Yii::$app->homeUrl . $cursoOnline->pathImagen ?> 300w" sizes="(max-width: 370px) 100vw, 370px" />
                                                                 </div><!-- /.project-one__img -->
                                                                 <div class="project-one__content">
                                                                     <a href="../projects-details/index.html" class="project-one__category"><?= $cursoOnline->nombre ?></a>
@@ -51,7 +51,7 @@
                                                             <div class="col-lg-4 col-md-6 col-sm-12 filter-item cursos">
                                                             <div class="project-one__single">
                                                                 <div class="project-one__img">
-                                                                    <img width="370" height="300" src="../wp-content/uploads/2020/05/project-3-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-1.jpg 370w, http://old4.commonsupport.com/update/indext/wp-content/uploads/2020/05/project-3-1-300x243.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" />
+                                                                    <img width="370" height="300" src="<?= Yii::$app->homeUrl . $curso->pathImagen ?>g" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="<?= Yii::$app->homeUrl . $curso->pathImagen ?> 370w, <?= Yii::$app->homeUrl . $curso->pathImagen ?> 300w" sizes="(max-width: 370px) 100vw, 370px" />
                                                                 </div><!-- /.project-one__img -->
                                                                 <div class="project-one__content">
                                                                     <a href="../projects-details/index.html" class="project-one__category"><?= $curso->nombre ?></a>
