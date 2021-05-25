@@ -76,7 +76,7 @@ class EmpresasController extends Controller
                 $model->id = $existeEmpresa;
             }
             $this->asignaFolioEmpresa($model->id, $post['Empresas']['folio']);
-            return $this->redirect(['index']);
+            return $this->redirect(['empresasfolios/index']);
         }
 
         return $this->render('create', [
