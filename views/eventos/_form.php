@@ -23,6 +23,15 @@ use yii\jui\DatePicker;
 
     <?= $form->field($model, 'id_categoria')->dropDownList($categorias, ['prompt' => 'Seleccione una categoría' ]); ?>
 
+    <?= $form->field($model, 'pathImagen')->fileInput(['accept' => 'image/*'])->label("Imagen") ?>
+
+    <?= !empty($model->pathImagen) && !is_null($model->pathImagen) ? "imagen actual: ".$model->pathImagen : '' ?>
+
+    <?php 
+      if(!empty($model->pathImagen) && !is_null($model->pathImagen)){ ?>
+       <input type="hidden" name="Eventos[pathImagenActual]" value="<?= $model->pathImagen?>">
+      <?php } ?>
+    
     <div class="form-group">
         <?= Html::submitButton('Registrar', ['class' => 'btn btn-success']) ?>
     </div>

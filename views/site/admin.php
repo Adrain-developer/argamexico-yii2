@@ -48,7 +48,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Administración de <strong>DS3</strong></h5>
                     <p class="card-text">Aquí podrás administrar los folios <strong>DS3</strong> y sus respectivas empresas.</p>
-                    <a href="<?= Url::toRoute('/productos') ?>" class="btn btn-primary">Ir a DS3</a>
+                    <a href="<?= Url::toRoute('/empresasfolios') ?>" class="btn btn-primary">Ir a DS3</a>
                 </div>
             </div>
         </div>

@@ -5,23 +5,21 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "eventos".
+ * This is the model class for table "empresas".
  *
  * @property int $id
  * @property string $nombre
  * @property string|null $descripcion
- * @property string|null $fecha
- * @property int $id_categoria
- * @property string|null $pathImagen
+ * @property string|null $rfc
  */
-class Eventos extends \yii\db\ActiveRecord
+class Empresas extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'eventos';
+        return 'empresas';
     }
 
     /**
@@ -30,10 +28,10 @@ class Eventos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'id_categoria'], 'required'],
-            [['descripcion', 'fecha'], 'string'],
-            [['id_categoria'], 'integer'],
-            [['nombre', 'pathImagen'], 'string', 'max' => 250],
+            [['nombre'], 'required'],
+            [['descripcion'], 'string'],
+            [['nombre'], 'string', 'max' => 250],
+            [['rfc'], 'string', 'max' => 25],
         ];
     }
 
@@ -46,9 +44,7 @@ class Eventos extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nombre' => 'Nombre',
             'descripcion' => 'Descripcion',
-            'fecha' => 'Fecha',
-            'id_categoria' => 'Id Categoria',
-            'pathImagen' => 'Path Imagen',
+            'rfc' => 'Rfc',
         ];
     }
 }

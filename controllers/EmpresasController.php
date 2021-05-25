@@ -3,18 +3,18 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Categorias;
-use app\models\Eventos;
-use app\models\EventosSearch;
+use app\models\Empresas;
+use app\models\EmpresasFolios;
+use app\models\EmpresasSearch;
+use app\models\Folios;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * EventosController implements the CRUD actions for Eventos model.
+ * EmpresasController implements the CRUD actions for Empresas model.
  */
-class EventosController extends Controller
+class EmpresasController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,12 +32,12 @@ class EventosController extends Controller
     }
 
     /**
-     * Lists all Eventos models.
+     * Lists all Empresas models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new EventosSearch();
+        $searchModel = new EmpresasSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +47,7 @@ class EventosController extends Controller
     }
 
     /**
-     * Displays a single Eventos model.
+     * Displays a single Empresas model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -60,34 +60,32 @@ class EventosController extends Controller
     }
 
     /**
-     * Creates a new Eventos model.
+     * Creates a new Empresas model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Eventos();
+        $model = new Empresas();
         if ($model->load(Yii::$app->request->post())) {
-            $dir_subida = 'web/images/eventos/';
-            $file = UploadedFile::getInstance($model, 'pathImagen');
-            $model->pathImagen = $dir_subida.$file->name;    
-            if($model->save()){
-                move_uploaded_file($file->tempName, $model->pathImagen);            
+            $post = Yii::$app->request->post();
+            $existeEmpresa = $this->existeEmpresaPorRfc($post['Empresas']['rfc']);
+            if(!$existeEmpresa){
+                $model->save();
             }else{
-                print_r($model->errors);
+                $model->id = $existeEmpresa;
             }
-            return $this->redirect(['index']);
+            $this->asignaFolioEmpresa($model->id, $post['Empresas']['folio']);
+            return $this->redirect(['empresasfolios/index']);
         }
-        $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'c'])->all(), 'id', 'nombre');
 
         return $this->render('create', [
             'model' => $model,
-            'categorias' => $categorias
         ]);
     }
 
     /**
-     * Updates an existing Eventos model.
+     * Updates an existing Empresas model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -95,37 +93,19 @@ class EventosController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id); 
-        if ($model->load(Yii::$app->request->post())) {
-            $dir_subida = 'web/images/eventos/';
-            $post = Yii::$app->request->post();
-            $file = UploadedFile::getInstance($model, 'pathImagen');
-            if(!empty($file)){
-                $model->pathImagen = $dir_subida.$file->name;
-            }
-            if(isset($post['Eventos']['pathImagenActual'])){
-                echo 'isset';
-                $model->pathImagen = $post['Eventos']['pathImagenActual'];
-            }                
-            if($model->save()){
-                if(!empty($file)){
-                    move_uploaded_file($file->tempName, $model->pathImagen);
-                }                            
-            }else{
-                print_r($model->errors);
-            }
-            return $this->redirect(['index']);
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'c'])->all(), 'id', 'nombre');
 
         return $this->render('update', [
             'model' => $model,
-            'categorias' => $categorias
         ]);
     }
 
     /**
-     * Deletes an existing Eventos model.
+     * Deletes an existing Empresas model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -139,18 +119,55 @@ class EventosController extends Controller
     }
 
     /**
-     * Finds the Eventos model based on its primary key value.
+     * Finds the Empresas model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Eventos the loaded model
+     * @return Empresas the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Eventos::findOne($id)) !== null) {
+        if (($model = Empresas::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    function asignaFolioEmpresa($idEmpresa, $folio){
+      $folioId = $this->getFolioId($folio);  
+      $existeRegistro = EmpresasFolios::find()->where(['id_empresa' => $idEmpresa, 'id_folio' => $folioId])->one();
+      if(empty($existeRegistro)){
+          $model = new EmpresasFolios();
+          $model->id_empresa = $idEmpresa;
+          $model->id_folio = $folioId;
+          if(!$model->save()){
+            var_dump($model->errors);
+            exit;
+        }  
+      }
+    }
+
+    function getFolioId($nombreFolio){
+        $folio = Folios::find()->where(['nombre' => $nombreFolio])->one();
+        if(empty($existeFolio)){
+          $model = new Folios();
+          $model->nombre = $nombreFolio;
+          $model->tipo = 'DS3';
+          if(!$model->save()){
+              var_dump($model->errors);
+              exit;
+          }          
+          return $model->id;
+        }
+        return $folio->id;
+    }
+
+    function existeEmpresaPorRfc($rfc){
+        $empresa = Empresas::find()->where(['rfc' => $rfc])->one();
+        if(empty($empresa)){
+            return false;
+        }
+        return $empresa->id;
     }
 }

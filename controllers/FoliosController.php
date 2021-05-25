@@ -3,18 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Categorias;
-use app\models\Eventos;
-use app\models\EventosSearch;
+use app\models\Folios;
+use app\models\FoliosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * EventosController implements the CRUD actions for Eventos model.
+ * FoliosController implements the CRUD actions for Folios model.
  */
-class EventosController extends Controller
+class FoliosController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,12 +30,12 @@ class EventosController extends Controller
     }
 
     /**
-     * Lists all Eventos models.
+     * Lists all Folios models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new EventosSearch();
+        $searchModel = new FoliosSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +45,7 @@ class EventosController extends Controller
     }
 
     /**
-     * Displays a single Eventos model.
+     * Displays a single Folios model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -60,34 +58,25 @@ class EventosController extends Controller
     }
 
     /**
-     * Creates a new Eventos model.
+     * Creates a new Folios model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Eventos();
-        if ($model->load(Yii::$app->request->post())) {
-            $dir_subida = 'web/images/eventos/';
-            $file = UploadedFile::getInstance($model, 'pathImagen');
-            $model->pathImagen = $dir_subida.$file->name;    
-            if($model->save()){
-                move_uploaded_file($file->tempName, $model->pathImagen);            
-            }else{
-                print_r($model->errors);
-            }
-            return $this->redirect(['index']);
+        $model = new Folios();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'c'])->all(), 'id', 'nombre');
 
         return $this->render('create', [
             'model' => $model,
-            'categorias' => $categorias
         ]);
     }
 
     /**
-     * Updates an existing Eventos model.
+     * Updates an existing Folios model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -95,37 +84,19 @@ class EventosController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id); 
-        if ($model->load(Yii::$app->request->post())) {
-            $dir_subida = 'web/images/eventos/';
-            $post = Yii::$app->request->post();
-            $file = UploadedFile::getInstance($model, 'pathImagen');
-            if(!empty($file)){
-                $model->pathImagen = $dir_subida.$file->name;
-            }
-            if(isset($post['Eventos']['pathImagenActual'])){
-                echo 'isset';
-                $model->pathImagen = $post['Eventos']['pathImagenActual'];
-            }                
-            if($model->save()){
-                if(!empty($file)){
-                    move_uploaded_file($file->tempName, $model->pathImagen);
-                }                            
-            }else{
-                print_r($model->errors);
-            }
-            return $this->redirect(['index']);
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'c'])->all(), 'id', 'nombre');
 
         return $this->render('update', [
             'model' => $model,
-            'categorias' => $categorias
         ]);
     }
 
     /**
-     * Deletes an existing Eventos model.
+     * Deletes an existing Folios model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -139,18 +110,30 @@ class EventosController extends Controller
     }
 
     /**
-     * Finds the Eventos model based on its primary key value.
+     * Finds the Folios model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Eventos the loaded model
+     * @return Folios the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Eventos::findOne($id)) !== null) {
+        if (($model = Folios::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionGet(){
+        $filter = Yii::$app->getRequest()->getQueryParam('search');
+       $folios = Folios::find()->where(['like', 'nombre', $filter.'%', false])->all();
+       $arrayFolios = [];
+       foreach($folios as $folio){
+           $arrayFolios[] = ["value" => $folio->id, "label" => $folio->nombre];
+       } 
+
+       echo json_encode($arrayFolios);
+       exit;
     }
 }
