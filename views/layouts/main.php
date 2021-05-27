@@ -176,9 +176,17 @@ AppAsset::register($this);
 	<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;ver=5.6.2' type='text/css' media='all' />
 
 
+	<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/css/sidebar.css' type='text/css' />
+
 	<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
 	<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
 </head>
+
 
 <body class="home page-template page-template-tpl-default-elementor page-template-tpl-default-elementor-php page page-id-16 theme-indext woocommerce-no-js menu-layer elementor-default elementor-kit-68 elementor-page elementor-page-16">
 
@@ -468,20 +476,20 @@ AppAsset::register($this);
 
 																				<li><a href="#"> Privacy Policy</a></li>
 
-																				
+
 																				<li><?php if (Yii::$app->user->isGuest) { ?>
 																						<a href="<?= Url::toRoute(['/site/login']); ?>" class="topbar-one__link">
 																							Ingresar</a>
-																					<?php } else { ?>																						
+																					<?php } else { ?>
 																						<a href="<?= Url::toRoute(['/site/logout']); ?>" class="topbar-one__link">
 																							Salir</a>
 																					<?php } ?>
 																				</li>
 																				<?php if (!Yii::$app->user->isGuest) { ?>
-																				<li>
-																				<a href="<?= Url::toRoute(['/site/admin']); ?>" class="topbar-one__link">
+																					<li>
+																						<a href="<?= Url::toRoute(['/site/admin']); ?>" class="topbar-one__link">
 																							Ir a panel admin</a>
-																				</li>
+																					</li>
 																				<?php } ?>
 
 																			</ul><!-- /.footer-widget__links -->
@@ -545,8 +553,56 @@ AppAsset::register($this);
 
 		<a href="#" data-target="html" class="scroll-to-target scroll-to-top" style="display: inline;"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
+		<a href="#" onclick="openNav()" class="scroll-to-top-cart" style="display: inline;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 
+		<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color:black!important">&times;</a>
+			<div class="row"> 
+				<div class="col-sm-8">
+				Lista de productos a cotizar
+				</div>
+				<div class="col-sm-4">
+				<span onclick="vaciarCarrito()" class="pull-right"><i class="fa fa-trash"></i></span>
+				</div>				
+			</div>
+			<div class="">
+			<div id="carrito-lista"></div>
+			<div id="carrito-subtotal"></div>
+			Número de productos:
+			<div id="carrito-numero-elementos"></div>
+			<div id="result-pedido"></div>
+			<div id="form-enviar-cotizacion">
+				<div class="form-group">
+                 <input class="form-control" placeholder="Ingrese nombre" id="cotizacion-nombre">
+				</div>
+				<div class="form-group">
+                 <input class="form-control" placeholder="Ingrese email" id="cotizacion-email">
+				</div>
+				<div class="form-group">
+                 <input class="form-control" placeholder="Ingrese número de teléfono" id="cotizacion-telefono">
+				</div>
+				<div class="form-group">
+                  <button class="btn btn-success" onclick="enviarPedido()">Enviar</button>
+				</div>
+			</div>
+			</div>
+			
+			
+			
+			
+			
+			
+		</div>
 
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "333px";
+			}
+
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+			}
+		</script>
 
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/wp-polyfill.min89b1.js?ver=7.4.4' id='wp-polyfill-js'></script>
 		<script type='text/javascript' id='wp-polyfill-js-after'>
@@ -719,8 +775,8 @@ AppAsset::register($this);
 		</script>
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/frontend.minaeb9.js?ver=3.1.4' id='elementor-frontend-js'></script>
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/preloaded-elements-handlers.minaeb9.js?ver=3.1.4' id='preloaded-elements-handlers-js'></script>
-
-
+        <script type="text/javascript">var urlPedido = "<?= Url::toRoute('productos/cotizar'); ?>";</script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/cart.js'></script>
 
 	</main>
 

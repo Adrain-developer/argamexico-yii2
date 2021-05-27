@@ -31,6 +31,15 @@ class ProductosController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+{            
+    if ($action->id == 'cotizar') {
+        $this->enableCsrfValidation = false;
+    }
+
+    return parent::beforeAction($action);
+}
+
     /**
      * Lists all Productos models.
      * @return mixed
@@ -155,4 +164,51 @@ class ProductosController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionCotizar(){
+        $this->enableCsrfValidation = false;
+        $get = $this->request->post();
+        $detallesPedido = $get['datosPedido'];
+        $nombre = $get['nombre'];
+        $numero = $get['numero'];
+        $correo = $get['correo'];
+        $detalleCotizacion = $this->setDetallePedido($detallesPedido);          
+        $this->sendMail($detalleCotizacion, $nombre, $numero, $correo);          
+    }
+
+    function setDetallePedido($detallesPedido){
+        $listado = [];
+        foreach ($detallesPedido as $item => $detalle) {
+            $listado[] = $this->crearDetallePedido($detalle);
+        }
+        return $listado;
+    }
+
+    function crearDetallePedido($detalle){
+        $detalle = (array)json_decode($detalle);
+        $model = [];
+        $model['producto_id'] = $detalle['id'];
+        $model['cantidad'] = $detalle['cantidad'];
+        $model['concepto'] = $detalle['nombre'];
+        return $model;
+      } 
+  
+      function sendMail($detallesPedido, $nombre, $numero, $correo){
+      $content = $this->renderAjax('cotizacion', [
+        'detalles' => $detallesPedido
+      ]);
+      print_r($content);
+      exit;
+      try {
+        Yii::$app->mailer->compose($content)
+          ->setFrom('contacto@argamexico.com')
+          ->setTo('jorgehm77@hotmail.com')
+          ->setSubject('Se ha recibido una solicitud de cotización')
+          ->send();
+        return "Solicitud recibida existosamente. En breve nos comunicaremos contigo.";
+      } catch (\Exception $e) {
+        print_r($e);
+        exit;
+        }    
+      }
 }
