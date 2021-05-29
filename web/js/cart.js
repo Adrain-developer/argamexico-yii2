@@ -97,6 +97,9 @@ function enviarPedido(){
       numero: numero,
       correo: correo
     },
+    beforeSend: function(){
+      $("#result-pedido").html("Enviando tu cotización. Por favor espera...");
+    },
     error: function(data, msg, msg2){
       console.log('error');
       console.log(data);

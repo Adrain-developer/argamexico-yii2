@@ -172,7 +172,11 @@ class ProductosController extends Controller
         $nombre = $get['nombre'];
         $numero = $get['numero'];
         $correo = $get['correo'];
-        $detalleCotizacion = $this->setDetallePedido($detallesPedido);          
+        $detalleCotizacion = $this->setDetallePedido($detallesPedido); 
+        /*echo '<pre>';
+        var_dump($detalleCotizacion);
+        echo '</pre>';
+        exit;  */       
         $this->sendMail($detalleCotizacion, $nombre, $numero, $correo);          
     }
 
@@ -194,22 +198,23 @@ class ProductosController extends Controller
       } 
   
       function sendMail($detallesPedido, $nombre, $numero, $correo){
-      $content = $this->renderAjax('cotizacion', [
-        'detalles' => $detallesPedido
-      ]);
-      #print_r($content);
-      #exit;
+     
       try {
-        Yii::$app->mailer->compose($content)
+        Yii::$app->mailer->compose('cotizacion', [
+            'detalles' => $detallesPedido,
+            'nombre' => $nombre,
+            'numero' => $numero,
+            'correo' => $correo 
+            ])
           ->setFrom('ventas@argamexico.com')
-          ->setTo('jorgehm77@hotmail.com')
+          ->setTo($correo)
           ->setSubject('Se ha recibido una solicitud de cotización')
           ->send();
         echo "Solicitud recibida existosamente. En breve nos comunicaremos contigo.";
         exit;
       } catch (\Exception $e) {
+        echo "Error al recibir cotización :'c";
         print_r($e);
-        echo "Error al recibir cotización :c";
         exit;
         }    
       }
