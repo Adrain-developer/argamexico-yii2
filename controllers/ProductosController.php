@@ -208,7 +208,7 @@ class ProductosController extends Controller
         echo "Solicitud recibida existosamente. En breve nos comunicaremos contigo.";
         exit;
       } catch (\Exception $e) {
-        //print_r($e);
+        print_r($e);
         echo "Error al recibir cotización :c";
         exit;
         }    
