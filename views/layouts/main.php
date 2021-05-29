@@ -553,7 +553,7 @@ AppAsset::register($this);
 
 		<a href="#" data-target="html" class="scroll-to-target scroll-to-top" style="display: inline;"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
-		<a href="#" onclick="openNav()" class="scroll-to-top-cart" style="display: inline;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+		<a href="#" onclick="openNav()" class="scroll-to-top-cart" style="display: inline; color:#fff;"><i class="fa fa-shopping-cart" style="margin-top:22px;" aria-hidden="true"></i></a>
 
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn btn" onclick="closeNav()" style="color:black!important">&times;</a>
