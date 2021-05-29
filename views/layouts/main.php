@@ -181,6 +181,7 @@ AppAsset::register($this);
 
 </head>
 
+
 <body class="home page-template page-template-tpl-default-elementor page-template-tpl-default-elementor-php page page-id-16 theme-indext woocommerce-no-js menu-layer elementor-default elementor-kit-68 elementor-page elementor-page-16">
 
 	<div class="preloader"><span></span></div>
@@ -284,12 +285,15 @@ AppAsset::register($this);
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a title="Team" href="#">Curso combate contra incendios</a></li>
                             </ul>-->
 							</li>
+							<li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849"><a title="Lab" href="<?= Url::toRoute(['contactos/create']); ?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Contacto</a>
+
+							</li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
-					<div class="right-side-box">
+					<!--<div class="right-side-box">
 						<a href="<?= Url::toRoute(['/contact.php']); ?>" class="thm-btn site-header__qoute-btn">Contacto<i class="fa fa-long-arrow-right"></i>
-						</a><!-- /.thm-btn -->
-					</div>
+						</a> /.thm-btn 
+					</div>-->
 				</div>
 				<!-- /.container -->
 			</nav>
@@ -311,11 +315,8 @@ AppAsset::register($this);
 
 
 						<ul class="clearfix">
-							<li> <a href="#" style="background-color:; color: "><span class="fab fa-facebook"></span></a></li>
-							<li> <a href="#" style="background-color:; color: "><span class="fab fa-stack-overflow"></span></a></li>
-							<li> <a href="https://www.facebook.com/" style="background-color:; color: "><span class="fab fa-twitter"></span></a></li>
-							<li> <a href="#" style="background-color:; color: "><span class="fab fa-yelp"></span></a></li>
-							<li> <a href="#" style="background-color:; color: "><span class="fab fa-youtube"></span></a></li>
+							<li> <a href="https://www.facebook.com/ARGA-Consultores-M%C3%A9xico-448930612267259" style="background-color:; color: "><span class="fab fa-facebook"></span></a></li>
+							<li> <a href="#" style="background-color:; color: "><span class="fa fa-whatsapp"></span></a></li>
 						</ul>
 
 					</div>
@@ -433,9 +434,9 @@ AppAsset::register($this);
 																			</p>
 																			<!-- /.footer-widget__text -->
 
-																			<div class="footer-widget__social">
+																			<div class="footer-widget__social">																				
+																				<a href="https://www.facebook.com/ARGA-Consultores-M%C3%A9xico-448930612267259" class="fab fa-facebook"></a>
 																				<a href="#" class="fab fa-whatsapp"></a>
-																				<a href="#" class="fab fa-facebook"></a>
 																				<a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
 																			</div><!-- /.footer-widget__social -->
 
@@ -469,20 +470,20 @@ AppAsset::register($this);
 
 																				<li><a href="#"> Privacy Policy</a></li>
 
-																				
+
 																				<li><?php if (Yii::$app->user->isGuest) { ?>
 																						<a href="<?= Url::toRoute(['/site/login']); ?>" class="topbar-one__link">
 																							Ingresar</a>
-																					<?php } else { ?>																						
+																					<?php } else { ?>
 																						<a href="<?= Url::toRoute(['/site/logout']); ?>" class="topbar-one__link">
 																							Salir</a>
 																					<?php } ?>
 																				</li>
 																				<?php if (!Yii::$app->user->isGuest) { ?>
-																				<li>
-																				<a href="<?= Url::toRoute(['/site/admin']); ?>" class="topbar-one__link">
+																					<li>
+																						<a href="<?= Url::toRoute(['/site/admin']); ?>" class="topbar-one__link">
 																							Ir a panel admin</a>
-																				</li>
+																					</li>
 																				<?php } ?>
 
 																			</ul><!-- /.footer-widget__links -->
@@ -546,8 +547,56 @@ AppAsset::register($this);
 
 		<a href="#" data-target="html" class="scroll-to-target scroll-to-top" style="display: inline;"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
+		<a href="#" onclick="openNav()" class="scroll-to-top-cart" style="display: inline;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 
+		<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color:black!important">&times;</a>
+			<div class="row"> 
+				<div class="col-sm-8">
+				Lista de productos a cotizar
+				</div>
+				<div class="col-sm-4">
+				<span onclick="vaciarCarrito()" class="pull-right"><i class="fa fa-trash"></i></span>
+				</div>				
+			</div>
+			<div class="">
+			<div id="carrito-lista"></div>
+			<div id="carrito-subtotal"></div>
+			Número de productos:
+			<div id="carrito-numero-elementos"></div>
+			<div id="result-pedido"></div>
+			<div id="form-enviar-cotizacion">
+				<div class="form-group">
+                 <input class="form-control" placeholder="Ingrese nombre" id="cotizacion-nombre">
+				</div>
+				<div class="form-group">
+                 <input class="form-control" placeholder="Ingrese email" id="cotizacion-email">
+				</div>
+				<div class="form-group">
+                 <input class="form-control" placeholder="Ingrese número de teléfono" id="cotizacion-telefono">
+				</div>
+				<div class="form-group">
+                  <button class="btn btn-success" onclick="enviarPedido()">Enviar</button>
+				</div>
+			</div>
+			</div>
+			
+			
+			
+			
+			
+			
+		</div>
 
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "333px";
+			}
+
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+			}
+		</script>
 
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/wp-polyfill.min89b1.js?ver=7.4.4' id='wp-polyfill-js'></script>
 		<script type='text/javascript' id='wp-polyfill-js-after'>
@@ -720,8 +769,8 @@ AppAsset::register($this);
 		</script>
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/frontend.minaeb9.js?ver=3.1.4' id='elementor-frontend-js'></script>
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/preloaded-elements-handlers.minaeb9.js?ver=3.1.4' id='preloaded-elements-handlers-js'></script>
-
-
+        <script type="text/javascript">var urlPedido = "<?= Url::toRoute('productos/cotizar'); ?>";</script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/cart.js'></script>
 
 	</main>
 

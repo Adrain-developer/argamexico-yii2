@@ -497,6 +497,35 @@ $this->title = 'ARGA México';
 							</div>
 						</section>
 
+
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-7be5cbb elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="7be5cbb" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+				<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-row">
+						<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-72600e7" data-id="72600e7" data-element_type="column">
+							<div class="elementor-column-wrap elementor-element-populated">
+								<div class="elementor-widget-wrap">
+									<div class="elementor-element elementor-element-35e48a7 elementor-widget elementor-widget-indext_calltoaction4" data-id="35e48a7" data-element_type="widget" data-widget_type="indext_calltoaction4.default">
+										<div class="elementor-widget-container">
+											<section class=" cta-three text-center" style="background-image: url(<?= Url::toRoute(['web/images/training_1.jpg']); ?>);">
+												<div class="container">
+													<h2 class="cta-three__title">ARGA Training
+													</h2><!-- /.cta-three__title -->
+													<p class="cta-three__text">Podrás ver alguno de nuestros servicios, pregúntanos por los demás servicios que tenemos para ti.
+
+													</p>
+													<!-- /.cta-three__text -->
+													<a href="<?= Url::toRoute(['argatraining/index']); ?>" class="cta-three__btn thm-btn">Ir a cursos</a><!-- /.thm-btn -->
+												</div><!-- /.container -->
+											</section>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
 						
 						<div class="clearfix"></div>
 

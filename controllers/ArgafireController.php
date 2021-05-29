@@ -86,5 +86,9 @@ class ArgafireController extends Controller
         return $this->render('mtto');
     }
 
+    public function actionDetalle(){
+        return $this->render('detalle');
+    }
+
 
 }
