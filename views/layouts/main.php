@@ -476,6 +476,8 @@ AppAsset::register($this);
 
 																				<li><a href="#"> Privacy Policy</a></li>
 
+																				<li><a href="<?= Url::toRoute(['empresasfolios/'])?>"> Consultar folios DS3</a></li>
+
 
 																				<li><?php if (Yii::$app->user->isGuest) { ?>
 																						<a href="<?= Url::toRoute(['/site/login']); ?>" class="topbar-one__link">
