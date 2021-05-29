@@ -12,11 +12,13 @@ use yii\helpers\Html;
 <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.js'></script>
 
 <div class="container admin-panel">
+<h3>Folios DS3</h3>
 <?php if (!Yii::$app->user->isGuest) { ?>
   <p>
     <?= Html::a('Registrar nueva empresa', ['empresas/create'], ['class' => 'btn btn-success']) ?>
   </p>
   <?php } ?>
+  
   <table class="table table-striped" id="table-ds3">
     <thead>
       <tr>
