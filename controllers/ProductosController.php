@@ -197,17 +197,19 @@ class ProductosController extends Controller
       $content = $this->renderAjax('cotizacion', [
         'detalles' => $detallesPedido
       ]);
-      print_r($content);
-      exit;
+      #print_r($content);
+      #exit;
       try {
         Yii::$app->mailer->compose($content)
-          ->setFrom('contacto@argamexico.com')
+          ->setFrom('ventas@argamexico.com')
           ->setTo('jorgehm77@hotmail.com')
           ->setSubject('Se ha recibido una solicitud de cotización')
           ->send();
-        return "Solicitud recibida existosamente. En breve nos comunicaremos contigo.";
+        echo "Solicitud recibida existosamente. En breve nos comunicaremos contigo.";
+        exit;
       } catch (\Exception $e) {
-        print_r($e);
+        //print_r($e);
+        echo "Error al recibir cotización :c";
         exit;
         }    
       }
