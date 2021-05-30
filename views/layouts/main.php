@@ -470,6 +470,8 @@ AppAsset::register($this);
 
 																				<li><a href="#"> Privacy Policy</a></li>
 
+																				<li><a href="<?= Url::toRoute(['empresasfolios/'])?>"> Consultar folios DS3</a></li>
+
 
 																				<li><?php if (Yii::$app->user->isGuest) { ?>
 																						<a href="<?= Url::toRoute(['/site/login']); ?>" class="topbar-one__link">
@@ -547,50 +549,56 @@ AppAsset::register($this);
 
 		<a href="#" data-target="html" class="scroll-to-target scroll-to-top" style="display: inline;"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
-		<a href="#" onclick="openNav()" class="scroll-to-top-cart" style="display: inline;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+		<a href="#" onclick="openNav()" class="scroll-to-top-cart" style="display: inline; color:#fff;"><i class="fa fa-shopping-cart" style="margin-top:22px;" aria-hidden="true"></i></a>
 
 		<div id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color:black!important">&times;</a>
-			<div class="row"> 
-				<div class="col-sm-8">
-				Lista de productos a cotizar
+			<a href="javascript:void(0)" class="closebtn btn" onclick="closeNav()" style="color:black!important">&times;</a>
+			<div class="row marginbottom50 paddingleft25">
+				<div class="col-sm-9">
+					<h5>Lista de productos a cotizar</h5>
 				</div>
-				<div class="col-sm-4">
-				<span onclick="vaciarCarrito()" class="pull-right"><i class="fa fa-trash"></i></span>
-				</div>				
-			</div>
-			<div class="">
-			<div id="carrito-lista"></div>
-			<div id="carrito-subtotal"></div>
-			Número de productos:
-			<div id="carrito-numero-elementos"></div>
-			<div id="result-pedido"></div>
-			<div id="form-enviar-cotizacion">
-				<div class="form-group">
-                 <input class="form-control" placeholder="Ingrese nombre" id="cotizacion-nombre">
-				</div>
-				<div class="form-group">
-                 <input class="form-control" placeholder="Ingrese email" id="cotizacion-email">
-				</div>
-				<div class="form-group">
-                 <input class="form-control" placeholder="Ingrese número de teléfono" id="cotizacion-telefono">
-				</div>
-				<div class="form-group">
-                  <button class="btn btn-success" onclick="enviarPedido()">Enviar</button>
+				<div class="col-sm-3">
+					<button onclick="vaciarCarrito()" class="pull-right btn btn-danger"><i class="fa fa-trash"></i></button>
 				</div>
 			</div>
+			<div class="paddingleft25">
+				<div id="carrito-lista" class="marginbottom50"></div>
+				<div class="row marginbottom50">
+					<div class="col-sm-8">
+						Número de productos:
+					</div>
+					<div class="col-sm-4">
+						<div id="carrito-numero-elementos"></div>
+					</div>
+				</div>
+
+				<div id="result-pedido"></div>
+				<div id="form-enviar-cotizacion">
+					<div class="form-group">
+						<input class="form-control" placeholder="Ingrese nombre" id="cotizacion-nombre">
+					</div>
+					<div class="form-group">
+						<input class="form-control" placeholder="Ingrese email" id="cotizacion-email">
+					</div>
+					<div class="form-group">
+						<input class="form-control" placeholder="Ingrese número de teléfono" id="cotizacion-telefono">
+					</div>
+					<div class="form-group">
+						<button class="btn btn-success" onclick="enviarPedido()">Enviar</button>
+					</div>
+				</div>
 			</div>
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
 		</div>
 
 		<script>
 			function openNav() {
-				document.getElementById("mySidenav").style.width = "333px";
+				document.getElementById("mySidenav").style.width = "400px";
 			}
 
 			function closeNav() {
@@ -769,7 +777,9 @@ AppAsset::register($this);
 		</script>
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/frontend.minaeb9.js?ver=3.1.4' id='elementor-frontend-js'></script>
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/preloaded-elements-handlers.minaeb9.js?ver=3.1.4' id='preloaded-elements-handlers-js'></script>
-        <script type="text/javascript">var urlPedido = "<?= Url::toRoute('productos/cotizar'); ?>";</script>
+		<script type="text/javascript">
+			var urlPedido = "<?= Url::toRoute('productos/cotizar'); ?>";
+		</script>
 		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/cart.js'></script>
 
 	</main>

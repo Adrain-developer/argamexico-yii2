@@ -28,10 +28,21 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.hostinger.com',  // e.g. smtp.mandrillapp.com or smtp.gmail.com
+                'username' => 'ventas@argamexico.com',
+                'password' => 'u=8Y4ipgee',
+                'port' => '465', // Port 25 is a very common port too
+                'encryption' => 'ssl', // It is often used, check your provider or mail server specs
+                'streamOptions' => [ 
+                    'ssl' => [ 
+                        'allow_self_signed' => true,
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                    ]
+                ]
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

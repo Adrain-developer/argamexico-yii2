@@ -67,12 +67,12 @@ for(let i = 0; i < sessionStorage.length; i++){
       '</div>'+      
   '</div>';
 }
-$("#carrito-numero-elementos").html(numeroItems);
+jQuery("#carrito-numero-elementos").html(numeroItems);
 
 if(numeroItems > 0){
-  $("#form-enviar-cotizacion").show();
+  jQuery("#form-enviar-cotizacion").show();
 }else{
-  $("#form-enviar-cotizacion").hide();
+  jQuery("#form-enviar-cotizacion").hide();
 }
 }
 function enviarPedido(){
@@ -96,6 +96,9 @@ function enviarPedido(){
       nombre: nombre,
       numero: numero,
       correo: correo
+    },
+    beforeSend: function(){
+      $("#result-pedido").html("Enviando tu cotización. Por favor espera...");
     },
     error: function(data, msg, msg2){
       console.log('error');
