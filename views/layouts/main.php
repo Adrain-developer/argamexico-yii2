@@ -177,6 +177,8 @@ AppAsset::register($this);
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
     <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
 
+	<link rel='stylesheet'  href='<?= Yii::$app->homeUrl ?>web/css/sidebar.css' type='text/css' media='all' />
+
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
