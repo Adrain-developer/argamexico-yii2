@@ -143,7 +143,7 @@ class ContactosController extends Controller
             ->setSubject('Se ha recibido una solicitud de contacto')
             ->send();
         } catch (\Exception $e) {
-          echo "Error al recibir cotización :'c";
+          echo "Error al recibir mensaje de contacto :'c";
           print_r($e);
           exit;
           }    

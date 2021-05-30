@@ -172,11 +172,7 @@ class ProductosController extends Controller
         $nombre = $get['nombre'];
         $numero = $get['numero'];
         $correo = $get['correo'];
-        $detalleCotizacion = $this->setDetallePedido($detallesPedido); 
-        /*echo '<pre>';
-        var_dump($detalleCotizacion);
-        echo '</pre>';
-        exit;  */       
+        $detalleCotizacion = $this->setDetallePedido($detallesPedido);
         $this->sendMail($detalleCotizacion, $nombre, $numero, $correo);          
     }
 
@@ -206,7 +202,7 @@ class ProductosController extends Controller
             'numero' => $numero,
             'correo' => $correo 
             ])
-          ->setFrom('ventas@argamexico.com')
+          ->setFrom('contacto@argamexico.com')
           ->setTo($correo)
           ->setSubject('Se ha recibido una solicitud de cotización')
           ->send();
