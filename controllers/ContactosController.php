@@ -69,7 +69,8 @@ class ContactosController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $enviado = true;
-            $model = new Contactos();
+            $this->sendMail($model);
+            $model = new Contactos();            
         }
 
         return $this->render('create', [
@@ -127,4 +128,24 @@ class ContactosController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    function sendMail($datosForm){
+     
+        try {
+          Yii::$app->mailer->compose('contacto', [
+              'descripcion' => $datosForm->descripcion,
+              'nombre' => $datosForm->nombre,
+              'numero' => $datosForm->telefono,
+              'correo' => $datosForm->correo 
+              ])
+            ->setFrom('contacto@argamexico.com')
+            ->setTo('contacto@argamexico.com')
+            ->setSubject('Se ha recibido una solicitud de contacto')
+            ->send();
+        } catch (\Exception $e) {
+          echo "Error al recibir cotización :'c";
+          print_r($e);
+          exit;
+          }    
+        }
 }
