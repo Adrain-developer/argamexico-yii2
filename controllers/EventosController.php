@@ -70,9 +70,20 @@ class EventosController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $dir_subida = 'web/images/eventos/';
             $file = UploadedFile::getInstance($model, 'pathImagen');
-            $model->pathImagen = $dir_subida.$file->name;    
+            $filePdf = UploadedFile::getInstance($model, 'pathInfo');
+            if(!empty($file)){
+                $model->pathImagen = $dir_subida.$file->name;
+            }             
+            if(!empty($filePdf)){
+             $model->pathInfo = $dir_subida.$filePdf->name;
+            }   
             if($model->save()){
-                move_uploaded_file($file->tempName, $model->pathImagen);            
+                if(!empty($file)){
+                    move_uploaded_file($file->tempName, $model->pathImagen);
+                }                
+                if(!empty($filePdf)){
+                    move_uploaded_file($filePdf->tempName, $model->pathInfo);
+                }            
             }else{
                 print_r($model->errors);
             }
@@ -100,16 +111,25 @@ class EventosController extends Controller
             $dir_subida = 'web/images/eventos/';
             $post = Yii::$app->request->post();
             $file = UploadedFile::getInstance($model, 'pathImagen');
+            $filePdf = UploadedFile::getInstance($model, 'pathInfo');
             if(!empty($file)){
                 $model->pathImagen = $dir_subida.$file->name;
             }
-            if(isset($post['Eventos']['pathImagenActual'])){
-                echo 'isset';
+            if(!empty($filePdf)){
+                $model->pathInfo = $dir_subida.$filePdf->name;
+            }
+            if(isset($post['Eventos']['pathImagenActual']) && empty($file)){                
                 $model->pathImagen = $post['Eventos']['pathImagenActual'];
+            }                
+            if(isset($post['Eventos']['pathInfoActual']) && empty($filePdf)){                
+                $model->pathInfo = $post['Eventos']['pathInfoActual'];
             }                
             if($model->save()){
                 if(!empty($file)){
                     move_uploaded_file($file->tempName, $model->pathImagen);
+                }                            
+                if(!empty($filePdf)){
+                    move_uploaded_file($filePdf->tempName, $model->pathInfo);
                 }                            
             }else{
                 print_r($model->errors);

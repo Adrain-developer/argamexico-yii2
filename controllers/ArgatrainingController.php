@@ -67,5 +67,12 @@ class ArgatrainingController extends Controller
         return $this->render('index', ['cursos' => $cursos, 'cursosOnline' => $cursosOnline]);
     }
 
+    public function actionSendfile($id){
+     $curso = Eventos::find()->where(['id' => $id])->one();
+     if (file_exists($curso->pathInfo)) {
+        return Yii::$app->response->sendFile($curso->pathInfo, 'Curso_arga.pdf');
+    }
+    }
+
 
 }

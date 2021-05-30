@@ -13,6 +13,7 @@ use Yii;
  * @property string|null $fecha
  * @property int $id_categoria
  * @property string|null $pathImagen
+ * @property string|null $pathInfo
  */
 class Eventos extends \yii\db\ActiveRecord
 {
@@ -33,7 +34,7 @@ class Eventos extends \yii\db\ActiveRecord
             [['nombre', 'id_categoria'], 'required'],
             [['descripcion', 'fecha'], 'string'],
             [['id_categoria'], 'integer'],
-            [['nombre', 'pathImagen'], 'string', 'max' => 250],
+            [['nombre', 'pathImagen', 'pathInfo'], 'string', 'max' => 250],
         ];
     }
 
@@ -49,6 +50,7 @@ class Eventos extends \yii\db\ActiveRecord
             'fecha' => 'Fecha',
             'id_categoria' => 'Id Categoria',
             'pathImagen' => 'Path Imagen',
+            'pathInfo' => 'Path Info',
         ];
     }
 }

@@ -31,6 +31,16 @@ use yii\jui\DatePicker;
       if(!empty($model->pathImagen) && !is_null($model->pathImagen)){ ?>
        <input type="hidden" name="Eventos[pathImagenActual]" value="<?= $model->pathImagen?>">
       <?php } ?>
+
+      <!--carga de pdf-->
+      <?= $form->field($model, 'pathInfo')->fileInput(['accept' => 'application/pdf'])->label("PDF") ?>
+
+    <?= !empty($model->pathInfo) && !is_null($model->pathInfo) ? "PDF actual: ".$model->pathInfo : '' ?>
+
+    <?php 
+      if(!empty($model->pathInfo) && !is_null($model->pathInfo)){ ?>
+       <input type="hidden" name="Eventos[pathInfoActual]" value="<?= $model->pathInfo?>">
+      <?php } ?>
     
     <div class="form-group">
         <?= Html::submitButton('Registrar', ['class' => 'btn btn-success']) ?>

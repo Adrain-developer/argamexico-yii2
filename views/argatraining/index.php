@@ -1,3 +1,6 @@
+<?php 
+use yii\helpers\Url;
+?>
 <div data-elementor-type="wp-page" data-elementor-id="390" class="elementor elementor-390" data-elementor-settings="[]">
     <div class="elementor-inner">
         <div class="elementor-section-wrap">
@@ -39,8 +42,12 @@
                                                                     <img width="370" height="300" src="<?= Yii::$app->homeUrl . $cursoOnline->pathImagen ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="<?= Yii::$app->homeUrl . $cursoOnline->pathImagen ?> 370w, <?= Yii::$app->homeUrl . $cursoOnline->pathImagen ?> 300w" sizes="(max-width: 370px) 100vw, 370px" />
                                                                 </div><!-- /.project-one__img -->
                                                                 <div class="project-one__content">
-                                                                    <a href="../projects-details/index.html" class="project-one__category"><?= $cursoOnline->nombre ?></a>
-                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html"><?= $cursoOnline->descripcion ?></a></h2>
+                                                                    <a href="#" class="project-one__category" onclick="return false;"><?= $cursoOnline->nombre ?></a>
+                                                                    <?php if(!is_null($cursoOnline->pathInfo)) {?>
+                                                                        <a href="<?= Url::toRoute(['sendfile', 'id' => $cursoOnline->id])?>">Descargar información</a>
+                                                                    <?php  } ?>
+                                                                    
+                                                                    <h2 class="project-one__title"><a href="#"><?= $cursoOnline->descripcion ?></a></h2>
                                                                     <!-- /.project-one__title -->
                                                                 </div><!-- /.project-one__content -->
                                                             </div><!-- /.project-one__single -->
@@ -54,8 +61,11 @@
                                                                     <img width="370" height="300" src="<?= Yii::$app->homeUrl . $curso->pathImagen ?>g" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="<?= Yii::$app->homeUrl . $curso->pathImagen ?> 370w, <?= Yii::$app->homeUrl . $curso->pathImagen ?> 300w" sizes="(max-width: 370px) 100vw, 370px" />
                                                                 </div><!-- /.project-one__img -->
                                                                 <div class="project-one__content">
-                                                                    <a href="../projects-details/index.html" class="project-one__category"><?= $curso->nombre ?></a>
-                                                                    <h2 class="project-one__title"><a href="../projects-details/index.html"><?= $curso->descripcion ?></a></h2>
+                                                                    <a href="#" class="project-one__category" onclick="return false;"><?= $curso->nombre ?></a>
+                                                                    <?php if(!is_null($curso->pathInfo)) {?>
+                                                                        <a href="<?= Url::toRoute(['sendfile', 'id' => $curso->id])?>">Descargar información</a>
+                                                                    <?php  } ?>
+                                                                    <h2 class="project-one__title"><a href="#" onclick="return false;"><?= $curso->descripcion ?></a></h2>
                                                                     <!-- /.project-one__title -->
                                                                 </div><!-- /.project-one__content -->
                                                             </div><!-- /.project-one__single -->
