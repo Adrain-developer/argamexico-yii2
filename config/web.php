@@ -31,8 +31,8 @@ $config = [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.hostinger.com',  // e.g. smtp.mandrillapp.com or smtp.gmail.com
-                'username' => 'ventas@argamexico.com',
-                'password' => 'u=8Y4ipgee',
+                'username' => 'contacto@argamexico.com',
+                'password' => '4Rga$2021',
                 'port' => '465', // Port 25 is a very common port too
                 'encryption' => 'ssl', // It is often used, check your provider or mail server specs
                 'streamOptions' => [ 
