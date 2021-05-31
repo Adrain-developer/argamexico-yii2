@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Publicaciones;
+use app\models\Imagenes;
 
 class ArgalabsController extends Controller
 {
@@ -62,18 +63,29 @@ class ArgalabsController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('index',[
+            'rutas' => $rutas,            
+        ]);
     }
 
     public function actionHigiene()
     {
-        return $this->render('higiene');
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('higiene',[
+            'rutas' => $rutas,            
+        ]);
+        
     }
 
     public function actionEvaluaciones()
     {
         $publicaciones = Publicaciones::find()->where(['seccion' => 'labs'])->all();
-        return $this->render('evaluaciones', ['publicaciones' => $publicaciones]);
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('evaluaciones', [
+            'publicaciones' => $publicaciones,
+            'rutas' => $rutas,
+            ]);
     }
 
 }
