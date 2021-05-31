@@ -59,7 +59,7 @@ $this->title = 'Fire';
                                                             <div class="team-one__single">
                                                                 <div class="team-one__image">
                                                                 <a href="<?= Url::toRoute(['argafire/mtto']);?>">
-                                                                    <img width="370" height="370" src="<?= Url::toRoute(['web/images/mmto_fijos.png']); ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>
+                                                                    <img width="370" height="370" src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFireUno) ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>
                                                                     </a>
                                                                     <div class="team-one__social">
 
@@ -82,7 +82,7 @@ $this->title = 'Fire';
                                                             <div class="team-one__single">
                                                                 <div class="team-one__image">
                                                                 <a href="<?= Url::toRoute(['argafire/catalogo']);?>">
-                                                                    <img width="370" height="370" src="<?= Url::toRoute(['web/images/extiontores.png']); ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>
+                                                                    <img width="370" height="370" src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFireTres) ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>
                                                                     </a>
                                                                     <div class="team-one__social">
 
@@ -105,7 +105,7 @@ $this->title = 'Fire';
                                                             <div class="team-one__single">
                                                                 <div class="team-one__image">
                                                                 <a href="<?= Url::toRoute(['argafire/acreditacion']);?>">
-                                                                    <img width="370" height="370" src="<?= Url::toRoute(['web/images/acreditacion.png']); ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>
+                                                                    <img width="370" height="370" src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFireDos) ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>
                                                                     </a>
                                                                     <div class="team-one__social">
 
