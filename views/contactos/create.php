@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="elementor-widget-wrap">
                                     <div class="elementor-element elementor-element-4550bf58 elementor-widget elementor-widget-indext_page_banner" data-id="4550bf58" data-element_type="widget" data-widget_type="indext_page_banner.default">
                                         <div class="elementor-widget-container">
-                                            <section class=" inner-banner" style="background-image: url(../web/images/bannerConsultores.jpg);">
+                                            <section class=" inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenBnrContacto) ?>);">
                                                 <div class="container">
                                                     <h2 class="inner-banner__title">Contacto ARGA GROUP
                                                     </h2><!-- /.inner-banner__title -->

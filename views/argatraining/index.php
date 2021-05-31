@@ -4,6 +4,33 @@ use yii\helpers\Url;
 <div data-elementor-type="wp-page" data-elementor-id="390" class="elementor elementor-390" data-elementor-settings="[]">
     <div class="elementor-inner">
         <div class="elementor-section-wrap">
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-5dcab2b elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="5dcab2b" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+				<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-row">
+						<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e66978a" data-id="e66978a" data-element_type="column">
+							<div class="elementor-column-wrap elementor-element-populated">
+								<div class="elementor-widget-wrap">
+									<div class="elementor-element elementor-element-f2fe049 elementor-widget elementor-widget-indext_page_banner" data-id="f2fe049" data-element_type="widget" data-widget_type="indext_page_banner.default">
+										<div class="elementor-widget-container">
+											<section class=" inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxTr) ?>);">
+												<div class="container">
+													<h2 class="inner-banner__title">ARGA Training
+													</h2><!-- /.inner-banner__title -->
+													<ul class="list-unstyled thm-breadcrumb">
+														<li><a href="../index.html">Inicio
+															</a></li>
+														<li class="active"><a href="#"><strong>ARGA Training</strong></a></li>
+													</ul><!-- /.thm-breadcrumb -->
+												</div><!-- /.container -->
+											</section>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
             <section class="elementor-section elementor-top-section elementor-element elementor-element-cda7883 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="cda7883" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
                 <div class="elementor-container elementor-column-gap-no">
                     <div class="elementor-row">

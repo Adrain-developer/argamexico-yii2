@@ -19,7 +19,7 @@ use yii\helpers\Url;
                             <img id="producto-img-<?= $producto->id ?>" width="300" height="300" src="<?= Yii::$app->homeUrl . $producto->pathImagen ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px" />
                             <div class="overlay">
                                 <div class="shop_metas">
-                                    <a class="lightbox-image shop_image" href="<?= Url::toRoute('/argafire/detalle') ?>" data-group="1" title="Ver detalle del producto"><span class="fa fa-eye"></span></a>
+                                    <a class="lightbox-image shop_image" href="<?= Url::toRoute('/argafire/detalle?id='.$producto->id) ?>" data-group="1" title="Ver detalle del producto"><span class="fa fa-eye"></span></a>
                                 </div>
 
                             </div>

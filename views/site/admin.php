@@ -52,5 +52,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-sm-6">
+            <div class="card height185">
+                <div class="card-body">
+                    <h5 class="card-title">Administración de <strong>contenido</strong></h5>
+                    <p class="card-text">Esta sección te permitirá editar el contenido de tu plataforma.</p>
+                    <a href="<?= Url::toRoute('imagenes/create') ?>" class="btn btn-primary">Ir a contenido</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

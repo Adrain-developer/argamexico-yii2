@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Eventos;
+use app\models\Imagenes;
 
 class ArgatrainingController extends Controller
 {
@@ -64,7 +65,12 @@ class ArgatrainingController extends Controller
     {
         $cursos = Eventos::find()->where(['id_categoria' => '3'])->all();
         $cursosOnline = Eventos::find()->where(['id_categoria' => '1'])->all();
-        return $this->render('index', ['cursos' => $cursos, 'cursosOnline' => $cursosOnline]);
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('index', [
+            'cursos' => $cursos, 
+            'cursosOnline' => $cursosOnline,
+            'rutas' => $rutas,
+            ]);
     }
 
     public function actionSendfile($id){

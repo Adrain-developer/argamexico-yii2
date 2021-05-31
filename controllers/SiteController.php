@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Imagenes;
 
 class SiteController extends Controller
 {
@@ -61,8 +62,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+     /**select* from Imagenes where nombreSeccion = index */
+     $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+
+        return $this->render('index',[
+            'rutas' => $rutas, 
+        ]);
     }
+
 
     public function actionFire()
     {

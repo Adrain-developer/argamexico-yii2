@@ -71,7 +71,7 @@ use yii\helpers\Url;
 								<div class="elementor-widget-wrap">
 									<div class="elementor-element elementor-element-f2fe049 elementor-widget elementor-widget-indext_page_banner" data-id="f2fe049" data-element_type="widget" data-widget_type="indext_page_banner.default">
 										<div class="elementor-widget-container">
-											<section class=" inner-banner" style="background-image: url(../web/images/bannerlabs.jpg);">
+											<section class=" inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxlabs) ?>);">
 												<div class="container">
 													<h2 class="inner-banner__title">HIGIENE LABORAL
 													</h2><!-- /.inner-banner__title -->

@@ -16,7 +16,7 @@
                                 <div class="elementor-widget-wrap">
                                     <div class="elementor-element elementor-element-4550bf58 elementor-widget elementor-widget-indext_page_banner" data-id="4550bf58" data-element_type="widget" data-widget_type="indext_page_banner.default">
                                         <div class="elementor-widget-container">
-                                            <section class=" inner-banner" style="background-image: url(../wp-content/uploads/2020/05/inner-banner-bg-1-1.jpg);">
+                                            <section class=" inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFire) ?>);">
                                                 <div class="container">
                                                     <h2 class="inner-banner__title">Mantenimiento de equipos fijos
                                                     </h2><!-- /.inner-banner__title -->

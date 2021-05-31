@@ -71,9 +71,10 @@ use yii\helpers\Url;
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+</script>
 
-<section class="inner-banner" style="background-image: url(<?= Url::toRoute(['web/images/AF3.jpg']); ?>);">
+<section class="inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFire) ?>);">
 
     <div class="container">
         <h2 class="inner-banner__title">PRODUCTOS</h2><!-- /.inner-banner__title -->

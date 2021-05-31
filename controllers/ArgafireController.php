@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Productos;
+use app\models\Imagenes;
 
 class ArgafireController extends Controller
 {
@@ -62,32 +63,59 @@ class ArgafireController extends Controller
      * @return string
      */
     public function actionIndex()
-    {        
-        return $this->render('index');
+    {       
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one(); 
+        return $this->render('index',[
+            'rutas' => $rutas, 
+        ]);
     }
 
     public function actionAcreditacion()
-    {        
-        return $this->render('acreditacion');
+    {    
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();     
+        return $this->render('acreditacion',[
+            'rutas' => $rutas, 
+        ]);
     }
 
     public function actionCatalogo(){
         $categorias = Categorias::find()->where(['tipo' => 'p'])->all();
-        return $this->render('catalogo', ['categorias' => $categorias]);
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one(); 
+        return $this->render('catalogo', [
+            'categorias' => $categorias, 
+            'rutas' => $rutas,
+        ]);
     }
 
     public function actionGetproductos(){
         $post = Yii::$app->request->get();
         $productos = Productos::find()->where(['id_categoria' => $post['idCategoria']])->all();
-        return $this->renderAjax('productos', ['productos' => $productos]);
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->renderAjax('productos', [
+            'productos' => $productos,
+            'rutas' => $rutas,
+            ]);
     }
 
     public function actionMtto(){
-        return $this->render('mtto');
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one(); 
+        return $this->render('mtto',[
+            'rutas' => $rutas, 
+        ]);
     }
 
     public function actionDetalle(){
-        return $this->render('detalle');
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        $get = Yii::$app->request->get();
+        $id = $get['id'];
+        $producto = Productos::find()->where(['id' => $id])->one();
+        $categorias = Categorias::find()->where(['tipo' => 'p'])->all();
+        
+        return $this->render('detalle',[
+            'rutas' => $rutas,
+            'producto' => $producto,
+            'categorias' => $categorias,
+        ]);
     }
 
 

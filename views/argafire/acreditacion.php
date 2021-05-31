@@ -26,7 +26,7 @@ $this->title = 'Fire';
 </style>
 
 
-    <section class="inner-banner" style="background-image: url(../web/images/8.jpg);">
+    <section class="inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFire) ?>);">
 
         <div class="container">
             <h2 class="inner-banner__title">Acreditación</h2><!-- /.inner-banner__title -->

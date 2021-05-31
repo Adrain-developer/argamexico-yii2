@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Publicaciones;
+use app\models\Imagenes;
 
 class ArgaconsultoresController extends Controller
 {
@@ -63,7 +64,11 @@ class ArgaconsultoresController extends Controller
     public function actionIndex()
     {
         $publicaciones = Publicaciones::find()->where(['seccion' => 'consultores'])->all();
-        return $this->render('index', ['publicaciones' => $publicaciones]);
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one(); 
+        return $this->render('index', [
+            'publicaciones' => $publicaciones,
+            'rutas' => $rutas,
+            ]);
     }
 
 

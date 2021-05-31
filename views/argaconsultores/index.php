@@ -70,7 +70,7 @@ use yii\helpers\Html;
 								<div class="elementor-widget-wrap">
 									<div class="elementor-element elementor-element-f2fe049 elementor-widget elementor-widget-indext_page_banner" data-id="f2fe049" data-element_type="widget" data-widget_type="indext_page_banner.default">
 										<div class="elementor-widget-container">
-											<section class=" inner-banner" style="background-image: url(../web/images/bannerConsultores.jpg);">
+											<section class=" inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxCons) ?>);">
 												<div class="container">
 													<h2 class="inner-banner__title">ARGA Consultores
 													</h2><!-- /.inner-banner__title -->

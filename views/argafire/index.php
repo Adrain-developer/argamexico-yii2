@@ -20,7 +20,7 @@ $this->title = 'Fire';
 
 </style>
 
-<section class="inner-banner" style="background-image: url(<?= Url::toRoute(['web/images/AC.jpg']); ?>);">
+<section class="inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFire) ?>);">
 
     <div class="container">
         <h2 class="inner-banner__title">ARGA FIRE</h2><!-- /.inner-banner__title -->

@@ -8,6 +8,7 @@ use app\models\ContactosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Imagenes;
 
 /**
  * ContactosController implements the CRUD actions for Contactos model.
@@ -64,6 +65,7 @@ class ContactosController extends Controller
      */
     public function actionCreate()
     {
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
         $model = new Contactos();
         $enviado = false;
 
@@ -75,7 +77,8 @@ class ContactosController extends Controller
 
         return $this->render('create', [
             'model' => $model, 
-            'enviado' =>$enviado
+            'enviado' =>$enviado,
+            'rutas' => $rutas,
         ]);
     }
 

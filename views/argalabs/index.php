@@ -72,7 +72,7 @@ use yii\helpers\Url;
 								<div class="elementor-widget-wrap">
 									<div class="elementor-element elementor-element-f2fe049 elementor-widget elementor-widget-indext_page_banner" data-id="f2fe049" data-element_type="widget" data-widget_type="indext_page_banner.default">
 										<div class="elementor-widget-container">
-											<section class=" inner-banner" style="background-image: url(../web/images/bannerlabs.jpg);">
+											<section class=" inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxlabs) ?>);">
 												<div class="container">
 													<h2 class="inner-banner__title">ARGA Labs
 													</h2><!-- /.inner-banner__title -->
@@ -123,7 +123,7 @@ use yii\helpers\Url;
 																	<div class="col-lg-4">
 																		<div class="team-one__single">
 																			<div class="team-one__image" width="370" height="370" loading="lazy" sizes="(max-width: 370px) 100vw, 370px">
-																			<?= Html::img(Yii::$app->homeUrl . "web/images/labfuentes.jpg", [
+																			<?= Html::img(Yii::$app->homeUrl . $rutas->pathImagenFijasLabs, [
 																					'class' => "attachment-post-thumbnail size-post-thumbnail wp-post-image",
 																					'width' => "370",
 																					'height' => "370"
@@ -150,7 +150,7 @@ use yii\helpers\Url;
 																	<div class="col-lg-4">
 																		<div class="team-one__single">
 																			<div class="team-one__image" width="370" height="370" loading="lazy" sizes="(max-width: 370px) 100vw, 370px">
-																				<?= Html::img(Yii::$app->homeUrl . "web/images/labhigiene.jpg", [
+																				<?= Html::img(Yii::$app->homeUrl . $rutas->pathImagenHigieneLabs, [
 																					'class' => "attachment-post-thumbnail size-post-thumbnail wp-post-image",
 																					'width' => "370",
 																					'height' => "370"

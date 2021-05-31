@@ -113,13 +113,14 @@ $this->title = 'ARGA México';
 										<div class="elementor-widget-container">
 											<section class=" slider-two slider-two__home-five">
 												<div class="slider-two__carousel owl-carousel owl-theme">
-													<div class="item slider-two__slider-1" style="background-image: url(web/images/bannerlabs.jpg);">
+
+													<div class="item slider-two__slider-1" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFire) ?>);">
 														<div class="container">
 															<h2 class="slider-one__title">
-																<span class="slider-two__linear-text">ARGA Labs llega a todos los estados</span> <br>
-																de la República Mexicana
+																<span class="slider-two__linear-text"><?= ($rutas->tituloIdxFire) ?></span> <br>
+																<?= ($rutas->subtIdxFire) ?>
 															</h2>
-															<p class="slider-one__text">con Laboratorios Certificados ante la <strong>NOM-154-SCFI-2005</strong></p>
+															<p class="slider-one__text"><strong><?= ($rutas->textoIdxFire) ?></strong></p>
 															<!-- /.slider-two__text -->
 															<a href="<?= Url::toRoute(['argalabs/index']); ?>" class="thm-btn slider-two__btn">Conocer más</a>
 
@@ -127,13 +128,13 @@ $this->title = 'ARGA México';
 
 													</div>
 
-													<div class="item slider-two__slider-1" style="background-image: url(web/images/bannerConsultores.jpg);">
+													<div class="item slider-two__slider-1" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxCons) ?>);">
 														<div class="container">
 															<h2 class="slider-one__title">
-																<span class="slider-two__linear-text">En ARGA Consultores</span> <br>
-																Evaluamos las condiciones de trabajo
+																<span class="slider-two__linear-text"><?= ($rutas->tituloIdxCons) ?></span> <br>
+																<?= ($rutas->subtIdxCons) ?>
 															</h2>
-															<p class="slider-one__text">En el ambiente laboral.</p>
+															<p class="slider-one__text"><strong><?= ($rutas->textoIdxCons) ?></strong></p>
 															<!-- /.slider-two__text -->
 															<a href="<?= Url::toRoute(['argaconsultores/index']); ?>" class="thm-btn slider-two__btn">Conocer más</a>
 
@@ -141,13 +142,27 @@ $this->title = 'ARGA México';
 
 													</div>
 
-													<div class="item slider-two__slider-1" style="background-image: url(web/images/3.jpg);">
+													<div class="item slider-two__slider-1" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxlabs) ?>);">
 														<div class="container">
 															<h2 class="slider-one__title">
-																<span class="slider-two__linear-text"> En ARGA Traning</span> <br>
-																Encontraras una extensa cartera de cursos
+																<span class="slider-two__linear-text"><?= ($rutas->tituloIdxlabs) ?></span> <br>
+																<?= ($rutas->subtIdxlabs) ?>
 															</h2>
-															<p class="slider-one__text">Registrados ante la <strong>STPS</strong></p>
+															<p class="slider-one__text"><strong><?= ($rutas->textoIdxlabs) ?></strong></p>
+															<!-- /.slider-two__text -->
+															<a href="<?= Url::toRoute(['argalabs/index']); ?>" class="thm-btn slider-two__btn">Conocer más</a>
+
+														</div>
+
+													</div>
+
+													<div class="item slider-two__slider-1" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxTr) ?>);">
+														<div class="container">
+															<h2 class="slider-one__title">
+																<span class="slider-two__linear-text"><?= ($rutas->tituloIdxTr) ?></span> <br>
+																<?= ($rutas->tituloIdxTr) ?>
+															</h2>
+															<p class="slider-one__text"><strong><?= ($rutas->textoIdxTr) ?></strong></p>
 															<!-- /.slider-two__text -->
 															<a href="<?= Url::toRoute(['argatraning/index']); ?>" class="thm-btn slider-two__btn">Conocer más</a>
 
@@ -224,7 +239,7 @@ $this->title = 'ARGA México';
 																</div><!-- /.about-one__content -->
 															</div><!-- /.col-lg-8 -->
 															<div class="col-xl-4 col-lg-12">
-																<img src="./web/images/6.jpg" class="about-one__image" alt="about image">
+																<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxUno) ?>" class="about-one__image" alt="about image">
 															</div><!-- /.col-lg-4 -->
 														</div><!-- /.row -->
 													</div><!-- /.about-one__inner-container -->
@@ -268,7 +283,7 @@ $this->title = 'ARGA México';
 														<div class="service-one__content">
 
 
-														<div class="service-one__single col-12 ">
+															<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon fa fa-fire-extinguisher"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argafire/index']); ?>">ARGA<br>Fire</a></h2>
@@ -280,7 +295,7 @@ $this->title = 'ARGA México';
 															</div><!-- /.service-one__single -->
 
 
-														<div class="service-one__single col-12 ">
+															<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon fa fa-building"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argaconsultores/index']); ?>">ARGA<br>Consultores</a></h2>
@@ -292,7 +307,7 @@ $this->title = 'ARGA México';
 															</div><!-- /.service-one__single -->
 
 
-														<div class="service-one__single col-12 ">
+															<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon fa fa-cogs"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argatraining/index']); ?>">ARGA<br>Training</a></h2>
@@ -304,7 +319,7 @@ $this->title = 'ARGA México';
 															</div><!-- /.service-one__single -->
 
 
-														<div class="service-one__single col-12 ">
+															<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon fa fa-flask"></i><!-- /.indext-icon-service-1-1 -->
 																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argalabs/index']); ?>">ARGA<br>Labs</a></h2>
@@ -351,18 +366,18 @@ $this->title = 'ARGA México';
 
 														<div class="item">
 															<div class="project-one__single">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/AF1.jpg") ?>
+																<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFireUno) ?>">
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/normativa']);?>">Servicio de<br>Mantenimiento y<br>Recarga de equipos de emergencia</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/normativa']); ?>">Servicio de<br>Mantenimiento y<br>Recarga de equipos de emergencia</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
 
 														<div class="item">
 															<div class="project-one__single">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/AR3.jpg") ?>
+																<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFireDos) ?>">
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/acreditacion']);?>">Conoce las acreditaciones que ARGA <strong>Fire</strong> tiene para Uds</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/acreditacion']); ?>">Conoce las acreditaciones que ARGA <strong>Fire</strong> tiene para Uds</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
@@ -370,9 +385,9 @@ $this->title = 'ARGA México';
 
 														<div class="item">
 															<div class="project-one__single">
-																<?= Html::img(Yii::$app->homeUrl . "web/images/AF2.jpg") ?>
+																<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFireTres) ?>">
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/catalogo']);?>">Conoce nuestra amplia gama de productos de emergencia para la industria</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/catalogo']); ?>">Conoce nuestra amplia gama de productos de emergencia para la industria</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
@@ -396,11 +411,11 @@ $this->title = 'ARGA México';
 								<div class="elementor-widget-wrap">
 									<div class="elementor-element elementor-element-35e48a7 elementor-widget elementor-widget-indext_calltoaction4" data-id="35e48a7" data-element_type="widget" data-widget_type="indext_calltoaction4.default">
 										<div class="elementor-widget-container">
-											<section class=" cta-three text-center" style="background-image: url(<?= Url::toRoute(['web/images/AC.jpg']); ?>);">
+											<section class=" cta-three text-center" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenBnrIdxCons) ?>);">
 												<div class="container">
 													<h2 class="cta-three__title">ARGA Consultores
 													</h2><!-- /.cta-three__title -->
-													<p class="cta-three__text">Con más de 17 años de experiencia
+													<p class="cta-three__text"><?= ($rutas->tituloBnrIdxCons) ?>
 
 													</p>
 													<!-- /.cta-three__text -->
@@ -450,7 +465,7 @@ $this->title = 'ARGA México';
 																				</div><!-- /.feature-one__icon -->
 																				<div class="feature-one__content">
 																					<h2 class="feature-one__title">
-																						<a href="<?= Url::toRoute(['argalabs/evaluaciones']);?>">
+																						<a href="<?= Url::toRoute(['argalabs/evaluaciones']); ?>">
 																							Fuentes fijas y emisiones a la atmósfera.
 																					</h2><!-- /.feature-one__title -->
 																					<p class="feature-one__text">Ver las Normativas.</p></a><!-- /.feature-one__text -->
@@ -464,7 +479,7 @@ $this->title = 'ARGA México';
 																				</div><!-- /.feature-one__icon -->
 																				<div class="feature-one__content">
 																					<h2 class="feature-one__title">
-																						<a href="<?= Url::toRoute(['/argalabs/higiene']);?>">
+																						<a href="<?= Url::toRoute(['/argalabs/higiene']); ?>">
 																							Higiene laboral.
 																					</h2><!-- /.feature-one__title -->
 																					<p class="feature-one__text">Ver las Normativas.</p></a><!-- /.feature-one__text -->
@@ -475,7 +490,7 @@ $this->title = 'ARGA México';
 																	</div><!-- /.col-lg-6 -->
 																	<div class="col-lg-5">
 																		<div class="video-two__image">
-																			<?= Html::img(Yii::$app->homeUrl . "web/images/AL1.jpg") ?>
+																			<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenBnrIdxLabs) ?>">
 																			<a class="video-two__btn hvr-pulse html5lightbox" href="https://www.youtube.com/watch?v=Get7rqXYrbQ"><i class="fa fa-play"></i><!-- /.fa fa-play --></a>
 																		</div><!-- /.video-two__image -->
 																	</div><!-- /.col-lg-6 -->
@@ -499,34 +514,34 @@ $this->title = 'ARGA México';
 
 
 						<section class="elementor-section elementor-top-section elementor-element elementor-element-7be5cbb elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="7be5cbb" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
-				<div class="elementor-container elementor-column-gap-no">
-					<div class="elementor-row">
-						<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-72600e7" data-id="72600e7" data-element_type="column">
-							<div class="elementor-column-wrap elementor-element-populated">
-								<div class="elementor-widget-wrap">
-									<div class="elementor-element elementor-element-35e48a7 elementor-widget elementor-widget-indext_calltoaction4" data-id="35e48a7" data-element_type="widget" data-widget_type="indext_calltoaction4.default">
-										<div class="elementor-widget-container">
-											<section class=" cta-three text-center" style="background-image: url(<?= Url::toRoute(['web/images/training_1.jpg']); ?>);">
-												<div class="container">
-													<h2 class="cta-three__title">ARGA Training
-													</h2><!-- /.cta-three__title -->
-													<p class="cta-three__text">Podrás ver alguno de nuestros servicios, pregúntanos por los demás servicios que tenemos para ti.
+							<div class="elementor-container elementor-column-gap-no">
+								<div class="elementor-row">
+									<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-72600e7" data-id="72600e7" data-element_type="column">
+										<div class="elementor-column-wrap elementor-element-populated">
+											<div class="elementor-widget-wrap">
+												<div class="elementor-element elementor-element-35e48a7 elementor-widget elementor-widget-indext_calltoaction4" data-id="35e48a7" data-element_type="widget" data-widget_type="indext_calltoaction4.default">
+													<div class="elementor-widget-container">
+														<section class=" cta-three text-center" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenBnrIdxTraining) ?>);">
+															<div class="container">
+																<h2 class="cta-three__title">ARGA Training
+																</h2><!-- /.cta-three__title -->
+																<p class="cta-three__text"><?= ($rutas->tituloBnrIdxTraining) ?>
 
-													</p>
-													<!-- /.cta-three__text -->
-													<a href="<?= Url::toRoute(['argatraining/index']); ?>" class="cta-three__btn thm-btn">Ir a cursos</a><!-- /.thm-btn -->
-												</div><!-- /.container -->
-											</section>
+																</p>
+																<!-- /.cta-three__text -->
+																<a href="<?= Url::toRoute(['argatraining/index']); ?>" class="cta-three__btn thm-btn">Ir a cursos</a><!-- /.thm-btn -->
+															</div><!-- /.container -->
+														</section>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+						</section>
 
-						
+
 						<div class="clearfix"></div>
 
 						<section class="elementor-section elementor-top-section elementor-element elementor-element-55c8749 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="55c8749" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
@@ -542,7 +557,7 @@ $this->title = 'ARGA México';
 																<div class="row">
 																	<div class="col-lg-6">
 																		<div class="about-six__image wow fadeInLeft" data-wow-duration="1500ms">
-																			<img src="./web/images/7.jpg" alt="">
+																			<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxDos) ?>">
 																		</div><!-- /.about-six__image -->
 																	</div><!-- /.col-lg-6 -->
 																	<div class="col-lg-6 d-flex">
