@@ -92,7 +92,7 @@ class ArgatrainingController extends Controller
             ]);
     }
 
-    public function actionProteccionAmbiental(){
+    public function actionProteccionambiental(){
         $cursos = Eventos::find()->where(['categoria' => 'ProteccionAmbiental', 'subcategoria' => 'Presencial'])->all();
         $cursosOnline = Eventos::find()->where(['categoria' => 'ProteccionAmbiental', 'subcategoria' => 'EnLinea'])->all();
         $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
@@ -103,7 +103,7 @@ class ArgatrainingController extends Controller
             ]);
     }
 
-    public function actionProteccionCivl(){
+    public function actionProteccioncivil(){
         $cursos = Eventos::find()->where(['categoria' => 'ProteccionCivil', 'subcategoria' => 'Presencial'])->all();
         $cursosOnline = Eventos::find()->where(['categoria' => 'ProteccionCivil', 'subcategoria' => 'EnLinea'])->all();
         $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
