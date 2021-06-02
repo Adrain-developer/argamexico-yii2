@@ -70,7 +70,7 @@ use yii\helpers\Url;
                                                                 </div><!-- /.project-one__img -->
                                                                 <div class="project-one__content">
                                                                     <a href="#" class="project-one__category" onclick="return false;"><?= $cursoOnline->nombre ?></a>
-                                                                    <?php if(!is_null($cursoOnline->pathInfo)) {?>
+                                                                    <?php if(!is_null($cursoOnline->pathInfo) && !empty($cursoOnline->pathInfo)) {?>
                                                                         <a href="<?= Url::toRoute(['sendfile', 'id' => $cursoOnline->id])?>">Descargar información</a>
                                                                     <?php  } ?>
                                                                     
@@ -89,9 +89,9 @@ use yii\helpers\Url;
                                                                 </div><!-- /.project-one__img -->
                                                                 <div class="project-one__content">
                                                                     <a href="#" class="project-one__category" onclick="return false;"><?= $curso->nombre ?></a>
-                                                                    <?php if(!is_null($curso->pathInfo)) {?>
+                                                                    <?php if(!is_null($curso->pathInfo) && !empty($curso->pathInfo)) {?>
                                                                         <a href="<?= Url::toRoute(['sendfile', 'id' => $curso->id])?>">Descargar información</a>
-                                                                    <?php  } ?>
+                                                                    <?php  } ?> 
                                                                     <h2 class="project-one__title"><a href="#" onclick="return false;"><?= $curso->descripcion ?></a></h2>
                                                                     <!-- /.project-one__title -->
                                                                 </div><!-- /.project-one__content -->
