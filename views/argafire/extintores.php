@@ -92,8 +92,7 @@ use yii\helpers\Url;
                                 <div class="row">
                                     <div class="col-lg-6 d-flex justify-content-end">
                                         <div class="about-two__img wow fadeInLeft" data-wow-duration="1500ms">
-                                            <img src="../wp-content/uploads/2020/05/about-2-1.jpg" class="about-two__img-1" alt="">
-                                            <img src="../wp-content/uploads/2020/05/about-2-2.jpg" class="about-two__img-2" alt="">
+                                            <img src="../web/images/mtto_ext1.jpg" class="about-two__img-1" alt="">                                            
                                         </div><!-- /.about-two__img -->
                                     </div><!-- /.col-lg-6 -->
                                     <div class="col-lg-6">
@@ -101,7 +100,7 @@ use yii\helpers\Url;
                                             <div class="block-title">
                                                 <p class="block-title__tag-line"></p><!-- /.block-title__tag-line -->
                                                 <h3 class="block-title__title">PÓLIZA DE SERVICIO <br>
-                                                    <span class="block-title__bold">E INSPECCIÓN MENSUAL A EQUIPOS CONTRA<span class="block-title__base">INCENDIO</span><!-- /.block-title__base --></span>
+                                                    <span class="block-title__bold">E INSPECCIÓN MENSUAL A EQUIPOS CONTRA<br><span class="block-title__base">INCENDIO</span><!-- /.block-title__base --></span>
                                                     <!-- /.block-title__bold -->
                                                 </h3><!-- /.block-title__title -->
                                             </div><!-- /.block-title -->
@@ -118,22 +117,27 @@ use yii\helpers\Url;
                                                 <li><i class="fa fa-check-circle"></i> Sustitución de partes cuando se requiera.</li>
                                                 <li><i class="fa fa-check-circle"></i> Recarga con el mismo agente extinguidor extraído.</li>
                                                 <li><i class="fa fa-check-circle"></i> Reemplazo total por nuevo y certificado, en caso de deterioro.</li>
-                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base">NOM-154-SCFI-2005</span></li>
+                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="../web/images/nom.png" class="about-two__sign" alt=""></span></li>
 
                                             </ul><!-- /.about-two__list -->
-                                            <img src="../wp-content/uploads/2020/05/sign-1-1.png" class="about-two__sign" alt="">
+                                            
                                         </div><!-- /.about-two__content -->
                                     </div><!-- /.col-lg-6 -->
                                 </div><!-- /.row -->
-
+<br>
                                 <div class="row">
+                                <div class="col-lg-6 d-flex justify-content-end">
+                                        <div class="about-two__img wow fadeInLeft" data-wow-duration="1500ms">
+                                        <img src="../web/images/mtto_ext2.jpg" class="about-two__img-1" alt="">
+                                        </div><!-- /.about-two__img -->
+                                    </div><!-- /.col-lg-6 -->
                                     
                                     <div class="col-lg-6">
                                         <div class="about-two__content">
                                             <div class="block-title">
                                                 <p class="block-title__tag-line"></p><!-- /.block-title__tag-line -->
                                                 <h3 class="block-title__title">SERVICIO DE MANTENIMIENTO ANUAL<br>
-                                                    <span class="block-title__bold">A EQUIPOS CONTRA<span class="block-title__base">INCENDIO</span><!-- /.block-title__base --></span>
+                                                    <span class="block-title__bold">A EQUIPOS CONTRA<br><span class="block-title__base">INCENDIO</span><!-- /.block-title__base --></span>
                                                     <!-- /.block-title__bold -->
                                                 </h3><!-- /.block-title__title -->
                                             </div><!-- /.block-title -->
@@ -150,25 +154,17 @@ use yii\helpers\Url;
                                                 <li><i class="fa fa-check-circle"></i> Sustitución de partes cuando se requiera.</li>
                                                 <li><i class="fa fa-check-circle"></i> Recarga con el mismo agente extinguidor extraído.</li>
                                                 <li><i class="fa fa-check-circle"></i> Reemplazo total por nuevo y certificado, en caso de deterioro.</li>
-                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base">NOM-154-SCFI-2005</span></li>
+                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="../web/images/nom.png" class="about-two__sign" alt=""></span></li>
 
-                                            </ul><!-- /.about-two__list -->
-                                            <img src="../wp-content/uploads/2020/05/sign-1-1.png" class="about-two__sign" alt="">
+                                            </ul><!-- /.about-two__list -->                                            
                                         </div><!-- /.about-two__content -->
-                                    </div><!-- /.col-lg-6 -->
-                                    <div class="col-lg-6 d-flex justify-content-end">
-                                        <div class="about-two__img wow fadeInLeft" data-wow-duration="1500ms">
-                                            <img src="../wp-content/uploads/2020/05/about-2-1.jpg" class="about-two__img-1" alt="">
-                                            <img src="../wp-content/uploads/2020/05/about-2-2.jpg" class="about-two__img-2" alt="">
-                                        </div><!-- /.about-two__img -->
-                                    </div><!-- /.col-lg-6 -->
+                                    </div><!-- /.col-lg-6 -->                                   
                                 </div><!-- /.row -->
-
+<br>
                                 <div class="row">
                                     <div class="col-lg-6 d-flex justify-content-end">
                                         <div class="about-two__img wow fadeInLeft" data-wow-duration="1500ms">
-                                            <img src="../wp-content/uploads/2020/05/about-2-1.jpg" class="about-two__img-1" alt="">
-                                            <img src="../wp-content/uploads/2020/05/about-2-2.jpg" class="about-two__img-2" alt="">
+                                        <img src="../web/images/mtto_ext3.jpg" class="about-two__img-1" alt="">
                                         </div><!-- /.about-two__img -->
                                     </div><!-- /.col-lg-6 -->
                                     <div class="col-lg-6">
@@ -176,7 +172,7 @@ use yii\helpers\Url;
                                             <div class="block-title">
                                                 <p class="block-title__tag-line"></p><!-- /.block-title__tag-line -->
                                                 <h3 class="block-title__title">MANTENIMIENTO Y RECARGA<br>
-                                                    <span class="block-title__bold">DE TODO TIPO DE AGENTES<span class="block-title__base">EXTINGUIDORES</span><!-- /.block-title__base --></span>
+                                                    <span class="block-title__bold">DE TODO TIPO DE AGENTES<br><span class="block-title__base">EXTINGUIDORES</span><!-- /.block-title__base --></span>
                                                     <!-- /.block-title__bold -->
                                                 </h3><!-- /.block-title__title -->
                                             </div><!-- /.block-title -->
@@ -192,12 +188,10 @@ use yii\helpers\Url;
                                                 <li><i class="fa fa-check-circle"></i> Recarga del agente extinguidor en contenedor cerrado al medio ambiente.</li>
                                                 <li><i class="fa fa-check-circle"></i> Desarmado, revisión completa del cilindro, interna y externa.</li>
                                                 <li><i class="fa fa-check-circle"></i> Sustitución de partes cuando se requiera.</li>
-                                                <li><i class="fa fa-check-circle"></i> Pintado del cilindro cuando se requiera.</li>
-                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base">NOM-154-SCFI-2005</span></li>
+                                                <li><i class="fa fa-check-circle"></i> Pintado del cilindro cuando se requiera.</li>                                                
                                                 <li><i class="fa fa-check-circle"></i> Todos los equipos deben ser recargados después de ser utilizados.</li>
-
-                                            </ul><!-- /.about-two__list -->
-                                            <img src="../wp-content/uploads/2020/05/sign-1-1.png" class="about-two__sign" alt="">
+                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="../web/images/nom.png" class="about-two__sign" alt=""></span></li>
+                                            </ul><!-- /.about-two__list -->                                            
                                         </div><!-- /.about-two__content -->
                                     </div><!-- /.col-lg-6 -->
                                 </div><!-- /.row -->

@@ -531,10 +531,10 @@ AppAsset::register($this);
 															<div class="container">
 																<div class="site-footer__copy"><a href="#">ADN Tecnologías</a> <i class="fa fa-copyright"></i> 2021 Todos los derechos reservados</div>
 																<!-- /.site-footer__copy -->
-																<ul class="list-unstyled site-footer__links">
+																<!--<ul class="list-unstyled site-footer__links">
 																	<li><a href="#">Términos</a></li>
 																	<li><a href="#">Políticas de Privacidad</a></li>
-																</ul><!-- /.list-unstyled -->
+																</ul>--><!-- /.list-unstyled -->
 															</div><!-- /.container -->
 														</div><!-- /.site-footer__bottom -->
 													</footer><!-- /.site-footer -->

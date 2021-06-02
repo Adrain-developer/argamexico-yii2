@@ -368,7 +368,7 @@ $this->title = 'ARGA México';
 															<div class="project-one__single">
 																<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFireUno) ?>">
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/normativa']); ?>">Servicio de<br>Mantenimiento y<br>Recarga de equipos de emergencia</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/mtto']); ?>">Mantenimiento de<br>Equipos fijos contra incendios</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
@@ -377,7 +377,7 @@ $this->title = 'ARGA México';
 															<div class="project-one__single">
 																<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFireDos) ?>">
 																<div class="project-one__content">
-																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/acreditacion']); ?>">Conoce las acreditaciones que ARGA <strong>Fire</strong> tiene para Uds</a></h2><!-- /.project-one__title -->
+																	<h2 class="project-one__title"><a href="<?= Url::toRoute(['argafire/extintores']); ?>">Mantenimiento de extintores</a></h2><!-- /.project-one__title -->
 																</div><!-- /.project-one__content -->
 															</div><!-- /.project-one__single -->
 														</div><!-- /.item -->
