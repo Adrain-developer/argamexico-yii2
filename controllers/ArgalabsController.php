@@ -71,8 +71,10 @@ class ArgalabsController extends Controller
 
     public function actionHigiene()
     {
+        $publicaciones = Publicaciones::find()->where(['seccion' => 'labs', 'subseccion' => 'HigieneLaboral'])->all();
         $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
         return $this->render('higiene',[
+            'publicaciones' => $publicaciones,
             'rutas' => $rutas,            
         ]);
         

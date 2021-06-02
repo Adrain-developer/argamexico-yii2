@@ -173,7 +173,7 @@ class PublicacionesController extends Controller
     function getSubsecciones(){
         $subsecciones = [
             ['id' => 'HigieneLaboral', 'value' => 'Higiene Laboral' ],
-            ['id' => 'FuentesFijas', 'value' => 'Fuenes fijas y emisiones a la atmósfera']
+            ['id' => 'FuentesFijas', 'value' => 'Fuentes fijas y emisiones a la atmósfera']
         ];
         return \yii\helpers\ArrayHelper::map($subsecciones, 'id', 'value');
     }
