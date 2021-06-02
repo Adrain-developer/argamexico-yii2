@@ -73,11 +73,7 @@ class PublicacionesController extends Controller
     {
         $model = new Publicaciones();
         $model->seccion = Yii::$app->getRequest()->getQueryParam('tipo');
-
-        /*if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'tipo' => $model->seccion]);
-        }*/
-
+        $getModulo = Yii::$app->getRequest()->getQueryParam('modulo');
         if ($model->load(Yii::$app->request->post())) {
             $dir_subida = 'web/images/publicaciones/';
             $file = UploadedFile::getInstance($model, 'pathImagen');
@@ -92,7 +88,7 @@ class PublicacionesController extends Controller
 
         return $this->render('create', [
             'model' => $model,
-            'subsecciones' => $this->getSubsecciones()
+            'subsecciones' => $this->getSubsecciones($getModulo)
         ]);
     }
 
@@ -106,11 +102,7 @@ class PublicacionesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $subsecciones = ['FuentesFijas', 'HigieneLaboral'];
-
-        /*if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }*/
+        $getModulo = Yii::$app->getRequest()->getQueryParam('modulo');
         if ($model->load(Yii::$app->request->post())) {
             $dir_subida = 'web/images/publicaciones/';
             $post = Yii::$app->request->post();
@@ -134,7 +126,7 @@ class PublicacionesController extends Controller
 
         return $this->render('update', [
             'model' => $model,
-            'subsecciones' => $this->getSubsecciones()
+            'subsecciones' => $this->getSubsecciones($getModulo)
         ]);
     }
 
@@ -170,10 +162,27 @@ class PublicacionesController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    function getSubsecciones(){
+    function getSubsecciones($modulo = null){
+        if($modulo == 'labs') return $this->getSubseccionesLabs();
+        if($modulo == 'consultores') return $this->getSubseccionesConsultores();
+        return null;
+    }
+
+    function getSubseccionesLabs(){
         $subsecciones = [
             ['id' => 'HigieneLaboral', 'value' => 'Higiene Laboral' ],
-            ['id' => 'FuentesFijas', 'value' => 'Fuentes fijas y emisiones a la atmósfera']
+            ['id' => 'FuentesFijas', 'value' => 'Fuentes fijas y emisiones a la atmósfera'],
+            ['id' => 'AnalisisDeAguas', 'value' => 'Análisis de aguas']
+        ];
+        return \yii\helpers\ArrayHelper::map($subsecciones, 'id', 'value');
+    }
+
+    function getSubseccionesConsultores(){
+        $subsecciones = [
+            ['id' => 'SeguridadLaboral', 'value' => 'Seguridad laboral' ],
+            ['id' => 'SaludOcupacional', 'value' => 'Salud ocupacional'],
+            ['id' => 'ProteccionMedioAmbiente', 'value' => 'Protección al medio ambiente'],
+            ['id' => 'GestionServicios', 'value' => 'Gestión y servicios']
         ];
         return \yii\helpers\ArrayHelper::map($subsecciones, 'id', 'value');
     }

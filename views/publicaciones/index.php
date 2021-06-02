@@ -10,7 +10,13 @@ use yii\helpers\Url;
 
 $this->title = 'Publicaciones de '. $tipo;
 $this->params['breadcrumbs'][] = $this->title;
+
+$url = $_SERVER['REQUEST_URI'];
+$urlParse = parse_url( $url);
+parse_str($urlParse['query'], $params);
+$modulo = $params['tipo'];
 ?>
+
 <div class="publicaciones-index admin-panel container">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -37,8 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Opciones',
                 'format' => 'html',
-            'value' => function ($model) {
-                $urlUpdate =  Url::toRoute(['publicaciones/update?id='.$model->id]);
+            'value' => function ($model) use ($modulo) {
+                $urlUpdate =  Url::toRoute(['publicaciones/update?id='.$model->id.'&modulo='.$modulo]);
                 $urlView  =  Url::toRoute(['publicaciones/view?id='.$model->id]);
                 $urlDelete =  Url::toRoute(['publicaciones/delete?id='.$model->id]);
                 return "<a href=' $urlUpdate '><i class='fa fa-edit'></i></a>
