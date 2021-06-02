@@ -11,6 +11,7 @@ use Yii;
  * @property string $nombre
  * @property string|null $descripcion
  * @property string $seccion
+ * @property string $subseccion
  * @property string|null $pathImagen
  * @property int $estatus
  */
@@ -31,7 +32,7 @@ class Publicaciones extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'seccion'], 'required'],
-            [['nombre', 'descripcion'], 'string'],
+            [['nombre', 'descripcion', 'subseccion'], 'string'],
             [['estatus'], 'integer'],
             [['seccion', 'pathImagen'], 'string', 'max' => 250],
         ];
@@ -47,6 +48,7 @@ class Publicaciones extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'descripcion' => 'Descripcion',
             'seccion' => 'Seccion',
+            'subseccion' => 'Subseccion',
             'pathImagen' => 'Path Imagen',
             'estatus' => 'Estatus',
         ];

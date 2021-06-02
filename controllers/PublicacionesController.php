@@ -38,7 +38,7 @@ class PublicacionesController extends Controller
     {
         $searchModel = new PublicacionesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $filtro = Yii::$app->getRequest()->getQueryParam('tipo');
+        $filtro = Yii::$app->getRequest()->getQueryParam('tipo');        
         if(!empty($filtro) && !is_null($filtro)){
             $dataProvider->query->andFilterWhere(['seccion' => $filtro]);
         }
@@ -92,6 +92,7 @@ class PublicacionesController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'subsecciones' => $this->getSubsecciones()
         ]);
     }
 
@@ -105,6 +106,7 @@ class PublicacionesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $subsecciones = ['FuentesFijas', 'HigieneLaboral'];
 
         /*if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -132,6 +134,7 @@ class PublicacionesController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'subsecciones' => $this->getSubsecciones()
         ]);
     }
 
@@ -165,5 +168,13 @@ class PublicacionesController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    function getSubsecciones(){
+        $subsecciones = [
+            ['id' => 'HigieneLaboral', 'value' => 'Higiene Laboral' ],
+            ['id' => 'FuentesFijas', 'value' => 'Fuenes fijas y emisiones a la atmósfera']
+        ];
+        return \yii\helpers\ArrayHelper::map($subsecciones, 'id', 'value');
     }
 }

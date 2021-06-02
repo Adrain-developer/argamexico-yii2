@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'seccion')->textInput(['maxlength' => true, 'disabled' => true])->label("Sección") ?>
 
+    <?= $form->field($model, 'subseccion')->dropDownList($subsecciones, ['prompt' => 'Seleccione una opción' ]); ?>
+
     <?= !empty($model->pathImagen) && !is_null($model->pathImagen) ? "imagen actual: ".$model->pathImagen : '' ?>
 
     <?= $form->field($model, 'pathImagen')->fileInput(['accept' => 'image/*'])->label("Imagen") ?>

@@ -80,7 +80,7 @@ class ArgalabsController extends Controller
 
     public function actionEvaluaciones()
     {
-        $publicaciones = Publicaciones::find()->where(['seccion' => 'labs'])->all();
+        $publicaciones = Publicaciones::find()->where(['seccion' => 'labs', 'subseccion' => 'FuentesFijas'])->all();
         $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
         return $this->render('evaluaciones', [
             'publicaciones' => $publicaciones,
