@@ -36,7 +36,7 @@ use yii\helpers\Url;
                                 <div class="single-shop-content">
                                     <div class="row clearfix">
                                         <div class="col-lg-4 pr-lg-5">
-                                            <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 0; transition: opacity .25s ease-in-out;">
+                                            <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="transition: opacity .25s ease-in-out;">
                                                 <figure class="woocommerce-product-gallery__wrapper">
                                                     <div data-thumb="#" data-thumb-alt="" class="woocommerce-product-gallery__image"><a href="<?= (Yii::$app->homeUrl . $producto->pathImagen) ?>">
                                                     <img id="producto-img-<?= $producto->id ?>" width="300" height="300" src="<?= Yii::$app->homeUrl . $producto->pathImagen ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" sizes="(max-width: 300px) 100vw, 300px" /></a>
