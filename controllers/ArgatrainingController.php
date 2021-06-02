@@ -12,6 +12,7 @@ use app\models\ContactForm;
 use app\models\Eventos;
 use app\models\Imagenes;
 
+
 class ArgatrainingController extends Controller
 {
     /**
@@ -74,10 +75,54 @@ class ArgatrainingController extends Controller
     }
 
     public function actionSendfile($id){
-     $curso = Eventos::find()->where(['id' => $id])->one();
-     if (file_exists($curso->pathInfo)) {
-        return Yii::$app->response->sendFile($curso->pathInfo, 'Curso_arga.pdf');
+        $curso = Eventos::find()->where(['id' => $id])->one();
+        if (file_exists($curso->pathInfo)) {
+            return Yii::$app->response->sendFile($curso->pathInfo, 'Curso_arga.pdf');
+        }
     }
+
+    public function actionSeguridadindustrial(){
+        $cursos = Eventos::find()->where(['categoria' => 'SeguridadIndustrial', 'subcategoria' => 'Presencial'])->all();
+        $cursosOnline = Eventos::find()->where(['categoria' => 'SeguridadIndustrial', 'subcategoria' => 'EnLinea'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('index', [
+            'cursos' => $cursos, 
+            'cursosOnline' => $cursosOnline,
+            'rutas' => $rutas,
+            ]);
+    }
+
+    public function actionProteccionAmbiental(){
+        $cursos = Eventos::find()->where(['categoria' => 'ProteccionAmbiental', 'subcategoria' => 'Presencial'])->all();
+        $cursosOnline = Eventos::find()->where(['categoria' => 'ProteccionAmbiental', 'subcategoria' => 'EnLinea'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('index', [
+            'cursos' => $cursos, 
+            'cursosOnline' => $cursosOnline,
+            'rutas' => $rutas,
+            ]);
+    }
+
+    public function actionProteccionCivl(){
+        $cursos = Eventos::find()->where(['categoria' => 'ProteccionCivil', 'subcategoria' => 'Presencial'])->all();
+        $cursosOnline = Eventos::find()->where(['categoria' => 'ProteccionCivil', 'subcategoria' => 'EnLinea'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('index', [
+            'cursos' => $cursos, 
+            'cursosOnline' => $cursosOnline,
+            'rutas' => $rutas,
+            ]);
+    }
+
+    public function actionOrganizacional(){
+        $cursos = Eventos::find()->where(['categoria' => 'DesarrolloOrganizacional', 'subcategoria' => 'Presencial'])->all();
+        $cursosOnline = Eventos::find()->where(['categoria' => 'DesarrolloOrganizacional', 'subcategoria' => 'EnLinea'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('index', [
+            'cursos' => $cursos, 
+            'cursosOnline' => $cursosOnline,
+            'rutas' => $rutas,
+            ]);
     }
 
 

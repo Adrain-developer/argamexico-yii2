@@ -21,7 +21,9 @@ use yii\jui\DatePicker;
 
     <input type="datetime-local" id="fecha" name="Eventos[fecha]" value = "<?= !is_null($model->fecha) ? $model->fecha : ''?>"min="2021-01-01T00:00:00" max="2030-01-01T23:59:59" class="form-control">
 
-    <?= $form->field($model, 'id_categoria')->dropDownList($categorias, ['prompt' => 'Seleccione una categoría' ]); ?>
+    <?= $form->field($model, 'categoria')->dropDownList($categorias, ['prompt' => 'Seleccione una categoría' ]); ?>
+
+    <?= $form->field($model, 'subcategoria')->dropDownList($subcategorias, ['prompt' => 'Seleccione una subcategoría' ]); ?>
 
     <?= $form->field($model, 'pathImagen')->fileInput(['accept' => 'image/*'])->label("Imagen") ?>
 

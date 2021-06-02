@@ -31,6 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'nombre',
             'descripcion:ntext',
             'fecha',
+            'categoria',
+            'subcategoria',
 
             [
                 'label' => 'Opciones',

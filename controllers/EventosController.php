@@ -86,14 +86,15 @@ class EventosController extends Controller
                 }            
             }else{
                 print_r($model->errors);
+                exit;
             }
             return $this->redirect(['index']);
         }
-        $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'c'])->all(), 'id', 'nombre');
-
+        
         return $this->render('create', [
             'model' => $model,
-            'categorias' => $categorias
+            'categorias' => $this->getCategorias(),
+            'subcategorias' => $this->getSubCategorias()
         ]);
     }
 
@@ -136,11 +137,11 @@ class EventosController extends Controller
             }
             return $this->redirect(['index']);
         }
-        $categorias = \yii\helpers\ArrayHelper::map(Categorias::find()->where(['tipo' => 'c'])->all(), 'id', 'nombre');
-
+        
         return $this->render('update', [
             'model' => $model,
-            'categorias' => $categorias
+            'categorias' => $this->getCategorias(),
+            'subcategorias' => $this->getSubCategorias()
         ]);
     }
 
@@ -172,5 +173,23 @@ class EventosController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    function getCategorias(){
+        $subsecciones = [
+            ['id' => 'Seguridadindustrial', 'value' => 'Seguridad Industrial' ],
+            ['id' => 'ProteccionAmbiental', 'value' => 'Protección ambiental'],
+            ['id' => 'ProteccionCivil', 'value' => 'Protección civil'],
+            ['id' => 'DesarrolloOrganizacional', 'value' => 'Desarrollo Organizacional']
+        ];
+        return \yii\helpers\ArrayHelper::map($subsecciones, 'id', 'value');
+    }
+
+    function getSubCategorias(){
+        $subsecciones = [
+            ['id' => 'Presencial', 'value' => 'Presencial' ],
+            ['id' => 'EnLinea', 'value' => 'En línea']
+        ];
+        return \yii\helpers\ArrayHelper::map($subsecciones, 'id', 'value');
     }
 }

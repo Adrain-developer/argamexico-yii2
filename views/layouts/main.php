@@ -279,13 +279,13 @@ AppAsset::register($this);
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/analisisdeaguas']); ?>">Análisis de aguas</a></li>
 								</ul>
 							</li>
-							<li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643"><a title="Traning" href="<?= Url::toRoute(['argatraining/index']); ?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Training</a>
-								<!--<ul role="menu" class="submenu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a title="About" href="#">Seguridad Industrial</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a title="Miscellaneous 01" href="#">Protección Civil y Emergencias</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"><a title="Miscellaneous 02" href="company/index.html">Desarrollo Humano y Organizacional</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a title="Team" href="#">Curso combate contra incendios</a></li>
-                            </ul>-->
+							<li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643 dropdown"><a title="Traning" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Training</a>
+								<ul role="menu" class="submenu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-659"><a href="<?= Url::toRoute(['argatraining/seguridadindustrial']); ?>">Seguridad Industrial</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-932"><a href="<?= Url::toRoute(['argatraining/proteccionambiental']); ?>">Protección ambiental</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"><a href="<?= Url::toRoute(['argatraining/proteccioncivil']); ?>">Protección civil</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706"><a href="<?= Url::toRoute(['argatraining/organizacional']); ?>">Desarrollo organizacional</a></li>
+                            </ul>
 							</li>
 							<li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849"><a title="Lab" href="<?= Url::toRoute(['contactos/create']); ?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Contacto</a>
 

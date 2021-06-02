@@ -11,7 +11,8 @@ use Yii;
  * @property string $nombre
  * @property string|null $descripcion
  * @property string|null $fecha
- * @property int $id_categoria
+ * @property string|null $categoria
+ * @property string|null $subcategoria
  * @property string|null $pathImagen
  * @property string|null $pathInfo
  */
@@ -31,10 +32,9 @@ class Eventos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'id_categoria'], 'required'],
+            [['nombre'], 'required'],
             [['descripcion', 'fecha'], 'string'],
-            [['id_categoria'], 'integer'],
-            [['nombre', 'pathImagen', 'pathInfo'], 'string', 'max' => 250],
+            [['nombre', 'categoria', 'subcategoria', 'pathImagen', 'pathInfo'], 'string', 'max' => 250],
         ];
     }
 
@@ -48,7 +48,8 @@ class Eventos extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'descripcion' => 'Descripcion',
             'fecha' => 'Fecha',
-            'id_categoria' => 'Id Categoria',
+            'categoria' => 'Categoria',
+            'subcategoria' => 'Subcategoria',
             'pathImagen' => 'Path Imagen',
             'pathInfo' => 'Path Info',
         ];
