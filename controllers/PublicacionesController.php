@@ -77,9 +77,13 @@ class PublicacionesController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $dir_subida = 'web/images/publicaciones/';
             $file = UploadedFile::getInstance($model, 'pathImagen');
-            $model->pathImagen = $dir_subida.$file->name;    
+            if(!empty($file)){
+                $model->pathImagen = $dir_subida.$file->name;  
+            }              
             if($model->save()){
+                if(!empty($file)){
                 move_uploaded_file($file->tempName, $model->pathImagen);            
+                }
             }else{
                 print_r($model->errors);
             }

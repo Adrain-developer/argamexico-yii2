@@ -71,5 +71,41 @@ class ArgaconsultoresController extends Controller
             ]);
     }
 
+    public function actionSeguridadlaboral(){
+        $publicaciones = Publicaciones::find()->where(['seccion' => 'consultores', 'subseccion' => 'Seguridadlaboral'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('seguridad', [
+            'publicaciones' => $publicaciones,
+            'rutas' => $rutas,
+            ]);
+    }
+
+    public function actionSaludocupacional(){
+        $publicaciones = Publicaciones::find()->where(['seccion' => 'consultores', 'subseccion' => 'SaludOcupacional'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('salud', [
+            'publicaciones' => $publicaciones,
+            'rutas' => $rutas,
+            ]);
+    }
+
+    public function actionProteccionambiente(){
+        $publicaciones = Publicaciones::find()->where(['seccion' => 'consultores', 'subseccion' => 'ProteccionMedioAmbiente'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('proteccion', [
+            'publicaciones' => $publicaciones,
+            'rutas' => $rutas,
+            ]);
+    }
+
+    public function actionGestionservicios(){
+        $publicaciones = Publicaciones::find()->where(['seccion' => 'consultores', 'subseccion' => 'GestionServicios'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('gestion', [
+            'publicaciones' => $publicaciones,
+            'rutas' => $rutas,
+            ]);
+    }
+
 
 }

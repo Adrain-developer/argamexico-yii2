@@ -264,19 +264,13 @@ AppAsset::register($this);
 									<li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a href="<?= Url::toRoute(['argafire/catalogo']); ?>">Venta de Productos</a></li>
 								</ul>
 							</li>
-							<li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413"><a title="Consultoría" href="<?= Url::toRoute(['argaconsultores/index']); ?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultores</a>
-								<!-- <ul role="menu" class="submenu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a href="<?= Url::toRoute(['argaconsultores/index#cseguridad']); ?>">Condiciones de seguridad</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-909"><a href="<?= Url::toRoute(['argaconsultores/index#c111']); ?>">Seguridad, prevención y protección</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-910"><a href="<?= Url::toRoute(['argaconsultores/index#c222']); ?>">Protección y dispositivos</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c333']); ?>">Materiales de seguridad</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c444']); ?>">Equipo de protección personal</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c555']); ?>">Recipientes</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c666']); ?>">Actividades</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c777']); ?>">Administración de trabajo y seguridad</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c888']); ?>">Instalaciones eléctricas</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c000']); ?>">Servicios preventivos</a></li>
-                            </ul>-->
+							<li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413 dropdown"><a title="Consultoría" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultores</a>
+								<ul role="menu" class="submenu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a href="<?= Url::toRoute(['argaconsultores/seguridadlaboral']); ?>">Seguridad laboral</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-909"><a href="<?= Url::toRoute(['argaconsultores/saludocupacional']); ?>">Salud ocupacional</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-910"><a href="<?= Url::toRoute(['argaconsultores/proteccionambiente']); ?>">Protección al medio ambiente</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/gestionservicios']); ?>">Gestión y servicios</a></li>
+                            </ul>
 							</li>
 							<li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Lab" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Labs</a>
 								<ul role="menu" class="submenu">
