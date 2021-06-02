@@ -73,7 +73,7 @@ class PublicacionesController extends Controller
     {
         $model = new Publicaciones();
         $model->seccion = Yii::$app->getRequest()->getQueryParam('tipo');
-        $getModulo = Yii::$app->getRequest()->getQueryParam('modulo');
+        $getModulo = $this->readModuloParam();
         if ($model->load(Yii::$app->request->post())) {
             $dir_subida = 'web/images/publicaciones/';
             $file = UploadedFile::getInstance($model, 'pathImagen');
@@ -85,7 +85,6 @@ class PublicacionesController extends Controller
             }
             return $this->redirect(['index', 'tipo' => $model->seccion]);
         }
-
         return $this->render('create', [
             'model' => $model,
             'subsecciones' => $this->getSubsecciones($getModulo)
@@ -185,5 +184,12 @@ class PublicacionesController extends Controller
             ['id' => 'GestionServicios', 'value' => 'Gestión y servicios']
         ];
         return \yii\helpers\ArrayHelper::map($subsecciones, 'id', 'value');
+    }
+
+    function readModuloParam(){
+        $url = $_SERVER['REQUEST_URI'];
+        $urlParse = parse_url($url);
+        parse_str($urlParse['query'], $params);
+        return $params['tipo'];
     }
 }
