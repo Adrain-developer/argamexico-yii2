@@ -18,7 +18,7 @@ $this->title = 'Fire';
         <div class="container">
             <h2 class="inner-banner__title">Normativas</h2><!-- /.inner-banner__title -->
             <ul class="list-unstyled thm-breadcrumb">
-                <li class="breadcrumb-item"><a href="../index.php">Inicio &nbsp;</a></li>
+                <li class="breadcrumb-item"><a href="<?= Url::toRoute(['/site/index']); ?>">Inicio &nbsp;</a></li>
             </ul><!-- /.thm-breadcrumb -->
         </div><!-- /.container -->
     </section>
