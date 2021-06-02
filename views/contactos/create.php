@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     </h2><!-- /.inner-banner__title -->
                                                     <ul class="list-unstyled thm-breadcrumb">
                                                         <li><a href="<?= Url::toRoute(['/site/index']); ?>">Inicio
-                                                            </a></li>                                                       
+                                                            </a></li>
                                                     </ul><!-- /.thm-breadcrumb -->
                                                 </div><!-- /.container -->
                                             </section>
@@ -79,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                 <i class="icon fa fa-map"></i>
                                                                 <h3 class="contact-info-one__title">Nuestra Ubicacion</h3>
                                                                 <p class="contact-info-one__text">Bosques Amalucan, Puebla. Pue.<br>
-                                                                México.</p>
+                                                                    México.</p>
                                                             </div><!-- /.contact-info-one__single -->
                                                         </div><!-- /.col-lg-4 -->
 
@@ -90,7 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                 <i class="icon fa fa-phone-square"></i>
                                                                 <h3 class="contact-info-one__title">Números Teléfonicos</h3>
                                                                 <p class="contact-info-one__text">+52 1 222 540 9946<br>
-                                                                +52 1 222 540 9946</p>
+                                                                    +52 1 222 540 9946</p>
                                                             </div><!-- /.contact-info-one__single -->
                                                         </div><!-- /.col-lg-4 -->
 
@@ -116,6 +116,89 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
             </section>
+            <div class="block-title text-center">
+                <h2 class="block-title__title"><span class="block-title__bold">Nuestros Socios
+                    </span></h2><!-- /.block-title__title -->
+            </div>
+
+
+            <div class="site-footer__brand">
+                <div class="container">
+                    <div class="site-footer__brand-carousel owl-carousel owl-theme">
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s1.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s2.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s3.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s4.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s5.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s1.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s2.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s3.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s4.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+                        <div class="item">
+                            <a>
+                                <img src="<?= Yii::$app->homeUrl ?>web/images/s5.png" alt="brand image">
+                            </a>
+                        </div><!-- /.item -->
+
+                    </div><!-- /.site-footer__brand-carousel -->
+                    <hr class="site-footer__brand-hr">
+                </div><!-- /.container -->
+            </div><!-- /.site-footer__brand -->
+
             <section class="elementor-section elementor-top-section elementor-element elementor-element-7977130 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="7977130" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
                 <div class="elementor-container elementor-column-gap-no">
                     <div class="elementor-row">
@@ -124,7 +207,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="elementor-widget-wrap">
                                     <div class="elementor-element elementor-element-c1b7020 elementor-widget elementor-widget-google_maps" data-id="c1b7020" data-element_type="widget" data-widget_type="google_maps.default">
                                         <div class="elementor-widget-container">
-                                            <div class="elementor-custom-embed"><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1885.6426672392754!2d-98.13348084206986!3d19.051188332074627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfea8192e7cfe9%3A0x2e133bd3f730110f!2sBosques%20Amalucan%2C%2072310%20Puebla%2C%20Pue.!5e0!3m2!1ses!2smx!4v1620757790900!5m2!1ses!2smx" title="Bosques Amalucan, Puebla, Pue. México" aria-label="Bosques Amalucan, Puebla, Pue. México"></iframe></div>                                                
+                                            <div class="elementor-custom-embed"><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1885.6426672392754!2d-98.13348084206986!3d19.051188332074627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfea8192e7cfe9%3A0x2e133bd3f730110f!2sBosques%20Amalucan%2C%2072310%20Puebla%2C%20Pue.!5e0!3m2!1ses!2smx!4v1620757790900!5m2!1ses!2smx" title="Bosques Amalucan, Puebla, Pue. México" aria-label="Bosques Amalucan, Puebla, Pue. México"></iframe></div>
                                         </div>
                                     </div>
                                 </div>
@@ -151,10 +234,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                     </h2><!-- /.block-title__title -->
                                                                 </div><!-- /.block-title -->
                                                                 <div role="form" class="wpcf7" id="wpcf7-f272-p396-o1" lang="en-US" dir="ltr">
-                                                                                                                                     
+
                                                                     <?= $this->render('_form', [
-                                                                                'model' => $model,
-                                                                            ]) ?>
+                                                                        'model' => $model,
+                                                                    ]) ?>
                                                                 </div>
                                                             </div><!-- /.my-auto -->
                                                         </div><!-- /.col-lg-6 -->
@@ -174,16 +257,16 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <div class="clearfix"></div>
 
-<?php 
-    if(isset($enviado) && $enviado){ ?>
-        <script>
-            Swal.fire({
+<?php
+if (isset($enviado) && $enviado) { ?>
+    <script>
+        Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Recibimos tus datos exitosamente. En breve nos comunicaremos contigo',
             showConfirmButton: false,
             timer: 5500
-            })
-        </script>
+        })
+    </script>
 <?php    }
 ?>

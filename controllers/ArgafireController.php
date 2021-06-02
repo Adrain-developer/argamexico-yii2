@@ -118,5 +118,11 @@ class ArgafireController extends Controller
         ]);
     }
 
+    public function actionExtintores(){
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one(); 
+        return $this->render('extintores',[
+            'rutas' => $rutas, 
+        ]);
+    }
 
 }

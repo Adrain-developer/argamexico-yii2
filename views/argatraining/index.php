@@ -114,5 +114,16 @@ use yii\helpers\Url;
     </div>
 </div>
 
+<section class=" cta-one">
+                            <div class="container">
+                                <h2 class="cta-one__title">¿Necesitas más información?
+                                </h2><!-- /.cta-one__title -->
+                                <div class="button-block">
+                                    <a href="<?= Url::toRoute(['contactos/create']); ?>" class="thm-btn cta-one__btn">Contactanos <i class="fa fa-long-arrow-right"></i>
+                                        <!-- /.fa fa-long-arrow-right --></a>
+                                </div><!-- /.button-block -->
+                            </div><!-- /.container -->
+                        </section>
+
 
 <div class="clearfix"></div>

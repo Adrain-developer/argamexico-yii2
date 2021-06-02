@@ -83,3 +83,9 @@
 .margintop30{
     margin-top: 30px;
 }
+
+.team-one__image {
+    position: relative;
+    background-color: #fffefe !important;
+}
+

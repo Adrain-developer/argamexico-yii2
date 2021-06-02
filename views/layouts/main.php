@@ -59,6 +59,10 @@ AppAsset::register($this);
 			color: #4a6fbe !important;
 			background-color: #fff !important;
 		}
+
+		.header-navigation ul.navigation-box {
+			padding-left: 160px !important;
+		}
 	</style>
 
 
@@ -131,53 +135,55 @@ AppAsset::register($this);
 	<link rel='stylesheet' id='woocommerce-smallscreen-css' href='<?= Yii::$app->homeUrl ?>web/css/woocommerce-smallscreen0e7d.css?ver=5.1.0' type='text/css' media='only screen and (max-width: 768px)' />
 	<link rel='stylesheet' id='woocommerce-general-css' href='<?= Yii::$app->homeUrl ?>web/css/woocommerce0e7d.css?ver=5.1.0' type='text/css' media='all' />
 	<style id='woocommerce-inline-inline-css' type='text/css'>
-.woocommerce form .form-row .required { visibility: visible; }
-</style>
+		.woocommerce form .form-row .required {
+			visibility: visible;
+		}
+	</style>
 
-    <link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/css/custom.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='animate-css'  href='<?= Yii::$app->homeUrl ?>web/css/animate4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='bootstrap-css'  href='<?= Yii::$app->homeUrl ?>web/css/bootstrap.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='bootstrap-datepicker-css'  href='<?= Yii::$app->homeUrl ?>web/css/bootstrap-datepicker.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='bootstrap-select-css'  href='<?= Yii::$app->homeUrl ?>web/css/bootstrap-select.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='fontawesome-all-css'  href='<?= Yii::$app->homeUrl ?>web/css/fontawesome-all4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='hover-min-css'  href='<?= Yii::$app->homeUrl ?>web/css/hover-min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='jquery-bootstrap-touchspin-css'  href='<?= Yii::$app->homeUrl ?>web/css/jquery.bootstrap-touchspin.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='magnific-popup-css'  href='<?= Yii::$app->homeUrl ?>web/css/magnific-popup4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='nouislider-css'  href='<?= Yii::$app->homeUrl ?>web/css/nouislider4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='owl-carousel-css'  href='<?= Yii::$app->homeUrl ?>web/css/owl.carousel.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='owl-theme-default-css'  href='<?= Yii::$app->homeUrl ?>web/css/owl.theme.default.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='appointment-css'  href='<?= Yii::$app->homeUrl ?>web/css/appointment4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='datetimepicker-css'  href='<?= Yii::$app->homeUrl ?>web/css/datetimepicker4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='jquery-ui-css'  href='<?= Yii::$app->homeUrl ?>web/css/jquery-ui4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-style-2-css'  href='<?= Yii::$app->homeUrl ?>web/css/style-24c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='icon-style-css'  href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext--css'  href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='responsive-css'  href='<?= Yii::$app->homeUrl ?>web/css/responsive4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='color-panel-css'  href='<?= Yii::$app->homeUrl ?>web/css/color-panel4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-main-css'  href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-error-css'  href='<?= Yii::$app->homeUrl ?>web/css/error4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-sidebar-css'  href='<?= Yii::$app->homeUrl ?>web/css/sidebar4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-tut-css'  href='<?= Yii::$app->homeUrl ?>web/css/tut4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-mfixing-css'  href='<?= Yii::$app->homeUrl ?>web/css/fixing4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-woocommerce-css'  href='<?= Yii::$app->homeUrl ?>web/css/woocommerce4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-rtl-css'  href='<?= Yii::$app->homeUrl ?>web/css/rtl4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-theme-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Serif%3A400%3B0%2C700%3B1%2C400%3B1%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
-    <link rel='stylesheet' id='main-color-css'  href='<?= Yii::$app->homeUrl ?>web/css/color0c43.css?main_color=ff5860&amp;ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Rubik%3A300%2C300i%2C400%2C400i%2C500%2C500i%2C600%2C600i%2C700%7CKaushan+Script&amp;subset=latin%2Clatin-ext&amp;ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='indext_preloader-css'  href='<?= Yii::$app->homeUrl ?>web/css/loader.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-icons-css'  href='<?= Yii::$app->homeUrl ?>web/css/elementor-icons.min21f9.css?ver=5.11.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-animations-css'  href='<?= Yii::$app->homeUrl ?>web/css/animations.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-frontend-legacy-css'  href='<?= Yii::$app->homeUrl ?>web/css/frontend-legacy.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-frontend-css'  href='<?= Yii::$app->homeUrl ?>web/css/frontend.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-post-68-css'  href='<?= Yii::$app->homeUrl ?>web/css/post-683187.css?ver=1615693937' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-global-css'  href='<?= Yii::$app->homeUrl ?>web/css/global3187.css?ver=1615693937' type='text/css' media='all' />
-    <link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/css/custom.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='animate-css' href='<?= Yii::$app->homeUrl ?>web/css/animate4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='bootstrap-css' href='<?= Yii::$app->homeUrl ?>web/css/bootstrap.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='bootstrap-datepicker-css' href='<?= Yii::$app->homeUrl ?>web/css/bootstrap-datepicker.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='bootstrap-select-css' href='<?= Yii::$app->homeUrl ?>web/css/bootstrap-select.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='fontawesome-all-css' href='<?= Yii::$app->homeUrl ?>web/css/fontawesome-all4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='hover-min-css' href='<?= Yii::$app->homeUrl ?>web/css/hover-min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='jquery-bootstrap-touchspin-css' href='<?= Yii::$app->homeUrl ?>web/css/jquery.bootstrap-touchspin.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='magnific-popup-css' href='<?= Yii::$app->homeUrl ?>web/css/magnific-popup4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='nouislider-css' href='<?= Yii::$app->homeUrl ?>web/css/nouislider4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='owl-carousel-css' href='<?= Yii::$app->homeUrl ?>web/css/owl.carousel.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='owl-theme-default-css' href='<?= Yii::$app->homeUrl ?>web/css/owl.theme.default.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='appointment-css' href='<?= Yii::$app->homeUrl ?>web/css/appointment4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='datetimepicker-css' href='<?= Yii::$app->homeUrl ?>web/css/datetimepicker4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='jquery-ui-css' href='<?= Yii::$app->homeUrl ?>web/css/jquery-ui4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-style-2-css' href='<?= Yii::$app->homeUrl ?>web/css/style-24c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='icon-style-css' href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext--css' href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='responsive-css' href='<?= Yii::$app->homeUrl ?>web/css/responsive4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='color-panel-css' href='<?= Yii::$app->homeUrl ?>web/css/color-panel4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-main-css' href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-error-css' href='<?= Yii::$app->homeUrl ?>web/css/error4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-sidebar-css' href='<?= Yii::$app->homeUrl ?>web/css/sidebar4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-tut-css' href='<?= Yii::$app->homeUrl ?>web/css/tut4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-mfixing-css' href='<?= Yii::$app->homeUrl ?>web/css/fixing4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-woocommerce-css' href='<?= Yii::$app->homeUrl ?>web/css/woocommerce4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-rtl-css' href='<?= Yii::$app->homeUrl ?>web/css/rtl4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-theme-fonts-css' href='https://fonts.googleapis.com/css?family=Noto+Serif%3A400%3B0%2C700%3B1%2C400%3B1%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+	<link rel='stylesheet' id='main-color-css' href='<?= Yii::$app->homeUrl ?>web/css/color0c43.css?main_color=ff5860&amp;ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-google-fonts-css' href='https://fonts.googleapis.com/css?family=Rubik%3A300%2C300i%2C400%2C400i%2C500%2C500i%2C600%2C600i%2C700%7CKaushan+Script&amp;subset=latin%2Clatin-ext&amp;ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext_preloader-css' href='<?= Yii::$app->homeUrl ?>web/css/loader.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-icons-css' href='<?= Yii::$app->homeUrl ?>web/css/elementor-icons.min21f9.css?ver=5.11.0' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-animations-css' href='<?= Yii::$app->homeUrl ?>web/css/animations.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-frontend-legacy-css' href='<?= Yii::$app->homeUrl ?>web/css/frontend-legacy.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-frontend-css' href='<?= Yii::$app->homeUrl ?>web/css/frontend.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-post-68-css' href='<?= Yii::$app->homeUrl ?>web/css/post-683187.css?ver=1615693937' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-global-css' href='<?= Yii::$app->homeUrl ?>web/css/global3187.css?ver=1615693937' type='text/css' media='all' />
+	<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;ver=5.6.2' type='text/css' media='all' />
 
 
-    <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
-    <script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
+	<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
+	<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
 
-	<link rel='stylesheet'  href='<?= Yii::$app->homeUrl ?>web/css/sidebar.css' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/css/sidebar.css' type='text/css' media='all' />
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -210,22 +216,11 @@ AppAsset::register($this);
 				</div><!-- /.topbar-one__left -->
 				<div class="topbar-one__right">
 					<div class="topbar-one__links">
-
-
-						<a href="#" class="topbar-one__search search-popup__toggler"><i class="indext-icon-Search"></i>
-						</a>
-
-
-						<a href="shop/index.html" class="topbar-one__cart"><i class="indext-icon-Bag"></i>
-							<!-- /.indext-icon-Bag --></a><!-- /.topbar-one__cart -->
-
-
-
-						<a href="#" class="topbar-one__link"><i class="indext-icon-clock"></i><!-- /.indext-icon-clock -->Lun - Vie: 9.00 - 18.00</a>
+						<a href="#" class="topbar-one__link"><i class="fa fa-clock-o"></i><!-- /.indext-icon-clock -->Lun - Vie: 9.00 - 18.00</a>
 
 						<!-- /.topbar-one__link -->
 
-						<a href="https://mail.google.com" class="topbar-one__link"><i class="indext-icon-envelope"></i>
+						<a href="https://mail.google.com" class="topbar-one__link"><i class="fa fa-envelope"></i>
 							<!-- /.indext-icon-envelope -->info@argamexico.com</a>
 
 
@@ -252,11 +247,21 @@ AppAsset::register($this);
 					<div class="main-navigation">
 						<ul class=" navigation-box @@extra_class">
 							<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="<?= Url::toRoute(['./index.php']); ?>" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Inicio</a></li>
-							<li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" href="<?= Url::toRoute(['argafire/index']); ?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
+							<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Acreditaciones</a>
 								<ul role="menu" class="submenu">
-									<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Mantenimiento de equipos fijos contra incendios</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Aviso de Privacidad</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Código de Ética</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Política de Confiabilidad</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Política de Privacidad</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/acreditacion']); ?>">Normativas</a></li>
+								</ul>
+
+							</li>
+							<li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire"  data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Fire</a>
+								<ul role="menu" class="submenu">
+									<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/extintores']); ?>">Mantenimiento de extintores</a></li>
+									<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/mtto']); ?>">Mantenimiento de equipos fijos contra incendios</a></li>
 									<li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a href="<?= Url::toRoute(['argafire/catalogo']); ?>">Venta de Productos</a></li>
-									<li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a href="<?= Url::toRoute(['argafire/acreditacion']); ?>">Acreditación</a></li>
 								</ul>
 							</li>
 							<li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-413"><a title="Consultoría" href="<?= Url::toRoute(['argaconsultores/index']); ?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Consultores</a>
@@ -273,7 +278,7 @@ AppAsset::register($this);
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="<?= Url::toRoute(['argaconsultores/index#c000']); ?>">Servicios preventivos</a></li>
                             </ul>-->
 							</li>
-							<li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Lab" href="<?= Url::toRoute(['argalabs/index']); ?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Labs</a>
+							<li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Lab" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Labs</a>
 								<ul role="menu" class="submenu">
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="<?= Url::toRoute(['argalabs/evaluaciones']); ?>">Fuentes fijas y emisiones a la Atmósfera</a></li>
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/higiene']); ?>">Higiene laboral</a></li>
@@ -436,10 +441,10 @@ AppAsset::register($this);
 																			</p>
 																			<!-- /.footer-widget__text -->
 
-																			<div class="footer-widget__social">																				
+																			<div class="footer-widget__social">
 																				<a href="https://www.facebook.com/ARGA-Consultores-M%C3%A9xico-448930612267259" class="fab fa-facebook"></a>
 																				<a href="#" class="fab fa-whatsapp"></a>
-																				<a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+																				<a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
 																			</div><!-- /.footer-widget__social -->
 
 																		</div><!-- /.footer-widget -->
@@ -472,7 +477,7 @@ AppAsset::register($this);
 
 																				<li><a href="#"> Privacy Policy</a></li>
 
-																				<li><a href="<?= Url::toRoute(['empresasfolios/'])?>"> Consultar folios DS3</a></li>
+																				<li><a href="<?= Url::toRoute(['empresasfolios/']) ?>"> Consultar folios DS3</a></li>
 
 
 																				<li><?php if (Yii::$app->user->isGuest) { ?>

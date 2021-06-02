@@ -7,63 +7,7 @@ use yii\helpers\Url;
 
 <style>
 
-.header-navigation ul.navigation-box>li>.submenu>li:hover>a,
-	.thm-btn,
-	.service-one__single:hover .service-one__single-inner,
-	.project-one .owl-theme .owl-dots .owl-dot.active span,
-	.video-one__btn,
-	.cta-one,
-	.blog-one__meta a:first-child:hover,
-	.footer-widget__links li a:after,
-	.service-two__carousel .owl-dots .owl-dot:hover span,
-	.service-two__carousel .owl-dots .owl-dot.active span,
-	.video-two__btn,
-	.testimonials-three .owl-theme .owl-dots .owl-dot.active span,
-	.site-header__header-four .site-header__qoute-btn:hover,
-	.blog-one__carousel .owl-dots .owl-dot:hover span,
-	.blog-one__carousel .owl-dots .owl-dot.active span,
-	.history-one__sep:before,
-	.header-navigation ul.navigation-box>li>ul>li>.submenu>li:hover>a,
-	.post-filter li span:before,
-	.service-details__list li:hover a,
-	.service-details__list li.active a,
-	.tagcloud a,
-	.mrsidebar .subscribe-widget .theme-btn.style-four,
-	.pagination li span,
-	.pagination li:hover a {
-		background: #ff0505 !important;
-		background-color: #ff000c !important;
-	}
 
-	.block-title__tag-line,
-	.topbar-one__social a:hover,
-	.topbar-one__link i,
-	.site-header__header-one .header-navigation ul.navigation-box>li.current>a,
-	.site-header__header-one .header-navigation ul.navigation-box>li:hover>a,
-	.about-one__feature-icon,
-	.about-one__feature-title a:hover,
-	.block-title__base,
-	.about-two__list li i,
-	.service-one__single i,
-	.feature-one__title a:hover,
-	.blog-one__meta a:first-child,
-	.footer-widget__links li:hover a,
-	.site-footer__copy a,
-	.site-footer__links a:hover,
-	.video-two .feature-one__icon i,
-	.about-six__fact-counter,
-	.history-one__year,
-	.project-one.project-one__home-two.project-one__project-page-two .project-one__title a:hover,
-	.project-one__project-page-two .project-one__category,
-	.project-details__social a:hover,
-	.service-details__feature-list li i,
-	.sidebar__search button[type=submit],
-	.sidebar__post-date,
-	.error-search-form button[type=submit],
-	.contact-info-one [class*=indext-icon-],
-	.service-one.service-page-one.service-one__home-four .service-one__single:hover i {
-		color: #ff000c !important;
-	}
 
 
 </style>
@@ -113,6 +57,18 @@ use yii\helpers\Url;
 	</div>
 	</div>
 </section>
+
+<section class=" cta-one">
+                            <div class="container">
+                                <h2 class="cta-one__title">¿Necesitas más información?
+                                </h2><!-- /.cta-one__title -->
+                                <div class="button-block">
+                                    <a href="<?= Url::toRoute(['contactos/create']); ?>" class="thm-btn cta-one__btn">Contactanos <i class="fa fa-long-arrow-right"></i>
+                                        <!-- /.fa fa-long-arrow-right --></a>
+                                </div><!-- /.button-block -->
+                            </div><!-- /.container -->
+                        </section>
+
 <div class="clearfix"></div>
 <script>
 	$(window).on('load', function(){
