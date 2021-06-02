@@ -282,6 +282,7 @@ AppAsset::register($this);
 								<ul role="menu" class="submenu">
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="<?= Url::toRoute(['argalabs/evaluaciones']); ?>">Fuentes fijas y emisiones a la Atmósfera</a></li>
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/higiene']); ?>">Higiene laboral</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/analisisdeaguas']); ?>">Análisis de aguas</a></li>
 								</ul>
 							</li>
 							<li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-643"><a title="Traning" href="<?= Url::toRoute(['argatraining/index']); ?>" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Training</a>

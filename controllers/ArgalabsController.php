@@ -90,4 +90,14 @@ class ArgalabsController extends Controller
             ]);
     }
 
+    public function actionAnalisisdeaguas()
+    {
+        $publicaciones = Publicaciones::find()->where(['seccion' => 'labs', 'subseccion' => 'AnalisisDeAguas'])->all();
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        return $this->render('analisis', [
+            'publicaciones' => $publicaciones,
+            'rutas' => $rutas,
+            ]);
+    }
+
 }
