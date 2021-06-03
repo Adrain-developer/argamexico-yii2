@@ -6,63 +6,6 @@ use yii\helpers\Url;
 
 
 <style>
-	.header-navigation ul.navigation-box>li>.submenu>li:hover>a,
-	.thm-btn,
-	.service-one__single:hover .service-one__single-inner,
-	.project-one .owl-theme .owl-dots .owl-dot.active span,
-	.video-one__btn,
-	.cta-one,
-	.blog-one__meta a:first-child:hover,
-	.footer-widget__links li a:after,
-	.service-two__carousel .owl-dots .owl-dot:hover span,
-	.service-two__carousel .owl-dots .owl-dot.active span,
-	.video-two__btn,
-	.testimonials-three .owl-theme .owl-dots .owl-dot.active span,
-	.site-header__header-four .site-header__qoute-btn:hover,
-	.blog-one__carousel .owl-dots .owl-dot:hover span,
-	.blog-one__carousel .owl-dots .owl-dot.active span,
-	.history-one__sep:before,
-	.header-navigation ul.navigation-box>li>ul>li>.submenu>li:hover>a,
-	.post-filter li span:before,
-	.service-details__list li:hover a,
-	.service-details__list li.active a,
-	.tagcloud a,
-	.mrsidebar .subscribe-widget .theme-btn.style-four,
-	.pagination li span,
-	.pagination li:hover a {
-		background: #ff0505 !important;
-		background-color: #ff000c !important;
-	}
-
-	.block-title__tag-line,
-	.topbar-one__social a:hover,
-	.topbar-one__link i,
-	.site-header__header-one .header-navigation ul.navigation-box>li.current>a,
-	.site-header__header-one .header-navigation ul.navigation-box>li:hover>a,
-	.about-one__feature-icon,
-	.about-one__feature-title a:hover,
-	.block-title__base,
-	.about-two__list li i,
-	.service-one__single i,
-	.feature-one__title a:hover,
-	.blog-one__meta a:first-child,
-	.footer-widget__links li:hover a,
-	.site-footer__copy a,
-	.site-footer__links a:hover,
-	.video-two .feature-one__icon i,
-	.about-six__fact-counter,
-	.history-one__year,
-	.project-one.project-one__home-two.project-one__project-page-two .project-one__title a:hover,
-	.project-one__project-page-two .project-one__category,
-	.project-details__social a:hover,
-	.service-details__feature-list li i,
-	.sidebar__search button[type=submit],
-	.sidebar__post-date,
-	.error-search-form button[type=submit],
-	.contact-info-one [class*=indext-icon-],
-	.service-one.service-page-one.service-one__home-four .service-one__single:hover i {
-		color: #ff000c !important;
-	}
 
 	.block-title__tag-line,
 	.topbar-one__social a:hover,
@@ -121,12 +64,12 @@ use yii\helpers\Url;
 										<div class="elementor-widget-container">
 											<section class=" inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxlabs) ?>);">
 												<div class="container">
-													<h2 class="inner-banner__title">FUENTES FIJAS Y EMISIONES A LA ATMÓSFERA
+													<h2 class="inner-banner__title">ARGA LABS
 													</h2><!-- /.inner-banner__title -->
 													<ul class="list-unstyled thm-breadcrumb">
 														<li><a href="<?= Url::toRoute(['./index.php']); ?>">Inicio
 															</a></li>
-														<li class="active"><a href="<?= Url::toRoute(['argalabs/index']); ?>"><strong>ARGA Labs</strong></a></li>
+														<li class="active"><a ><strong>Fuentes Fijas</strong></a></li>
 													</ul><!-- /.thm-breadcrumb -->
 												</div><!-- /.container -->
 											</section>
@@ -150,21 +93,21 @@ use yii\helpers\Url;
 											<div class="elementor-widget-wrap">
 												<div class="elementor-element elementor-element-6310236 elementor-widget elementor-widget-indext_sec_title1" data-id="6310236" data-element_type="widget" data-widget_type="indext_sec_title1.default">
 													<div class="elementor-widget-container">
+														<section class=" history-one">
+															<div class="container">
+																<div id="cseguridad" class="block-title text-center">
+																	<p class="block-title__tag-line "><strong></strong>
 
-														<section class="sect service-two service-two__home-two @@extra__class">
-															<div class="service-two__upper">
-																<div class="container">
-																	<div class="block-title text-center">
-																		<p class="block-title__tag-line">EVALUACIONES</p><!-- /.block-title__tag-line -->
-																		<h3 class="block-title__title block-title__white">EN EMPRESAS QUE EMITEN<br>
-																			<span class="block-title__bold">CONTAMINANTES A LA ATMÓSFERA
-																			</span>
-																			<!-- /.block-title__bold -->
-																		</h3><!-- /.block-title__title -->
-																	</div><!-- /.block-title -->
-																</div><!-- /.container -->
-															</div><!-- /.service-two__upper -->
+																	</p><!-- /.block-title__tag-line -->
+																	<h3 class="block-title__title "><span class="block-title__bold">Fuentes Fijas
+																		</span>
+																		<!-- /.block-title__bold -->
+																	</h3><!-- /.block-title__title -->
+																	<p class="block-title__text"></p><!-- /.block-title__text -->
+																</div><!-- /.block-title -->
+															</div><!-- /.container -->
 														</section>
+
 
 													</div>
 												</div>
@@ -237,32 +180,20 @@ use yii\helpers\Url;
 							</div>
 						</section>
 
-						<section class="elementor-section elementor-top-section elementor-element elementor-element-7be5cbb elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="7be5cbb" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
-							<div class="elementor-container elementor-column-gap-no">
-								<div class="elementor-row">
-									<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-72600e7" data-id="72600e7" data-element_type="column">
-										<div class="elementor-column-wrap elementor-element-populated">
-											<div class="elementor-widget-wrap">
-												<div class="elementor-element elementor-element-35e48a7 elementor-widget elementor-widget-indext_calltoaction4" data-id="35e48a7" data-element_type="widget" data-widget_type="indext_calltoaction4.default">
-													<div class="elementor-widget-container">
-														<section class=" cta-three text-center" style="background-image: url(<?= Url::toRoute(['web/images/AL3.jpg']); ?>);">
-															<div class="container">
-																<h2 class="cta-three__title">HIGIENE LABORAL
-																</h2><!-- /.cta-three__title -->
-																<p class="cta-three__text">EVALUACIÓN DE CONDICIONES Y CONTAMINANTES EN EL AMBIENTE LABORAL
-
-																</p>
-																<!-- /.cta-three__text -->
-																<a href="<?= Url::toRoute(['argalabs/higiene']); ?>" class="cta-three__btn thm-btn">Ver <strong>Normativas</strong></a><!-- /.thm-btn -->
-															</div><!-- /.container -->
-														</section>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								< </div>
-							</div>
+						<section class=" cta-one">
+                            <div class="container">
+                                <h2 class="cta-one__title">¿Necesitas más información?
+                                </h2><!-- /.cta-one__title -->
+                                <div class="button-block">
+                                    <a href="<?= Url::toRoute(['contactos/create']); ?>" class="thm-btn cta-one__btn">Contactanos <i class="fa fa-long-arrow-right"></i>
+                                        <!-- /.fa fa-long-arrow-right --></a>
+                                </div><!-- /.button-block -->
+                            </div><!-- /.container -->
+                        </section>
 					</div>
-					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
