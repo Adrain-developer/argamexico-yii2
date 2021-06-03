@@ -16,7 +16,7 @@ $this->title = 'Fire';
     <section class="inner-banner" style="background-image: url(<?= (Yii::$app->homeUrl . $rutas->pathImagenIdxFire) ?>);">
 
         <div class="container">
-            <h2 class="inner-banner__title">Normativas</h2><!-- /.inner-banner__title -->
+            <h2 class="inner-banner__title">Acreditación</h2><!-- /.inner-banner__title -->
             <ul class="list-unstyled thm-breadcrumb">
                 <li class="breadcrumb-item"><a href="<?= Url::toRoute(['/site/index']); ?>">Inicio &nbsp;</a></li>
             </ul><!-- /.thm-breadcrumb -->
@@ -40,7 +40,7 @@ $this->title = 'Fire';
                                                         <div class="row">
                                                             <div class="col-lg-12">
                                                                 <div class="service-details__content">
-                                                                    <h2 class="service-details__title">Normatividad
+                                                                    <h2 class="service-details__title">Acreditaciones.
                                                                     </h2><!-- /.service-details__title -->
                                                                     <br>
                                                                     <h2 class="service-details__subtitle">Normas Oficiales Mexicanas.

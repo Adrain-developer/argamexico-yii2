@@ -247,13 +247,13 @@ AppAsset::register($this);
 					<div class="main-navigation">
 						<ul class=" navigation-box @@extra_class">
 							<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="<?= Url::toRoute(['./index.php']); ?>" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Inicio</a></li>
-							<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Acreditaciones</a>
+							<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Nosotros</a>
 								<ul role="menu" class="submenu">
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Aviso de Privacidad</a></li>
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Código de Ética</a></li>
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Política de Confiabilidad</a></li>
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Política de Privacidad</a></li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/acreditacion']); ?>">Normativas</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/acreditacion']); ?>">Acreditación</a></li>
 								</ul>
 
 							</li>
@@ -274,8 +274,8 @@ AppAsset::register($this);
 							</li>
 							<li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-849 dropdown"><a title="Lab" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">ARGA Labs</a>
 								<ul role="menu" class="submenu">
-									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="<?= Url::toRoute(['argalabs/evaluaciones']); ?>">Fuentes fijas y emisiones a la Atmósfera</a></li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/higiene']); ?>">Higiene laboral</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a href="<?= Url::toRoute(['argalabs/evaluaciones']); ?>">Fuentes fijas</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/higiene']); ?>">Ambiente laboral</a></li>
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a href="<?= Url::toRoute(['./argalabs/analisisdeaguas']); ?>">Análisis de aguas</a></li>
 								</ul>
 							</li>
