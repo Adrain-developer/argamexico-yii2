@@ -11,6 +11,10 @@ use yii\helpers\Url;
 $this->title = 'Administración de productos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.js'></script>
+
 <div class="productos-index container admin-panel">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -23,10 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             //'id',
             'nombre',
             'descripcion:ntext',
@@ -51,6 +53,12 @@ $this->params['breadcrumbs'][] = $this->title;
               ],
         ],
     ]); ?>
+    
 
 
 </div>
+<script>
+  jQuery("table").DataTable({
+    responsive: true
+  });
+</script>

@@ -16,6 +16,9 @@ $urlParse = parse_url( $url);
 parse_str($urlParse['query'], $params);
 $modulo = $params['tipo'];
 ?>
+<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.js'></script>
+
 
 <div class="publicaciones-index admin-panel container">
 
@@ -29,9 +32,9 @@ $modulo = $params['tipo'];
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             //'id',
             'nombre:ntext',
@@ -57,3 +60,8 @@ $modulo = $params['tipo'];
 
 
 </div>
+<script>
+  jQuery("table").DataTable({
+    responsive: true
+  });
+</script>
