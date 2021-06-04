@@ -48,6 +48,8 @@ use yii\helpers\Url;
 	.block-title__tag-line {
 		color: #2871a8 !important;
 	}
+
+
 </style>
 
 <div data-elementor-type="wp-page" data-elementor-id="23" class="elementor elementor-23" data-elementor-settings="[]">
@@ -68,7 +70,7 @@ use yii\helpers\Url;
 													<ul class="list-unstyled thm-breadcrumb">
 														<li><a href="<?= Url::toRoute(['./index.php']); ?>">Inicio
 															</a></li>
-														<li class="active"><a ><strong>Higiene Laboral</strong></a></li>
+														<li class="active"><a ><strong>Ambiente laboral</strong></a></li>
 													</ul><!-- /.thm-breadcrumb -->
 												</div><!-- /.container -->
 											</section>
@@ -98,7 +100,7 @@ use yii\helpers\Url;
 																	<p class="block-title__tag-line "><strong></strong>
 
 																	</p><!-- /.block-title__tag-line -->
-																	<h3 class="block-title__title "><span class="block-title__bold">Higiene Laboral
+																	<h3 class="block-title__title "><span class="block-title__bold">Ambiente laboral
 																		</span>
 																		<!-- /.block-title__bold -->
 																	</h3><!-- /.block-title__title -->

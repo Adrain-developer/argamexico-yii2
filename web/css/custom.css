@@ -89,3 +89,10 @@
     background-color: #fffefe !important;
 }
 
+.blog-feed-img{
+    width: 390px !important;
+}
+
+.project-one__project-page-two .project-one__img {
+    height: 210px;
+}
