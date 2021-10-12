@@ -286,7 +286,7 @@ $this->title = 'ARGA México';
 															<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon fa fa-fire-extinguisher"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argafire/index']); ?>">ARGA<br>Fire</a></h2>
+																	<h2 class="service-one__title">ARGA<br>Fire</h2>
 																	<!-- /.service-one__title -->
 																	<p class="service-one__text">Mantenimiento y recarga<br>Equipos de emergencia.
 
@@ -298,7 +298,7 @@ $this->title = 'ARGA México';
 															<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon fa fa-building"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argaconsultores/index']); ?>">ARGA<br>Consultores</a></h2>
+																	<h2 class="service-one__title">ARGA<br>Consultores</h2>
 																	<!-- /.service-one__title -->
 																	<p class="service-one__text">Estudios para evaluar <br>Condiciones de trabajo.
 
@@ -310,7 +310,7 @@ $this->title = 'ARGA México';
 															<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon fa fa-cogs"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argatraining/index']); ?>">ARGA<br>Training</a></h2>
+																	<h2 class="service-one__title">ARGA<br>Training</h2>
 																	<!-- /.service-one__title -->
 																	<p class="service-one__text">Cursos registrados ante<br><strong>STPS</strong>
 
@@ -322,7 +322,7 @@ $this->title = 'ARGA México';
 															<div class="service-one__single col-12 ">
 																<div class="service-one__single-inner">
 																	<i class="icon fa fa-flask"></i><!-- /.indext-icon-service-1-1 -->
-																	<h2 class="service-one__title"><a href="<?= Url::toRoute(['argalabs/index']); ?>">ARGA<br>Labs</a></h2>
+																	<h2 class="service-one__title">ARGA<br>Labs</h2>
 																	<!-- /.service-one__title -->
 																	<p class="service-one__text">Fuentes fijas<br>Higiene laboral
 
@@ -491,7 +491,7 @@ $this->title = 'ARGA México';
 																	<div class="col-lg-5">
 																		<div class="video-two__image">
 																			<img src="<?= (Yii::$app->homeUrl . $rutas->pathImagenBnrIdxLabs) ?>">
-																			<a class="video-two__btn hvr-pulse html5lightbox" href="https://www.youtube.com/watch?v=Get7rqXYrbQ"><i class="fa fa-play"></i><!-- /.fa fa-play --></a>
+																			<a class="video-two__btn hvr-pulse html5lightbox" ><i class="fa fa-play"></i><!-- /.fa fa-play --></a>
 																		</div><!-- /.video-two__image -->
 																	</div><!-- /.col-lg-6 -->
 																</div><!-- /.row no-gutters -->
