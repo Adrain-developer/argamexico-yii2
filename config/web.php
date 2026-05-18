@@ -68,10 +68,10 @@ $config = [
                 'yii\web\JqueryAsset' => [
                     'js' => [],
                 ],
-                'yii\bootstrap\BootstrapPluginAsset' => [
+                'yii\bootstrap5\BootstrapPluginAsset' => [
                     'js' => [],
                 ],
-                'yii\bootstrap\BootstrapAsset' => [
+                'yii\bootstrap5\BootstrapAsset' => [
                     'css' => [],
                 ],
             ],
