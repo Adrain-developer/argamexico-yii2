@@ -264,8 +264,8 @@ $this->title = 'ARGA México';
 									<div class="elementor-widget-container">
 
 										<section class=" service-one">
-											<img src="<?= Yii::$app->homeUrl ?>web/images/cog-1-1.png" class="service-one__cog" alt="">
-											<!--<img src="<?= Yii::$app->homeUrl ?>web/images/cog-1-1.png" class="service-one__moc" alt="">-->
+											<img src="<?= Yii::$app->homeUrl ?>images/cog-1-1.png" class="service-one__cog" alt="">
+											<!--<img src="<?= Yii::$app->homeUrl ?>images/cog-1-1.png" class="service-one__moc" alt="">-->
 											<div class="container">
 												<div class="row">
 													<div class="col-lg-4">

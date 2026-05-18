@@ -12,8 +12,8 @@ $this->title = 'Administración de productos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.css' type='text/css' media='all' />
-<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.js'></script>
+<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>js/datatables/datatables.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/datatables/datatables.min.js'></script>
 
 <div class="productos-index container admin-panel">
 

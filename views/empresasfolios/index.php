@@ -8,8 +8,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 
 ?>
-<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.css' type='text/css' media='all' />
-<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.js'></script>
+<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>js/datatables/datatables.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/datatables/datatables.min.js'></script>
 
 <div class="container admin-panel">
 <h3>Folios DS3</h3>

@@ -128,117 +128,117 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/alen.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/alen.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/auria.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/auria.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/caja.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/caja.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/cedinsa.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/cedinsa.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/coppel.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/coppel.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/empacadora.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/empacadora.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/engie.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/engie.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/exterran.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/exterran.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/gas.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/gas.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/gr.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/gr.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/heineken.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/heineken.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/italiana.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/italiana.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/jll.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/jll.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/magna.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/magna.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/mpi.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/mpi.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/oxxo.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/oxxo.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/poin.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/poin.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
 
                         <div class="item">
                             <a>
-                                <img src="<?= Yii::$app->homeUrl ?>web/images/clientes/recicla.png" alt="brand image">
+                                <img src="<?= Yii::$app->homeUrl ?>images/clientes/recicla.png" alt="brand image">
                             </a>
                         </div><!-- /.item -->
                         

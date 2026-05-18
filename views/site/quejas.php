@@ -28,21 +28,21 @@ AppAsset::register($this);
     <h2>Procedimiento de quejas</h2>
       <div id="galleria" class="galleria row">
 
-        <a href="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/hoja-1.png" class="col-sm-5">
-          <img src='<?= Yii::$app->homeUrl ?>web/images/acreditaciones/hoja-1.png' alt="logo" style="" /></a>
+        <a href="<?= Yii::$app->homeUrl ?>images/acreditaciones/hoja-1.png" class="col-sm-5">
+          <img src='<?= Yii::$app->homeUrl ?>images/acreditaciones/hoja-1.png' alt="logo" style="" /></a>
 
           <div class="col-sm-1"></div>
 
-          <a href="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/hoja-2.png" class="col-sm-5">
-          <img src='<?= Yii::$app->homeUrl ?>web/images/acreditaciones/hoja-2.png' alt="logo" style="" /></a>
+          <a href="<?= Yii::$app->homeUrl ?>images/acreditaciones/hoja-2.png" class="col-sm-5">
+          <img src='<?= Yii::$app->homeUrl ?>images/acreditaciones/hoja-2.png' alt="logo" style="" /></a>
           
 
-          <a href="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/hoja-3.png" class="col-sm-5">
-          <img src='<?= Yii::$app->homeUrl ?>web/images/acreditaciones/hoja-3.png' alt="logo" style="" /></a>
+          <a href="<?= Yii::$app->homeUrl ?>images/acreditaciones/hoja-3.png" class="col-sm-5">
+          <img src='<?= Yii::$app->homeUrl ?>images/acreditaciones/hoja-3.png' alt="logo" style="" /></a>
           <div class="col-sm-1"></div>
 
-          <a href="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/hoja-4.png" class="col-sm-5">
-          <img src='<?= Yii::$app->homeUrl ?>web/images/acreditaciones/hoja-4.png' alt="logo" style="" /></a>
+          <a href="<?= Yii::$app->homeUrl ?>images/acreditaciones/hoja-4.png" class="col-sm-5">
+          <img src='<?= Yii::$app->homeUrl ?>images/acreditaciones/hoja-4.png' alt="logo" style="" /></a>
 
       </div>
 

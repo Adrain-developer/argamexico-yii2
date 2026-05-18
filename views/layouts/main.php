@@ -128,62 +128,62 @@ AppAsset::register($this);
 		}
 	</style>
 
-	<link rel='stylesheet' id='wp-block-library-css' href='<?= Yii::$app->homeUrl ?>web/css/style.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='wc-block-vendors-style-css' href='<?= Yii::$app->homeUrl ?>web/css/vendors-stylecb20.css?ver=4.4.3' type='text/css' media='all' />
-	<link rel='stylesheet' id='contact-form-7-css' href='<?= Yii::$app->homeUrl ?>web/css/styles91d5.css?ver=5.4' type='text/css' media='all' />
-	<link rel='stylesheet' id='woocommerce-layout-css' href='<?= Yii::$app->homeUrl ?>web/css/woocommerce-layout0e7d.css?ver=5.1.0' type='text/css' media='all' />
-	<link rel='stylesheet' id='woocommerce-smallscreen-css' href='<?= Yii::$app->homeUrl ?>web/css/woocommerce-smallscreen0e7d.css?ver=5.1.0' type='text/css' media='only screen and (max-width: 768px)' />
-	<link rel='stylesheet' id='woocommerce-general-css' href='<?= Yii::$app->homeUrl ?>web/css/woocommerce0e7d.css?ver=5.1.0' type='text/css' media='all' />
+	<link rel='stylesheet' id='wp-block-library-css' href='<?= Yii::$app->homeUrl ?>css/style.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='wc-block-vendors-style-css' href='<?= Yii::$app->homeUrl ?>css/vendors-stylecb20.css?ver=4.4.3' type='text/css' media='all' />
+	<link rel='stylesheet' id='contact-form-7-css' href='<?= Yii::$app->homeUrl ?>css/styles91d5.css?ver=5.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='woocommerce-layout-css' href='<?= Yii::$app->homeUrl ?>css/woocommerce-layout0e7d.css?ver=5.1.0' type='text/css' media='all' />
+	<link rel='stylesheet' id='woocommerce-smallscreen-css' href='<?= Yii::$app->homeUrl ?>css/woocommerce-smallscreen0e7d.css?ver=5.1.0' type='text/css' media='only screen and (max-width: 768px)' />
+	<link rel='stylesheet' id='woocommerce-general-css' href='<?= Yii::$app->homeUrl ?>css/woocommerce0e7d.css?ver=5.1.0' type='text/css' media='all' />
 	<style id='woocommerce-inline-inline-css' type='text/css'>
 		.woocommerce form .form-row .required {
 			visibility: visible;
 		}
 	</style>
 
-	<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/css/custom.css' type='text/css' media='all' />
-	<link rel='stylesheet' id='animate-css' href='<?= Yii::$app->homeUrl ?>web/css/animate4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='bootstrap-css' href='<?= Yii::$app->homeUrl ?>web/css/bootstrap.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='bootstrap-datepicker-css' href='<?= Yii::$app->homeUrl ?>web/css/bootstrap-datepicker.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='bootstrap-select-css' href='<?= Yii::$app->homeUrl ?>web/css/bootstrap-select.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='fontawesome-all-css' href='<?= Yii::$app->homeUrl ?>web/css/fontawesome-all4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='hover-min-css' href='<?= Yii::$app->homeUrl ?>web/css/hover-min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='jquery-bootstrap-touchspin-css' href='<?= Yii::$app->homeUrl ?>web/css/jquery.bootstrap-touchspin.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='magnific-popup-css' href='<?= Yii::$app->homeUrl ?>web/css/magnific-popup4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='nouislider-css' href='<?= Yii::$app->homeUrl ?>web/css/nouislider4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='owl-carousel-css' href='<?= Yii::$app->homeUrl ?>web/css/owl.carousel.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='owl-theme-default-css' href='<?= Yii::$app->homeUrl ?>web/css/owl.theme.default.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='appointment-css' href='<?= Yii::$app->homeUrl ?>web/css/appointment4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='datetimepicker-css' href='<?= Yii::$app->homeUrl ?>web/css/datetimepicker4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='jquery-ui-css' href='<?= Yii::$app->homeUrl ?>web/css/jquery-ui4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-style-2-css' href='<?= Yii::$app->homeUrl ?>web/css/style-24c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='icon-style-css' href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext--css' href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='responsive-css' href='<?= Yii::$app->homeUrl ?>web/css/responsive4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='color-panel-css' href='<?= Yii::$app->homeUrl ?>web/css/color-panel4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-main-css' href='<?= Yii::$app->homeUrl ?>web/css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-error-css' href='<?= Yii::$app->homeUrl ?>web/css/error4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-sidebar-css' href='<?= Yii::$app->homeUrl ?>web/css/sidebar4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-tut-css' href='<?= Yii::$app->homeUrl ?>web/css/tut4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-mfixing-css' href='<?= Yii::$app->homeUrl ?>web/css/fixing4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-woocommerce-css' href='<?= Yii::$app->homeUrl ?>web/css/woocommerce4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext-rtl-css' href='<?= Yii::$app->homeUrl ?>web/css/rtl4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>css/custom.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='animate-css' href='<?= Yii::$app->homeUrl ?>css/animate4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='bootstrap-css' href='<?= Yii::$app->homeUrl ?>css/bootstrap.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='bootstrap-datepicker-css' href='<?= Yii::$app->homeUrl ?>css/bootstrap-datepicker.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='bootstrap-select-css' href='<?= Yii::$app->homeUrl ?>css/bootstrap-select.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='fontawesome-all-css' href='<?= Yii::$app->homeUrl ?>css/fontawesome-all4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='hover-min-css' href='<?= Yii::$app->homeUrl ?>css/hover-min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='jquery-bootstrap-touchspin-css' href='<?= Yii::$app->homeUrl ?>css/jquery.bootstrap-touchspin.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='magnific-popup-css' href='<?= Yii::$app->homeUrl ?>css/magnific-popup4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='nouislider-css' href='<?= Yii::$app->homeUrl ?>css/nouislider4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='owl-carousel-css' href='<?= Yii::$app->homeUrl ?>css/owl.carousel.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='owl-theme-default-css' href='<?= Yii::$app->homeUrl ?>css/owl.theme.default.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='appointment-css' href='<?= Yii::$app->homeUrl ?>css/appointment4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='datetimepicker-css' href='<?= Yii::$app->homeUrl ?>css/datetimepicker4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='jquery-ui-css' href='<?= Yii::$app->homeUrl ?>css/jquery-ui4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-style-2-css' href='<?= Yii::$app->homeUrl ?>css/style-24c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='icon-style-css' href='<?= Yii::$app->homeUrl ?>css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext--css' href='<?= Yii::$app->homeUrl ?>css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='responsive-css' href='<?= Yii::$app->homeUrl ?>css/responsive4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='color-panel-css' href='<?= Yii::$app->homeUrl ?>css/color-panel4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-main-css' href='<?= Yii::$app->homeUrl ?>css/style4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-error-css' href='<?= Yii::$app->homeUrl ?>css/error4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-sidebar-css' href='<?= Yii::$app->homeUrl ?>css/sidebar4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-tut-css' href='<?= Yii::$app->homeUrl ?>css/tut4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-mfixing-css' href='<?= Yii::$app->homeUrl ?>css/fixing4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-woocommerce-css' href='<?= Yii::$app->homeUrl ?>css/woocommerce4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext-rtl-css' href='<?= Yii::$app->homeUrl ?>css/rtl4c7e.css?ver=5.6.2' type='text/css' media='all' />
 	<link rel='stylesheet' id='indext-theme-fonts-css' href='https://fonts.googleapis.com/css?family=Noto+Serif%3A400%3B0%2C700%3B1%2C400%3B1%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
-	<link rel='stylesheet' id='main-color-css' href='<?= Yii::$app->homeUrl ?>web/css/color0c43.css?main_color=ff5860&amp;ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='main-color-css' href='<?= Yii::$app->homeUrl ?>css/color0c43.css?main_color=ff5860&amp;ver=5.6.2' type='text/css' media='all' />
 	<link rel='stylesheet' id='indext-google-fonts-css' href='https://fonts.googleapis.com/css?family=Rubik%3A300%2C300i%2C400%2C400i%2C500%2C500i%2C600%2C600i%2C700%7CKaushan+Script&amp;subset=latin%2Clatin-ext&amp;ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='indext_preloader-css' href='<?= Yii::$app->homeUrl ?>web/css/loader.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='elementor-icons-css' href='<?= Yii::$app->homeUrl ?>web/css/elementor-icons.min21f9.css?ver=5.11.0' type='text/css' media='all' />
-	<link rel='stylesheet' id='elementor-animations-css' href='<?= Yii::$app->homeUrl ?>web/css/animations.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
-	<link rel='stylesheet' id='elementor-frontend-legacy-css' href='<?= Yii::$app->homeUrl ?>web/css/frontend-legacy.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
-	<link rel='stylesheet' id='elementor-frontend-css' href='<?= Yii::$app->homeUrl ?>web/css/frontend.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
-	<link rel='stylesheet' id='elementor-post-68-css' href='<?= Yii::$app->homeUrl ?>web/css/post-683187.css?ver=1615693937' type='text/css' media='all' />
-	<link rel='stylesheet' id='elementor-global-css' href='<?= Yii::$app->homeUrl ?>web/css/global3187.css?ver=1615693937' type='text/css' media='all' />
+	<link rel='stylesheet' id='indext_preloader-css' href='<?= Yii::$app->homeUrl ?>css/loader.min4c7e.css?ver=5.6.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-icons-css' href='<?= Yii::$app->homeUrl ?>css/elementor-icons.min21f9.css?ver=5.11.0' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-animations-css' href='<?= Yii::$app->homeUrl ?>css/animations.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-frontend-legacy-css' href='<?= Yii::$app->homeUrl ?>css/frontend-legacy.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-frontend-css' href='<?= Yii::$app->homeUrl ?>css/frontend.minaeb9.css?ver=3.1.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-post-68-css' href='<?= Yii::$app->homeUrl ?>css/post-683187.css?ver=1615693937' type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-global-css' href='<?= Yii::$app->homeUrl ?>css/global3187.css?ver=1615693937' type='text/css' media='all' />
 	<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;ver=5.6.2' type='text/css' media='all' />
 
 
-	<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
-	<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
+	<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
+	<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
 
-	<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/css/sidebar.css' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>css/sidebar.css' type='text/css' media='all' />
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -238,7 +238,7 @@ AppAsset::register($this);
 
 					<div class="logo-box">
 						<div class="navbar-brand">
-							<a href="<?= Url::toRoute(['./index.php']); ?>" title="indext"><img src='<?= Yii::$app->homeUrl ?>web/images/logo2.png' alt="logo" style="" /></a>
+							<a href="<?= Url::toRoute(['./index.php']); ?>" title="indext"><img src='<?= Yii::$app->homeUrl ?>images/logo2.png' alt="logo" style="" /></a>
 						</div>
 						<div class="mobile-nav-toggler"> <span class="fa fa-bars"></span> </div>
 					</div>
@@ -307,7 +307,7 @@ AppAsset::register($this);
 				<div class="close-btn"><span class="icon flaticon-remove"></span></div>
 
 				<nav class="menu-box">
-					<div class="nav-logo"><a href="<?= Url::toRoute(['./index.php']); ?>" title="indext"><img src="<?= Yii::$app->homeUrl ?>web/images/logo2.png" alt="logo" style="" /></a></div>
+					<div class="nav-logo"><a href="<?= Url::toRoute(['./index.php']); ?>" title="indext"><img src="<?= Yii::$app->homeUrl ?>images/logo2.png" alt="logo" style="" /></a></div>
 					<div class="menu-outer">
 						<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
 					</div>
@@ -350,69 +350,69 @@ AppAsset::register($this);
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('argaconsultores/index'); ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s1.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s1.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('argafire/index'); ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s2.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s2.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('./index.php') ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s3.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s3.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('argalabs/index'); ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s4.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s4.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('argatraining/index'); ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s5.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s5.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('argaconsultores/index'); ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s1.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s1.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('argafire/index'); ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s2.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s2.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('./index.php') ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s3.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s3.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute(['argalabs/index']); ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s4.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s4.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
 																	<div class="item">
 																		<a href="<?= Url::toRoute('argatraining/index'); ?>">
-																			<img src="<?= Yii::$app->homeUrl ?>web/images/s5.png" alt="brand image">
+																			<img src="<?= Yii::$app->homeUrl ?>images/s5.png" alt="brand image">
 																		</a>
 																	</div><!-- /.item -->
 
@@ -425,7 +425,7 @@ AppAsset::register($this);
 																<div class="row">
 																	<div class="col-xl-6 col-lg-5">
 																		<div class="footer-widget footer-widget__about-widget">
-																			<a href="<?= Url::toRoute('./index.php') ?>"><img src="<?= Yii::$app->homeUrl ?>web/images/arga_footer.png" width="185" class="footer-widget__logo" alt=""></a>
+																			<a href="<?= Url::toRoute('./index.php') ?>"><img src="<?= Yii::$app->homeUrl ?>images/arga_footer.png" width="185" class="footer-widget__logo" alt=""></a>
 																			<p class="footer-widget__text">Comprendemos y estamos comprometidos con nuestros grandes valores que nos llevaran a la visión de negocio que hemos establecido:
 																				​
 																				<br>• Honestidad
@@ -609,7 +609,7 @@ AppAsset::register($this);
 			}
 		</script>
 
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/wp-polyfill.min89b1.js?ver=7.4.4' id='wp-polyfill-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/wp-polyfill.min89b1.js?ver=7.4.4' id='wp-polyfill-js'></script>
 		<script type='text/javascript' id='wp-polyfill-js-after'>
 			('fetch' in window) || document.write('<script src="wp-includes/js/dist/vendor/wp-polyfill-fetch.min6e0e.js?ver=3.0.0"></scr' + 'ipt>');
 			(document.contains) || document.write('<script src="wp-includes/js/dist/vendor/wp-polyfill-node-contains.min2e00.js?ver=3.42.0"></scr' + 'ipt>');
@@ -618,13 +618,13 @@ AppAsset::register($this);
 			(window.FormData && window.FormData.prototype.keys) || document.write('<script src="wp-includes/js/dist/vendor/wp-polyfill-formdata.mine9bd.js?ver=3.0.12"></scr' + 'ipt>');
 			(Element.prototype.matches && Element.prototype.closest) || document.write('<script src="wp-includes/js/dist/vendor/wp-polyfill-element-closest.min4c56.js?ver=2.0.2"></scr' + 'ipt>');
 		</script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/i18n.mina706.js?ver=ac389435e7fd4ded01cf603f3aaba6a6' id='wp-i18n-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/lodash.minf492.js?ver=4.17.19' id='lodash-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/i18n.mina706.js?ver=ac389435e7fd4ded01cf603f3aaba6a6' id='wp-i18n-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/lodash.minf492.js?ver=4.17.19' id='lodash-js'></script>
 		<script type='text/javascript' id='lodash-js-after'>
 			window.lodash = _.noConflict();
 		</script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/url.min534b.js?ver=98645f0502e5ed8dadffd161e39072d2' id='wp-url-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/hooks.min110c.js?ver=84b89ab09cbfb4469f02183611cc0939' id='wp-hooks-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/url.min534b.js?ver=98645f0502e5ed8dadffd161e39072d2' id='wp-url-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/hooks.min110c.js?ver=84b89ab09cbfb4469f02183611cc0939' id='wp-hooks-js'></script>
 		<script type='text/javascript' id='wp-api-fetch-js-translations'>
 			(function(domain, translations) {
 				var localeData = translations.locale_data[domain] || translations.locale_data.messages;
@@ -653,9 +653,9 @@ AppAsset::register($this);
 			};
 			/* ]]> */
 		</script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/api-fetch.min44e0.js?ver=4dec825c071b87c57f687eb90f7c23c3' id='wp-api-fetch-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/index91d5.js?ver=5.4' id='contact-form-7-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.blockUI.min44fd.js?ver=2.70' id='jquery-blockui-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/api-fetch.min44e0.js?ver=4dec825c071b87c57f687eb90f7c23c3' id='wp-api-fetch-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/index91d5.js?ver=5.4' id='contact-form-7-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery.blockUI.min44fd.js?ver=2.70' id='jquery-blockui-js'></script>
 		<script type='text/javascript' id='wc-add-to-cart-js-extra'>
 			/* <![CDATA[ */
 			var wc_add_to_cart_params = {
@@ -668,8 +668,8 @@ AppAsset::register($this);
 			};
 			/* ]]> */
 		</script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/add-to-cart.min0e7d.js?ver=5.1.0' id='wc-add-to-cart-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/js.cookie.min6b25.js?ver=2.1.4' id='js-cookie-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/add-to-cart.min0e7d.js?ver=5.1.0' id='wc-add-to-cart-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/js.cookie.min6b25.js?ver=2.1.4' id='js-cookie-js'></script>
 		<script type='text/javascript' id='woocommerce-js-extra'>
 			/* <![CDATA[ */
 			var woocommerce_params = {
@@ -678,7 +678,7 @@ AppAsset::register($this);
 			};
 			/* ]]> */
 		</script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/woocommerce.min0e7d.js?ver=5.1.0' id='woocommerce-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/woocommerce.min0e7d.js?ver=5.1.0' id='woocommerce-js'></script>
 		<script type='text/javascript' id='wc-cart-fragments-js-extra'>
 			/* <![CDATA[ */
 			var wc_cart_fragments_params = {
@@ -690,36 +690,36 @@ AppAsset::register($this);
 			};
 			/* ]]> */
 		</script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/cart-fragments.min0e7d.js?ver=5.1.0' id='wc-cart-fragments-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/core.min35d0.js?ver=1.12.1' id='jquery-ui-core-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/appear431f.js?ver=2.1.2' id='appear-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/bootstrap-datepicker.min431f.js?ver=2.1.2' id='bootstrap-datepicker-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/bootstrap.bundle.min431f.js?ver=2.1.2' id='bootstrap-bundle-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/bootstrap-select.min431f.js?ver=2.1.2' id='bootstrap-select-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/isotope431f.js?ver=2.1.2' id='isotope-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.bootstrap-touchspin.min431f.js?ver=2.1.2' id='jquery-bootstrap-touchspin-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.counterup.min431f.js?ver=2.1.2' id='jquery-counterup-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.magnific-popup.min431f.js?ver=2.1.2' id='magnific-popup-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/nouislider431f.js?ver=2.1.2' id='nouislider-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/owl.carousel.min431f.js?ver=2.1.2' id='owl-carousel-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/TweenMax.min431f.js?ver=2.1.2' id='TweenMax-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/waypoints.min431f.js?ver=2.1.2' id='waypoints-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/html5lightbox/html5lightbox431f.js?ver=2.1.2' id='html5lightbox-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/wow.min431f.js?ver=2.1.2' id='wow-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery-ui431f.js?ver=2.1.2' id='jquery-ui-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/knob431f.js?ver=2.1.2' id='knob-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.fancybox431f.js?ver=2.1.2' id='jquery-fancybox-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/jquery.cookie.min330a.js?ver=1.4.1' id='jquery-cookie-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/themepanel431f.js?ver=2.1.2' id='themepanel-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/script4c7e.js?ver=5.6.2' id='indext-main-script-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/comment-reply.min4c7e.js?ver=5.6.2' id='comment-reply-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/wp-embed.min4c7e.js?ver=5.6.2' id='wp-embed-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/webpack.runtime.minaeb9.js?ver=3.1.4' id='elementor-webpack-runtime-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/frontend-modules.minaeb9.js?ver=3.1.4' id='elementor-frontend-modules-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/dialog.mina288.js?ver=4.8.1' id='elementor-dialog-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/waypoints.min05da.js?ver=4.0.2' id='elementor-waypoints-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/share-link.minaeb9.js?ver=3.1.4' id='share-link-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/swiper.min48f5.js?ver=5.3.6' id='swiper-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/cart-fragments.min0e7d.js?ver=5.1.0' id='wc-cart-fragments-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/core.min35d0.js?ver=1.12.1' id='jquery-ui-core-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/appear431f.js?ver=2.1.2' id='appear-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/bootstrap-datepicker.min431f.js?ver=2.1.2' id='bootstrap-datepicker-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/bootstrap.bundle.min431f.js?ver=2.1.2' id='bootstrap-bundle-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/bootstrap-select.min431f.js?ver=2.1.2' id='bootstrap-select-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/isotope431f.js?ver=2.1.2' id='isotope-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery.bootstrap-touchspin.min431f.js?ver=2.1.2' id='jquery-bootstrap-touchspin-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery.counterup.min431f.js?ver=2.1.2' id='jquery-counterup-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery.magnific-popup.min431f.js?ver=2.1.2' id='magnific-popup-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/nouislider431f.js?ver=2.1.2' id='nouislider-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/owl.carousel.min431f.js?ver=2.1.2' id='owl-carousel-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/TweenMax.min431f.js?ver=2.1.2' id='TweenMax-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/waypoints.min431f.js?ver=2.1.2' id='waypoints-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/html5lightbox/html5lightbox431f.js?ver=2.1.2' id='html5lightbox-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/wow.min431f.js?ver=2.1.2' id='wow-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery-ui431f.js?ver=2.1.2' id='jquery-ui-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/knob431f.js?ver=2.1.2' id='knob-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery.fancybox431f.js?ver=2.1.2' id='jquery-fancybox-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/jquery.cookie.min330a.js?ver=1.4.1' id='jquery-cookie-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/themepanel431f.js?ver=2.1.2' id='themepanel-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/script4c7e.js?ver=5.6.2' id='indext-main-script-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/comment-reply.min4c7e.js?ver=5.6.2' id='comment-reply-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/wp-embed.min4c7e.js?ver=5.6.2' id='wp-embed-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/webpack.runtime.minaeb9.js?ver=3.1.4' id='elementor-webpack-runtime-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/frontend-modules.minaeb9.js?ver=3.1.4' id='elementor-frontend-modules-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/dialog.mina288.js?ver=4.8.1' id='elementor-dialog-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/waypoints.min05da.js?ver=4.0.2' id='elementor-waypoints-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/share-link.minaeb9.js?ver=3.1.4' id='share-link-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/swiper.min48f5.js?ver=5.3.6' id='swiper-js'></script>
 		<script type='text/javascript' id='elementor-frontend-js-before'>
 			var elementorFrontendConfig = {
 				"environmentMode": {
@@ -778,12 +778,12 @@ AppAsset::register($this);
 				}
 			};
 		</script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/frontend.minaeb9.js?ver=3.1.4' id='elementor-frontend-js'></script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/preloaded-elements-handlers.minaeb9.js?ver=3.1.4' id='preloaded-elements-handlers-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/frontend.minaeb9.js?ver=3.1.4' id='elementor-frontend-js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/preloaded-elements-handlers.minaeb9.js?ver=3.1.4' id='preloaded-elements-handlers-js'></script>
 		<script type="text/javascript">
 			var urlPedido = "<?= Url::toRoute('productos/cotizar'); ?>";
 		</script>
-		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/cart.js'></script>
+		<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/cart.js'></script>
 
 	</main>
 

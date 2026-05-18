@@ -145,25 +145,25 @@ $this->title = 'Fire';
                                                                         <div class="row low-gutters">
                                                                             <div class="col-md-4 col-4">
                                                                             <a href="<?= Url::toRoute(['web/download/Dictamen_EN_RIESGOS_GA.pdf']); ?>" download="Dictamen_EN_RIESGOS_GA.pdf">
-                                                                            <img src="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/Dictamen_EN_RIESGOS_GA.jpeg" alt="" class="img-fluid"> 
+                                                                            <img src="<?= Yii::$app->homeUrl ?>images/acreditaciones/Dictamen_EN_RIESGOS_GA.jpeg" alt="" class="img-fluid"> 
                                                                             <button class="btn btn-info pull-right" style="margin-top: 7px">Ver archivo</button>
                                                                             </a>
                                                                             </div><!-- /.col-md-12 -->
                                                                             <div class="col-md-4 col-4">
                                                                             <a href="<?= Url::toRoute(['web/download/Empadronamiento_Bomberos.pdf']); ?>" download="Empadronamiento_Bomberos.pdf">
-                                                                                <img src="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/Empadronamiento_Bomberos.jpeg" alt="" class="img-fluid">
+                                                                                <img src="<?= Yii::$app->homeUrl ?>images/acreditaciones/Empadronamiento_Bomberos.jpeg" alt="" class="img-fluid">
                                                                                 <button class="btn btn-info pull-right" style="margin-top: 7px">Ver archivo</button>
                                                                             </a>
                                                                             </div><!-- /.col-md-6 -->
                                                                             <div class="col-md-4 col-4">
                                                                             <a href="<?= Url::toRoute(['web/download/Folio_Registro_73416_REPSE.pdf']); ?>" download="Folio_Registro_73416_REPSE.pdf">
-                                                                                <img src="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/Folio_Registro_73416_REPSE.jpeg" alt="" class="img-fluid">
+                                                                                <img src="<?= Yii::$app->homeUrl ?>images/acreditaciones/Folio_Registro_73416_REPSE.jpeg" alt="" class="img-fluid">
                                                                                 <button class="btn btn-info pull-right" style="margin-top: 7px">Ver archivo</button>
                                                                             </a>
                                                                             </div>
                                                                             <div class="col-md-4 col-4">
                                                                             <a href="<?= Url::toRoute(['web/download/Certificado_9001_ADMIN_EN_RIESGOS_GA_MÉXICO_Español.pdf']); ?>" download="Certificado_9001_ADMIN_EN_RIESGOS_GA_MÉXICO_Español.pdf">
-                                                                                <img src="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/Certificado_9001_ADMIN_EN_RIESGOS_GA_MÉXICO_Español.jpeg" alt="" class="img-fluid">
+                                                                                <img src="<?= Yii::$app->homeUrl ?>images/acreditaciones/Certificado_9001_ADMIN_EN_RIESGOS_GA_MÉXICO_Español.jpeg" alt="" class="img-fluid">
                                                                                 <button class="btn btn-info pull-right" style="margin-top: 7px">Ver archivo</button>
                                                                             </a>
                                                                             </div>

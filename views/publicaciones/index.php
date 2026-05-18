@@ -16,8 +16,8 @@ $urlParse = parse_url( $url);
 parse_str($urlParse['query'], $params);
 $modulo = $params['tipo'];
 ?>
-<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.css' type='text/css' media='all' />
-<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>web/js/datatables/datatables.min.js'></script>
+<link rel='stylesheet' href='<?= Yii::$app->homeUrl ?>js/datatables/datatables.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='<?= Yii::$app->homeUrl ?>js/datatables/datatables.min.js'></script>
 
 
 <div class="publicaciones-index admin-panel container">
