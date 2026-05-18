@@ -322,3 +322,46 @@ const policyObserver = new IntersectionObserver((entries) => {
 
 const politicasSection = document.getElementById('politicas');
 if (politicasSection) policyObserver.observe(politicasSection);
+
+// ---- Team Carousel ----
+(function () {
+  const track = document.getElementById('teamCarouselTrack');
+  if (!track) return;
+
+  const cards     = track.querySelectorAll('.team-card');
+  const dots      = document.querySelectorAll('.team-dot');
+  const prevBtn   = document.getElementById('teamPrev');
+  const nextBtn   = document.getElementById('teamNext');
+  let current     = 0;
+  let autoTimer   = null;
+
+  function goTo(index) {
+    current = (index + cards.length) % cards.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 4000); }
+  function stopAuto()  { clearInterval(autoTimer); }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      stopAuto();
+      goTo(parseInt(dot.dataset.index));
+      startAuto();
+    });
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { stopAuto(); goTo(dx < 0 ? current + 1 : current - 1); startAuto(); }
+  });
+
+  startAuto();
+}());

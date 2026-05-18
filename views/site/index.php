@@ -416,30 +416,50 @@ $this->title = 'ARGA Group México — Seguridad Industrial, Consultoría y Labo
 <!-- ===== EQUIPO ===== -->
 <section class="section team-section reveal" id="equipo">
   <div class="team-inner">
-    <div class="team-cards">
-      <div class="team-card">
-        <div class="team-avatar">
-          <svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#e8f4f8"/><circle cx="35" cy="26" r="12" fill="#6ebbd9"/><ellipse cx="35" cy="58" rx="20" ry="14" fill="#6ebbd9"/></svg>
+
+    <div class="team-cards-wrap">
+      <!-- Viewport -->
+      <div class="team-carousel">
+        <div class="team-carousel-track" id="teamCarouselTrack">
+
+          <div class="team-card">
+            <div class="team-avatar">
+              <svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#e8f4f8"/><circle cx="35" cy="26" r="12" fill="#6ebbd9"/><ellipse cx="35" cy="58" rx="20" ry="14" fill="#6ebbd9"/></svg>
+            </div>
+            <p class="team-name">ISH Alejandra M.</p>
+            <p class="team-role-sub">Ing. en Seguridad e Higiene por el IPRL</p>
+            <p class="team-role"><strong>Coordinadora de Seguridad</strong></p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar">
+              <img src="<?= Yii::$app->homeUrl ?>images/emma.png" alt="Director General" style="width:70px;height:70px;object-fit:cover;border-radius:50%;">
+            </div>
+            <p class="team-name">Director General</p>
+            <p class="team-role-sub">ARGA Group México</p>
+            <p class="team-role"><strong>Administración en Riesgos</strong></p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar">
+              <svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#e8f4f8"/><circle cx="35" cy="26" r="12" fill="#6ebbd9"/><ellipse cx="35" cy="58" rx="20" ry="14" fill="#6ebbd9"/></svg>
+            </div>
+            <p class="team-name">ISH Eduardo M.</p>
+            <p class="team-role-sub">Ing. en Seguridad e Higiene por el IPRL</p>
+            <p class="team-role"><strong>Técnico de Laboratorio</strong></p>
+          </div>
+
         </div>
-        <p class="team-name">ISH Alejandra M.</p>
-        <p class="team-role-sub">Ing. en Seguridad e Higiene por el IPRL</p>
-        <p class="team-role"><strong>Coordinadora de Seguridad</strong></p>
       </div>
-      <div class="team-card featured">
-        <div class="team-avatar">
-          <img src="<?= Yii::$app->homeUrl ?>images/emma.png" alt="Director General" style="width:70px;height:70px;object-fit:cover;border-radius:50%;">
+      <!-- Controls -->
+      <div class="team-carousel-controls">
+        <button class="team-arrow" id="teamPrev" aria-label="Anterior">&#8249;</button>
+        <div class="team-dots">
+          <button class="team-dot active" data-index="0"></button>
+          <button class="team-dot" data-index="1"></button>
+          <button class="team-dot" data-index="2"></button>
         </div>
-        <p class="team-name">Director General</p>
-        <p class="team-role-sub">ARGA Group México</p>
-        <p class="team-role"><strong>Administración en Riesgos</strong></p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">
-          <svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#e8f4f8"/><circle cx="35" cy="26" r="12" fill="#6ebbd9"/><ellipse cx="35" cy="58" rx="20" ry="14" fill="#6ebbd9"/></svg>
-        </div>
-        <p class="team-name">ISH Eduardo M.</p>
-        <p class="team-role-sub">Ing. en Seguridad e Higiene por el IPRL</p>
-        <p class="team-role"><strong>Técnico de Laboratorio</strong></p>
+        <button class="team-arrow" id="teamNext" aria-label="Siguiente">&#8250;</button>
       </div>
     </div>
 
