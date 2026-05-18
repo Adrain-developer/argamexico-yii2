@@ -1,14 +1,14 @@
 <?php
 
 return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=u773299113_arga',
-    'username' => 'u773299113_arga',
-    'password' => '4Dn$2021',
-    'charset' => 'utf8',
+    'class'   => 'yii\db\Connection',
+    'dsn'     => 'mysql:host=' . ($_ENV['DB_HOST'] ?? 'localhost') . ';dbname=' . ($_ENV['DB_NAME'] ?? ''),
+    'username' => $_ENV['DB_USER'] ?? '',
+    'password' => $_ENV['DB_PASS'] ?? '',
+    'charset' => 'utf8mb4',
 
-    // Schema cache options (for production environment)
-    //'enableSchemaCache' => true,
-    //'schemaCacheDuration' => 60,
-    //'schemaCache' => 'cache',
+    // Schema cache (habilitar en producción)
+    //'enableSchemaCache'  => true,
+    //'schemaCacheDuration' => 3600,
+    //'schemaCache'        => 'cache',
 ];

@@ -1,20 +1,19 @@
 <?php
 
 $params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
+$db     = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
-    'basePath' => dirname(__DIR__),
+    'id'        => 'basic',
+    'basePath'  => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'aliases' => [
+    'aliases'   => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'vTqL3cWVz10YZVvq1K_frIB8BTl41xpn',
+            'cookieValidationKey' => $_ENV['COOKIE_VALIDATION_KEY'] ?? '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -27,28 +26,32 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.hostinger.com',  // e.g. smtp.mandrillapp.com or smtp.gmail.com
-                'username' => 'contacto@argamexico.com',
-                'password' => '4Rga$2021',
-                'port' => '465', // Port 25 is a very common port too
-                'encryption' => 'ssl', // It is often used, check your provider or mail server specs
-                'streamOptions' => [ 
-                    'ssl' => [ 
+            'class'            => \yii\symfonymailer\Mailer::class,
+            'viewPath'         => '@app/mail',
+            'useFileTransport' => false,
+            'transport'        => [
+                'scheme'   => $_ENV['MAIL_ENCRYPTION'] === 'ssl' ? 'smtps' : 'smtp',
+                'host'     => $_ENV['MAIL_HOST'] ?? 'localhost',
+                'port'     => (int) ($_ENV['MAIL_PORT'] ?? 465),
+                'username' => $_ENV['MAIL_USERNAME'] ?? '',
+                'password' => $_ENV['MAIL_PASSWORD'] ?? '',
+                'options'  => [
+                    'ssl' => [
                         'allow_self_signed' => true,
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                    ]
-                ]
+                        'verify_peer'       => false,
+                        'verify_peer_name'  => false,
+                    ],
+                ],
+            ],
+            'messageConfig' => [
+                'from' => [$_ENV['MAIL_FROM'] ?? '' => $_ENV['MAIL_FROM_NAME'] ?? ''],
             ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
+            'targets'    => [
                 [
-                    'class' => 'yii\log\FileTarget',
+                    'class'  => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
             ],
@@ -57,44 +60,35 @@ $config = [
 
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
+            'showScriptName'  => false,
+            'rules'           => [],
         ],
         'assetManager' => [
             'bundles' => [
                 'yii\web\JqueryAsset' => [
-                    'js'=>[]
+                    'js' => [],
                 ],
                 'yii\bootstrap\BootstrapPluginAsset' => [
-                    'js'=>[]
+                    'js' => [],
                 ],
                 'yii\bootstrap\BootstrapAsset' => [
                     'css' => [],
                 ],
-
             ],
-        ]
-
-
+        ],
     ],
     'params' => $params,
 ];
 
 if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
+    $config['bootstrap'][]    = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 
-    $config['bootstrap'][] = 'gii';
+    $config['bootstrap'][]  = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 }
 
