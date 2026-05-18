@@ -87,7 +87,7 @@ use yii\helpers\Url;
                                                                                     <div class="team-one__single">
                                                                                         <div class="team-one__image">
                                                                                             <a>
-                                                                                                <img width="370" height="370" src="../web/images/mtto1.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" />
+                                                                                                <img width="370" height="370" src="/images/mtto1.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" />
                                                                                             </a>
 
                                                                                         </div><!-- /.team-one__image -->
@@ -105,7 +105,7 @@ use yii\helpers\Url;
                                                                                     <div class="team-one__single">
                                                                                         <div class="team-one__image">
                                                                                             <a>
-                                                                                                <img width="370" height="370" src="../web/images/mtto2.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" />
+                                                                                                <img width="370" height="370" src="/images/mtto2.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" />
                                                                                             </a>
 
                                                                                         </div><!-- /.team-one__image -->
@@ -123,7 +123,7 @@ use yii\helpers\Url;
                                                                                     <div class="team-one__single">
                                                                                         <div class="team-one__image">
                                                                                             <a>
-                                                                                                <img width="370" height="370" src="../web/images/mtto3.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" />
+                                                                                                <img width="370" height="370" src="/images/mtto3.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" />
                                                                                             </a>
                                                                                         </div><!-- /.team-one__image -->
                                                                                         <div class="team-one__content">
@@ -139,7 +139,7 @@ use yii\helpers\Url;
                                                                                     <div class="team-one__single">
                                                                                         <div class="team-one__image">
                                                                                             <a>
-                                                                                                <img width="370" height="370" src="../web/images/mtto4.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" />
+                                                                                                <img width="370" height="370" src="/images/mtto4.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" />
                                                                                             </a>
 
                                                                                         </div><!-- /.team-one__image -->
@@ -180,7 +180,7 @@ use yii\helpers\Url;
 
                                                                                                                                 </div><!-- /.blog-one__meta -->
                                                                                                                                 <div class="blog-one__image">
-                                                                                                                                    <img src="../web/images/int1.webp" alt="">
+                                                                                                                                    <img src="/images/int1.webp" alt="">
                                                                                                                                     <a><i class="indext-icon-right"></i></a>
                                                                                                                                 </div><!-- /.blog-one__image -->
 
@@ -197,7 +197,7 @@ use yii\helpers\Url;
 
                                                                                                                                 </div><!-- /.blog-one__meta -->
                                                                                                                                 <div class="blog-one__image">
-                                                                                                                                    <img src="../web/images/int2.webp" alt="">
+                                                                                                                                    <img src="/images/int2.webp" alt="">
                                                                                                                                     <a><i class="indext-icon-right"></i></a>
                                                                                                                                 </div><!-- /.blog-one__image -->
 
@@ -214,7 +214,7 @@ use yii\helpers\Url;
 
                                                                                                                                 </div><!-- /.blog-one__meta -->
                                                                                                                                 <div class="blog-one__image">
-                                                                                                                                    <img src="../web/images/int3.jpg" alt="">
+                                                                                                                                    <img src="/images/int3.jpg" alt="">
                                                                                                                                     <a><i class="indext-icon-right"></i></a>
                                                                                                                                 </div><!-- /.blog-one__image -->
 
@@ -236,7 +236,7 @@ use yii\helpers\Url;
 
                                                                                                                                 </div><!-- /.blog-one__meta -->
                                                                                                                                 <div class="blog-one__image">
-                                                                                                                                    <img src="../web/images/int4.webp" alt="">
+                                                                                                                                    <img src="/images/int4.webp" alt="">
                                                                                                                                     <a><i class="indext-icon-right"></i></a>
                                                                                                                                 </div><!-- /.blog-one__image -->
 
@@ -253,7 +253,7 @@ use yii\helpers\Url;
 
                                                                                                                                 </div><!-- /.blog-one__meta -->
                                                                                                                                 <div class="blog-one__image">
-                                                                                                                                    <img src="../web/images/int5.webp" alt="">
+                                                                                                                                    <img src="/images/int5.webp" alt="">
                                                                                                                                     <a><i class="indext-icon-right"></i></a>
                                                                                                                                 </div><!-- /.blog-one__image -->
 
@@ -270,7 +270,7 @@ use yii\helpers\Url;
 
                                                                                                                                 </div><!-- /.blog-one__meta -->
                                                                                                                                 <div class="blog-one__image">
-                                                                                                                                    <img src="../web/images/int6.webp" alt="">
+                                                                                                                                    <img src="/images/int6.webp" alt="">
                                                                                                                                     <a><i class="indext-icon-right"></i></a>
                                                                                                                                 </div><!-- /.blog-one__image -->
 

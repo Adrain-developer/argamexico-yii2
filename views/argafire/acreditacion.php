@@ -56,16 +56,16 @@ $this->title = 'Fire';
                                                                     <div class="service-details__image">
                                                                         <div class="row low-gutters">
                                                                             <div class="col-md-3 col-6">
-                                                                                <img src="../web/images/nom.webp" alt="" class="img-fluid">
+                                                                                <img src="/images/nom.webp" alt="" class="img-fluid">
                                                                             </div><!-- /.col-md-12 -->
                                                                             <div class="col-md-3 col-6">
-                                                                                <img src="../web/images/ul.webp" alt="" class="img-fluid">
+                                                                                <img src="/images/ul.webp" alt="" class="img-fluid">
                                                                             </div><!-- /.col-md-6 -->
                                                                             <div class="col-md-3 col-6">
-                                                                                <img src="../web/images/nfpa.webp" alt="" class="img-fluid">
+                                                                                <img src="/images/nfpa.webp" alt="" class="img-fluid">
                                                                             </div><!-- /.col-md-6 -->
                                                                             <div class="col-md-3 col-6">
-                                                                                <img src="../web/images/fm.webp" alt="" class="img-fluid">
+                                                                                <img src="/images/fm.webp" alt="" class="img-fluid">
                                                                             </div><!-- /.col-md-6 -->
                                                                         </div><!-- /.row -->
                                                                     </div><!-- /.service-details__image -->

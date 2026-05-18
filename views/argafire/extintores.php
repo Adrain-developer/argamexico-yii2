@@ -92,7 +92,7 @@ use yii\helpers\Url;
                                 <div class="row">
                                     <div class="col-lg-6 d-flex justify-content-end">
                                         <div class="about-two__img wow fadeInLeft" data-wow-duration="1500ms">
-                                            <img src="../web/images/mtto_ext1.jpg" class="about-two__img-1" alt="">                                            
+                                            <img src="/images/mtto_ext1.jpg" class="about-two__img-1" alt="">                                            
                                         </div><!-- /.about-two__img -->
                                     </div><!-- /.col-lg-6 -->
                                     <div class="col-lg-6">
@@ -117,7 +117,7 @@ use yii\helpers\Url;
                                                 <li><i class="fa fa-check-circle"></i> Sustitución de partes cuando se requiera.</li>
                                                 <li><i class="fa fa-check-circle"></i> Recarga con el mismo agente extinguidor extraído.</li>
                                                 <li><i class="fa fa-check-circle"></i> Reemplazo total por nuevo y certificado, en caso de deterioro.</li>
-                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="../web/images/nom.png" class="about-two__sign" alt=""></span></li>
+                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="/images/nom.png" class="about-two__sign" alt=""></span></li>
 
                                             </ul><!-- /.about-two__list -->
                                             
@@ -128,7 +128,7 @@ use yii\helpers\Url;
                                 <div class="row">
                                 <div class="col-lg-6 d-flex justify-content-end">
                                         <div class="about-two__img wow fadeInLeft" data-wow-duration="1500ms">
-                                        <img src="../web/images/mtto_ext2.jpg" class="about-two__img-1" alt="">
+                                        <img src="/images/mtto_ext2.jpg" class="about-two__img-1" alt="">
                                         </div><!-- /.about-two__img -->
                                     </div><!-- /.col-lg-6 -->
                                     
@@ -154,7 +154,7 @@ use yii\helpers\Url;
                                                 <li><i class="fa fa-check-circle"></i> Sustitución de partes cuando se requiera.</li>
                                                 <li><i class="fa fa-check-circle"></i> Recarga con el mismo agente extinguidor extraído.</li>
                                                 <li><i class="fa fa-check-circle"></i> Reemplazo total por nuevo y certificado, en caso de deterioro.</li>
-                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="../web/images/nom.png" class="about-two__sign" alt=""></span></li>
+                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="/images/nom.png" class="about-two__sign" alt=""></span></li>
 
                                             </ul><!-- /.about-two__list -->                                            
                                         </div><!-- /.about-two__content -->
@@ -164,7 +164,7 @@ use yii\helpers\Url;
                                 <div class="row">
                                     <div class="col-lg-6 d-flex justify-content-end">
                                         <div class="about-two__img wow fadeInLeft" data-wow-duration="1500ms">
-                                        <img src="../web/images/mtto_ext3.jpg" class="about-two__img-1" alt="">
+                                        <img src="/images/mtto_ext3.jpg" class="about-two__img-1" alt="">
                                         </div><!-- /.about-two__img -->
                                     </div><!-- /.col-lg-6 -->
                                     <div class="col-lg-6">
@@ -190,7 +190,7 @@ use yii\helpers\Url;
                                                 <li><i class="fa fa-check-circle"></i> Sustitución de partes cuando se requiera.</li>
                                                 <li><i class="fa fa-check-circle"></i> Pintado del cilindro cuando se requiera.</li>                                                
                                                 <li><i class="fa fa-check-circle"></i> Todos los equipos deben ser recargados después de ser utilizados.</li>
-                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="../web/images/nom.png" class="about-two__sign" alt=""></span></li>
+                                                <li><i class="fa fa-check-circle"></i> Cumplimiento de la norma <span class="block-title__base"><img src="/images/nom.png" class="about-two__sign" alt=""></span></li>
                                             </ul><!-- /.about-two__list -->                                            
                                         </div><!-- /.about-two__content -->
                                     </div><!-- /.col-lg-6 -->
