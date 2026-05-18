@@ -156,4 +156,16 @@ class SiteController extends Controller
       
     }
 
+    public function actionAvisoprivacidad(){
+        return $this->render('avisoprivacidad');
+    }
+
+    public function actionCodigoetica(){
+        return $this->render('codigoetica');
+    }
+
+    public function actionQuejas(){
+        return $this->render("quejas");
+    }
+
 }

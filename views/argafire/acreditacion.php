@@ -43,6 +43,10 @@ $this->title = 'Fire';
                                                                     <h2 class="service-details__title">Acreditaciones.
                                                                     </h2><!-- /.service-details__title -->
                                                                     <br>
+                                                                    <h2 class="service-details__subtitle">*Acreditación de ARGA Labs en proceso.
+                                                                    </h2>
+                                                                    <br>
+                                                                    <br>
                                                                     <h2 class="service-details__subtitle">Normas Oficiales Mexicanas.
                                                                     </h2>
                                                                     <p class="service-details__text">En materia de seguridad, ARGA Fire, ha asumido dos grandes compromisos con usted:<br> Fomentar la cultura de la prevención y, ofrecerle únicamente Productos de la más Alta Calidad, regidos por las Normas Oficiales Mexicanas vigentes y las normas de seguridad y calidad internacionales. Las Normas Oficiales Mexicanas (NOM), son regulaciones obligatorias, que señalan la información y requisitos técnicos, especificaciones y metodología, que deben cumplir todos los bienes, servicios e instrumentos de medición que se producen y/o comercializan en México.Su objetivo es la prevención de riesgos de salud, vida, patrimonio, medio ambiente y seguridad laboral. Todas las NOM tienen parámetros medibles que se pueden verificar, de ahí su importancia en el buen cumplimiento de éstas. A continuación, ponemos a su consideración, las principales NOM que regulan a esta importante industria de equipo contra incendio, con el ánimo de ponerlas a su alcance como herramientas de trabajo, seguros que le serán de gran ayuda para el crecimiento de su empresa o negocio, pues estamos conscientes de que su conocimiento genera confianza y certidumbre entre los usuarios.
@@ -135,6 +139,36 @@ $this->title = 'Fire';
 
                                                                         </ul><!-- /.service-details__feature-list -->
                                                                         <br><br>
+                                                                        <br><br>
+                                                                    <div class="service-details__image">
+                                                                        <h3>Consulta de archivos de acreditaciones</h3>
+                                                                        <div class="row low-gutters">
+                                                                            <div class="col-md-4 col-4">
+                                                                            <a href="<?= Url::toRoute(['web/download/Dictamen_EN_RIESGOS_GA.pdf']); ?>" download="Dictamen_EN_RIESGOS_GA.pdf">
+                                                                            <img src="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/Dictamen_EN_RIESGOS_GA.jpeg" alt="" class="img-fluid"> 
+                                                                            <button class="btn btn-info pull-right" style="margin-top: 7px">Ver archivo</button>
+                                                                            </a>
+                                                                            </div><!-- /.col-md-12 -->
+                                                                            <div class="col-md-4 col-4">
+                                                                            <a href="<?= Url::toRoute(['web/download/Empadronamiento_Bomberos.pdf']); ?>" download="Empadronamiento_Bomberos.pdf">
+                                                                                <img src="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/Empadronamiento_Bomberos.jpeg" alt="" class="img-fluid">
+                                                                                <button class="btn btn-info pull-right" style="margin-top: 7px">Ver archivo</button>
+                                                                            </a>
+                                                                            </div><!-- /.col-md-6 -->
+                                                                            <div class="col-md-4 col-4">
+                                                                            <a href="<?= Url::toRoute(['web/download/Folio_Registro_73416_REPSE.pdf']); ?>" download="Folio_Registro_73416_REPSE.pdf">
+                                                                                <img src="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/Folio_Registro_73416_REPSE.jpeg" alt="" class="img-fluid">
+                                                                                <button class="btn btn-info pull-right" style="margin-top: 7px">Ver archivo</button>
+                                                                            </a>
+                                                                            </div>
+                                                                            <div class="col-md-4 col-4">
+                                                                            <a href="<?= Url::toRoute(['web/download/Certificado_9001_ADMIN_EN_RIESGOS_GA_MÉXICO_Español.pdf']); ?>" download="Certificado_9001_ADMIN_EN_RIESGOS_GA_MÉXICO_Español.pdf">
+                                                                                <img src="<?= Yii::$app->homeUrl ?>web/images/acreditaciones/Certificado_9001_ADMIN_EN_RIESGOS_GA_MÉXICO_Español.jpeg" alt="" class="img-fluid">
+                                                                                <button class="btn btn-info pull-right" style="margin-top: 7px">Ver archivo</button>
+                                                                            </a>
+                                                                            </div>
+                                                                        </div><!-- /.row -->
+                                                                    </div>
 
                                                                 </div><!-- /.col-lg-8 -->
                                                             </div><!-- /.row -->

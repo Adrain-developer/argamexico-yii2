@@ -249,11 +249,12 @@ AppAsset::register($this);
 							<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16 active current"><a title="ARGA Group" href="<?= Url::toRoute(['./index.php']); ?>" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Inicio</a></li>
 							<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 dropdown"><a title="Fire" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Nosotros</a>
 								<ul role="menu" class="submenu">
-									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Aviso de Privacidad</a></li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Código de Ética</a></li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Política de Confiabilidad</a></li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Política de Privacidad</a></li>
+									<!--<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['site/avisoprivacidad']); ?>">Aviso de Privacidad</a></li>-->
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['site/avisoprivacidad']); ?>">Política de Privacidad</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['site/codigoetica']); ?>">Código de Ética</a></li>
+									<!--<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['#']); ?>">Política de Confiabilidad</a></li>									-->
 									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['argafire/acreditacion']); ?>">Acreditación</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a title="Mantenimiento" href="<?= Url::toRoute(['site/quejas']); ?>">Procedimiento de quejas</a></li>
 								</ul>
 
 							</li>
