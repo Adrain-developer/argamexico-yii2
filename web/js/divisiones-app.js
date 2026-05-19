@@ -399,6 +399,183 @@
   }
 
   /* ============================================================
+     CATALOG PAGE — sidebar + grid + search
+     ============================================================ */
+  function initCatalog() {
+    const catalogEl = document.getElementById('dvCatalog');
+    if (!catalogEl || !DIVISIONS.length) return;
+
+    const sidebar     = document.getElementById('dvCatSidebar');
+    const mainTitle   = document.getElementById('dvCatMainTitle');
+    const mainNote    = document.getElementById('dvCatMainNote');
+    const grid        = document.getElementById('dvCatGrid');
+    const searchInput = document.getElementById('dvCatSearch');
+    const countEl     = document.getElementById('dvCatCount');
+
+    let activeSlug  = 'all';
+    let searchQuery = '';
+    let searchTimer = null;
+
+    /* ---- collect flat list ---- */
+    function flatServices(slug) {
+      if (slug === 'all') {
+        return DIVISIONS.flatMap(d => d.items.map(item => ({ div: d, item })));
+      }
+      const div = DIVISIONS.find(d => d.slug === slug);
+      return div ? div.items.map(item => ({ div, item })) : [];
+    }
+
+    /* ---- sidebar ---- */
+    function buildSidebar() {
+      const items = [
+        { slug: 'all', name: 'Todos los servicios', icon: allIcon() },
+        ...DIVISIONS.map(d => ({ slug: d.slug, name: d.name, icon: miniShield(d) })),
+      ];
+
+      sidebar.innerHTML = items.map(({ slug, name, icon }) => `
+        <button class="dv-cat-sib-btn ${activeSlug === slug ? 'active' : ''}" data-slug="${slug}">
+          <span class="dv-cat-sib-icon">${icon}</span>
+          <span class="dv-cat-sib-name">${esc(name)}</span>
+        </button>
+      `).join('');
+
+      sidebar.querySelectorAll('.dv-cat-sib-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeSlug = btn.dataset.slug;
+          history.replaceState(null, '', activeSlug === 'all' ? location.pathname : `#${activeSlug}`);
+          buildSidebar();
+          renderGrid();
+        });
+      });
+    }
+
+    /* ---- grid ---- */
+    function renderGrid() {
+      let services = flatServices(activeSlug);
+
+      // Update header
+      if (activeSlug === 'all') {
+        mainTitle.textContent = 'Todos los servicios';
+        mainNote.textContent  = '';
+      } else {
+        const div = DIVISIONS.find(d => d.slug === activeSlug);
+        mainTitle.textContent = div?.name        || '';
+        mainNote.textContent  = div?.descripcion || '';
+      }
+
+      // Apply search
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        services = services.filter(({ item }) =>
+          item.title.toLowerCase().includes(q)         ||
+          (item.code        || '').toLowerCase().includes(q) ||
+          (item.descripcion || '').toLowerCase().includes(q)
+        );
+      }
+
+      // Count
+      if (countEl) {
+        countEl.textContent = services.length
+          ? `${services.length} servicio${services.length !== 1 ? 's' : ''}`
+          : '';
+      }
+
+      if (!services.length) {
+        grid.innerHTML = '<p class="dv-cat-empty">Sin resultados para esa búsqueda.</p>';
+        return;
+      }
+
+      grid.innerHTML = services.map(({ div, item }) => {
+        const inCart = state.cart.some(c => c.serviceId === item.id);
+        return `
+          <div class="dv-cat-card">
+            <div class="dv-cat-card-icon">${shieldSVG(div, 56)}</div>
+            <div class="dv-cat-card-body">
+              ${activeSlug === 'all' ? `<span class="dv-cat-card-div">${esc(div.name)}</span>` : ''}
+              <h3 class="dv-cat-card-title">${esc(item.title)}</h3>
+              ${item.code ? `<span class="dv-cat-card-code">${esc(item.code)}</span>` : ''}
+            </div>
+            <div class="dv-cat-card-actions">
+              <button class="dv-cat-btn-detail" data-div="${div.id}" data-svc="${item.id}">
+                Más detalles
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <button class="dv-cat-btn-cart ${inCart ? 'added' : ''}" data-div="${div.id}" data-svc="${item.id}">
+                ${inCart ? cartDoneIcon() + ' Agregado' : cartAddIcon() + ' Agregar a cotización'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      /* bind card events */
+      grid.querySelectorAll('.dv-cat-btn-detail').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const div  = DIVISIONS.find(d => d.id === parseInt(btn.dataset.div, 10));
+          const item = div?.items.find(i => i.id === parseInt(btn.dataset.svc, 10));
+          if (div && item) {
+            state.modal1Div = div;
+            openModal2(div, item);
+          }
+        });
+      });
+
+      grid.querySelectorAll('.dv-cat-btn-cart').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const div  = DIVISIONS.find(d => d.id === parseInt(btn.dataset.div, 10));
+          const item = div?.items.find(i => i.id === parseInt(btn.dataset.svc, 10));
+          if (div && item && addToCart(div, item)) {
+            btn.classList.add('added');
+            btn.innerHTML = cartDoneIcon() + ' Agregado';
+          }
+        });
+      });
+    }
+
+    /* ---- search ---- */
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+          searchQuery = searchInput.value.trim();
+          renderGrid();
+        }, 120);
+      });
+    }
+
+    /* ---- hash ---- */
+    const hash = location.hash.replace('#', '');
+    if (hash) {
+      const div = DIVISIONS.find(d => d.slug === hash);
+      if (div) activeSlug = div.slug;
+    }
+
+    buildSidebar();
+    renderGrid();
+  }
+
+  /* ---- Icon helpers ---- */
+  function miniShield(division) {
+    const fill = FILL_COLOR[division.color] || FILL_COLOR.teal;
+    return `<svg viewBox="0 0 80 95" width="22" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="${SHIELD_PATH}" fill="${fill}"/>
+      ${division.icon || ''}
+    </svg>`;
+  }
+
+  function allIcon() {
+    return `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`;
+  }
+
+  function cartAddIcon() {
+    return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>`;
+  }
+
+  function cartDoneIcon() {
+    return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+  }
+
+  /* ============================================================
      Init
      ============================================================ */
   function init() {
@@ -407,6 +584,7 @@
     bindShields();
     bindGlobal();
     updateCartUI();
+    initCatalog();
   }
 
   if (document.readyState === 'loading') {
