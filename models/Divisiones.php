@@ -19,6 +19,14 @@ class Divisiones extends ActiveRecord
         ];
     }
 
+    public function init(): void
+    {
+        parent::init();
+        if ($this->isNewRecord) {
+            $this->activo ??= 1;
+        }
+    }
+
     public function rules(): array
     {
         return [
@@ -30,9 +38,24 @@ class Divisiones extends ActiveRecord
             [['color'], 'in', 'range' => ['teal', 'red']],
             [['tagline'], 'string', 'max' => 200],
             [['descripcion', 'icon_svg', 'noms'], 'string'],
-            [['orden'], 'integer'],
             [['activo'], 'boolean'],
         ];
+    }
+
+    protected function beforeSave(bool $insert): bool
+    {
+        if ($insert && empty($this->color)) {
+            $last = static::find()->orderBy(['id' => SORT_DESC])->select('color')->scalar();
+            $this->color = ($last === 'teal') ? 'red' : 'teal';
+        }
+        $this->orden ??= 0;
+        if (!empty($this->noms)) {
+            $decoded = json_decode($this->noms, true);
+            $this->noms = is_array($decoded)
+                ? json_encode(array_values(array_filter($decoded)), JSON_UNESCAPED_UNICODE)
+                : '[]';
+        }
+        return parent::beforeSave($insert);
     }
 
     public function attributeLabels(): array
@@ -82,7 +105,7 @@ class Divisiones extends ActiveRecord
 
     public static function find(): \yii\db\ActiveQuery
     {
-        return parent::find()->orderBy('orden ASC, id ASC');
+        return parent::find()->orderBy(['id' => SORT_ASC]);
     }
 
     public function toApiArray(): array

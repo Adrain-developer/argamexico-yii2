@@ -19,6 +19,20 @@ class Servicios extends ActiveRecord
         ];
     }
 
+    public function init(): void
+    {
+        parent::init();
+        if ($this->isNewRecord) {
+            $this->activo ??= 1;
+        }
+    }
+
+    protected function beforeSave(bool $insert): bool
+    {
+        $this->orden ??= 0;
+        return parent::beforeSave($insert);
+    }
+
     public function rules(): array
     {
         return [
