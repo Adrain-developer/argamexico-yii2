@@ -127,7 +127,8 @@
   overscroll-behavior-x: contain;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  padding-bottom: 4px;
+  padding-top: 5px;
+  padding-bottom: 12px;
   margin-bottom: 10px;
   cursor: grab;
   user-select: none;
@@ -173,7 +174,7 @@
   background: var(--gradient);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 8px 18px rgba(28, 43, 94, .22);
+  box-shadow: 0 8px 6px rgba(28, 43, 94, .22);
 }
 .dv-cat-pill.active::after {
   content: '';

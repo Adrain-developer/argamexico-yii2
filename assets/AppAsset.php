@@ -20,7 +20,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/divisiones.css?v=6',
+        'css/divisiones.css?v=8',
     ];
     public $js = [
         'js/divisiones-app.js?v=6',

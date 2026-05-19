@@ -245,7 +245,7 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
   </defs>
 </svg>
 
-<!-- Carrito de cotización (páginas de productos) -->
+<!-- Carrito de cotización (páginas de productos) --
 <a href="#" onclick="openNav()" class="scroll-to-top-cart" style="display:inline;color:#fff;">
   <i class="fa fa-shopping-cart" style="margin-top:22px;" aria-hidden="true"></i>
 </a>
@@ -279,7 +279,7 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
 <!-- Legacy JS — jQuery + plugins requeridos por páginas internas y carrito -->
 <script src="<?= Yii::$app->homeUrl ?>js/jquery.min9d52.js"></script>
