@@ -9,6 +9,7 @@ use app\models\ServiciosSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -42,7 +43,7 @@ class ServiciosController extends Controller
             $searchModel->division_id = $divisionId;
         }
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $divisiones   = Divisiones::find()->select(['id', 'nombre'])->indexBy('id')->column();
+        $divisiones   = ArrayHelper::map(Divisiones::find()->select(['id', 'nombre'])->asArray()->all(), 'id', 'nombre');
 
         return $this->render('index', [
             'searchModel'  => $searchModel,
