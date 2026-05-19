@@ -73,7 +73,7 @@ class ServiciosController extends Controller
 
         return $this->render('create', [
             'model'      => $model,
-            'divisiones' => Divisiones::find()->select(['id', 'nombre'])->indexBy('id')->column(),
+            'divisiones' => ArrayHelper::map(Divisiones::find()->select(['id', 'nombre'])->asArray()->all(), 'id', 'nombre'),
         ]);
     }
 
@@ -89,7 +89,7 @@ class ServiciosController extends Controller
 
         return $this->render('update', [
             'model'      => $model,
-            'divisiones' => Divisiones::find()->select(['id', 'nombre'])->indexBy('id')->column(),
+            'divisiones' => ArrayHelper::map(Divisiones::find()->select(['id', 'nombre'])->asArray()->all(), 'id', 'nombre'),
         ]);
     }
 

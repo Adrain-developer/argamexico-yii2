@@ -7,129 +7,170 @@ use yii\widgets\ActiveForm;
 /* @var $divisiones array */
 ?>
 
+<style>
+.svc-tabs { display:flex; gap:4px; border-bottom:2px solid #dee2e6; margin-bottom:1.5rem; }
+.svc-tab-btn {
+  padding:8px 18px; border:none; background:none; cursor:pointer;
+  font-weight:600; color:#495057; border-bottom:3px solid transparent;
+  margin-bottom:-2px; border-radius:4px 4px 0 0; transition:all .15s;
+}
+.svc-tab-btn:hover { background:#f8f9fa; color:#1C2B5E; }
+.svc-tab-btn.active { color:#1C2B5E; border-bottom-color:#1C2B5E; background:#fff; }
+.svc-tab-panel { display:none; }
+.svc-tab-panel.active { display:block; }
+</style>
+
 <?php $form = ActiveForm::begin(); ?>
 
-<ul class="nav nav-tabs mb-4" id="svcTabs" role="tablist">
-  <li class="nav-item"><button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-general">General</button></li>
-  <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-imagenes">Imágenes</button></li>
-  <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-curso">Curso</button></li>
-</ul>
+<div class="svc-tabs" role="tablist">
+  <button type="button" class="svc-tab-btn active" data-panel="panel-general">General</button>
+  <button type="button" class="svc-tab-btn"        data-panel="panel-imagenes">Imágenes</button>
+  <button type="button" class="svc-tab-btn"        data-panel="panel-curso">Curso</button>
+</div>
 
-<div class="tab-content">
+<!-- PANEL: General -->
+<div class="svc-tab-panel active" id="panel-general">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <?= $form->field($model, 'division_id')->dropDownList($divisiones, ['prompt' => '-- Selecciona división --']) ?>
+    </div>
+    <div class="col-md-6">
+      <?= $form->field($model, 'code')->textInput(['maxlength' => 80, 'placeholder' => 'NOM-019-STPS-2011']) ?>
+    </div>
+    <div class="col-12">
+      <?= $form->field($model, 'titulo')->textInput(['maxlength' => 200]) ?>
+    </div>
+    <div class="col-12">
+      <?= $form->field($model, 'descripcion')->textarea(['rows' => 4, 'placeholder' => 'Reconocimiento / descripción del servicio']) ?>
+    </div>
+    <div class="col-12">
+      <?= $form->field($model, 'evaluacion')->textarea(['rows' => 3, 'placeholder' => 'Método de evaluación']) ?>
+    </div>
+    <div class="col-12">
+      <?= $form->field($model, 'icon_svg')
+        ->textarea(['rows' => 3, 'class' => 'form-control font-monospace',
+                    'placeholder' => 'Opcional: paths SVG del ícono (sin el tag <svg>)'])
+        ->hint('Dejar vacío para usar el ícono de la división') ?>
+    </div>
+    <div class="col-12">
+      <?= $form->field($model, 'activo')->checkbox(['label' => 'Servicio activo y visible']) ?>
+    </div>
+  </div>
+</div>
 
-  <!-- ---- TAB: General ---- -->
-  <div class="tab-pane fade show active" id="tab-general">
+<!-- PANEL: Imágenes -->
+<div class="svc-tab-panel" id="panel-imagenes">
+  <p class="text-muted">Hasta 5 URLs de imágenes para el carrusel del modal (recomendado: 900×600 px).</p>
+
+  <?php if (!$model->isNewRecord && $model->imagenes): ?>
+    <div class="mb-3">
+      <p class="fw-semibold mb-2">Imágenes actuales</p>
+      <div class="d-flex flex-wrap gap-2 mb-2">
+        <?php foreach ($model->imagenes as $img): ?>
+          <div class="text-center" style="width:130px">
+            <img src="<?= Html::encode($img->url) ?>" class="img-thumbnail"
+                 style="width:130px;height:85px;object-fit:cover" alt="">
+            <?= Html::a('✕ Eliminar', ['/servicios/delete-image', 'id' => $img->id], [
+              'class' => 'btn btn-danger btn-sm d-block mt-1 py-0',
+              'data'  => ['confirm' => '¿Eliminar esta imagen?', 'method' => 'post'],
+            ]) ?>
+          </div>
+        <?php endforeach; ?>
+      </div>
+      <p class="text-muted small">Las URLs de abajo <strong>reemplazarán</strong> las imágenes actuales al guardar.</p>
+    </div>
+  <?php endif; ?>
+
+  <?php for ($i = 0; $i < 5; $i++): ?>
+    <div class="input-group mb-2">
+      <span class="input-group-text text-muted"><?= $i + 1 ?></span>
+      <input type="url" name="imageUrls[]" class="form-control" placeholder="https://…">
+    </div>
+  <?php endfor; ?>
+</div>
+
+<!-- PANEL: Curso -->
+<div class="svc-tab-panel" id="panel-curso">
+  <div class="mb-3">
+    <?= $form->field($model, 'es_curso')->checkbox([
+      'label' => 'Este servicio es un curso de capacitación',
+      'id'    => 'esCursoCheck',
+    ]) ?>
+  </div>
+  <div id="cursoFields" style="<?= $model->es_curso ? '' : 'display:none' ?>">
     <div class="row g-3">
-      <div class="col-md-6">
-        <?= $form->field($model, 'division_id')->dropDownList($divisiones, ['prompt' => '-- División --']) ?>
-      </div>
-      <div class="col-md-6">
-        <?= $form->field($model, 'code')->textInput(['maxlength' => 80, 'placeholder' => 'NOM-019-STPS-2011']) ?>
-      </div>
-      <div class="col-12">
-        <?= $form->field($model, 'titulo')->textInput(['maxlength' => 200]) ?>
-      </div>
-      <div class="col-12">
-        <?= $form->field($model, 'descripcion')->textarea(['rows' => 4, 'placeholder' => 'Reconocimiento / descripción del servicio']) ?>
-      </div>
-      <div class="col-12">
-        <?= $form->field($model, 'evaluacion')->textarea(['rows' => 3, 'placeholder' => 'Método de evaluación']) ?>
-      </div>
-      <div class="col-12">
-        <?= $form->field($model, 'icon_svg')->textarea(['rows' => 3, 'class' => 'form-control font-monospace', 'placeholder' => 'Opcional: paths SVG específicos para este servicio'])->hint('Si se deja vacío se usa el ícono de la división') ?>
+      <div class="col-md-8">
+        <?= $form->field($model, 'nombre_curso')->textInput(['maxlength' => 200]) ?>
       </div>
       <div class="col-md-2">
-        <?= $form->field($model, 'activo')->checkbox() ?>
+        <?= $form->field($model, 'duracion')->textInput(['placeholder' => 'Ej: 8 horas']) ?>
+      </div>
+      <div class="col-md-2">
+        <?= $form->field($model, 'horas_curso')->textInput(['type' => 'number', 'min' => 1]) ?>
+      </div>
+      <div class="col-12">
+        <?= $form->field($model, 'descripcion_curso')->textarea(['rows' => 3]) ?>
+      </div>
+      <div class="col-md-6">
+        <?= $form->field($model, 'temario')
+          ->textarea(['rows' => 6, 'placeholder' => "Tema 1\nTema 2\nTema 3"])
+          ->hint('Un tema por línea') ?>
+      </div>
+      <div class="col-md-6">
+        <?= $form->field($model, 'incluye')
+          ->textarea(['rows' => 4, 'placeholder' => "Material didáctico\nConstancia DC-3"])
+          ->hint('Un elemento por línea') ?>
+      </div>
+      <div class="col-md-6">
+        <?= $form->field($model, 'contacto_emails')
+          ->textarea(['rows' => 3, 'placeholder' => "contacto@arga.mx"])
+          ->hint('Un correo por línea') ?>
+      </div>
+      <div class="col-md-6">
+        <?= $form->field($model, 'contacto_telefonos')
+          ->textarea(['rows' => 3, 'placeholder' => "+52 55 1234 5678"])
+          ->hint('Un número por línea') ?>
+      </div>
+      <div class="col-12">
+        <?= $form->field($model, 'direccion')->textarea(['rows' => 2, 'placeholder' => 'Dirección del lugar del curso']) ?>
       </div>
     </div>
   </div>
-
-  <!-- ---- TAB: Imágenes ---- -->
-  <div class="tab-pane fade" id="tab-imagenes">
-    <p class="text-muted">Agrega hasta 5 URLs de imágenes para el carrusel del modal (recomendado: 900×600 px).</p>
-
-    <?php if (!$model->isNewRecord && $model->imagenes): ?>
-      <div class="mb-3">
-        <label class="form-label fw-bold">Imágenes actuales</label>
-        <div class="d-flex flex-wrap gap-2 mb-3">
-          <?php foreach ($model->imagenes as $img): ?>
-            <div class="position-relative" style="width:120px">
-              <img src="<?= Html::encode($img->url) ?>" class="img-thumbnail" style="width:120px;height:80px;object-fit:cover" alt="">
-              <?= Html::a('✕', ['/servicios/delete-image', 'id' => $img->id], [
-                'class' => 'btn btn-danger btn-sm position-absolute top-0 end-0 p-0 px-1',
-                'data'  => ['confirm' => '¿Eliminar esta imagen?', 'method' => 'post'],
-              ]) ?>
-              <small class="d-block text-truncate text-muted" style="font-size:10px"><?= Html::encode($img->caption) ?></small>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-      <p class="text-muted small">Al guardar, las URLs abajo <strong>reemplazarán</strong> las imágenes actuales.</p>
-    <?php endif; ?>
-
-    <div id="imgUrlsContainer">
-      <?php for ($i = 0; $i < 5; $i++): ?>
-        <div class="input-group mb-2">
-          <span class="input-group-text"><?= $i + 1 ?></span>
-          <input type="url" name="imageUrls[]" class="form-control" placeholder="https://..." value="">
-        </div>
-      <?php endfor; ?>
-    </div>
-  </div>
-
-  <!-- ---- TAB: Curso ---- -->
-  <div class="tab-pane fade" id="tab-curso">
-    <div class="mb-3">
-      <?= $form->field($model, 'es_curso')->checkbox(['label' => 'Este servicio es un curso capacitación', 'id' => 'esCursoCheck']) ?>
-    </div>
-    <div id="cursoFields" class="<?= $model->es_curso ? '' : 'd-none' ?>">
-      <div class="row g-3">
-        <div class="col-md-8">
-          <?= $form->field($model, 'nombre_curso')->textInput(['maxlength' => 200]) ?>
-        </div>
-        <div class="col-md-2">
-          <?= $form->field($model, 'duracion')->textInput(['placeholder' => 'Ej: 8 horas']) ?>
-        </div>
-        <div class="col-md-2">
-          <?= $form->field($model, 'horas_curso')->textInput(['type' => 'number', 'min' => 1]) ?>
-        </div>
-        <div class="col-12">
-          <?= $form->field($model, 'descripcion_curso')->textarea(['rows' => 3]) ?>
-        </div>
-        <div class="col-md-6">
-          <?= $form->field($model, 'temario')->textarea(['rows' => 6, 'placeholder' => "Tema 1\nTema 2\nTema 3"])->hint('Un tema por línea') ?>
-        </div>
-        <div class="col-md-6">
-          <?= $form->field($model, 'incluye')->textarea(['rows' => 4, 'placeholder' => "Material didáctico\nConstancia DC-3\nRefrigerio"])->hint('Un elemento por línea') ?>
-        </div>
-        <div class="col-md-6">
-          <?= $form->field($model, 'contacto_emails')->textarea(['rows' => 3, 'placeholder' => "contacto@arga.mx\nventas@arga.mx"])->hint('Un correo por línea') ?>
-        </div>
-        <div class="col-md-6">
-          <?= $form->field($model, 'contacto_telefonos')->textarea(['rows' => 3, 'placeholder' => "+52 55 1234 5678"])->hint('Un número por línea') ?>
-        </div>
-        <div class="col-12">
-          <?= $form->field($model, 'direccion')->textarea(['rows' => 2, 'placeholder' => 'Dirección del lugar del curso']) ?>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <div class="mt-4 d-flex gap-2">
-  <?= Html::submitButton($model->isNewRecord ? 'Crear Servicio' : 'Guardar Cambios', ['class' => 'btn btn-primary']) ?>
-  <?php if (!$model->isNewRecord): ?>
-    <?= Html::a('Volver a la División', ['/divisiones/view', 'id' => $model->division_id], ['class' => 'btn btn-secondary']) ?>
-  <?php else: ?>
-    <?= Html::a('Cancelar', ['/divisiones/index'], ['class' => 'btn btn-secondary']) ?>
-  <?php endif; ?>
+  <?= Html::submitButton(
+    $model->isNewRecord ? 'Crear Servicio' : 'Guardar Cambios',
+    ['class' => 'btn btn-primary']
+  ) ?>
+  <?= Html::a(
+    'Cancelar',
+    $model->isNewRecord ? ['/divisiones/index'] : ['/divisiones/view', 'id' => $model->division_id],
+    ['class' => 'btn btn-secondary']
+  ) ?>
 </div>
 
 <?php ActiveForm::end(); ?>
 
 <script>
-document.getElementById('esCursoCheck').addEventListener('change', function() {
-  document.getElementById('cursoFields').classList.toggle('d-none', !this.checked);
-});
+(function () {
+  // Tab switching
+  document.querySelectorAll('.svc-tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.svc-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      document.querySelectorAll('.svc-tab-panel').forEach(function (p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.panel).classList.add('active');
+    });
+  });
+
+  // Curso fields toggle
+  var cursoCheck = document.getElementById('esCursoCheck');
+  var cursoFields = document.getElementById('cursoFields');
+  if (cursoCheck) {
+    cursoCheck.addEventListener('change', function () {
+      cursoFields.style.display = this.checked ? '' : 'none';
+    });
+  }
+})();
 </script>
