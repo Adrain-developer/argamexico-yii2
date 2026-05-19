@@ -248,7 +248,7 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
   <div class="row marginbottom50 paddingleft25">
     <div class="col-sm-9"><h5>Lista de productos a cotizar</h5></div>
     <div class="col-sm-3">
-      <button onclick="vaciarCarrito()" class="pull-right btn btn-danger"><i class="fa fa-trash"></i></button>
+      <button onclick="vaciarCarrito()" class="float-end btn btn-danger"><i class="fa fa-trash"></i></button>
     </div>
   </div>
   <div class="paddingleft25">
@@ -259,16 +259,16 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
     </div>
     <div id="result-pedido"></div>
     <div id="form-enviar-cotizacion">
-      <div class="form-group">
+      <div class="mb-3">
         <input class="form-control" placeholder="Ingrese nombre" id="cotizacion-nombre">
       </div>
-      <div class="form-group">
+      <div class="mb-3">
         <input class="form-control" placeholder="Ingrese email" id="cotizacion-email">
       </div>
-      <div class="form-group">
+      <div class="mb-3">
         <input class="form-control" placeholder="Ingrese número de teléfono" id="cotizacion-telefono">
       </div>
-      <div class="form-group">
+      <div class="mb-3">
         <button class="btn btn-success" onclick="enviarPedido()">Enviar</button>
       </div>
     </div>
