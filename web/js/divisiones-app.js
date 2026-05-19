@@ -18,10 +18,12 @@
     slide:          0,
     autoInterval:   null,
     autoMs:         5000,
-    // History tracking: tells popstate whether we own the entry being popped
     pushedM1:       false,
     pushedM2:       false,
     sidebarOpen:    false,
+    // Catalog context: cuando se abre modal 2 desde catálogo, contiene la lista renderizada
+    catalogList:    null,   // [{div, item}, ...]
+    catalogIndex:   0,
   };
 
   /* ---- DOM refs (populated in setup) ---- */
@@ -65,15 +67,28 @@
             <div class="dv-divider"></div>
             <div class="dv-chips"      id="dvM2Chips"></div>
             <div class="dv-m2-body"    id="dvM2Body"></div>
-            <div class="dv-m2-actions">
+            <div class="dv-m2-actions" id="dvM2Actions" data-mode="index">
               <button class="dv-btn-primary"   id="dvBtnAddQuote" type="button">
                 <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
                 <span>Agregar a cotización</span>
               </button>
+              <!-- Modo index: link al catálogo -->
               <button class="dv-btn-secondary" id="dvBtnAllDivisions" type="button">
                 Ver todas las divisiones
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
+              <!-- Modo catalog: navegación prev/next -->
+              <div class="dv-m2-nav" id="dvM2Nav">
+                <button class="dv-btn-nav" id="dvBtnPrevSvc" type="button" aria-label="Servicio anterior">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+                  <span>Anterior</span>
+                </button>
+                <span class="dv-m2-nav-counter" id="dvM2NavCounter">1 / 1</span>
+                <button class="dv-btn-nav" id="dvBtnNextSvc" type="button" aria-label="Servicio siguiente">
+                  <span>Siguiente</span>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+                </button>
+              </div>
             </div>
           </div>
           <div class="dv-m2-right" id="dvM2Right">
@@ -306,10 +321,34 @@
     addBtn.classList.toggle('added', inCart);
     addBtn.querySelector('span').textContent = inCart ? '✓ Agregado' : 'Agregar a cotización';
 
+    // Modo de las actions (catalog vs index)
+    const actionsEl = document.getElementById('dvM2Actions');
+    if (actionsEl) {
+      const isCatalog = !!state.catalogList && state.catalogList.length > 0;
+      actionsEl.dataset.mode = isCatalog ? 'catalog' : 'index';
+      if (isCatalog) {
+        const idx = state.catalogList.findIndex(s => s.item.id === service.id && s.div.id === division.id);
+        state.catalogIndex = idx >= 0 ? idx : 0;
+        const counter = document.getElementById('dvM2NavCounter');
+        if (counter) counter.textContent = `${state.catalogIndex + 1} / ${state.catalogList.length}`;
+      }
+    }
+
+    // Si la modal ya estaba abierta (al navegar prev/next), no re-push history ni re-animar
+    const wasOpen = m2Backdrop.classList.contains('open');
     m2Backdrop.classList.add('open');
     document.body.classList.add('dv-no-scroll');
     startAutoplay();
-    pushHistoryState('m2');
+    if (!wasOpen) pushHistoryState('m2');
+  }
+
+  function navigateCatalog(delta) {
+    if (!state.catalogList || !state.catalogList.length) return;
+    const total = state.catalogList.length;
+    const next = ((state.catalogIndex + delta) % total + total) % total;
+    const { div, item } = state.catalogList[next];
+    state.modal1Div = div;
+    openModal2(div, item);
   }
 
   function closeModal2(skipHistory) {
@@ -317,6 +356,9 @@
     m2Backdrop.classList.remove('open');
     stopAutoplay();
     state.modal2Service = null;
+    // Reset contexto de catálogo al cerrar
+    state.catalogList = null;
+    state.catalogIndex = 0;
     if (!state.modal1Div && !state.sidebarOpen) document.body.classList.remove('dv-no-scroll');
     if (!skipHistory && state.pushedM2) {
       state.pushedM2 = false;
@@ -557,6 +599,9 @@
       window.location.href = catalogUrl + (slug ? `${sep}division=${encodeURIComponent(slug)}` : '');
     });
 
+    document.getElementById('dvBtnPrevSvc').addEventListener('click', () => navigateCatalog(-1));
+    document.getElementById('dvBtnNextSvc').addEventListener('click', () => navigateCatalog(1));
+
     cartFab.addEventListener('click', openCartSidebar);
     document.getElementById('dvCartClose').addEventListener('click', () => closeCartSidebar());
     cartSidebarBackdrop.addEventListener('click', () => closeCartSidebar());
@@ -587,6 +632,12 @@
         else if (state.sidebarOpen) closeCartSidebar();
       }
       if (m2Backdrop.classList.contains('open')) {
+        // En modo catálogo, ← → navegan entre servicios; banner se mueve con shift+←/→
+        const isCatalogMode = document.getElementById('dvM2Actions')?.dataset.mode === 'catalog';
+        if (isCatalogMode && !e.shiftKey) {
+          if (e.key === 'ArrowRight') { navigateCatalog(1); return; }
+          if (e.key === 'ArrowLeft')  { navigateCatalog(-1); return; }
+        }
         if (e.key === 'ArrowRight') { goToSlide(state.slide + 1); startAutoplay(); }
         if (e.key === 'ArrowLeft')  { goToSlide(state.slide - 1); startAutoplay(); }
       }
@@ -628,6 +679,7 @@
     let searchQuery = '';
     let searchTimer = null;
     let highlightDivisionId = null;
+    let currentServices = [];   // últimos servicios renderizados (orden visible)
 
     function flatServices(slug) {
       if (slug === 'all') {
@@ -677,35 +729,38 @@
       let down = false, startX = 0, startScroll = 0, dragged = false;
 
       el.addEventListener('pointerdown', (e) => {
-        if (e.pointerType === 'touch') return; // touch already scrolls
+        if (e.pointerType === 'touch') return;
         down = true;
         dragged = false;
         startX = e.clientX;
         startScroll = el.scrollLeft;
-        el.classList.add('is-grabbing');
       });
       el.addEventListener('pointermove', (e) => {
         if (!down) return;
         const dx = e.clientX - startX;
-        if (Math.abs(dx) > 4) {
-          dragged = true;
+        if (Math.abs(dx) > 5) {
+          if (!dragged) {
+            dragged = true;
+            el.classList.add('is-grabbing');
+            try { el.setPointerCapture(e.pointerId); } catch (err) {}
+          }
           el.scrollLeft = startScroll - dx;
         }
       });
       const finishDrag = () => {
         if (!down) return;
         down = false;
-        el.classList.remove('is-grabbing');
         if (dragged) {
+          el.classList.remove('is-grabbing');
           el.dataset.justDragged = '1';
           setTimeout(() => { el.dataset.justDragged = '0'; }, 80);
         }
+        dragged = false;
       };
       el.addEventListener('pointerup',     finishDrag);
-      el.addEventListener('pointerleave',  finishDrag);
       el.addEventListener('pointercancel', finishDrag);
 
-      // Wheel → horizontal
+      // Wheel → horizontal (solo si el scroll dominante es vertical)
       el.addEventListener('wheel', (e) => {
         const dy = e.deltaY;
         const dx = e.deltaX;
@@ -790,6 +845,9 @@
           ? `${services.length} servicio${services.length !== 1 ? 's' : ''}`
           : '';
       }
+
+      // Captura orden visible para prev/next de modal 2
+      currentServices = services.slice();
 
       if (!services.length) {
         grid.innerHTML = '<p class="dv-cat-empty">Sin resultados para esa búsqueda.</p>';
@@ -877,12 +935,20 @@
     function openServiceFromBtn(btn) {
       const div  = DIVISIONS.find(d => d.id === parseInt(btn.dataset.div, 10));
       const item = div?.items.find(i => i.id === parseInt(btn.dataset.svc, 10));
-      if (div && item) { state.modal1Div = div; openModal2(div, item); }
+      if (div && item) {
+        state.modal1Div    = div;
+        state.catalogList  = currentServices.slice();
+        openModal2(div, item);
+      }
     }
     function openServiceFromCard(card) {
       const div  = DIVISIONS.find(d => d.id === parseInt(card.dataset.divisionId, 10));
       const item = div?.items.find(i => i.id === parseInt(card.dataset.serviceId, 10));
-      if (div && item) { state.modal1Div = div; openModal2(div, item); }
+      if (div && item) {
+        state.modal1Div    = div;
+        state.catalogList  = currentServices.slice();
+        openModal2(div, item);
+      }
     }
 
     if (searchInp) {

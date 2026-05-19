@@ -42,7 +42,7 @@ $this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JS
 
       <!-- Buscador colapsable -->
       <div class="dv-cat-search-wrap">
-        <svg class="dv-cat-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <svg class="dv-cat-search-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
         <input type="search" id="dvCatSearch" class="dv-cat-search-input"
