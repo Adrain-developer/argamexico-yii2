@@ -45,6 +45,12 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=1">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script>
+    window.ARGA_URLS = {
+      catalogo: <?= json_encode(Url::toRoute(['site/catalogo'])) ?>,
+      contacto: <?= json_encode(Url::toRoute(['contactos/create'])) ?>
+    };
+  </script>
 </head>
 
 <body class="<?= $isIndex ? 'page-home' : 'page-inner' ?>">

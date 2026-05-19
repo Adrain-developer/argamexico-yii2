@@ -550,18 +550,11 @@
 
     document.getElementById('dvBtnAllDivisions').addEventListener('click', () => {
       const slug = state.modal1Div?.slug;
-      // Close active modals then redirect to /site/catalogo with anchor for highlight
       closeModal2(true);
       closeModal1(true);
-      const baseUrl = (window.ARGA_BASE_URL || '');
-      const target  = baseUrl + 'index.php?r=site%2Fcatalogo' + (slug ? '&division=' + encodeURIComponent(slug) : '');
-      // Fallback path for pretty URLs:
-      const link = document.querySelector('a[href*="site/catalogo"], a[href$="/catalogo"]');
-      if (link && link.href) {
-        window.location.href = link.href + (slug ? '#' + slug : '');
-      } else {
-        window.location.href = target;
-      }
+      const catalogUrl = (window.ARGA_URLS && window.ARGA_URLS.catalogo) || 'index.php?r=site%2Fcatalogo';
+      const sep = catalogUrl.includes('?') ? '&' : '?';
+      window.location.href = catalogUrl + (slug ? `${sep}division=${encodeURIComponent(slug)}` : '');
     });
 
     cartFab.addEventListener('click', openCartSidebar);
@@ -581,14 +574,10 @@
         showToast('Agrega al menos un servicio antes de solicitar', 'info');
         return;
       }
-      // Persist current cart and redirect to contact form with quote intent
       sessionStorage.setItem('arga_quote_pending', JSON.stringify(state.cart));
-      const link = document.querySelector('a[href*="contactos/create"]');
-      if (link && link.href) {
-        window.location.href = link.href + '?quote=1';
-      } else {
-        window.location.href = 'index.php?r=contactos%2Fcreate&quote=1';
-      }
+      const contactUrl = (window.ARGA_URLS && window.ARGA_URLS.contacto) || 'index.php?r=contactos%2Fcreate';
+      const sep = contactUrl.includes('?') ? '&' : '?';
+      window.location.href = contactUrl + sep + 'quote=1';
     });
 
     document.addEventListener('keydown', e => {
@@ -622,25 +611,24 @@
   }
 
   /* ============================================================
-     CATALOG PAGE — sidebar + grid + search
+     CATALOG PAGE — sticky pill filters + animated grid
      ============================================================ */
   function initCatalog() {
     const catalogEl = document.getElementById('dvCatalog');
     if (!catalogEl || !DIVISIONS.length) return;
 
-    const sidebar     = document.getElementById('dvCatSidebar');
-    const mainTitle   = document.getElementById('dvCatMainTitle');
-    const mainNote    = document.getElementById('dvCatMainNote');
-    const grid        = document.getElementById('dvCatGrid');
-    const searchInput = document.getElementById('dvCatSearch');
-    const countEl     = document.getElementById('dvCatCount');
+    const filters    = document.getElementById('dvCatFilters');
+    const mainTitle  = document.getElementById('dvCatMainTitle');
+    const mainNote   = document.getElementById('dvCatMainNote');
+    const grid       = document.getElementById('dvCatGrid');
+    const searchInp  = document.getElementById('dvCatSearch');
+    const countEl    = document.getElementById('dvCatCount');
 
     let activeSlug  = 'all';
     let searchQuery = '';
     let searchTimer = null;
     let highlightDivisionId = null;
 
-    /* ---- collect flat list ---- */
     function flatServices(slug) {
       if (slug === 'all') {
         return DIVISIONS.flatMap(d => d.items.map(item => ({ div: d, item })));
@@ -649,32 +637,46 @@
       return div ? div.items.map(item => ({ div, item })) : [];
     }
 
-    /* ---- sidebar ---- */
-    function buildSidebar() {
+    /* ---- Pills ---- */
+    function buildFilters() {
       const items = [
-        { slug: 'all', name: 'Todos los servicios', icon: allIcon() },
-        ...DIVISIONS.map(d => ({ slug: d.slug, name: d.name, icon: miniShield(d) })),
+        { slug: 'all', name: 'Todas' },
+        ...DIVISIONS.map(d => ({ slug: d.slug, name: d.name })),
       ];
-
-      sidebar.innerHTML = items.map(({ slug, name, icon }) => `
-        <button class="dv-cat-sib-btn ${activeSlug === slug ? 'active' : ''}" data-slug="${slug}" type="button">
-          <span class="dv-cat-sib-icon">${icon}</span>
-          <span class="dv-cat-sib-name">${esc(name)}</span>
+      filters.innerHTML = items.map(({ slug, name }) => `
+        <button class="dv-cat-pill ${activeSlug === slug ? 'active' : ''}" data-slug="${slug}" type="button" role="tab" aria-selected="${activeSlug === slug}">
+          <span>${esc(name)}</span>
         </button>
       `).join('');
 
-      sidebar.querySelectorAll('.dv-cat-sib-btn').forEach(btn => {
+      filters.querySelectorAll('.dv-cat-pill').forEach(btn => {
         btn.addEventListener('click', () => {
+          if (btn.dataset.slug === activeSlug) return;
           activeSlug = btn.dataset.slug;
           highlightDivisionId = null;
           history.replaceState(null, '', activeSlug === 'all' ? location.pathname : `#${activeSlug}`);
-          buildSidebar();
-          renderGrid();
+          filters.querySelectorAll('.dv-cat-pill').forEach(p => {
+            const isActive = p.dataset.slug === activeSlug;
+            p.classList.toggle('active', isActive);
+            p.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+          // Scroll active pill into view (mobile horizontal scroll)
+          btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          animateGridChange();
         });
       });
     }
 
-    /* ---- grid ---- */
+    /* ---- Grid render with fade transition ---- */
+    function animateGridChange() {
+      grid.classList.add('is-leaving');
+      // Wait for fade-out, then render
+      setTimeout(() => {
+        renderGrid();
+        grid.classList.remove('is-leaving');
+      }, 220);
+    }
+
     function renderGrid() {
       let services = flatServices(activeSlug);
 
@@ -707,77 +709,105 @@
         return;
       }
 
-      grid.innerHTML = services.map(({ div, item }) => {
+      grid.innerHTML = services.map(({ div, item }, i) => {
         const inCart = state.cart.some(c => c.serviceId === item.id);
+        const descShort = (item.descripcion || '').slice(0, 130) + ((item.descripcion || '').length > 130 ? '…' : '');
         return `
-          <div class="dv-cat-card" id="dvCatCard-${div.id}-${item.id}" data-division-id="${div.id}" data-service-id="${item.id}">
-            <div class="dv-cat-card-icon">${shieldSVG(div, 56)}</div>
+          <article class="dv-cat-card" id="dvCatCard-${div.id}-${item.id}"
+                   data-division-id="${div.id}" data-service-id="${item.id}"
+                   style="--enter-delay:${Math.min(i * 35, 480)}ms">
+            <header class="dv-cat-card-top">
+              <div class="dv-cat-card-icon">${shieldSVG(div, 56)}</div>
+              <button class="dv-cat-card-quote ${inCart ? 'added' : ''}"
+                      data-div="${div.id}" data-svc="${item.id}"
+                      type="button"
+                      aria-label="${inCart ? 'Agregado a cotización' : 'Agregar a cotización'}"
+                      title="${inCart ? 'Agregado a cotización' : 'Agregar a cotización'}">
+                ${inCart ? cartDoneIcon() : cartAddIcon()}
+              </button>
+            </header>
             <div class="dv-cat-card-body">
-              ${activeSlug === 'all' ? `<span class="dv-cat-card-div">${esc(div.name)}</span>` : ''}
+              <span class="dv-cat-card-div">${esc(div.name)}</span>
               <h3 class="dv-cat-card-title">${esc(item.title)}</h3>
-              ${item.code ? `<span class="dv-cat-card-code">${esc(item.code)}</span>` : ''}
+              ${descShort ? `<p class="dv-cat-card-desc">${esc(descShort)}</p>` : ''}
             </div>
-            <div class="dv-cat-card-actions">
-              <button class="dv-cat-btn-detail" data-div="${div.id}" data-svc="${item.id}" type="button">
-                Más detalles
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <footer class="dv-cat-card-foot">
+              <span class="dv-cat-card-code">${esc(item.code || '')}</span>
+              <button class="dv-cat-card-link" data-div="${div.id}" data-svc="${item.id}" type="button">
+                Ver detalle
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
-              <button class="dv-cat-btn-cart ${inCart ? 'added' : ''}" data-div="${div.id}" data-svc="${item.id}" type="button">
-                ${inCart ? cartDoneIcon() + ' Agregado' : cartAddIcon() + ' Agregar a cotización'}
-              </button>
-            </div>
-          </div>
+            </footer>
+          </article>
         `;
       }).join('');
 
-      grid.querySelectorAll('.dv-cat-btn-detail').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const div  = DIVISIONS.find(d => d.id === parseInt(btn.dataset.div, 10));
-          const item = div?.items.find(i => i.id === parseInt(btn.dataset.svc, 10));
-          if (div && item) {
-            state.modal1Div = div;
-            openModal2(div, item);
-          }
+      // Bind detail (whole card click + "Ver detalle" link)
+      grid.querySelectorAll('.dv-cat-card-link').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          openServiceFromBtn(btn);
+        });
+      });
+      grid.querySelectorAll('.dv-cat-card').forEach(card => {
+        card.addEventListener('click', e => {
+          if (e.target.closest('.dv-cat-card-quote')) return;
+          openServiceFromCard(card);
         });
       });
 
-      grid.querySelectorAll('.dv-cat-btn-cart').forEach(btn => {
-        btn.addEventListener('click', () => {
+      // Bind add-to-cart
+      grid.querySelectorAll('.dv-cat-card-quote').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
           const div  = DIVISIONS.find(d => d.id === parseInt(btn.dataset.div, 10));
           const item = div?.items.find(i => i.id === parseInt(btn.dataset.svc, 10));
           if (div && item && addToCart(div, item)) {
             btn.classList.add('added');
-            btn.innerHTML = cartDoneIcon() + ' Agregado';
+            btn.innerHTML = cartDoneIcon();
+            btn.setAttribute('aria-label', 'Agregado a cotización');
+            btn.setAttribute('title', 'Agregado a cotización');
           }
         });
       });
 
-      // Highlight effect when arriving from "Ver todas las divisiones"
+      // Highlight cards de la división de origen (espera a que termine la entrada)
       if (highlightDivisionId !== null) {
         const cards = grid.querySelectorAll(`.dv-cat-card[data-division-id="${highlightDivisionId}"]`);
         cards.forEach((card, i) => {
           setTimeout(() => {
             card.classList.add('is-highlight');
             if (i === 0) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            setTimeout(() => card.classList.remove('is-highlight'), 2400);
-          }, 120);
+            setTimeout(() => card.classList.remove('is-highlight'), 2200);
+          }, 700 + i * 90);
         });
         highlightDivisionId = null;
       }
     }
 
-    if (searchInput) {
-      searchInput.addEventListener('input', () => {
+    function openServiceFromBtn(btn) {
+      const div  = DIVISIONS.find(d => d.id === parseInt(btn.dataset.div, 10));
+      const item = div?.items.find(i => i.id === parseInt(btn.dataset.svc, 10));
+      if (div && item) { state.modal1Div = div; openModal2(div, item); }
+    }
+    function openServiceFromCard(card) {
+      const div  = DIVISIONS.find(d => d.id === parseInt(card.dataset.divisionId, 10));
+      const item = div?.items.find(i => i.id === parseInt(card.dataset.serviceId, 10));
+      if (div && item) { state.modal1Div = div; openModal2(div, item); }
+    }
+
+    if (searchInp) {
+      searchInp.addEventListener('input', () => {
         clearTimeout(searchTimer);
         searchTimer = setTimeout(() => {
-          searchQuery = searchInput.value.trim();
-          renderGrid();
-        }, 120);
+          searchQuery = searchInp.value.trim();
+          animateGridChange();
+        }, 140);
       });
     }
 
     // Hash (#slug) o ?division=slug — activa filtro + highlight
-    const params = new URLSearchParams(location.search);
+    const params    = new URLSearchParams(location.search);
     const fromQuery = params.get('division');
     const hash      = location.hash.replace('#', '');
     const slug      = fromQuery || hash;
@@ -789,8 +819,19 @@
       }
     }
 
-    buildSidebar();
+    buildFilters();
     renderGrid();
+
+    // Sticky bar shadow on scroll
+    const filterBar = document.getElementById('dvCatFilterBar');
+    if (filterBar && 'IntersectionObserver' in window) {
+      const sentinel = document.createElement('div');
+      sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
+      filterBar.parentNode.insertBefore(sentinel, filterBar);
+      new IntersectionObserver(([entry]) => {
+        filterBar.classList.toggle('is-stuck', !entry.isIntersecting);
+      }, { threshold: 0 }).observe(sentinel);
+    }
   }
 
   /* ---- Icon helpers ---- */
