@@ -26,8 +26,10 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- Bootstrap 5 CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
   <!-- Legacy CSS — inner pages -->
-  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/bootstrap.min4c7e.css">
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/fontawesome-all4c7e.css">
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/animate4c7e.css">
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/owl.carousel.min4c7e.css">
@@ -275,7 +277,8 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
 
 <!-- Legacy JS — jQuery + plugins requeridos por páginas internas y carrito -->
 <script src="<?= Yii::$app->homeUrl ?>js/jquery.min9d52.js"></script>
-<script src="<?= Yii::$app->homeUrl ?>js/bootstrap.bundle.min431f.js"></script>
+<!-- Bootstrap 5 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmqqLCEI0B3vXKC2HzGFIG8RVwj4" crossorigin="anonymous"></script>
 <script src="<?= Yii::$app->homeUrl ?>js/owl.carousel.min431f.js"></script>
 <script src="<?= Yii::$app->homeUrl ?>js/appear431f.js"></script>
 <script src="<?= Yii::$app->homeUrl ?>js/waypoints.min431f.js"></script>

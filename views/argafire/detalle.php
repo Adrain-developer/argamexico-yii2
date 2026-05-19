@@ -35,7 +35,7 @@ use yii\helpers\Url;
                             <div id="product-813" class="post-813 product type-product status-publish has-post-thumbnail product_cat-music first instock downloadable virtual purchasable product-type-simple">
                                 <div class="single-shop-content">
                                     <div class="row clearfix">
-                                        <div class="col-lg-4 pr-lg-5">
+                                        <div class="col-lg-4 pe-lg-5">
                                             <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="transition: opacity .25s ease-in-out;">
                                                 <figure class="woocommerce-product-gallery__wrapper">
                                                     <div data-thumb="#" data-thumb-alt="" class="woocommerce-product-gallery__image"><a href="<?= (Yii::$app->homeUrl . $producto->pathImagen) ?>">
