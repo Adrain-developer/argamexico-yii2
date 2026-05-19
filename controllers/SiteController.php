@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Imagenes;
+use app\models\Divisiones;
 
 class SiteController extends Controller
 {
@@ -60,14 +61,24 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
+        $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
 
-     /**select* from Imagenes where nombreSeccion = index */
-     $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
+        $divisionesData = [];
+        try {
+            $divisiones = Divisiones::find()
+                ->with(['serviciosActivos.imagenes'])
+                ->where(['activo' => 1])
+                ->all();
+            $divisionesData = array_map(fn(Divisiones $d) => $d->toApiArray(), $divisiones);
+        } catch (\Throwable) {
+            // Tablas aún no migradas — la sección queda estática
+        }
 
-        return $this->render('index',[
-            'rutas' => $rutas, 
+        return $this->render('index', [
+            'rutas'     => $rutas,
+            'divisiones' => $divisionesData,
         ]);
     }
 

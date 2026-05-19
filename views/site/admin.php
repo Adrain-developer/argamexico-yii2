@@ -64,4 +64,24 @@
         </div>
 
     </div>
+    <div class="row marginbottom50">
+        <div class="col-sm-6">
+            <div class="card height185">
+                <div class="card-body">
+                    <h5 class="card-title">Módulo de <strong>Divisiones de Negocio</strong></h5>
+                    <p class="card-text">Gestiona las divisiones y sus servicios: descripción, NOMs, imágenes y cursos.</p>
+                    <a href="<?= Url::toRoute('/divisiones') ?>" class="btn btn-primary">Ir a Divisiones</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card height185">
+                <div class="card-body">
+                    <h5 class="card-title">Módulo de <strong>Servicios</strong></h5>
+                    <p class="card-text">Administra individualmente cada servicio, sus imágenes y detalles de curso.</p>
+                    <a href="<?= Url::toRoute('/servicios') ?>" class="btn btn-primary">Ir a Servicios</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

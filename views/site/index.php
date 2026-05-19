@@ -1,10 +1,15 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $divisiones array */
 
 use yii\helpers\Url;
 
 $this->title = 'ARGA Group México — Seguridad Industrial, Consultoría y Laboratorio';
+
+$this->registerCssFile(Yii::$app->request->baseUrl . '/css/divisiones.css', ['position' => \yii\web\View::POS_HEAD]);
+$this->registerJsFile(Yii::$app->request->baseUrl . '/js/divisiones-app.js', ['position' => \yii\web\View::POS_END]);
+$this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JSON_UNESCAPED_UNICODE) . ';', \yii\web\View::POS_BEGIN);
 ?>
 
 <!-- ===== HERO SLIDER ===== -->
@@ -158,103 +163,19 @@ $this->title = 'ARGA Group México — Seguridad Industrial, Consultoría y Labo
         </svg>
 
         <div class="unidades-grid">
-
-          <!-- Capacitación -->
-          <div class="unidad-item">
-            <svg class="unidad-shield teal" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <?php foreach ($divisiones as $div):
+            $cssClass = $div['color'] === 'red' ? 'green' : 'teal';
+          ?>
+          <div class="unidad-item" data-division-id="<?= (int)$div['id'] ?>" role="button" tabindex="0"
+               aria-label="Ver servicios de <?= htmlspecialchars($div['name'], ENT_QUOTES) ?>">
+            <svg class="unidad-shield <?= $cssClass ?>" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
-              <path d="M24 35 Q40 30 40 30 Q40 30 56 35 L56 58 Q40 53 40 53 Q40 53 24 58 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
-              <line x1="40" y1="30" x2="40" y2="53" stroke="white" stroke-width="2"/>
-              <path d="M28 40 Q34 38 38 39M28 45 Q34 43 38 44M28 50 Q34 48 38 49" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity=".8"/>
-              <path d="M42 39 Q46 38 52 40M42 44 Q46 43 52 45M42 49 Q46 48 52 50" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity=".8"/>
+              <?= $div['icon'] ?>
             </svg>
-            <p>Capacitación</p>
+            <p><?= htmlspecialchars($div['name'], ENT_QUOTES) ?></p>
+            <small><?= count($div['items']) ?> servicios</small>
           </div>
-
-          <!-- Salud Ocupacional -->
-          <div class="unidad-item">
-            <svg class="unidad-shield green" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
-              <circle cx="40" cy="34" r="10" stroke="white" stroke-width="2" fill="none"/>
-              <path d="M36 30 h8 M40 26 v8" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M22 58 Q22 46 40 46 Q58 46 58 58" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
-            <p>Salud Ocupacional</p>
-          </div>
-
-          <!-- Auditoría e Inspección -->
-          <div class="unidad-item">
-            <svg class="unidad-shield teal" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
-              <rect x="26" y="42" width="28" height="20" rx="3" stroke="white" stroke-width="2" fill="none"/>
-              <path d="M30 42 V35 Q30 26 40 26 Q50 26 50 35 V42" stroke="white" stroke-width="2" fill="none"/>
-              <circle cx="40" cy="51" r="3" fill="white"/>
-              <line x1="40" y1="54" x2="40" y2="58" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <p>Unidad de Auditoría<br>e Inspección</p>
-          </div>
-
-          <!-- Seguridad -->
-          <div class="unidad-item">
-            <svg class="unidad-shield green" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
-              <path d="M18 50 Q18 34 40 34 Q62 34 62 50 Z" stroke="white" stroke-width="2" fill="white" fill-opacity=".15"/>
-              <path d="M14 50 h52" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M26 50 v4 Q26 58 40 58 Q54 58 54 54 v-4" stroke="white" stroke-width="1.5" fill="none"/>
-              <path d="M30 34 Q40 24 50 34" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
-            <p>Seguridad</p>
-          </div>
-
-          <!-- Higiene Industrial -->
-          <div class="unidad-item">
-            <svg class="unidad-shield teal" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
-              <rect x="20" y="28" width="40" height="28" rx="2" stroke="white" stroke-width="1.8" fill="none"/>
-              <polyline points="26,50 33,38 40,44 49,32 54,40" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="20" y1="56" x2="60" y2="56" stroke="white" stroke-width="1" opacity=".5"/>
-            </svg>
-            <p>Higiene Industrial</p>
-          </div>
-
-          <!-- Laboratorio de Pruebas -->
-          <div class="unidad-item">
-            <svg class="unidad-shield green" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
-              <line x1="40" y1="26" x2="40" y2="44" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-              <ellipse cx="40" cy="24" rx="7" ry="5" stroke="white" stroke-width="1.8" fill="none"/>
-              <path d="M34 44 Q28 52 28 58 Q28 62 40 62 Q52 62 52 58 Q52 52 46 44 Z" stroke="white" stroke-width="1.8" fill="white" fill-opacity=".12"/>
-              <line x1="28" y1="58" x2="52" y2="58" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <p>Laboratorio de<br>Pruebas</p>
-          </div>
-
-          <!-- Medio Ambiente -->
-          <div class="unidad-item">
-            <svg class="unidad-shield teal" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
-              <path d="M40 60 Q40 40 55 30 Q55 48 40 60 Z" fill="white" fill-opacity=".9"/>
-              <path d="M40 60 Q40 40 25 30 Q25 48 40 60 Z" fill="white" fill-opacity=".5"/>
-              <circle cx="40" cy="28" r="5" fill="white" fill-opacity=".7"/>
-              <line x1="40" y1="60" x2="40" y2="68" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <path d="M30 68 Q40 64 50 68" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            </svg>
-            <p>Medio Ambiente</p>
-          </div>
-
-          <!-- Ergonomía -->
-          <div class="unidad-item">
-            <svg class="unidad-shield green" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
-              <rect x="28" y="38" width="24" height="14" rx="3" stroke="white" stroke-width="1.8" fill="none"/>
-              <circle cx="40" cy="31" r="5" stroke="white" stroke-width="1.8" fill="none"/>
-              <line x1="40" y1="52" x2="40" y2="62" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <path d="M28 62 h24" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <line x1="28" y1="38" x2="22" y2="50" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            <p>Ergonomía</p>
-          </div>
-
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
