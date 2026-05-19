@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Imagenes;
 use app\models\Divisiones;
+use app\models\Equipo;
 
 class SiteController extends Controller
 {
@@ -66,6 +67,7 @@ class SiteController extends Controller
         $rutas = Imagenes::find()->where(['seccion' => 'index'])->one();
 
         $divisionesData = [];
+        $equipoData     = [];
         try {
             $divisiones = Divisiones::find()
                 ->with(['serviciosActivos.imagenes'])
@@ -76,9 +78,17 @@ class SiteController extends Controller
             // Tablas aún no migradas — la sección queda estática
         }
 
+        try {
+            $equipo     = Equipo::find()->where(['activo' => 1])->all();
+            $equipoData = array_map(fn(Equipo $e) => $e->toApiArray(), $equipo);
+        } catch (\Throwable) {
+            // Tabla aún no migrada — el carrusel queda con markup estático
+        }
+
         return $this->render('index', [
-            'rutas'     => $rutas,
+            'rutas'      => $rutas,
             'divisiones' => $divisionesData,
+            'equipo'     => $equipoData,
         ]);
     }
 

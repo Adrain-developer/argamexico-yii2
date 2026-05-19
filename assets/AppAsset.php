@@ -20,9 +20,13 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        //'css/site.css',
+        'css/divisiones.css?v=3',
     ];
     public $js = [
+        'js/divisiones-app.js?v=3',
+    ];
+    public $jsOptions = [
+        'position' => \yii\web\View::POS_END,
     ];
     public $depends = [
         //'yii\web\YiiAsset',

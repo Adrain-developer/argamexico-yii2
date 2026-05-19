@@ -2,14 +2,26 @@
 
 /* @var $this yii\web\View */
 /* @var $divisiones array */
+/* @var $equipo array */
 
 use yii\helpers\Url;
 
 $this->title = 'ARGA Group México — Seguridad Industrial, Consultoría y Laboratorio';
 
-$this->registerCssFile(Yii::$app->request->baseUrl . '/css/divisiones.css?v=2', ['position' => \yii\web\View::POS_HEAD]);
-$this->registerJsFile(Yii::$app->request->baseUrl . '/js/divisiones-app.js?v=2', ['position' => \yii\web\View::POS_END]);
 $this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JSON_UNESCAPED_UNICODE) . ';', \yii\web\View::POS_BEGIN);
+$this->registerJs('window.ARGA_TEAM = ' . json_encode($equipo ?? [], JSON_UNESCAPED_UNICODE) . ';', \yii\web\View::POS_BEGIN);
+
+$divisionesCount = count($divisiones ?? []);
+$clientesLogos = [
+  'ADAMS' => 'adams.png', 'ADIENT' => 'adient.png', 'AMERICAN STANDARD' => 'americanStandar.png',
+  'ANTOLIN' => 'antolin.png', 'AUDI' => 'audi.png', 'AUTOTEK' => 'autotek.png',
+  'BMW' => 'bmw.png', 'CAMPRA' => 'campra.png', 'CAPSUGEL' => 'capsugel.png',
+  'FAURECIA' => 'faurecia.png', 'FEDERAL MOGUL' => 'federalMogul.png', 'GESTAMP' => 'gestamp.png',
+  'IBERO' => 'ibero.png', 'IDESA' => 'idesa.png', 'KAYSER' => 'kayser.png',
+  'KIMBERLY CLARK' => 'kimberlyClark.png', 'LONZA' => 'lonza.png', 'MONDELEZ' => 'mondelez.png',
+  'SKF' => 'skf.png', 'STANLEY' => 'stanley.png', 'THYSSENKRUPP' => 'thyssenkrupp.png',
+  'UNILEVER' => 'unilever.png', 'UPAEP' => 'upaep.png', 'WHIRLPOOL' => 'wirlpool.png',
+];
 ?>
 
 <!-- ===== HERO SLIDER ===== -->
@@ -99,11 +111,26 @@ $this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JS
 <section class="section unidades-section reveal" id="quienes">
   <div class="container">
     <div class="unidades-header">
+      <span class="section-eyebrow">Nuestros servicios</span>
       <h2 class="section-title gradient-text">QUIÉNES SOMOS</h2>
       <p class="section-subtitle">
         Más de 30 años colaborando en el desarrollo de empresas más<br>
         <strong>Eficientes, Seguras y Rentables</strong>
       </p>
+      <div class="unidades-stats" role="list" aria-label="ARGA en números">
+        <div class="stat" role="listitem">
+          <span class="stat-num">+30</span>
+          <span class="stat-label">Años de experiencia</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num"><?= $divisionesCount > 0 ? $divisionesCount : 5 ?></span>
+          <span class="stat-label">Divisiones de negocio</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num">+200</span>
+          <span class="stat-label">Empresas atendidas</span>
+        </div>
+      </div>
     </div>
     <div class="unidades-inner">
 
@@ -310,30 +337,14 @@ $this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JS
       <span class="gradient-text-alt">DE NUESTROS CLIENTES</span>
     </h2>
     <div class="clients-grid">
-      <div class="client-logo">ADAMS</div>
-      <div class="client-logo">ADIENT</div>
-      <div class="client-logo">AMERICAN<br>STANDARD</div>
-      <div class="client-logo">ANTOLIN</div>
-      <div class="client-logo">AUDI</div>
-      <div class="client-logo">AUTOTEK</div>
-      <div class="client-logo">BMW</div>
-      <div class="client-logo">CAMPRA</div>
-      <div class="client-logo">CAPSUGEL</div>
-      <div class="client-logo">FAURECIA</div>
-      <div class="client-logo">FEDERAL<br>MOGUL</div>
-      <div class="client-logo">GESTAMP</div>
-      <div class="client-logo">IBERO</div>
-      <div class="client-logo">IDESA</div>
-      <div class="client-logo">KAYSER</div>
-      <div class="client-logo">KIMBERLY<br>CLARK</div>
-      <div class="client-logo">LONZA</div>
-      <div class="client-logo">MONDELEZ</div>
-      <div class="client-logo">SKF</div>
-      <div class="client-logo">STANLEY</div>
-      <div class="client-logo">THYSSENKRUPP</div>
-      <div class="client-logo">UNILEVER</div>
-      <div class="client-logo">UPAEP</div>
-      <div class="client-logo">WHIRLPOOL</div>
+      <?php foreach ($clientesLogos as $nombre => $file): ?>
+        <div class="client-logo" tabindex="0" aria-label="<?= htmlspecialchars($nombre, ENT_QUOTES) ?>">
+          <img src="<?= Yii::$app->homeUrl ?>images/clientes/<?= $file ?>"
+               alt="<?= htmlspecialchars($nombre, ENT_QUOTES) ?>"
+               loading="lazy" decoding="async">
+          <span class="client-badge"><?= htmlspecialchars($nombre, ENT_QUOTES) ?></span>
+        </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -342,49 +353,15 @@ $this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JS
 <section class="section team-section reveal" id="equipo">
   <div class="team-inner">
 
-    <div class="team-cards-wrap">
-      <!-- Viewport -->
-      <div class="team-carousel">
-        <div class="team-carousel-track" id="teamCarouselTrack">
+    <div class="team-cards-wrap team-coverflow-wrap">
+      <!-- Coverflow viewport (rendered dynamically by JS from window.ARGA_TEAM) -->
+      <div class="team-coverflow" id="teamCoverflow" aria-label="Equipo de trabajo"></div>
 
-          <div class="team-card">
-            <div class="team-avatar">
-              <svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#e8f4f8"/><circle cx="35" cy="26" r="12" fill="#6ebbd9"/><ellipse cx="35" cy="58" rx="20" ry="14" fill="#6ebbd9"/></svg>
-            </div>
-            <p class="team-name">ISH Alejandra M.</p>
-            <p class="team-role-sub">Ing. en Seguridad e Higiene por el IPRL</p>
-            <p class="team-role"><strong>Coordinadora de Seguridad</strong></p>
-          </div>
-
-          <div class="team-card">
-            <div class="team-avatar">
-              <img src="<?= Yii::$app->homeUrl ?>images/emma.png" alt="Director General" style="width:70px;height:70px;object-fit:cover;border-radius:50%;">
-            </div>
-            <p class="team-name">Director General</p>
-            <p class="team-role-sub">ARGA Group México</p>
-            <p class="team-role"><strong>Administración en Riesgos</strong></p>
-          </div>
-
-          <div class="team-card">
-            <div class="team-avatar">
-              <svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#e8f4f8"/><circle cx="35" cy="26" r="12" fill="#6ebbd9"/><ellipse cx="35" cy="58" rx="20" ry="14" fill="#6ebbd9"/></svg>
-            </div>
-            <p class="team-name">ISH Eduardo M.</p>
-            <p class="team-role-sub">Ing. en Seguridad e Higiene por el IPRL</p>
-            <p class="team-role"><strong>Técnico de Laboratorio</strong></p>
-          </div>
-
-        </div>
-      </div>
       <!-- Controls -->
       <div class="team-carousel-controls">
-        <button class="team-arrow" id="teamPrev" aria-label="Anterior">&#8249;</button>
-        <div class="team-dots">
-          <button class="team-dot active" data-index="0"></button>
-          <button class="team-dot" data-index="1"></button>
-          <button class="team-dot" data-index="2"></button>
-        </div>
-        <button class="team-arrow" id="teamNext" aria-label="Siguiente">&#8250;</button>
+        <button class="team-arrow" id="teamPrev" aria-label="Anterior" type="button">&#8249;</button>
+        <div class="team-dots" id="teamDots"></div>
+        <button class="team-arrow" id="teamNext" aria-label="Siguiente" type="button">&#8250;</button>
       </div>
     </div>
 
@@ -486,7 +463,7 @@ $this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JS
         </ul>
       </div>
 
-      <div class="contact-map">
+      <div class="contact-map contact-map--responsive">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.0!2d-98.132538!3d19.050812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAzJzAyLjkiTiA5OMKwMDcnNTcuMSJX!5e0!3m2!1ses!2smx!4v1"
           width="100%"

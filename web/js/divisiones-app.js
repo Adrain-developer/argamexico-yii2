@@ -1,38 +1,44 @@
 /* ============================================================
-   ARGA · Divisiones – Two-Modal Flow
-   Requiere: window.ARGA_DIVISIONS (JSON desde PHP)
+   ARGA · Divisiones – Two-Modal Flow + Cart Sidebar + Team Coverflow
+   Requiere: window.ARGA_DIVISIONS, window.ARGA_TEAM (opcional)
    ============================================================ */
 (function () {
   'use strict';
 
   const DIVISIONS    = window.ARGA_DIVISIONS || [];
+  const TEAM         = window.ARGA_TEAM || [];
   const SHIELD_PATH  = 'M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z';
   const FILL_COLOR   = { teal: 'url(#tealGrad)', red: 'url(#greenGrad)' };
 
   /* ---- State ---- */
   const state = {
-    cart:          JSON.parse(localStorage.getItem('arga_cart_v2') || '[]'),
-    modal1Div:     null,
-    modal2Service: null,
-    slide:         0,
-    autoInterval:  null,
-    autoMs:        5000,
+    cart:           JSON.parse(localStorage.getItem('arga_cart_v2') || '[]'),
+    modal1Div:      null,
+    modal2Service:  null,
+    slide:          0,
+    autoInterval:   null,
+    autoMs:         5000,
+    // History tracking: tells popstate whether we own the entry being popped
+    pushedM1:       false,
+    pushedM2:       false,
+    sidebarOpen:    false,
   };
 
   /* ---- DOM refs (populated in setup) ---- */
   let m1Backdrop, m1Grid, m1Header, m1Close;
-  let m2Backdrop, m2Eyebrow, m2Title, m2Subtitle, m2Chips, m2Body;
-  let bannerTrack, bannerDots, cartCountEl, toastWrap;
+  let m2Backdrop, m2DivisionHdr, m2Eyebrow, m2Title, m2Subtitle, m2Chips, m2Body;
+  let bannerTrack, bannerDots, cartFab, cartCountEl, toastWrap;
+  let cartSidebar, cartSidebarBackdrop, cartSidebarList, cartSidebarCount, cartSidebarEmpty;
 
   /* ============================================================
-     Setup: inject modal HTML once into DOM
+     Setup: inject modal + cart sidebar HTML once into DOM
      ============================================================ */
   function setup() {
     document.body.insertAdjacentHTML('beforeend', `
       <!-- Modal 1: Servicios de la División -->
       <div class="dv-m1-backdrop" id="dvM1Backdrop" role="dialog" aria-modal="true">
         <div class="dv-m1" id="dvM1">
-          <button class="dv-close" id="dvM1Close" aria-label="Cerrar">
+          <button class="dv-close" id="dvM1Close" aria-label="Cerrar" type="button">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
           </button>
           <div class="dv-m1-header" id="dvM1Header"></div>
@@ -44,36 +50,41 @@
       <div class="dv-m2-backdrop" id="dvM2Backdrop" role="dialog" aria-modal="true">
         <div class="dv-m2" id="dvM2">
           <div class="dv-m2-left">
-            <button class="dv-back-btn" id="dvM2Back">
+            <button class="dv-back-btn" id="dvM2Back" type="button">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
               Ver todos los servicios
             </button>
-            <span class="dv-eyebrow"   id="dvM2Eyebrow"></span>
+
+            <!-- División context header -->
+            <div class="dv-m2-division" id="dvM2DivisionHdr"></div>
+
+            <!-- Service info -->
+            <span class="dv-eyebrow"   id="dvM2Eyebrow">Servicio</span>
             <h2  class="dv-m2-title"   id="dvM2Title"></h2>
             <p   class="dv-m2-subtitle" id="dvM2Subtitle"></p>
             <div class="dv-divider"></div>
             <div class="dv-chips"      id="dvM2Chips"></div>
             <div class="dv-m2-body"    id="dvM2Body"></div>
             <div class="dv-m2-actions">
-              <button class="dv-btn-primary"   id="dvBtnAddQuote">
+              <button class="dv-btn-primary"   id="dvBtnAddQuote" type="button">
                 <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
                 <span>Agregar a cotización</span>
               </button>
-              <button class="dv-btn-secondary" id="dvBtnAllDivisions">
+              <button class="dv-btn-secondary" id="dvBtnAllDivisions" type="button">
                 Ver todas las divisiones
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
             </div>
           </div>
           <div class="dv-m2-right" id="dvM2Right">
-            <button class="dv-close dv-m2-close-abs" id="dvM2Close" aria-label="Cerrar">
+            <button class="dv-close dv-m2-close-abs" id="dvM2Close" aria-label="Cerrar" type="button">
               <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
             </button>
             <div class="dv-banner-track"  id="dvBannerTrack"></div>
-            <button class="dv-banner-nav dv-banner-prev" id="dvBannerPrev" aria-label="Anterior">
+            <button class="dv-banner-nav dv-banner-prev" id="dvBannerPrev" aria-label="Anterior" type="button">
               <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
-            <button class="dv-banner-nav dv-banner-next" id="dvBannerNext" aria-label="Siguiente">
+            <button class="dv-banner-nav dv-banner-next" id="dvBannerNext" aria-label="Siguiente" type="button">
               <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
             </button>
             <div class="dv-banner-dots" id="dvBannerDots"></div>
@@ -82,30 +93,79 @@
       </div>
 
       <!-- Cart FAB -->
-      <button class="dv-cart-fab" id="dvCartFab" aria-label="Ver cotización">
+      <button class="dv-cart-fab" id="dvCartFab" aria-label="Ver cotización" type="button" hidden>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/></svg>
         Mi cotización
         <span class="dv-cart-count" id="dvCartCount">0</span>
       </button>
 
+      <!-- Cart Sidebar -->
+      <div class="dv-cart-backdrop" id="dvCartBackdrop"></div>
+      <aside class="dv-cart-sidebar" id="dvCartSidebar" aria-label="Cotización" role="dialog" aria-modal="true">
+        <header class="dv-cart-head">
+          <div>
+            <span class="dv-cart-eyebrow">Tu selección</span>
+            <h3 class="dv-cart-title">Mi cotización</h3>
+          </div>
+          <button class="dv-cart-close" id="dvCartClose" aria-label="Cerrar" type="button">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </header>
+
+        <div class="dv-cart-body">
+          <p class="dv-cart-counter">
+            <span id="dvCartSidebarCount">0</span> servicio(s) agregado(s)
+          </p>
+          <ul class="dv-cart-list" id="dvCartSidebarList"></ul>
+          <div class="dv-cart-empty" id="dvCartSidebarEmpty">
+            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/>
+            </svg>
+            <p>Tu cotización está vacía.</p>
+            <small>Agrega servicios desde el catálogo para crear tu solicitud.</small>
+          </div>
+        </div>
+
+        <footer class="dv-cart-foot">
+          <button class="dv-cart-clear" id="dvCartClear" type="button">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
+            </svg>
+            Vaciar
+          </button>
+          <button class="dv-cart-cta" id="dvCartRequest" type="button">
+            Solicitar cotización
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </footer>
+      </aside>
+
       <!-- Toasts -->
       <div class="dv-toast-wrap" id="dvToastWrap"></div>
     `);
 
-    m1Backdrop   = document.getElementById('dvM1Backdrop');
-    m1Grid       = document.getElementById('dvM1Grid');
-    m1Header     = document.getElementById('dvM1Header');
-    m1Close      = document.getElementById('dvM1Close');
-    m2Backdrop   = document.getElementById('dvM2Backdrop');
-    m2Eyebrow    = document.getElementById('dvM2Eyebrow');
-    m2Title      = document.getElementById('dvM2Title');
-    m2Subtitle   = document.getElementById('dvM2Subtitle');
-    m2Chips      = document.getElementById('dvM2Chips');
-    m2Body       = document.getElementById('dvM2Body');
-    bannerTrack  = document.getElementById('dvBannerTrack');
-    bannerDots   = document.getElementById('dvBannerDots');
-    cartCountEl  = document.getElementById('dvCartCount');
-    toastWrap    = document.getElementById('dvToastWrap');
+    m1Backdrop     = document.getElementById('dvM1Backdrop');
+    m1Grid         = document.getElementById('dvM1Grid');
+    m1Header       = document.getElementById('dvM1Header');
+    m1Close        = document.getElementById('dvM1Close');
+    m2Backdrop     = document.getElementById('dvM2Backdrop');
+    m2DivisionHdr  = document.getElementById('dvM2DivisionHdr');
+    m2Eyebrow      = document.getElementById('dvM2Eyebrow');
+    m2Title        = document.getElementById('dvM2Title');
+    m2Subtitle     = document.getElementById('dvM2Subtitle');
+    m2Chips        = document.getElementById('dvM2Chips');
+    m2Body         = document.getElementById('dvM2Body');
+    bannerTrack    = document.getElementById('dvBannerTrack');
+    bannerDots     = document.getElementById('dvBannerDots');
+    cartFab        = document.getElementById('dvCartFab');
+    cartCountEl    = document.getElementById('dvCartCount');
+    toastWrap      = document.getElementById('dvToastWrap');
+    cartSidebar         = document.getElementById('dvCartSidebar');
+    cartSidebarBackdrop = document.getElementById('dvCartBackdrop');
+    cartSidebarList     = document.getElementById('dvCartSidebarList');
+    cartSidebarCount    = document.getElementById('dvCartSidebarCount');
+    cartSidebarEmpty    = document.getElementById('dvCartSidebarEmpty');
   }
 
   /* ============================================================
@@ -122,7 +182,7 @@
 
   function esc(str) {
     const d = document.createElement('div');
-    d.textContent = str;
+    d.textContent = str ?? '';
     return d.innerHTML;
   }
 
@@ -152,11 +212,11 @@
             <p class="dv-svc-desc">${esc((item.descripcion || '').slice(0, 110))}${(item.descripcion || '').length > 110 ? '…' : ''}</p>
           </div>
           <div class="dv-svc-actions">
-            <button class="dv-svc-btn-detail" data-idx="${idx}">
+            <button class="dv-svc-btn-detail" data-idx="${idx}" type="button">
               Ver detalles
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
-            <button class="dv-svc-btn-cart ${inCart ? 'added' : ''}" data-idx="${idx}">
+            <button class="dv-svc-btn-cart ${inCart ? 'added' : ''}" data-idx="${idx}" type="button">
               ${cartBtnContent(inCart)}
             </button>
           </div>
@@ -167,12 +227,20 @@
     bindServiceCards(division);
     m1Backdrop.classList.add('open');
     document.body.classList.add('dv-no-scroll');
+    pushHistoryState('m1');
   }
 
-  function closeModal1() {
+  function closeModal1(skipHistory) {
+    if (!m1Backdrop.classList.contains('open')) return;
     m1Backdrop.classList.remove('open');
     state.modal1Div = null;
-    if (!state.modal2Service) document.body.classList.remove('dv-no-scroll');
+    if (!state.modal2Service && !state.sidebarOpen) document.body.classList.remove('dv-no-scroll');
+    if (!skipHistory && state.pushedM1) {
+      state.pushedM1 = false;
+      history.back();
+    } else if (skipHistory) {
+      state.pushedM1 = false;
+    }
   }
 
   function bindServiceCards(division) {
@@ -204,14 +272,27 @@
      ============================================================ */
   function openModal2(division, service) {
     state.modal2Service = service;
+    state.modal1Div     = division;
 
-    m2Eyebrow.textContent  = (division.tagline || 'División').toUpperCase();
+    // Render division context header
+    const divNoms = (division.noms || []).map(n => `<span class="dv-chip subtle">${esc(n)}</span>`).join('');
+    m2DivisionHdr.innerHTML = `
+      <div class="dv-m2-divshield">${shieldSVG(division, 48)}</div>
+      <div class="dv-m2-divinfo">
+        <span class="dv-m2-divlabel">División</span>
+        <p class="dv-m2-divname">${esc(division.name)}</p>
+        ${divNoms ? `<div class="dv-m2-divnoms">${divNoms}</div>` : ''}
+      </div>
+    `;
+
+    m2Eyebrow.textContent  = 'Servicio';
     m2Title.textContent    = service.title;
     m2Subtitle.textContent = service.descripcion || '';
 
-    m2Chips.innerHTML = (division.noms || [])
-      .map(n => `<span class="dv-chip">${esc(n)}</span>`)
-      .join('');
+    // Service-level chips: usar el campo `code` (NOM del servicio)
+    m2Chips.innerHTML = service.code
+      ? `<span class="dv-chip">${esc(service.code)}</span>`
+      : '';
 
     m2Body.innerHTML = [
       service.descripcion ? `<h4>Reconocimiento</h4><p>${esc(service.descripcion)}</p>` : '',
@@ -228,14 +309,47 @@
     m2Backdrop.classList.add('open');
     document.body.classList.add('dv-no-scroll');
     startAutoplay();
+    pushHistoryState('m2');
   }
 
-  function closeModal2() {
+  function closeModal2(skipHistory) {
+    if (!m2Backdrop.classList.contains('open')) return;
     m2Backdrop.classList.remove('open');
     stopAutoplay();
     state.modal2Service = null;
-    if (!state.modal1Div) document.body.classList.remove('dv-no-scroll');
+    if (!state.modal1Div && !state.sidebarOpen) document.body.classList.remove('dv-no-scroll');
+    if (!skipHistory && state.pushedM2) {
+      state.pushedM2 = false;
+      history.back();
+    } else if (skipHistory) {
+      state.pushedM2 = false;
+    }
   }
+
+  /* ---- History (botón atrás móvil) ---- */
+  function pushHistoryState(layer) {
+    try {
+      history.pushState({ argaLayer: layer }, '');
+      if (layer === 'm1') state.pushedM1 = true;
+      if (layer === 'm2') state.pushedM2 = true;
+      if (layer === 'sidebar') state.sidebarPushed = true;
+    } catch (e) { /* no-op */ }
+  }
+
+  window.addEventListener('popstate', () => {
+    // Cerrar la capa superior abierta cuando el usuario presiona atrás
+    if (m2Backdrop && m2Backdrop.classList.contains('open')) {
+      closeModal2(true);
+      return;
+    }
+    if (m1Backdrop && m1Backdrop.classList.contains('open')) {
+      closeModal1(true);
+      return;
+    }
+    if (state.sidebarOpen) {
+      closeCartSidebar(true);
+    }
+  });
 
   /* ============================================================
      Banner carousel
@@ -258,7 +372,7 @@
     }).join('');
 
     bannerDots.innerHTML = slides.map((_, i) =>
-      `<button class="dv-banner-dot ${i === 0 ? 'active' : ''}" data-slide="${i}" aria-label="Slide ${i + 1}"></button>`
+      `<button class="dv-banner-dot ${i === 0 ? 'active' : ''}" data-slide="${i}" aria-label="Slide ${i + 1}" type="button"></button>`
     ).join('');
 
     bannerDots.querySelectorAll('.dv-banner-dot').forEach(dot =>
@@ -303,16 +417,95 @@
       code:         service.code || '',
       ts:           Date.now(),
     });
-    localStorage.setItem('arga_cart_v2', JSON.stringify(state.cart));
+    persistCart();
     updateCartUI();
     showToast(`${service.title} agregado a cotización`);
     return true;
   }
 
+  function removeFromCart(serviceId) {
+    state.cart = state.cart.filter(c => c.serviceId !== serviceId);
+    persistCart();
+    updateCartUI();
+    renderCartSidebar();
+  }
+
+  function clearCart() {
+    state.cart = [];
+    persistCart();
+    updateCartUI();
+    renderCartSidebar();
+  }
+
+  function persistCart() {
+    localStorage.setItem('arga_cart_v2', JSON.stringify(state.cart));
+  }
+
   function updateCartUI() {
-    cartCountEl.textContent = state.cart.length;
+    if (!cartFab) return;
+    const n = state.cart.length;
+    cartCountEl.textContent = n;
     cartCountEl.style.transform = 'scale(1.4)';
     setTimeout(() => { cartCountEl.style.transform = 'scale(1)'; }, 220);
+    cartFab.hidden = (n === 0);
+  }
+
+  /* ============================================================
+     Cart Sidebar
+     ============================================================ */
+  function openCartSidebar() {
+    if (state.sidebarOpen) return;
+    state.sidebarOpen = true;
+    renderCartSidebar();
+    cartSidebar.classList.add('open');
+    cartSidebarBackdrop.classList.add('open');
+    document.body.classList.add('dv-no-scroll');
+    pushHistoryState('sidebar');
+  }
+
+  function closeCartSidebar(skipHistory) {
+    if (!state.sidebarOpen) return;
+    state.sidebarOpen = false;
+    cartSidebar.classList.remove('open');
+    cartSidebarBackdrop.classList.remove('open');
+    if (!state.modal1Div && !state.modal2Service) document.body.classList.remove('dv-no-scroll');
+    if (!skipHistory && state.sidebarPushed) {
+      state.sidebarPushed = false;
+      history.back();
+    } else if (skipHistory) {
+      state.sidebarPushed = false;
+    }
+  }
+
+  function renderCartSidebar() {
+    if (!cartSidebarList) return;
+    cartSidebarCount.textContent = state.cart.length;
+
+    if (state.cart.length === 0) {
+      cartSidebarList.innerHTML = '';
+      cartSidebarEmpty.style.display = 'flex';
+      cartSidebar.classList.add('is-empty');
+      return;
+    }
+    cartSidebarEmpty.style.display = 'none';
+    cartSidebar.classList.remove('is-empty');
+
+    cartSidebarList.innerHTML = state.cart.map(it => `
+      <li class="dv-cart-item" data-id="${it.serviceId}">
+        <div class="dv-cart-item-body">
+          <span class="dv-cart-item-div">${esc(it.divisionName || '')}</span>
+          <p class="dv-cart-item-title">${esc(it.title)}</p>
+          ${it.code ? `<span class="dv-cart-item-code">${esc(it.code)}</span>` : ''}
+        </div>
+        <button class="dv-cart-item-remove" data-id="${it.serviceId}" aria-label="Eliminar" type="button">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </li>
+    `).join('');
+
+    cartSidebarList.querySelectorAll('.dv-cart-item-remove').forEach(btn => {
+      btn.addEventListener('click', () => removeFromCart(parseInt(btn.dataset.id, 10)));
+    });
   }
 
   /* ============================================================
@@ -334,7 +527,7 @@
      Global event bindings
      ============================================================ */
   function bindGlobal() {
-    m1Close.addEventListener('click', closeModal1);
+    m1Close.addEventListener('click', () => closeModal1());
     m1Backdrop.addEventListener('click', e => { if (e.target === m1Backdrop) closeModal1(); });
 
     document.getElementById('dvM2Close').addEventListener('click', () => closeModal2());
@@ -356,23 +549,53 @@
     });
 
     document.getElementById('dvBtnAllDivisions').addEventListener('click', () => {
-      closeModal2();
-      closeModal1();
+      const slug = state.modal1Div?.slug;
+      // Close active modals then redirect to /site/catalogo with anchor for highlight
+      closeModal2(true);
+      closeModal1(true);
+      const baseUrl = (window.ARGA_BASE_URL || '');
+      const target  = baseUrl + 'index.php?r=site%2Fcatalogo' + (slug ? '&division=' + encodeURIComponent(slug) : '');
+      // Fallback path for pretty URLs:
+      const link = document.querySelector('a[href*="site/catalogo"], a[href$="/catalogo"]');
+      if (link && link.href) {
+        window.location.href = link.href + (slug ? '#' + slug : '');
+      } else {
+        window.location.href = target;
+      }
     });
 
-    document.getElementById('dvCartFab').addEventListener('click', () => {
-      showToast(
-        state.cart.length === 0
-          ? 'Tu cotización está vacía'
-          : `${state.cart.length} servicio(s) en tu cotización`,
-        'info'
-      );
+    cartFab.addEventListener('click', openCartSidebar);
+    document.getElementById('dvCartClose').addEventListener('click', () => closeCartSidebar());
+    cartSidebarBackdrop.addEventListener('click', () => closeCartSidebar());
+
+    document.getElementById('dvCartClear').addEventListener('click', () => {
+      if (!state.cart.length) return;
+      if (confirm('¿Vaciar la cotización? Se eliminarán todos los servicios agregados.')) {
+        clearCart();
+        showToast('Cotización vacía', 'info');
+      }
+    });
+
+    document.getElementById('dvCartRequest').addEventListener('click', () => {
+      if (!state.cart.length) {
+        showToast('Agrega al menos un servicio antes de solicitar', 'info');
+        return;
+      }
+      // Persist current cart and redirect to contact form with quote intent
+      sessionStorage.setItem('arga_quote_pending', JSON.stringify(state.cart));
+      const link = document.querySelector('a[href*="contactos/create"]');
+      if (link && link.href) {
+        window.location.href = link.href + '?quote=1';
+      } else {
+        window.location.href = 'index.php?r=contactos%2Fcreate&quote=1';
+      }
     });
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         if (m2Backdrop.classList.contains('open')) closeModal2();
         else if (m1Backdrop.classList.contains('open')) closeModal1();
+        else if (state.sidebarOpen) closeCartSidebar();
       }
       if (m2Backdrop.classList.contains('open')) {
         if (e.key === 'ArrowRight') { goToSlide(state.slide + 1); startAutoplay(); }
@@ -415,6 +638,7 @@
     let activeSlug  = 'all';
     let searchQuery = '';
     let searchTimer = null;
+    let highlightDivisionId = null;
 
     /* ---- collect flat list ---- */
     function flatServices(slug) {
@@ -433,7 +657,7 @@
       ];
 
       sidebar.innerHTML = items.map(({ slug, name, icon }) => `
-        <button class="dv-cat-sib-btn ${activeSlug === slug ? 'active' : ''}" data-slug="${slug}">
+        <button class="dv-cat-sib-btn ${activeSlug === slug ? 'active' : ''}" data-slug="${slug}" type="button">
           <span class="dv-cat-sib-icon">${icon}</span>
           <span class="dv-cat-sib-name">${esc(name)}</span>
         </button>
@@ -442,6 +666,7 @@
       sidebar.querySelectorAll('.dv-cat-sib-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           activeSlug = btn.dataset.slug;
+          highlightDivisionId = null;
           history.replaceState(null, '', activeSlug === 'all' ? location.pathname : `#${activeSlug}`);
           buildSidebar();
           renderGrid();
@@ -453,7 +678,6 @@
     function renderGrid() {
       let services = flatServices(activeSlug);
 
-      // Update header
       if (activeSlug === 'all') {
         mainTitle.textContent = 'Todos los servicios';
         mainNote.textContent  = '';
@@ -463,7 +687,6 @@
         mainNote.textContent  = div?.descripcion || '';
       }
 
-      // Apply search
       if (searchQuery) {
         const q = searchQuery.toLowerCase();
         services = services.filter(({ item }) =>
@@ -473,7 +696,6 @@
         );
       }
 
-      // Count
       if (countEl) {
         countEl.textContent = services.length
           ? `${services.length} servicio${services.length !== 1 ? 's' : ''}`
@@ -488,7 +710,7 @@
       grid.innerHTML = services.map(({ div, item }) => {
         const inCart = state.cart.some(c => c.serviceId === item.id);
         return `
-          <div class="dv-cat-card">
+          <div class="dv-cat-card" id="dvCatCard-${div.id}-${item.id}" data-division-id="${div.id}" data-service-id="${item.id}">
             <div class="dv-cat-card-icon">${shieldSVG(div, 56)}</div>
             <div class="dv-cat-card-body">
               ${activeSlug === 'all' ? `<span class="dv-cat-card-div">${esc(div.name)}</span>` : ''}
@@ -496,11 +718,11 @@
               ${item.code ? `<span class="dv-cat-card-code">${esc(item.code)}</span>` : ''}
             </div>
             <div class="dv-cat-card-actions">
-              <button class="dv-cat-btn-detail" data-div="${div.id}" data-svc="${item.id}">
+              <button class="dv-cat-btn-detail" data-div="${div.id}" data-svc="${item.id}" type="button">
                 Más detalles
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
-              <button class="dv-cat-btn-cart ${inCart ? 'added' : ''}" data-div="${div.id}" data-svc="${item.id}">
+              <button class="dv-cat-btn-cart ${inCart ? 'added' : ''}" data-div="${div.id}" data-svc="${item.id}" type="button">
                 ${inCart ? cartDoneIcon() + ' Agregado' : cartAddIcon() + ' Agregar a cotización'}
               </button>
             </div>
@@ -508,7 +730,6 @@
         `;
       }).join('');
 
-      /* bind card events */
       grid.querySelectorAll('.dv-cat-btn-detail').forEach(btn => {
         btn.addEventListener('click', () => {
           const div  = DIVISIONS.find(d => d.id === parseInt(btn.dataset.div, 10));
@@ -530,9 +751,21 @@
           }
         });
       });
+
+      // Highlight effect when arriving from "Ver todas las divisiones"
+      if (highlightDivisionId !== null) {
+        const cards = grid.querySelectorAll(`.dv-cat-card[data-division-id="${highlightDivisionId}"]`);
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.classList.add('is-highlight');
+            if (i === 0) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => card.classList.remove('is-highlight'), 2400);
+          }, 120);
+        });
+        highlightDivisionId = null;
+      }
     }
 
-    /* ---- search ---- */
     if (searchInput) {
       searchInput.addEventListener('input', () => {
         clearTimeout(searchTimer);
@@ -543,11 +776,17 @@
       });
     }
 
-    /* ---- hash ---- */
-    const hash = location.hash.replace('#', '');
-    if (hash) {
-      const div = DIVISIONS.find(d => d.slug === hash);
-      if (div) activeSlug = div.slug;
+    // Hash (#slug) o ?division=slug — activa filtro + highlight
+    const params = new URLSearchParams(location.search);
+    const fromQuery = params.get('division');
+    const hash      = location.hash.replace('#', '');
+    const slug      = fromQuery || hash;
+    if (slug) {
+      const div = DIVISIONS.find(d => d.slug === slug);
+      if (div) {
+        activeSlug = div.slug;
+        highlightDivisionId = div.id;
+      }
     }
 
     buildSidebar();
@@ -576,15 +815,105 @@
   }
 
   /* ============================================================
+     TEAM COVERFLOW (index page)
+     ============================================================ */
+  function initTeamCoverflow() {
+    const root = document.getElementById('teamCoverflow');
+    if (!root) return;
+
+    // Fallback: si no hay TEAM data desde BD, usar markup default
+    const list = (TEAM && TEAM.length)
+      ? TEAM
+      : [
+          { nombre: 'ISH Alejandra M.', puesto: 'Coordinadora de Seguridad', departamento: 'Ing. en Seguridad e Higiene', division: null, foto: null },
+          { nombre: 'Director General', puesto: 'Administración en Riesgos', departamento: 'ARGA Group México', division: null, foto: null },
+          { nombre: 'ISH Eduardo M.',   puesto: 'Técnico de Laboratorio',   departamento: 'Ing. en Seguridad e Higiene', division: null, foto: null },
+        ];
+
+    if (!list.length) { root.innerHTML = ''; return; }
+
+    let current = 0;
+
+    const placeholderSvg = `<svg viewBox="0 0 70 70" aria-hidden="true"><circle cx="35" cy="35" r="35" fill="#e8f4f8"/><circle cx="35" cy="26" r="12" fill="#6ebbd9"/><ellipse cx="35" cy="58" rx="20" ry="14" fill="#6ebbd9"/></svg>`;
+
+    root.innerHTML = list.map((m, i) => `
+      <article class="tcf-card" data-index="${i}">
+        <div class="tcf-avatar">
+          ${m.foto ? `<img src="${m.foto}" alt="${esc(m.nombre)}" loading="lazy">` : placeholderSvg}
+        </div>
+        <div class="tcf-info">
+          <h3 class="tcf-name">${esc(m.nombre)}</h3>
+          ${m.puesto       ? `<p class="tcf-puesto">${esc(m.puesto)}</p>` : ''}
+          ${m.departamento ? `<p class="tcf-meta">${esc(m.departamento)}</p>` : ''}
+          ${m.division     ? `<span class="tcf-divtag">${esc(m.division)}</span>` : ''}
+        </div>
+      </article>
+    `).join('');
+
+    const dots = document.getElementById('teamDots');
+    if (dots) {
+      dots.innerHTML = list.map((_, i) =>
+        `<button class="team-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Ir a ${i+1}" type="button"></button>`
+      ).join('');
+      dots.querySelectorAll('.team-dot').forEach(d => {
+        d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10)));
+      });
+    }
+
+    function goTo(idx) {
+      const n = list.length;
+      current = ((idx % n) + n) % n;
+      const cards = root.querySelectorAll('.tcf-card');
+      cards.forEach((c, i) => {
+        c.classList.remove('is-center','is-left','is-right','is-far-left','is-far-right');
+        const diff = (i - current + n) % n;
+        if (diff === 0) c.classList.add('is-center');
+        else if (diff === 1) c.classList.add('is-right');
+        else if (diff === n - 1) c.classList.add('is-left');
+        else if (diff === 2) c.classList.add('is-far-right');
+        else c.classList.add('is-far-left');
+      });
+      if (dots) {
+        dots.querySelectorAll('.team-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+    }
+
+    document.getElementById('teamPrev')?.addEventListener('click', () => goTo(current - 1));
+    document.getElementById('teamNext')?.addEventListener('click', () => goTo(current + 1));
+
+    // Click on side cards centers them
+    root.addEventListener('click', e => {
+      const card = e.target.closest('.tcf-card');
+      if (!card) return;
+      const idx = parseInt(card.dataset.index, 10);
+      if (idx !== current) goTo(idx);
+    });
+
+    // Swipe support
+    let touchX = null;
+    root.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend',   e => {
+      if (touchX === null) return;
+      const dx = (e.changedTouches[0].clientX - touchX);
+      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+      touchX = null;
+    });
+
+    goTo(0);
+  }
+
+  /* ============================================================
      Init
      ============================================================ */
   function init() {
-    if (!DIVISIONS.length) return;
     setup();
-    bindShields();
+    if (DIVISIONS.length) {
+      bindShields();
+      initCatalog();
+    }
     bindGlobal();
     updateCartUI();
-    initCatalog();
+    initTeamCoverflow();
   }
 
   if (document.readyState === 'loading') {

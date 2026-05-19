@@ -8,8 +8,6 @@ use yii\helpers\Url;
 
 $this->title = 'Catálogo de Servicios — ARGA Group México';
 
-$this->registerCssFile(Yii::$app->request->baseUrl . '/css/divisiones.css?v=2',  ['position' => \yii\web\View::POS_HEAD]);
-$this->registerJsFile(Yii::$app->request->baseUrl  . '/js/divisiones-app.js?v=2', ['position' => \yii\web\View::POS_END]);
 $this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JSON_UNESCAPED_UNICODE) . ';', \yii\web\View::POS_BEGIN);
 ?>
 

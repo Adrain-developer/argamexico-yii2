@@ -84,4 +84,15 @@
             </div>
         </div>
     </div>
+    <div class="row marginbottom50">
+        <div class="col-sm-6">
+            <div class="card height185">
+                <div class="card-body">
+                    <h5 class="card-title">Módulo de <strong>Equipo de Trabajo</strong></h5>
+                    <p class="card-text">Administra los miembros del equipo que aparecen en el carrusel del home: nombre, puesto, departamento, división y foto.</p>
+                    <a href="<?= Url::toRoute('/equipo') ?>" class="btn btn-primary">Ir a Equipo</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
