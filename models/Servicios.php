@@ -27,7 +27,7 @@ class Servicios extends ActiveRecord
         }
     }
 
-    protected function beforeSave(bool $insert): bool
+    public function beforeSave(bool $insert): bool
     {
         $this->orden ??= 0;
         return parent::beforeSave($insert);
