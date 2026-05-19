@@ -110,7 +110,7 @@
       <!-- Cart FAB -->
       <button class="dv-cart-fab" id="dvCartFab" aria-label="Ver cotización" type="button" hidden>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/></svg>
-        Mi cotización
+        Cotización
         <span class="dv-cart-count" id="dvCartCount">0</span>
       </button>
 
@@ -119,8 +119,7 @@
       <aside class="dv-cart-sidebar" id="dvCartSidebar" aria-label="Cotización" role="dialog" aria-modal="true">
         <header class="dv-cart-head">
           <div>
-            <span class="dv-cart-eyebrow">Tu selección</span>
-            <h3 class="dv-cart-title">Mi cotización</h3>
+            <h3 class="dv-cart-title">Cotización</h3>
           </div>
           <button class="dv-cart-close" id="dvCartClose" aria-label="Cerrar" type="button">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>

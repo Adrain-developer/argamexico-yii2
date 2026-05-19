@@ -84,8 +84,9 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
     <nav class="main-nav" id="mainNav">
       <ul>
         <li><a href="<?= Url::toRoute(['site/index']) ?>" class="nav-link">Inicio</a></li>
+        <li><a href="<?= Url::toRoute(['site/catalogo']) ?>" class="nav-link">Servicios</a></li>
 
-        <li class="has-dropdown">
+        <!--<li class="has-dropdown">
           <a href="#" class="nav-link">Nosotros <span class="arrow">▾</span></a>
           <ul class="dropdown">
             <li><a href="<?= Url::toRoute(['site/avisoprivacidad']) ?>">Política de Privacidad</a></li>
@@ -131,14 +132,14 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
             <li><a href="<?= Url::toRoute(['argatraining/proteccioncivil']) ?>">Protección Civil</a></li>
             <li><a href="<?= Url::toRoute(['argatraining/organizacional']) ?>">Desarrollo Organizacional</a></li>
           </ul>
-        </li>
+        </li>-->
 
-        <li><a href="<?= Url::toRoute(['contactos/create']) ?>" class="nav-link">Contacto</a></li>
+        <li><a href="" class="nav-link">Contacto</a></li>
       </ul>
     </nav>
 
     <?php if (Yii::$app->user->isGuest): ?>
-      <a href="<?= Url::toRoute(['/site/login']) ?>" class="btn-portal">Soy cliente</a>
+      <a href="<?= Url::toRoute(['/site/login']) ?>" class="btn-portal">Portal</a>
     <?php else: ?>
       <a href="<?= Url::toRoute(['/site/admin']) ?>" class="btn-portal">Panel Admin</a>
     <?php endif; ?>
@@ -179,13 +180,8 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
         <h4 class="footer-col-title">Navegación</h4>
         <nav class="footer-links">
           <a href="<?= Url::toRoute(['site/index']) ?>">Inicio</a>
-          <a href="<?= Url::toRoute(['argafire/index']) ?>">ARGA Fire</a>
-          <a href="<?= Url::toRoute(['argaconsultores/index']) ?>">ARGA Consultores</a>
-          <a href="<?= Url::toRoute(['argalabs/index']) ?>">ARGA Labs</a>
-          <a href="<?= Url::toRoute(['argatraining/index']) ?>">ARGA Training</a>
-          <a href="<?= Url::toRoute(['argafire/acreditacion']) ?>">Acreditaciones</a>
-          <a href="<?= Url::toRoute(['contactos/create']) ?>">Contacto</a>
-          <a href="<?= Url::toRoute(['empresasfolios/']) ?>">Consultar Folios DS3</a>
+          <a href="<?= Url::toRoute(['site/catalogo']) ?>">Servicios</a>
+          <a href="">Contacto</a>
           <?php if (Yii::$app->user->isGuest): ?>
             <a href="<?= Url::toRoute(['/site/login']) ?>">Ingresar</a>
           <?php else: ?>
