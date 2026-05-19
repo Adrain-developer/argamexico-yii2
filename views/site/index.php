@@ -113,6 +113,10 @@ $this->registerJs('window.ARGA_DIVISIONS = ' . json_encode($divisiones ?? [], JS
           <span class="gradient-text-alt">DE NEGOCIO</span>
         </h2>
         <p>Respaldada por profesionales con más de 17 años de experiencia en el ámbito de la seguridad industrial, salud ocupacional, protección ambiental, seguridad patrimonial, emergencia y desarrollo humano. Dicha experiencia ha quedado demostrada en empresas del giro de la construcción, petroquímica, alimentaría, industrial, comercial y de servicios. Donde el principal objetivo ha sido brindar un servicio de calidad, garantizando la integridad física de los colaboradores, la productividad, la continuidad del negocio, las afectaciones ambientales y la reducción de pérdidas por sanciones administrativas.</p>
+        <a href="<?= Url::toRoute(['site/catalogo']) ?>" class="dv-link-catalogo">
+          Ver catálogo completo de servicios
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
 
       <div class="unidades-grid-wrap">

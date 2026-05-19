@@ -167,6 +167,24 @@ class SiteController extends Controller
       
     }
 
+    public function actionCatalogo(): string
+    {
+        $divisionesData = [];
+        try {
+            $divisiones = Divisiones::find()
+                ->with(['serviciosActivos.imagenes'])
+                ->where(['activo' => 1])
+                ->all();
+            $divisionesData = array_map(fn(Divisiones $d) => $d->toApiArray(), $divisiones);
+        } catch (\Throwable) {
+            // Tablas aún no migradas
+        }
+
+        return $this->render('catalogo', [
+            'divisiones' => $divisionesData,
+        ]);
+    }
+
     public function actionAvisoprivacidad(){
         return $this->render('avisoprivacidad');
     }
