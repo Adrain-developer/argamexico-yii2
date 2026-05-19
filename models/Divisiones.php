@@ -42,7 +42,7 @@ class Divisiones extends ActiveRecord
         ];
     }
 
-    public function beforeSave(bool $insert): bool
+    public function beforeSave($insert): bool
     {
         if ($insert && empty($this->color)) {
             $last = static::find()->orderBy(['id' => SORT_DESC])->select('color')->scalar();
