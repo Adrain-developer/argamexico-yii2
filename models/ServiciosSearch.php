@@ -26,7 +26,7 @@ class ServiciosSearch extends Servicios
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'  => ['defaultOrder' => ['division_id' => SORT_ASC, 'orden' => SORT_ASC]],
+            'sort'  => ['defaultOrder' => ['division_id' => SORT_ASC, 'id' => SORT_DESC]],
         ]);
 
         $this->load($params);

@@ -26,7 +26,7 @@ class DivisionesSearch extends Divisiones
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'  => ['defaultOrder' => ['orden' => SORT_ASC]],
+            'sort'  => ['defaultOrder' => ['id' => SORT_DESC]],
         ]);
 
         $this->load($params);

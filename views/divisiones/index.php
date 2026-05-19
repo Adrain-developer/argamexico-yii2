@@ -43,10 +43,6 @@ $this->title = 'Divisiones de Negocio';
         'options'   => ['style' => 'width:100px'],
       ],
       [
-        'attribute' => 'orden',
-        'options'   => ['style' => 'width:80px'],
-      ],
-      [
         'label'   => 'Servicios',
         'value'   => fn($m) => count($m->servicios),
         'options' => ['style' => 'width:90px'],

@@ -62,10 +62,6 @@ $this->title = 'Servicios';
         'options'   => ['style' => 'width:90px'],
       ],
       [
-        'attribute' => 'orden',
-        'options'   => ['style' => 'width:70px'],
-      ],
-      [
         'attribute' => 'activo',
         'format'    => 'raw',
         'value'     => fn($m) => $m->activo

@@ -10,9 +10,9 @@ use yii\widgets\ActiveForm;
 <?php $form = ActiveForm::begin(); ?>
 
 <ul class="nav nav-tabs mb-4" id="svcTabs" role="tablist">
-  <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-general">General</button></li>
-  <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-imagenes">Imágenes</button></li>
-  <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-curso">Curso</button></li>
+  <li class="nav-item"><button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-general">General</button></li>
+  <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-imagenes">Imágenes</button></li>
+  <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-curso">Curso</button></li>
 </ul>
 
 <div class="tab-content">
@@ -23,11 +23,8 @@ use yii\widgets\ActiveForm;
       <div class="col-md-6">
         <?= $form->field($model, 'division_id')->dropDownList($divisiones, ['prompt' => '-- División --']) ?>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-6">
         <?= $form->field($model, 'code')->textInput(['maxlength' => 80, 'placeholder' => 'NOM-019-STPS-2011']) ?>
-      </div>
-      <div class="col-md-3">
-        <?= $form->field($model, 'orden')->textInput(['type' => 'number', 'min' => 0]) ?>
       </div>
       <div class="col-12">
         <?= $form->field($model, 'titulo')->textInput(['maxlength' => 200]) ?>
