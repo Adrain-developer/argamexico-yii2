@@ -42,7 +42,7 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/sidebar.css">
 
   <!-- New ARGA design system -->
-  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=1">
+  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=2">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script>
@@ -299,7 +299,7 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
 <script src="<?= Yii::$app->homeUrl ?>js/cart.js"></script>
 
 <!-- New ARGA main JS -->
-<script src="<?= Yii::$app->homeUrl ?>js/arga-main.js?v=1"></script>
+<script src="<?= Yii::$app->homeUrl ?>js/arga-main.js?v=2"></script>
 
 <?php $this->endBody() ?>
 </body>

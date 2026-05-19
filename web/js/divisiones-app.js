@@ -650,7 +650,8 @@
       `).join('');
 
       filters.querySelectorAll('.dv-cat-pill').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+          if (filters.dataset.justDragged === '1') { e.preventDefault(); return; }
           if (btn.dataset.slug === activeSlug) return;
           activeSlug = btn.dataset.slug;
           highlightDivisionId = null;
@@ -660,42 +661,128 @@
             p.classList.toggle('active', isActive);
             p.setAttribute('aria-selected', isActive ? 'true' : 'false');
           });
-          // Scroll active pill into view (mobile horizontal scroll)
           btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
           animateGridChange();
         });
       });
+
+      enableDragScroll(filters);
+    }
+
+    /* ---- Drag-to-scroll + wheel-to-horizontal on desktop ---- */
+    function enableDragScroll(el) {
+      if (el.dataset.dragBound === '1') return;
+      el.dataset.dragBound = '1';
+
+      let down = false, startX = 0, startScroll = 0, dragged = false;
+
+      el.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'touch') return; // touch already scrolls
+        down = true;
+        dragged = false;
+        startX = e.clientX;
+        startScroll = el.scrollLeft;
+        el.classList.add('is-grabbing');
+      });
+      el.addEventListener('pointermove', (e) => {
+        if (!down) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) {
+          dragged = true;
+          el.scrollLeft = startScroll - dx;
+        }
+      });
+      const finishDrag = () => {
+        if (!down) return;
+        down = false;
+        el.classList.remove('is-grabbing');
+        if (dragged) {
+          el.dataset.justDragged = '1';
+          setTimeout(() => { el.dataset.justDragged = '0'; }, 80);
+        }
+      };
+      el.addEventListener('pointerup',     finishDrag);
+      el.addEventListener('pointerleave',  finishDrag);
+      el.addEventListener('pointercancel', finishDrag);
+
+      // Wheel → horizontal
+      el.addEventListener('wheel', (e) => {
+        const dy = e.deltaY;
+        const dx = e.deltaX;
+        if (Math.abs(dy) > Math.abs(dx)) {
+          el.scrollLeft += dy;
+          e.preventDefault();
+        }
+      }, { passive: false });
     }
 
     /* ---- Grid render with fade transition ---- */
     function animateGridChange() {
       grid.classList.add('is-leaving');
-      // Wait for fade-out, then render
       setTimeout(() => {
         renderGrid();
         grid.classList.remove('is-leaving');
-      }, 220);
+      }, 200);
+    }
+
+    function cardHTML(div, item, idx) {
+      const inCart = state.cart.some(c => c.serviceId === item.id);
+      const descShort = (item.descripcion || '').slice(0, 130) + ((item.descripcion || '').length > 130 ? '…' : '');
+      return `
+        <article class="dv-cat-card" id="dvCatCard-${div.id}-${item.id}"
+                 data-division-id="${div.id}" data-service-id="${item.id}"
+                 style="--enter-delay:${Math.min(idx * 35, 420)}ms">
+          <header class="dv-cat-card-top">
+            <div class="dv-cat-card-icon">${shieldSVG(div, 56)}</div>
+            <button class="dv-cat-card-quote ${inCart ? 'added' : ''}"
+                    data-div="${div.id}" data-svc="${item.id}"
+                    type="button"
+                    aria-label="${inCart ? 'Agregado a cotización' : 'Agregar a cotización'}"
+                    title="${inCart ? 'Agregado a cotización' : 'Agregar a cotización'}">
+              ${inCart ? cartDoneIcon() : cartAddIcon()}
+            </button>
+          </header>
+          <div class="dv-cat-card-body">
+            <span class="dv-cat-card-div">${esc(div.name)}</span>
+            <h3 class="dv-cat-card-title">${esc(item.title)}</h3>
+            ${descShort ? `<p class="dv-cat-card-desc">${esc(descShort)}</p>` : ''}
+          </div>
+          <footer class="dv-cat-card-foot">
+            <span class="dv-cat-card-code">${esc(item.code || '')}</span>
+            <button class="dv-cat-card-link" data-div="${div.id}" data-svc="${item.id}" type="button">
+              Ver detalle
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </footer>
+        </article>
+      `;
     }
 
     function renderGrid() {
       let services = flatServices(activeSlug);
+      const isSearch = !!searchQuery;
 
+      // Hide main header when in "Todas" (cada sección tendrá su propio header)
+      const mainHdr = document.querySelector('.dv-cat-main-header');
       if (activeSlug === 'all') {
-        mainTitle.textContent = 'Todos los servicios';
-        mainNote.textContent  = '';
+        if (mainHdr) mainHdr.style.display = 'none';
       } else {
+        if (mainHdr) mainHdr.style.display = '';
         const div = DIVISIONS.find(d => d.slug === activeSlug);
         mainTitle.textContent = div?.name        || '';
         mainNote.textContent  = div?.descripcion || '';
       }
 
-      if (searchQuery) {
+      if (isSearch) {
         const q = searchQuery.toLowerCase();
         services = services.filter(({ item }) =>
           item.title.toLowerCase().includes(q)         ||
           (item.code        || '').toLowerCase().includes(q) ||
           (item.descripcion || '').toLowerCase().includes(q)
         );
+        if (mainHdr) mainHdr.style.display = '';
+        mainTitle.textContent = 'Resultados de búsqueda';
+        mainNote.textContent  = `"${searchQuery}"`;
       }
 
       if (countEl) {
@@ -709,45 +796,49 @@
         return;
       }
 
-      grid.innerHTML = services.map(({ div, item }, i) => {
-        const inCart = state.cart.some(c => c.serviceId === item.id);
-        const descShort = (item.descripcion || '').slice(0, 130) + ((item.descripcion || '').length > 130 ? '…' : '');
-        return `
-          <article class="dv-cat-card" id="dvCatCard-${div.id}-${item.id}"
-                   data-division-id="${div.id}" data-service-id="${item.id}"
-                   style="--enter-delay:${Math.min(i * 35, 480)}ms">
-            <header class="dv-cat-card-top">
-              <div class="dv-cat-card-icon">${shieldSVG(div, 56)}</div>
-              <button class="dv-cat-card-quote ${inCart ? 'added' : ''}"
-                      data-div="${div.id}" data-svc="${item.id}"
-                      type="button"
-                      aria-label="${inCart ? 'Agregado a cotización' : 'Agregar a cotización'}"
-                      title="${inCart ? 'Agregado a cotización' : 'Agregar a cotización'}">
-                ${inCart ? cartDoneIcon() : cartAddIcon()}
-              </button>
-            </header>
-            <div class="dv-cat-card-body">
-              <span class="dv-cat-card-div">${esc(div.name)}</span>
-              <h3 class="dv-cat-card-title">${esc(item.title)}</h3>
-              ${descShort ? `<p class="dv-cat-card-desc">${esc(descShort)}</p>` : ''}
-            </div>
-            <footer class="dv-cat-card-foot">
-              <span class="dv-cat-card-code">${esc(item.code || '')}</span>
-              <button class="dv-cat-card-link" data-div="${div.id}" data-svc="${item.id}" type="button">
-                Ver detalle
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </button>
-            </footer>
-          </article>
-        `;
-      }).join('');
-
-      // Bind detail (whole card click + "Ver detalle" link)
-      grid.querySelectorAll('.dv-cat-card-link').forEach(btn => {
-        btn.addEventListener('click', e => {
-          e.stopPropagation();
-          openServiceFromBtn(btn);
+      // Render: grouped by division when "Todas" (sin búsqueda) | flat otherwise
+      if (activeSlug === 'all' && !isSearch) {
+        // Group services by division order
+        const grouped = new Map();
+        services.forEach(({ div, item }) => {
+          if (!grouped.has(div.id)) grouped.set(div.id, { div, items: [] });
+          grouped.get(div.id).items.push(item);
         });
+
+        let globalIdx = 0;
+        grid.innerHTML = Array.from(grouped.values()).map(({ div, items }) => {
+          const cards = items.map((item) => cardHTML(div, item, globalIdx++)).join('');
+          return `
+            <section class="dv-cat-section" data-division-id="${div.id}">
+              <header class="dv-cat-section-head">
+                <div class="dv-cat-section-shield">${shieldSVG(div, 42)}</div>
+                <div>
+                  <h3 class="dv-cat-section-title">${esc(div.name)}</h3>
+                  ${div.descripcion ? `<p class="dv-cat-section-desc">${esc(div.descripcion)}</p>` : ''}
+                </div>
+                <span class="dv-cat-section-count">${items.length} servicio${items.length !== 1 ? 's' : ''}</span>
+              </header>
+              <div class="dv-cat-section-grid">${cards}</div>
+            </section>
+          `;
+        }).join('');
+        grid.classList.add('is-grouped');
+      } else {
+        grid.classList.remove('is-grouped');
+        grid.innerHTML = services.map(({ div, item }, i) => cardHTML(div, item, i)).join('');
+      }
+
+      // Trigger entry animation in next frame (so layout is computed)
+      const cards = grid.querySelectorAll('.dv-cat-card');
+      requestAnimationFrame(() => {
+        cards.forEach(c => c.classList.add('is-fresh'));
+        // Cleanup is-fresh after max animation completes — leaves cards in stable visible state
+        setTimeout(() => cards.forEach(c => c.classList.remove('is-fresh')), 1000);
+      });
+
+      // Bind events
+      grid.querySelectorAll('.dv-cat-card-link').forEach(btn => {
+        btn.addEventListener('click', e => { e.stopPropagation(); openServiceFromBtn(btn); });
       });
       grid.querySelectorAll('.dv-cat-card').forEach(card => {
         card.addEventListener('click', e => {
@@ -755,8 +846,6 @@
           openServiceFromCard(card);
         });
       });
-
-      // Bind add-to-cart
       grid.querySelectorAll('.dv-cat-card-quote').forEach(btn => {
         btn.addEventListener('click', e => {
           e.stopPropagation();
@@ -771,15 +860,15 @@
         });
       });
 
-      // Highlight cards de la división de origen (espera a que termine la entrada)
+      // Highlight de la división de origen
       if (highlightDivisionId !== null) {
-        const cards = grid.querySelectorAll(`.dv-cat-card[data-division-id="${highlightDivisionId}"]`);
-        cards.forEach((card, i) => {
+        const targetCards = grid.querySelectorAll(`.dv-cat-card[data-division-id="${highlightDivisionId}"]`);
+        targetCards.forEach((card, i) => {
           setTimeout(() => {
             card.classList.add('is-highlight');
             if (i === 0) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
             setTimeout(() => card.classList.remove('is-highlight'), 2200);
-          }, 700 + i * 90);
+          }, 650 + i * 90);
         });
         highlightDivisionId = null;
       }
