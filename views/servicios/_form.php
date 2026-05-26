@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -8,7 +9,7 @@ use yii\widgets\ActiveForm;
 ?>
 
 <style>
-.svc-tabs { display:flex; gap:4px; border-bottom:2px solid #dee2e6; margin-bottom:1.5rem; }
+.svc-tabs { display:flex; gap:4px; border-bottom:2px solid #dee2e6; margin-bottom:1.5rem; flex-wrap:wrap; }
 .svc-tab-btn {
   padding:8px 18px; border:none; background:none; cursor:pointer;
   font-weight:600; color:#495057; border-bottom:3px solid transparent;
@@ -18,9 +19,10 @@ use yii\widgets\ActiveForm;
 .svc-tab-btn.active { color:#1C2B5E; border-bottom-color:#1C2B5E; background:#fff; }
 .svc-tab-panel { display:none; }
 .svc-tab-panel.active { display:block; }
+.svc-img-thumb { width:130px; height:85px; object-fit:cover; border-radius:6px; border:1px solid #dee2e6; }
 </style>
 
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
 <div class="svc-tabs" role="tablist">
   <button type="button" class="svc-tab-btn active" data-panel="panel-general">General</button>
@@ -60,31 +62,35 @@ use yii\widgets\ActiveForm;
 
 <!-- PANEL: Imágenes -->
 <div class="svc-tab-panel" id="panel-imagenes">
-  <p class="text-muted">Hasta 5 URLs de imágenes para el carrusel del modal (recomendado: 900×600 px).</p>
+  <p class="text-muted mb-3">Sube hasta 5 imágenes para el carrusel del modal (PNG, JPG o WEBP · máx. 4 MB c/u · recomendado: 900×600 px).</p>
 
   <?php if (!$model->isNewRecord && $model->imagenes): ?>
-    <div class="mb-3">
+    <div class="mb-4">
       <p class="fw-semibold mb-2">Imágenes actuales</p>
-      <div class="d-flex flex-wrap gap-2 mb-2">
+      <div class="d-flex flex-wrap gap-3">
         <?php foreach ($model->imagenes as $img): ?>
-          <div class="text-center" style="width:130px">
-            <img src="<?= Html::encode($img->url) ?>" class="img-thumbnail"
-                 style="width:130px;height:85px;object-fit:cover" alt="">
-            <?= Html::a('✕ Eliminar', ['/servicios/delete-image', 'id' => $img->id], [
-              'class' => 'btn btn-danger btn-sm d-block mt-1 py-0',
-              'data'  => ['confirm' => '¿Eliminar esta imagen?', 'method' => 'post'],
-            ]) ?>
+          <div class="text-center">
+            <img src="<?= Html::encode($img->webUrl) ?>" class="svc-img-thumb d-block mb-1" alt="">
+            <?= Html::a(
+              '<i class="fas fa-trash-alt me-1"></i>Eliminar',
+              ['/servicios/delete-image', 'id' => $img->id],
+              [
+                'class' => 'btn btn-danger btn-sm py-0 px-2',
+                'data'  => ['confirm' => '¿Eliminar esta imagen? Se borrará del servidor.', 'method' => 'post'],
+              ]
+            ) ?>
           </div>
         <?php endforeach; ?>
       </div>
-      <p class="text-muted small">Las URLs de abajo <strong>reemplazarán</strong> las imágenes actuales al guardar.</p>
     </div>
   <?php endif; ?>
 
+  <p class="fw-semibold mb-2">Agregar imágenes</p>
   <?php for ($i = 0; $i < 5; $i++): ?>
     <div class="input-group mb-2">
       <span class="input-group-text text-muted"><?= $i + 1 ?></span>
-      <input type="url" name="imageUrls[]" class="form-control" placeholder="https://…">
+      <input type="file" name="imageFiles[]" class="form-control"
+             accept="image/png,image/jpeg,image/webp">
     </div>
   <?php endfor; ?>
 </div>
@@ -99,15 +105,22 @@ use yii\widgets\ActiveForm;
   </div>
   <div id="cursoFields" style="<?= $model->es_curso ? '' : 'display:none' ?>">
     <div class="row g-3">
+
       <div class="col-md-8">
         <?= $form->field($model, 'nombre_curso')->textInput(['maxlength' => 200]) ?>
       </div>
-      <div class="col-md-2">
-        <?= $form->field($model, 'duracion')->textInput(['placeholder' => 'Ej: 8 horas']) ?>
+      <div class="col-md-4">
+        <?= $form->field($model, 'duracion')->textInput(['placeholder' => 'Ej: 8 horas', 'maxlength' => 100]) ?>
       </div>
-      <div class="col-md-2">
-        <?= $form->field($model, 'horas_curso')->textInput(['type' => 'number', 'min' => 1]) ?>
+
+      <div class="col-md-4">
+        <?= $form->field($model, 'fecha_curso')->input('date') ?>
       </div>
+      <div class="col-md-4">
+        <?= $form->field($model, 'hora_curso')->input('time')
+          ->hint('Se mostrará en formato 12 h en la vista pública.') ?>
+      </div>
+
       <div class="col-12">
         <?= $form->field($model, 'descripcion_curso')->textarea(['rows' => 3]) ?>
       </div>
@@ -131,16 +144,22 @@ use yii\widgets\ActiveForm;
           ->textarea(['rows' => 3, 'placeholder' => "+52 55 1234 5678"])
           ->hint('Un número por línea') ?>
       </div>
-      <div class="col-12">
-        <?= $form->field($model, 'direccion')->textarea(['rows' => 2, 'placeholder' => 'Dirección del lugar del curso']) ?>
+      <div class="col-md-6">
+        <?= $form->field($model, 'direccion')->textarea(['rows' => 3, 'placeholder' => 'Calle, Ciudad, CP…']) ?>
       </div>
+      <div class="col-md-6">
+        <?= $form->field($model, 'mapa_iframe')
+          ->textarea(['rows' => 3, 'placeholder' => '<iframe src="https://www.google.com/maps/embed?pb=…" …></iframe>'])
+          ->hint('Pega el código iframe de "Compartir → Insertar mapa" de Google Maps.') ?>
+      </div>
+
     </div>
   </div>
 </div>
 
 <div class="mt-4 d-flex gap-2">
   <?= Html::submitButton(
-    $model->isNewRecord ? 'Crear Servicio' : 'Guardar Cambios',
+    $model->isNewRecord ? '<i class="fas fa-plus me-1"></i>Crear Servicio' : '<i class="fas fa-save me-1"></i>Guardar Cambios',
     ['class' => 'btn btn-primary']
   ) ?>
   <?= Html::a(
@@ -165,7 +184,7 @@ use yii\widgets\ActiveForm;
   });
 
   // Curso fields toggle
-  var cursoCheck = document.getElementById('esCursoCheck');
+  var cursoCheck  = document.getElementById('esCursoCheck');
   var cursoFields = document.getElementById('cursoFields');
   if (cursoCheck) {
     cursoCheck.addEventListener('change', function () {
