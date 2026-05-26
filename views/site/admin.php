@@ -2,7 +2,7 @@
 ?>
 <div class="admin-panel container">
     <h3>Panel de administración</h3>
-    <div class="row marginbottom50">
+    <!--<div class="row marginbottom50">
         <div class="col-sm-6">
             <div class="card height185">
                 <div class="card-body">
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-    </div>
+    </div>-->
     <div class="row marginbottom50">
         <div class="col-sm-6">
             <div class="card height185">
