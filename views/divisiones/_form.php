@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="row g-3">
 
-  <div class="col-md-8">
+  <div class="col-12">
     <?= $form->field($model, 'nombre')->textInput([
       'maxlength'   => 120,
       'id'          => 'divNombre',
@@ -18,11 +18,7 @@ use yii\widgets\ActiveForm;
     ]) ?>
   </div>
 
-  <div class="col-md-4">
-    <?= $form->field($model, 'slug')
-      ->textInput(['maxlength' => 100, 'id' => 'divSlug', 'placeholder' => 'se-genera-automatico'])
-      ->hint('Generado automáticamente. Cambiar rompe URLs existentes.') ?>
-  </div>
+  <?= $form->field($model, 'slug')->hiddenInput(['id' => 'divSlug'])->label(false) ?>
 
   <div class="col-12">
     <?= $form->field($model, 'tagline')->textInput([
