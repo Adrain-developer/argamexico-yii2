@@ -61,7 +61,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
-            'rules'           => [],
+            'rules'           => [
+                'equipo/add' => 'equipo/create',
+            ],
         ],
         'assetManager' => [
             'bundles' => [

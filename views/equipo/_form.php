@@ -15,7 +15,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 160, 'placeholder' => 'Ej: Alejandra Martínez']) ?>
   </div>
   <div class="col-md-4">
-    <?= $form->field($model, 'orden')->textInput(['type' => 'number']) ?>
+    <?= $form->field($model, 'orden')
+        ->textInput(['type' => 'number', 'min' => 0])
+        ->hint('0 = se asigna automáticamente al final.') ?>
   </div>
 
   <div class="col-md-6">

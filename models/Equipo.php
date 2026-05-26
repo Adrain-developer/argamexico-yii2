@@ -8,7 +8,8 @@ use yii\web\UploadedFile;
 
 class Equipo extends ActiveRecord
 {
-    public ?UploadedFile $fotoFile = null;
+    /** @var ?UploadedFile */
+    public $fotoFile = null;
 
     public static function tableName(): string
     {
@@ -65,6 +66,17 @@ class Equipo extends ActiveRecord
     public static function find(): \yii\db\ActiveQuery
     {
         return parent::find()->orderBy(['orden' => SORT_ASC, 'id' => SORT_ASC]);
+    }
+
+    public function beforeSave(bool $insert): bool
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+        if ((int) $this->orden === 0) {
+            $this->orden = (int) static::find()->max('orden') + 1;
+        }
+        return true;
     }
 
     public function uploadFoto(): bool
