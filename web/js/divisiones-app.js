@@ -619,9 +619,10 @@
         return;
       }
       sessionStorage.setItem('arga_quote_pending', JSON.stringify(state.cart));
-      const contactUrl = (window.ARGA_URLS && window.ARGA_URLS.contacto) || 'index.php?r=contactos%2Fcreate';
-      const sep = contactUrl.includes('?') ? '&' : '?';
-      window.location.href = contactUrl + sep + 'quote=1';
+      const contactUrl = 'index.php';
+      //const contactUrl = (window.ARGA_URLS && window.ARGA_URLS.contacto) || 'index.php?r=contactos%2Fcreate';
+      //const sep = contactUrl.includes('?') ? '&' : '?';
+      //window.location.href = contactUrl + sep + 'quote=1';
     });
 
     document.addEventListener('keydown', e => {
