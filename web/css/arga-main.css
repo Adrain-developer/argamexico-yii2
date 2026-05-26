@@ -700,7 +700,7 @@ body.page-admin .grid-view {
   opacity: 1;
 }
 
-/* Formación ESCUDO real: ancho arriba, lados verticales, punta abajo */
+/* ---- Grid base (6 cols para todos los layouts de escudo) ---- */
 .unidades-grid {
   position: relative;
   z-index: 1;
@@ -709,29 +709,45 @@ body.page-admin .grid-view {
   gap: 20px 8px;
 }
 
-/* Fila 1: 3 escudos — borde completo superior */
-.unidad-item:nth-child(1) { grid-column: 1 / 3; }
-.unidad-item:nth-child(2) { grid-column: 3 / 5; }
-.unidad-item:nth-child(3) { grid-column: 5 / 7; }
+/* ---- Layout: escudo 3 — 1 fila de 3 ---- */
+.unidades-grid--shield-3 .unidad-item:nth-child(1) { grid-column: 1 / 3; }
+.unidades-grid--shield-3 .unidad-item:nth-child(2) { grid-column: 3 / 5; }
+.unidades-grid--shield-3 .unidad-item:nth-child(3) { grid-column: 5 / 7; }
 
-/* Fila 2: bordes izquierdo y derecho — hueco en el centro (silueta escudo) */
-.unidad-item:nth-child(4) { grid-column: 1 / 3; }
-.unidad-item:nth-child(5) { grid-column: 5 / 7; }
+/* ---- Layout: escudo 6 — 3-2-1 (pirámide) ---- */
+.unidades-grid--shield-6 .unidad-item:nth-child(1) { grid-column: 1 / 3; }
+.unidades-grid--shield-6 .unidad-item:nth-child(2) { grid-column: 3 / 5; }
+.unidades-grid--shield-6 .unidad-item:nth-child(3) { grid-column: 5 / 7; }
+.unidades-grid--shield-6 .unidad-item:nth-child(4) { grid-column: 2 / 4; }
+.unidades-grid--shield-6 .unidad-item:nth-child(5) { grid-column: 4 / 6; }
+.unidades-grid--shield-6 .unidad-item:nth-child(6) { grid-column: 3 / 5; }
 
-/* Fila 3: se cierran 1 col hacia adentro */
-.unidad-item:nth-child(6) { grid-column: 2 / 4; }
-.unidad-item:nth-child(7) { grid-column: 4 / 6; }
+/* ---- Layout: escudo 8 — 3-2-2-1 ---- */
+.unidades-grid--shield-8 .unidad-item:nth-child(1) { grid-column: 1 / 3; }
+.unidades-grid--shield-8 .unidad-item:nth-child(2) { grid-column: 3 / 5; }
+.unidades-grid--shield-8 .unidad-item:nth-child(3) { grid-column: 5 / 7; }
+.unidades-grid--shield-8 .unidad-item:nth-child(4) { grid-column: 1 / 3; }
+.unidades-grid--shield-8 .unidad-item:nth-child(5) { grid-column: 5 / 7; }
+.unidades-grid--shield-8 .unidad-item:nth-child(6) { grid-column: 2 / 4; }
+.unidades-grid--shield-8 .unidad-item:nth-child(7) { grid-column: 4 / 6; }
+.unidades-grid--shield-8 .unidad-item:nth-child(8) { grid-column: 3 / 5; }
 
-/* Fila 4: punta del escudo — centrado */
-.unidad-item:nth-child(8) { grid-column: 3 / 5; }
+/* ---- Layout: cuadrícula 3xN (fallback) ---- */
+.unidades-grid--flow {
+  grid-template-columns: repeat(3, 1fr);
+}
 
+/* ---- Item base ---- */
 .unidad-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   text-align: center;
-  cursor: default;
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  border-radius: 16px;
 }
 
 .unidad-item p {
@@ -741,10 +757,83 @@ body.page-admin .grid-view {
   line-height: 1.3;
 }
 
-/* Shield SVG icon */
+/* ---- Item interactivo: estado inicial oculto + transición de entrada ---- */
+.unidad-item[data-division-id] {
+  opacity: 0;
+  transform: translateY(22px) scale(0.88);
+  transition:
+    opacity .5s ease,
+    transform .5s cubic-bezier(.34,1.56,.64,1),
+    background .2s ease;
+}
+.unidad-item[data-division-id].ui-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.unidad-item[data-division-id]:hover,
+.unidad-item[data-division-id]:focus-visible {
+  background: rgba(28, 43, 94, .05);
+  outline: none;
+}
+
+/* ---- Badge "ver detalles" (superior derecho) ---- */
+.unidad-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--teal);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.65) translateY(-4px);
+  transition: opacity .22s ease, transform .25s cubic-bezier(.34,1.56,.64,1);
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(46,106,201,.35);
+}
+.unidad-item:hover .unidad-badge,
+.unidad-item:focus-visible .unidad-badge {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ---- Contador de servicios + línea verde en hover ---- */
+.unidad-item small {
+  position: relative;
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-mid);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-top: -4px;
+}
+.unidad-item small::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--teal), #4cc28a);
+  border-radius: 2px;
+  margin: 4px auto 0;
+  transition: width .35s cubic-bezier(.34,1.56,.64,1);
+}
+.unidad-item:hover small::after,
+.unidad-item:focus-visible small::after {
+  width: 80%;
+}
+
+/* ---- Shield SVG ---- */
 .unidad-shield {
   width: 80px;
   height: 95px;
+  flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s ease;
 }
 .unidad-shield.teal {
@@ -753,26 +842,56 @@ body.page-admin .grid-view {
 .unidad-shield.green {
   filter: url(#ringRed) drop-shadow(0 4px 10px rgba(0,0,0,.18));
 }
-.unidad-item {
-  cursor: pointer;
+.unidad-shield.teal .shield-bg { fill: url(#tealGrad); }
+.unidad-shield.green .shield-bg { fill: url(#greenGrad); }
+
+/* ---- Idle pulse: estimula la interacción ---- */
+@keyframes shieldPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.07); }
 }
-.unidad-item:hover .unidad-shield {
-  transform: scale(1.13);
+.unidad-item[data-division-id].ui-visible .unidad-shield {
+  animation: shieldPulse 3.2s ease-in-out infinite;
 }
-.unidad-item:hover .unidad-shield.teal {
+.unidad-item:nth-child(2) .unidad-shield { animation-delay: .5s; }
+.unidad-item:nth-child(3) .unidad-shield { animation-delay: 1s; }
+.unidad-item:nth-child(4) .unidad-shield { animation-delay: 1.5s; }
+.unidad-item:nth-child(5) .unidad-shield { animation-delay: .3s; }
+.unidad-item:nth-child(6) .unidad-shield { animation-delay: .8s; }
+.unidad-item:nth-child(7) .unidad-shield { animation-delay: 1.3s; }
+.unidad-item:nth-child(8) .unidad-shield { animation-delay: .6s; }
+
+/* ---- Hover: pausa pulse, zoom + glow ---- */
+.unidad-item:hover .unidad-shield,
+.unidad-item:focus-visible .unidad-shield {
+  animation: none;
+  transform: scale(1.15);
+}
+.unidad-item:hover .unidad-shield.teal,
+.unidad-item:focus-visible .unidad-shield.teal {
   filter: url(#ringTeal) drop-shadow(0 8px 20px rgba(46,106,201,.40));
 }
-.unidad-item:hover .unidad-shield.green {
+.unidad-item:hover .unidad-shield.green,
+.unidad-item:focus-visible .unidad-shield.green {
   filter: url(#ringRed) drop-shadow(0 8px 20px rgba(196,18,48,.40));
 }
 
-.unidad-shield .shield-bg { }
-
-.unidad-shield.teal .shield-bg {
-  fill: url(#tealGrad);
-}
-.unidad-shield.green .shield-bg {
-  fill: url(#greenGrad);
+/* ---- Accesibilidad: respeta prefers-reduced-motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .unidad-item[data-division-id] {
+    opacity: 1;
+    transform: none;
+    transition: background .2s ease;
+  }
+  .unidad-item[data-division-id].ui-visible {
+    opacity: 1;
+    transform: none;
+  }
+  .unidad-item[data-division-id].ui-visible .unidad-shield,
+  .unidad-item:hover .unidad-shield,
+  .unidad-item:focus-visible .unidad-shield {
+    animation: none;
+  }
 }
 
 /* Nav active state for ARGA brand items */
@@ -1575,7 +1694,6 @@ body.page-admin .grid-view {
   .team-inner { grid-template-columns: 1fr; }
   .team-info h2 { font-size: 3rem; }
   .unidades-inner { grid-template-columns: 1fr; gap: 40px; }
-  /* Formación escudo se mantiene en 6 cols — se reduce el escudo */
   .unidad-shield { width: 68px; height: 80px; }
   .footer-grid { gap: 40px; }
 }
@@ -1583,9 +1701,9 @@ body.page-admin .grid-view {
 @media (max-width: 768px) {
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .unidades-inner { grid-template-columns: 1fr; }
-  /* Mantener formación 6 cols — escudo más pequeño en mobile */
   .unidad-shield { width: 58px; height: 69px; }
   .unidad-item p { font-size: 0.68rem; }
+  .unidades-grid--flow { grid-template-columns: repeat(2, 1fr); }
   .main-nav { display: none; }
   .main-nav.open {
     display: block;

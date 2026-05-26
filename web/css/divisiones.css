@@ -1087,27 +1087,8 @@
 @keyframes dvToastOut { to { transform: translateY(-8px); opacity: 0; } }
 
 /* ============================================================
-   Unidad-item interactivo (mejoras hover sobre el existente)
+   Unidad-item interactivo — gestionado por arga-main.css v7
    ============================================================ */
-.unidad-item[data-division-id] {
-  cursor: pointer;
-  border-radius: 16px;
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1), background .2s ease;
-  padding: 8px;
-}
-.unidad-item[data-division-id]:hover {
-  background: rgba(28, 43, 94, .05);
-  transform: translateY(-4px);
-}
-.unidad-item[data-division-id] small {
-  display: block;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-mid);
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  margin-top: -4px;
-}
 
 /* ============================================================
    Responsive

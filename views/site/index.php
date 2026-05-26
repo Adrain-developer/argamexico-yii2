@@ -193,12 +193,19 @@ $clientesLogos = [
           </g>
         </svg>
 
-        <div class="unidades-grid">
+        <?php
+          $shieldCounts = [3, 6, 8];
+          $gridClass = in_array($divisionesCount, $shieldCounts)
+            ? 'unidades-grid--shield-' . $divisionesCount
+            : 'unidades-grid--flow';
+        ?>
+        <div class="unidades-grid <?= $gridClass ?>" data-count="<?= $divisionesCount ?>">
           <?php foreach ($divisiones as $div):
             $cssClass = $div['color'] === 'red' ? 'green' : 'teal';
           ?>
           <div class="unidad-item" data-division-id="<?= (int)$div['id'] ?>" role="button" tabindex="0"
                aria-label="Ver servicios de <?= htmlspecialchars($div['name'], ENT_QUOTES) ?>">
+            <span class="unidad-badge" aria-hidden="true">ver detalles</span>
             <svg class="unidad-shield <?= $cssClass ?>" viewBox="0 0 80 95" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path class="shield-bg" d="M6,0 L74,0 Q80,0 80,6 L80,62 L40,95 L0,62 L0,6 Q0,0 6,0 Z"/>
               <?= $div['icon'] ?>

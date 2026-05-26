@@ -1141,6 +1141,35 @@
   }
 
   /* ============================================================
+     Unidades grid — IntersectionObserver (entrada/salida escalonada)
+     ============================================================ */
+  function initUnidadesObserver() {
+    const wrap = document.querySelector('.unidades-grid-wrap');
+    if (!wrap) return;
+    const items = Array.from(wrap.querySelectorAll('.unidad-item[data-division-id]'));
+    if (!items.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach(item => item.classList.add('ui-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          items.forEach((item, i) => {
+            setTimeout(() => item.classList.add('ui-visible'), i * 80);
+          });
+        } else {
+          items.forEach(item => item.classList.remove('ui-visible'));
+        }
+      });
+    }, { threshold: 0.15 });
+
+    io.observe(wrap);
+  }
+
+  /* ============================================================
      Init
      ============================================================ */
   function init() {
@@ -1152,6 +1181,7 @@
     bindGlobal();
     updateCartUI();
     initTeamCoverflow();
+    initUnidadesObserver();
   }
 
   if (document.readyState === 'loading') {
