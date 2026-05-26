@@ -37,12 +37,6 @@ $this->title = 'Divisiones de Negocio';
       ],
       'tagline',
       [
-        'attribute' => 'color',
-        'value'     => fn($m) => $m->color === 'red' ? '🔴 Rojo' : '🔵 Azul',
-        'filter'    => ['teal' => '🔵 Azul', 'red' => '🔴 Rojo'],
-        'options'   => ['style' => 'width:100px'],
-      ],
-      [
         'label'   => 'Servicios',
         'value'   => fn($m) => count($m->servicios),
         'options' => ['style' => 'width:90px'],
