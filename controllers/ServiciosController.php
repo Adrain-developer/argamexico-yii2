@@ -66,7 +66,7 @@ class ServiciosController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->saveImages($model->id, Yii::$app->request->post('imageUrls', []));
+            $this->saveUploadedImages($model->id, UploadedFile::getInstancesByName('imageFiles'));
             Yii::$app->session->setFlash('success', 'Servicio creado correctamente.');
             return $this->redirect(['divisiones/view', 'id' => $model->division_id]);
         }
@@ -82,7 +82,7 @@ class ServiciosController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->saveImages($model->id, Yii::$app->request->post('imageUrls', []), replace: true);
+            $this->saveUploadedImages($model->id, UploadedFile::getInstancesByName('imageFiles'));
             Yii::$app->session->setFlash('success', 'Servicio actualizado correctamente.');
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -107,6 +107,12 @@ class ServiciosController extends Controller
         $img = ServicioImagenes::findOne($id);
         if ($img !== null) {
             $svcId = $img->servicio_id;
+            if (!str_starts_with($img->url, 'http')) {
+                $path = \Yii::getAlias('@webroot/images/servicios/') . $img->url;
+                if (is_file($path)) {
+                    @unlink($path);
+                }
+            }
             $img->delete();
             Yii::$app->session->setFlash('success', 'Imagen eliminada.');
             return $this->redirect(['update', 'id' => $svcId]);
@@ -122,18 +128,29 @@ class ServiciosController extends Controller
         return $this->redirect(Yii::$app->request->referrer ?: ['divisiones/view', 'id' => $model->division_id]);
     }
 
-    private function saveImages(int $svcId, array $urls, bool $replace = false): void
+    private function saveUploadedImages(int $svcId, array $files): void
     {
-        if ($replace) {
-            ServicioImagenes::deleteAll(['servicio_id' => $svcId]);
+        $dir = \Yii::getAlias('@webroot/images/servicios');
+        if (!is_dir($dir)) {
+            mkdir($dir, 0775, true);
         }
-        foreach (array_values(array_filter($urls)) as $orden => $url) {
-            $img = new ServicioImagenes([
-                'servicio_id' => $svcId,
-                'url'         => trim($url),
-                'orden'       => $orden,
-            ]);
-            $img->save();
+        $orden = (int) ServicioImagenes::find()
+            ->where(['servicio_id' => $svcId])
+            ->max('orden');
+
+        foreach ($files as $file) {
+            if ($file->error === UPLOAD_ERR_NO_FILE) {
+                continue;
+            }
+            $name = uniqid('svc_', false) . '.' . $file->extension;
+            if ($file->saveAs($dir . '/' . $name)) {
+                $img = new ServicioImagenes([
+                    'servicio_id' => $svcId,
+                    'url'         => $name,
+                    'orden'       => ++$orden,
+                ]);
+                $img->save(false);
+            }
         }
     }
 

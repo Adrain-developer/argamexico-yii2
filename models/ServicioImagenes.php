@@ -14,10 +14,9 @@ class ServicioImagenes extends ActiveRecord
     public function rules(): array
     {
         return [
-            [['servicio_id', 'url'], 'required'],
+            [['servicio_id'], 'required'],
             [['servicio_id', 'orden'], 'integer'],
             [['url'], 'string', 'max' => 500],
-            [['url'], 'url'],
             [['caption'], 'string', 'max' => 200],
             [['servicio_id'], 'exist', 'targetClass' => Servicios::class, 'targetAttribute' => 'id'],
         ];
@@ -37,5 +36,13 @@ class ServicioImagenes extends ActiveRecord
     public function getServicio(): \yii\db\ActiveQuery
     {
         return $this->hasOne(Servicios::class, ['id' => 'servicio_id']);
+    }
+
+    public function getWebUrl(): string
+    {
+        if (str_starts_with($this->url, 'http://') || str_starts_with($this->url, 'https://')) {
+            return $this->url;
+        }
+        return \Yii::$app->request->baseUrl . '/images/servicios/' . $this->url;
     }
 }

@@ -41,8 +41,10 @@ class Servicios extends ActiveRecord
             [['es_curso', 'activo'], 'boolean'],
             [['code'], 'string', 'max' => 80],
             [['titulo', 'nombre_curso', 'duracion'], 'string', 'max' => 200],
+            [['fecha_curso'], 'date', 'format' => 'php:Y-m-d', 'skipOnEmpty' => true],
+            [['hora_curso'], 'string', 'max' => 30],
             [['descripcion', 'evaluacion', 'icon_svg', 'descripcion_curso', 'temario',
-              'incluye', 'contacto_emails', 'contacto_telefonos', 'direccion'], 'string'],
+              'incluye', 'contacto_emails', 'contacto_telefonos', 'direccion', 'mapa_iframe'], 'string'],
             [['division_id'], 'exist', 'targetClass' => Divisiones::class, 'targetAttribute' => 'id'],
         ];
     }
@@ -66,7 +68,10 @@ class Servicios extends ActiveRecord
             'incluye'            => 'Incluye (uno por línea)',
             'contacto_emails'    => 'Correos de contacto (uno por línea)',
             'contacto_telefonos' => 'Teléfonos de contacto (uno por línea)',
-            'direccion'          => 'Dirección',
+            'direccion'          => 'Dirección del curso',
+            'fecha_curso'        => 'Fecha del curso',
+            'hora_curso'         => 'Hora del curso',
+            'mapa_iframe'        => 'Mapa (iframe Google Maps)',
             'orden'              => 'Orden',
             'activo'             => 'Activo',
         ];
@@ -131,7 +136,7 @@ class Servicios extends ActiveRecord
             'es_curso'    => (bool)$this->es_curso,
             'icon'        => $this->icon_svg,
             'banners'     => array_map(
-                fn(ServicioImagenes $img) => ['src' => $img->url, 'caption' => $img->caption ?? $this->titulo],
+                fn(ServicioImagenes $img) => ['src' => $img->webUrl, 'caption' => $img->caption ?? $this->titulo],
                 $this->imagenes
             ),
         ];

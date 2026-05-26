@@ -103,6 +103,12 @@ img { max-width: 100%; display: block; }
 /* Offset para páginas admin — compensa el header fixed (min-height: 103px) */
 body.page-admin { padding-top: 103px; }
 
+/* ---- Tablas admin: scroll horizontal en móvil ---- */
+body.page-admin .grid-view {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ---- Admin Breadcrumb ---- */
 .admin-breadcrumb {
   background: #f4f6fb;
