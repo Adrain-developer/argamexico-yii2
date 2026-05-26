@@ -10,6 +10,7 @@ use yii\helpers\Url;
 AppAsset::register($this);
 
 $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'index';
+$isAdmin = !Yii::$app->user->isGuest;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -42,7 +43,7 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/sidebar.css">
 
   <!-- New ARGA design system -->
-  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=3">
+  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=4">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script>
@@ -53,7 +54,7 @@ $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action
   </script>
 </head>
 
-<body class="<?= $isIndex ? 'page-home' : 'page-inner' ?>">
+<body class="<?= $isIndex ? 'page-home' : 'page-inner' ?> <?= $isAdmin ? 'page-admin' : '' ?>">
 <?php $this->beginBody() ?>
 
 <!-- SVG gradient defs for shield icons -->
