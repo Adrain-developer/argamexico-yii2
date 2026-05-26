@@ -24,7 +24,10 @@ class EquipoController extends Controller
             ],
             'verbs' => [
                 'class'   => VerbFilter::class,
-                'actions' => ['delete' => ['POST']],
+                'actions' => [
+                    'delete'      => ['POST'],
+                    'remove-foto' => ['POST'],
+                ],
             ],
         ];
     }
@@ -65,6 +68,21 @@ class EquipoController extends Controller
             'model'      => $model,
             'divisiones' => Divisiones::find()->orderBy('nombre')->all(),
         ]);
+    }
+
+    public function actionRemoveFoto(int $id): Response
+    {
+        $model = $this->findModel($id);
+        if ($model->foto) {
+            $path = \Yii::getAlias('@webroot/images/equipo/') . $model->foto;
+            if (is_file($path)) {
+                @unlink($path);
+            }
+            $model->foto = null;
+            $model->save(false);
+            Yii::$app->session->setFlash('success', 'Foto eliminada correctamente.');
+        }
+        return $this->redirect(['update', 'id' => $id]);
     }
 
     public function actionDelete(int $id): Response

@@ -1017,18 +1017,24 @@
     const root = document.getElementById('teamCoverflow');
     if (!root) return;
 
-    // Fallback: si no hay TEAM data desde BD, usar markup default
     const list = (TEAM && TEAM.length)
       ? TEAM
       : [
           { nombre: 'ISH Alejandra M.', puesto: 'Coordinadora de Seguridad', departamento: 'Ing. en Seguridad e Higiene', division: null, foto: null },
-          { nombre: 'Director General', puesto: 'Administración en Riesgos', departamento: 'ARGA Group México', division: null, foto: null },
-          { nombre: 'ISH Eduardo M.',   puesto: 'Técnico de Laboratorio',   departamento: 'Ing. en Seguridad e Higiene', division: null, foto: null },
+          { nombre: 'Director General', puesto: 'Administración en Riesgos',  departamento: 'ARGA Group México',           division: null, foto: null },
+          { nombre: 'ISH Eduardo M.',   puesto: 'Técnico de Laboratorio',     departamento: 'Ing. en Seguridad e Higiene', division: null, foto: null },
         ];
 
     if (!list.length) { root.innerHTML = ''; return; }
 
-    let current = 0;
+    let current   = 0;
+    let autoTimer = null;
+    let dragX     = null;
+    let dragMoved = false;
+
+    const AUTO_MS       = 8000;
+    const SWIPE_MIN     = 40;
+    const DRAG_THRESH   = 8;
 
     const placeholderSvg = `<svg viewBox="0 0 70 70" aria-hidden="true"><circle cx="35" cy="35" r="35" fill="#e8f4f8"/><circle cx="35" cy="26" r="12" fill="#6ebbd9"/><ellipse cx="35" cy="58" rx="20" ry="14" fill="#6ebbd9"/></svg>`;
 
@@ -1039,8 +1045,8 @@
         </div>
         <div class="tcf-info">
           <h3 class="tcf-name">${esc(m.nombre)}</h3>
-          ${m.puesto       ? `<p class="tcf-puesto">${esc(m.puesto)}</p>` : ''}
-          ${m.departamento ? `<p class="tcf-meta">${esc(m.departamento)}</p>` : ''}
+          ${m.puesto       ? `<p class="tcf-puesto">${esc(m.puesto)}</p>`       : ''}
+          ${m.departamento ? `<p class="tcf-meta">${esc(m.departamento)}</p>`   : ''}
           ${m.division     ? `<span class="tcf-divtag">${esc(m.division)}</span>` : ''}
         </div>
       </article>
@@ -1049,53 +1055,89 @@
     const dots = document.getElementById('teamDots');
     if (dots) {
       dots.innerHTML = list.map((_, i) =>
-        `<button class="team-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Ir a ${i+1}" type="button"></button>`
+        `<button class="team-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Ir a ${i + 1}" type="button"></button>`
       ).join('');
       dots.querySelectorAll('.team-dot').forEach(d => {
-        d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10)));
+        d.addEventListener('click', () => { goTo(parseInt(d.dataset.index, 10)); startAuto(); });
       });
     }
 
     function goTo(idx) {
       const n = list.length;
       current = ((idx % n) + n) % n;
-      const cards = root.querySelectorAll('.tcf-card');
-      cards.forEach((c, i) => {
-        c.classList.remove('is-center','is-left','is-right','is-far-left','is-far-right');
+      root.querySelectorAll('.tcf-card').forEach((c, i) => {
+        c.classList.remove('is-center', 'is-left', 'is-right', 'is-far-left', 'is-far-right');
         const diff = (i - current + n) % n;
-        if (diff === 0) c.classList.add('is-center');
-        else if (diff === 1) c.classList.add('is-right');
+        if      (diff === 0)     c.classList.add('is-center');
+        else if (diff === 1)     c.classList.add('is-right');
         else if (diff === n - 1) c.classList.add('is-left');
-        else if (diff === 2) c.classList.add('is-far-right');
-        else c.classList.add('is-far-left');
+        else if (diff === 2)     c.classList.add('is-far-right');
+        else                     c.classList.add('is-far-left');
       });
       if (dots) {
         dots.querySelectorAll('.team-dot').forEach((d, i) => d.classList.toggle('active', i === current));
       }
     }
 
-    document.getElementById('teamPrev')?.addEventListener('click', () => goTo(current - 1));
-    document.getElementById('teamNext')?.addEventListener('click', () => goTo(current + 1));
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(() => goTo(current + 1), AUTO_MS);
+    }
+    function stopAuto() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
 
-    // Click on side cards centers them
+    /* ---- Navigation buttons ---- */
+    document.getElementById('teamPrev')?.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+    document.getElementById('teamNext')?.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
+    /* ---- Click on side card → center it (skipped after drag) ---- */
     root.addEventListener('click', e => {
+      if (dragMoved) return;
       const card = e.target.closest('.tcf-card');
       if (!card) return;
       const idx = parseInt(card.dataset.index, 10);
-      if (idx !== current) goTo(idx);
+      if (idx !== current) { goTo(idx); startAuto(); }
     });
 
-    // Swipe support
+    /* ---- Mouse drag (desktop) ---- */
+    root.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'touch') return;
+      dragX     = e.clientX;
+      dragMoved = false;
+      stopAuto();
+      try { root.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    root.addEventListener('pointermove', e => {
+      if (dragX === null || e.pointerType === 'touch') return;
+      if (Math.abs(e.clientX - dragX) > DRAG_THRESH) dragMoved = true;
+    });
+    const finishDrag = (e) => {
+      if (dragX === null || e.pointerType === 'touch') return;
+      const dx = e.clientX - dragX;
+      if (dragMoved && Math.abs(dx) > SWIPE_MIN) goTo(current + (dx < 0 ? 1 : -1));
+      dragX = null;
+      startAuto();
+    };
+    root.addEventListener('pointerup',     finishDrag);
+    root.addEventListener('pointercancel', e => { if (e.pointerType !== 'touch') { dragX = null; dragMoved = false; startAuto(); } });
+
+    /* ---- Touch swipe (mobile) ---- */
     let touchX = null;
-    root.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-    root.addEventListener('touchend',   e => {
+    root.addEventListener('touchstart', e => {
+      touchX = e.touches[0].clientX;
+      stopAuto();
+    }, { passive: true });
+    root.addEventListener('touchend', e => {
       if (touchX === null) return;
-      const dx = (e.changedTouches[0].clientX - touchX);
-      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > SWIPE_MIN) goTo(current + (dx < 0 ? 1 : -1));
       touchX = null;
+      startAuto();
     });
 
     goTo(0);
+    startAuto();
   }
 
   /* ============================================================

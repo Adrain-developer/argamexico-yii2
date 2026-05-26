@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -39,8 +40,9 @@ use yii\widgets\ActiveForm;
 
   <div class="col-12">
     <?php if ($model->getFotoUrl()): ?>
-      <div class="mb-2">
-        <img src="<?= $model->getFotoUrl() ?>" alt="Foto actual" style="width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid #e1e6f0;">
+      <div class="mb-2 d-flex align-items-center gap-3">
+        <img src="<?= $model->getFotoUrl() ?>" alt="Foto actual"
+             style="width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid #e1e6f0;">
       </div>
     <?php endif; ?>
     <?= $form->field($model, 'fotoFile')->fileInput(['accept' => 'image/png,image/jpeg,image/webp'])
@@ -54,3 +56,16 @@ use yii\widgets\ActiveForm;
 </div>
 
 <?php ActiveForm::end(); ?>
+
+<?php if (!$model->isNewRecord && $model->foto): ?>
+<form method="post"
+      action="<?= Url::to(['remove-foto', 'id' => $model->id]) ?>"
+      class="mt-3"
+      onsubmit="return confirm('¿Eliminar la foto permanentemente? Esta acción no se puede deshacer.')">
+  <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>"
+         value="<?= Yii::$app->request->csrfToken ?>">
+  <button type="submit" class="btn btn-sm btn-outline-danger">
+    <i class="fas fa-trash-alt me-1"></i> Quitar foto
+  </button>
+</form>
+<?php endif; ?>
