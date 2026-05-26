@@ -68,7 +68,7 @@ class Equipo extends ActiveRecord
         return parent::find()->orderBy(['orden' => SORT_ASC, 'id' => SORT_ASC]);
     }
 
-    public function beforeSave(bool $insert): bool
+    public function beforeSave($insert): bool
     {
         if (!parent::beforeSave($insert)) {
             return false;
