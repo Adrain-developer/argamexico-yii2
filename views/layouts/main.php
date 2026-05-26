@@ -18,6 +18,21 @@ $adminControllerIds = [
 ];
 $isAdmin = in_array(Yii::$app->controller->id, $adminControllerIds)
         || (Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'admin');
+
+$adminModuleNames = [
+    'equipo'         => 'Equipo de Trabajo',
+    'divisiones'     => 'Divisiones de Negocio',
+    'servicios'      => 'Servicios',
+    'imagenes'       => 'Contenido / Imágenes',
+    'eventos'        => 'Cursos y Eventos',
+    'publicaciones'  => 'Publicaciones',
+    'empresas'       => 'Empresas',
+    'empresasfolios' => 'Folios DS3',
+    'productos'      => 'Productos',
+    'contactos'      => 'Contactos',
+    'folios'         => 'Folios',
+    'categorias'     => 'Categorías',
+];
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -50,7 +65,7 @@ $isAdmin = in_array(Yii::$app->controller->id, $adminControllerIds)
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/sidebar.css">
 
   <!-- New ARGA design system -->
-  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=4">
+  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=5">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script>
@@ -159,6 +174,47 @@ $isAdmin = in_array(Yii::$app->controller->id, $adminControllerIds)
   </div>
 </header>
 <!-- ===== /HEADER ===== -->
+
+<?php
+/* ---- Admin Breadcrumb ---- */
+$_cid = Yii::$app->controller->id;
+$_aid = Yii::$app->controller->action->id;
+$_showBc = $isAdmin && !($_cid === 'site' && $_aid === 'admin');
+?>
+<?php if ($_showBc): ?>
+<nav class="admin-breadcrumb" aria-label="Ruta de navegación">
+  <div class="container">
+    <ol class="admin-bc-list">
+
+      <li class="admin-bc-item">
+        <?= Html::a(
+          '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><path d="M9 21V12h6v9"/></svg> Panel Admin',
+          ['site/admin'],
+          ['class' => 'admin-bc-link', 'encode' => false]
+        ) ?>
+      </li>
+
+      <?php if (isset($adminModuleNames[$_cid])): ?>
+        <li class="admin-bc-sep" aria-hidden="true">›</li>
+        <?php if ($_aid === 'index'): ?>
+          <li class="admin-bc-item admin-bc-current" aria-current="page">
+            <?= Html::encode($adminModuleNames[$_cid]) ?>
+          </li>
+        <?php else: ?>
+          <li class="admin-bc-item">
+            <?= Html::a(Html::encode($adminModuleNames[$_cid]), ['/' . $_cid . '/index'], ['class' => 'admin-bc-link']) ?>
+          </li>
+          <li class="admin-bc-sep" aria-hidden="true">›</li>
+          <li class="admin-bc-item admin-bc-current" aria-current="page">
+            <?= Html::encode($this->title) ?>
+          </li>
+        <?php endif; ?>
+      <?php endif; ?>
+
+    </ol>
+  </div>
+</nav>
+<?php endif; ?>
 
 <?= $content ?>
 

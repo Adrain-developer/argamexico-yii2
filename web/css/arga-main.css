@@ -103,6 +103,41 @@ img { max-width: 100%; display: block; }
 /* Offset para páginas admin — compensa el header fixed (min-height: 103px) */
 body.page-admin { padding-top: 103px; }
 
+/* ---- Admin Breadcrumb ---- */
+.admin-breadcrumb {
+  background: #f4f6fb;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 9px 0;
+}
+.admin-bc-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin: 0;
+  padding: 0;
+  font-size: .8rem;
+  font-weight: 500;
+}
+.admin-bc-item { display: flex; align-items: center; }
+.admin-bc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--teal);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.admin-bc-link:hover { color: var(--navy); }
+.admin-bc-current { color: var(--text-mid); }
+.admin-bc-sep {
+  color: #aab4c8;
+  font-size: .78rem;
+  line-height: 1;
+  user-select: none;
+}
+
 .header-inner {
   display: flex;
   align-items: center;
