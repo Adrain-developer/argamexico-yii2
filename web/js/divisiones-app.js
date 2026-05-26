@@ -1141,7 +1141,45 @@
   }
 
   /* ============================================================
-     Unidades grid — IntersectionObserver (entrada/salida escalonada)
+     Unidades grid — pulse secuencial (un item a la vez)
+     ============================================================ */
+  function startSequentialPulse(items) {
+    if (!items.length) return function() {};
+    const PULSE_MS = 950;   // coincide con duración CSS shieldPulseSeq
+    const PAUSE_MS = 380;   // pausa entre items
+    let idx    = 0;
+    let timer  = null;
+    let active = true;
+
+    function next() {
+      if (!active) return;
+      // Saltar item si está bajo hover (no interrumpir la interacción del usuario)
+      let tries = 0;
+      while (items[idx].matches(':hover') && tries < items.length) {
+        idx = (idx + 1) % items.length;
+        tries++;
+      }
+      const item = items[idx];
+      item.classList.add('ui-pulsing');
+      timer = setTimeout(() => {
+        item.classList.remove('ui-pulsing');
+        idx   = (idx + 1) % items.length;
+        timer = setTimeout(next, PAUSE_MS);
+      }, PULSE_MS);
+    }
+
+    // Arrancar tras completar la animación de entrada escalonada
+    timer = setTimeout(next, items.length * 80 + 600);
+
+    return function stop() {
+      active = false;
+      clearTimeout(timer);
+      items.forEach(i => i.classList.remove('ui-pulsing'));
+    };
+  }
+
+  /* ============================================================
+     Unidades grid — IntersectionObserver (entrada/salida + pulse)
      ============================================================ */
   function initUnidadesObserver() {
     const wrap = document.querySelector('.unidades-grid-wrap');
@@ -1154,14 +1192,18 @@
       return;
     }
 
+    let stopPulse = null;
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           items.forEach((item, i) => {
             setTimeout(() => item.classList.add('ui-visible'), i * 80);
           });
+          stopPulse = startSequentialPulse(items);
         } else {
           items.forEach(item => item.classList.remove('ui-visible'));
+          if (stopPulse) { stopPulse(); stopPulse = null; }
         }
       });
     }, { threshold: 0.15 });

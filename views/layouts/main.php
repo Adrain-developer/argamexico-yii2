@@ -65,7 +65,7 @@ $adminModuleNames = [
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/sidebar.css">
 
   <!-- New ARGA design system -->
-  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=7">
+  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=8">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script>

@@ -845,21 +845,21 @@ body.page-admin .grid-view {
 .unidad-shield.teal .shield-bg { fill: url(#tealGrad); }
 .unidad-shield.green .shield-bg { fill: url(#greenGrad); }
 
-/* ---- Idle pulse: estimula la interacción ---- */
-@keyframes shieldPulse {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.07); }
+/* ---- Sequential pulse: controlado por JS, un item a la vez ---- */
+@keyframes shieldPulseSeq {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(1.16); }
+  55%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
-.unidad-item[data-division-id].ui-visible .unidad-shield {
-  animation: shieldPulse 3.2s ease-in-out infinite;
+
+.unidad-item.ui-pulsing .unidad-shield {
+  animation: shieldPulseSeq .95s ease-in-out;
 }
-.unidad-item:nth-child(2) .unidad-shield { animation-delay: .5s; }
-.unidad-item:nth-child(3) .unidad-shield { animation-delay: 1s; }
-.unidad-item:nth-child(4) .unidad-shield { animation-delay: 1.5s; }
-.unidad-item:nth-child(5) .unidad-shield { animation-delay: .3s; }
-.unidad-item:nth-child(6) .unidad-shield { animation-delay: .8s; }
-.unidad-item:nth-child(7) .unidad-shield { animation-delay: 1.3s; }
-.unidad-item:nth-child(8) .unidad-shield { animation-delay: .6s; }
+.unidad-item.ui-pulsing .unidad-badge {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
 
 /* ---- Hover: pausa pulse, zoom + glow ---- */
 .unidad-item:hover .unidad-shield,
@@ -887,7 +887,7 @@ body.page-admin .grid-view {
     opacity: 1;
     transform: none;
   }
-  .unidad-item[data-division-id].ui-visible .unidad-shield,
+  .unidad-item.ui-pulsing .unidad-shield,
   .unidad-item:hover .unidad-shield,
   .unidad-item:focus-visible .unidad-shield {
     animation: none;

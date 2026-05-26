@@ -23,7 +23,7 @@ class AppAsset extends AssetBundle
         'css/divisiones.css?v=11',
     ];
     public $js = [
-        'js/divisiones-app.js?v=13',
+        'js/divisiones-app.js?v=14',
     ];
     public $jsOptions = [
         'position' => \yii\web\View::POS_END,
