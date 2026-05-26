@@ -50,11 +50,16 @@ use yii\widgets\ActiveForm;
     <div class="form-text">Escribe el código de la norma y presiona <kbd>Enter</kbd> o el botón para agregarla.</div>
   </div>
 
+  <!-- Selector visual de iconos SVG -->
   <div class="col-12">
-    <?= $form->field($model, 'icon_svg')
-      ->textarea(['rows' => 4, 'class' => 'form-control font-monospace',
-                  'placeholder' => 'Elementos SVG internos del escudo (sin el tag <svg>). Usa stroke="white".'])
-      ->hint('Solo los paths/groups que van dentro del viewBox 80×95 del escudo.') ?>
+    <label class="form-label fw-semibold">Ícono SVG <span class="text-danger">*</span></label>
+    <?php echo $this->render('//partials/_icon-picker', [
+      'fieldId'      => \yii\helpers\Html::getInputId($model, 'icon_svg'),
+      'fieldName'    => \yii\helpers\Html::getInputName($model, 'icon_svg'),
+      'currentValue' => $model->icon_svg ?? '',
+      'optional'     => false,
+      'shieldColor'  => $model->color ?? 'teal',
+    ]); ?>
   </div>
 
   <div class="col-12">

@@ -48,11 +48,25 @@ use yii\widgets\ActiveForm;
     <div class="col-12">
       <?= $form->field($model, 'evaluacion')->textarea(['rows' => 3, 'placeholder' => 'Método de evaluación']) ?>
     </div>
+    <!-- Selector visual de iconos SVG (opcional — vacío = hereda de la división) -->
     <div class="col-12">
-      <?= $form->field($model, 'icon_svg')
-        ->textarea(['rows' => 3, 'class' => 'form-control font-monospace',
-                    'placeholder' => 'Opcional: paths SVG del ícono (sin el tag <svg>)'])
-        ->hint('Dejar vacío para usar el ícono de la división') ?>
+      <label class="form-label fw-semibold">Ícono SVG <span class="text-muted fw-normal">(opcional)</span></label>
+      <?php
+        $divColor = 'teal';
+        if (!$model->isNewRecord && $model->division) {
+            $divColor = $model->division->color ?? 'teal';
+        } elseif (!empty($model->division_id)) {
+            $div = \app\models\Divisiones::findOne($model->division_id);
+            $divColor = $div ? ($div->color ?? 'teal') : 'teal';
+        }
+        echo $this->render('//partials/_icon-picker', [
+          'fieldId'      => \yii\helpers\Html::getInputId($model, 'icon_svg'),
+          'fieldName'    => \yii\helpers\Html::getInputName($model, 'icon_svg'),
+          'currentValue' => $model->icon_svg ?? '',
+          'optional'     => true,
+          'shieldColor'  => $divColor,
+        ]);
+      ?>
     </div>
     <div class="col-12">
       <?= $form->field($model, 'activo')->checkbox(['label' => 'Servicio activo y visible']) ?>
