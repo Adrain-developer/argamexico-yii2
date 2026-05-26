@@ -10,7 +10,14 @@ use yii\helpers\Url;
 AppAsset::register($this);
 
 $isIndex = Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'index';
-$isAdmin = !Yii::$app->user->isGuest;
+
+$adminControllerIds = [
+    'equipo', 'divisiones', 'servicios', 'imagenes', 'eventos',
+    'publicaciones', 'empresas', 'empresasfolios', 'productos',
+    'contactos', 'folios', 'categorias',
+];
+$isAdmin = in_array(Yii::$app->controller->id, $adminControllerIds)
+        || (Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'admin');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
