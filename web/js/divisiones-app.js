@@ -155,6 +155,24 @@
         </footer>
       </aside>
 
+      <!-- Confirm: Vaciar cotización -->
+      <div class="dv-confirm-overlay" id="dvClearConfirm" role="dialog" aria-modal="true" aria-labelledby="dvClearConfirmTitle">
+        <div class="dv-confirm-dialog">
+          <div class="dv-confirm-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
+          </div>
+          <h4 class="dv-confirm-title" id="dvClearConfirmTitle">¿Vaciar la cotización?</h4>
+          <p class="dv-confirm-msg">Se eliminarán todos los servicios agregados.</p>
+          <div class="dv-confirm-actions">
+            <button class="dv-confirm-cancel" id="dvClearCancel" type="button">Cancelar</button>
+            <button class="dv-confirm-ok" id="dvClearOk" type="button">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
+              Vaciar cotización
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- Toasts -->
       <div class="dv-toast-wrap" id="dvToastWrap"></div>
     `);
@@ -533,7 +551,7 @@
 
     cartSidebarList.innerHTML = state.cart.map(it => `
       <li class="dv-cart-item" data-id="${it.serviceId}">
-        <div class="dv-cart-item-body">
+        <div class="dv-cart-item-body" role="link" tabindex="0" aria-label="Ver ${esc(it.title)} en catálogo">
           <span class="dv-cart-item-div">${esc(it.divisionName || '')}</span>
           <p class="dv-cart-item-title">${esc(it.title)}</p>
           ${it.code ? `<span class="dv-cart-item-code">${esc(it.code)}</span>` : ''}
@@ -546,6 +564,21 @@
 
     cartSidebarList.querySelectorAll('.dv-cart-item-remove').forEach(btn => {
       btn.addEventListener('click', () => removeFromCart(parseInt(btn.dataset.id, 10)));
+    });
+
+    cartSidebarList.querySelectorAll('.dv-cart-item-body').forEach(body => {
+      const li    = body.closest('.dv-cart-item');
+      const entry = state.cart.find(c => c.serviceId === parseInt(li.dataset.id, 10));
+      if (!entry) return;
+      const goToCatalog = () => {
+        const div        = DIVISIONS.find(d => d.id === entry.divisionId);
+        const slug       = div?.slug;
+        const catalogUrl = (window.ARGA_URLS && window.ARGA_URLS.catalogo) || 'index.php?r=site%2Fcatalogo';
+        const sep        = catalogUrl.includes('?') ? '&' : '?';
+        window.location.href = catalogUrl + (slug ? `${sep}division=${encodeURIComponent(slug)}` : '');
+      };
+      body.addEventListener('click', goToCatalog);
+      body.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToCatalog(); } });
     });
   }
 
@@ -605,13 +638,18 @@
     document.getElementById('dvCartClose').addEventListener('click', () => closeCartSidebar());
     cartSidebarBackdrop.addEventListener('click', () => closeCartSidebar());
 
+    const clearConfirmEl = document.getElementById('dvClearConfirm');
     document.getElementById('dvCartClear').addEventListener('click', () => {
       if (!state.cart.length) return;
-      if (confirm('¿Vaciar la cotización? Se eliminarán todos los servicios agregados.')) {
-        clearCart();
-        showToast('Cotización vacía', 'info');
-      }
+      clearConfirmEl.classList.add('open');
     });
+    document.getElementById('dvClearCancel').addEventListener('click', () => clearConfirmEl.classList.remove('open'));
+    document.getElementById('dvClearOk').addEventListener('click', () => {
+      clearConfirmEl.classList.remove('open');
+      clearCart();
+      showToast('Cotización vaciada', 'info');
+    });
+    clearConfirmEl.addEventListener('click', e => { if (e.target === clearConfirmEl) clearConfirmEl.classList.remove('open'); });
 
     document.getElementById('dvCartRequest').addEventListener('click', () => {
       if (!state.cart.length) {
@@ -627,6 +665,7 @@
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
+        if (clearConfirmEl.classList.contains('open')) { clearConfirmEl.classList.remove('open'); return; }
         if (m2Backdrop.classList.contains('open')) closeModal2();
         else if (m1Backdrop.classList.contains('open')) closeModal1();
         else if (state.sidebarOpen) closeCartSidebar();
