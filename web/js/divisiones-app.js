@@ -12,18 +12,19 @@
 
   /* ---- State ---- */
   const state = {
-    cart:           JSON.parse(localStorage.getItem('arga_cart_v2') || '[]'),
-    modal1Div:      null,
-    modal2Service:  null,
-    slide:          0,
-    autoInterval:   null,
-    autoMs:         5000,
-    pushedM1:       false,
-    pushedM2:       false,
-    sidebarOpen:    false,
+    cart:                JSON.parse(localStorage.getItem('arga_cart_v2') || '[]'),
+    modal1Div:           null,
+    modal2Service:       null,
+    slide:               0,
+    autoInterval:        null,
+    autoMs:              5000,
+    pushedM1:            false,
+    pushedM2:            false,
+    sidebarOpen:         false,
+    _closingM2FromIndex: false, // evita que popstate cierre modal 1 al salir de modal 2 en site/index
     // Catalog context: cuando se abre modal 2 desde catálogo, contiene la lista renderizada
-    catalogList:    null,   // [{div, item}, ...]
-    catalogIndex:   0,
+    catalogList:         null,   // [{div, item}, ...]
+    catalogIndex:        0,
   };
 
   /* ---- DOM refs (populated in setup) ---- */
@@ -345,12 +346,17 @@
 
     renderBanners(service);
 
-    // Back button: label y acción según contexto de página
+    // Back button: label según contexto de página
     const backBtn  = document.getElementById('dvM2Back');
     const backSVG  = `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>`;
     backBtn.innerHTML = isCatalogPage()
       ? `${backSVG} Atrás`
-      : `${backSVG} Ver todos los servicios`;
+      : `${backSVG} Ver catálogo completo`;
+
+    // Botón de división: texto dinámico con nombre de la división
+    const arrowSVG = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+    const btnAllDiv = document.getElementById('dvBtnAllDivisions');
+    if (btnAllDiv) btnAllDiv.innerHTML = `Ver servicios de ${esc(division.name)} ${arrowSVG}`;
 
     // Panel de imágenes: ocultar cuando no hay banners con src real
     const hasImages = Array.isArray(service.banners) && service.banners.length > 0 &&
@@ -362,16 +368,30 @@
     addBtn.classList.toggle('added', inCart);
     addBtn.querySelector('span').textContent = inCart ? '✓ Agregado' : 'Agregar a cotización';
 
-    // Modo de las actions (catalog vs index)
+    // Modo de las actions: catalog | index-nav | index
     const actionsEl = document.getElementById('dvM2Actions');
     if (actionsEl) {
-      const isCatalog = !!state.catalogList && state.catalogList.length > 0;
-      actionsEl.dataset.mode = isCatalog ? 'catalog' : 'index';
-      if (isCatalog) {
-        const idx = state.catalogList.findIndex(s => s.item.id === service.id && s.div.id === division.id);
-        state.catalogIndex = idx >= 0 ? idx : 0;
-        const counter = document.getElementById('dvM2NavCounter');
-        if (counter) counter.textContent = `${state.catalogIndex + 1} / ${state.catalogList.length}`;
+      const counter = document.getElementById('dvM2NavCounter');
+      if (isCatalogPage()) {
+        // Modo catálogo: nav prev/next sobre todos los servicios visibles
+        actionsEl.dataset.mode = 'catalog';
+        if (state.catalogList && state.catalogList.length > 0) {
+          const idx = state.catalogList.findIndex(s => s.item.id === service.id && s.div.id === division.id);
+          state.catalogIndex = idx >= 0 ? idx : 0;
+          if (counter) counter.textContent = `${state.catalogIndex + 1} / ${state.catalogList.length}`;
+        }
+      } else {
+        const divItems = division.items || [];
+        if (divItems.length > 1) {
+          // Modo index-nav: nav sobre los servicios de la división abierta
+          state.catalogList  = divItems.map(item => ({ div: division, item }));
+          const idx          = state.catalogList.findIndex(s => s.item.id === service.id);
+          state.catalogIndex = idx >= 0 ? idx : 0;
+          actionsEl.dataset.mode = 'index-nav';
+          if (counter) counter.textContent = `${state.catalogIndex + 1} / ${state.catalogList.length}`;
+        } else {
+          actionsEl.dataset.mode = 'index';
+        }
       }
     }
 
@@ -397,12 +417,13 @@
     m2Backdrop.classList.remove('open');
     stopAutoplay();
     state.modal2Service = null;
-    // Reset contexto de catálogo al cerrar
-    state.catalogList = null;
-    state.catalogIndex = 0;
+    state.catalogList   = null;
+    state.catalogIndex  = 0;
     if (!state.modal1Div && !state.sidebarOpen) document.body.classList.remove('dv-no-scroll');
     if (!skipHistory && state.pushedM2) {
       state.pushedM2 = false;
+      // Si modal 1 sigue abierta (flujo site/index), marcar para que popstate no la cierre
+      if (m1Backdrop.classList.contains('open')) state._closingM2FromIndex = true;
       history.back();
     } else if (skipHistory) {
       state.pushedM2 = false;
@@ -420,9 +441,13 @@
   }
 
   window.addEventListener('popstate', () => {
-    // Cerrar la capa superior abierta cuando el usuario presiona atrás
     if (m2Backdrop && m2Backdrop.classList.contains('open')) {
       closeModal2(true);
+      return;
+    }
+    // Si acabamos de cerrar modal 2 en site/index, modal 1 debe quedar abierta
+    if (state._closingM2FromIndex) {
+      state._closingM2FromIndex = false;
       return;
     }
     if (m1Backdrop && m1Backdrop.classList.contains('open')) {
@@ -633,10 +658,9 @@
       if (isCatalogPage()) {
         closeModal2();
       } else {
-        const slug       = state.modal1Div?.slug;
+        // "Ver catálogo completo" → catálogo sin filtro (todas las divisiones)
         const catalogUrl = (window.ARGA_URLS && window.ARGA_URLS.catalogo) || 'index.php?r=site%2Fcatalogo';
-        const sep        = catalogUrl.includes('?') ? '&' : '?';
-        window.location.href = catalogUrl + (slug ? `${sep}division=${encodeURIComponent(slug)}` : '');
+        window.location.href = catalogUrl;
       }
     });
     document.getElementById('dvM1CatalogLink').addEventListener('click', () => {

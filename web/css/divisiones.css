@@ -865,10 +865,11 @@
   padding-top: 18px;
   border-top: 1px solid var(--gray-mid);
 }
-/* Toggle modo index vs catalog */
-.dv-m2-actions[data-mode="catalog"] #dvBtnAllDivisions { display: none; }
-.dv-m2-actions[data-mode="catalog"] #dvM2Nav { display: flex; }
-.dv-m2-actions[data-mode="index"]   #dvM2Nav { display: none; }
+/* Toggle modo index | index-nav | catalog */
+.dv-m2-actions[data-mode="catalog"]   #dvBtnAllDivisions { display: none; }
+.dv-m2-actions[data-mode="catalog"]   #dvM2Nav { display: flex; }
+.dv-m2-actions[data-mode="index"]     #dvM2Nav { display: none; }
+.dv-m2-actions[data-mode="index-nav"] #dvM2Nav { display: flex; }
 
 /* Navegación catálogo (anterior/siguiente estilo blog) */
 .dv-m2-nav {
