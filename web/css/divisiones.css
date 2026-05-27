@@ -104,7 +104,7 @@
 /* ---- Sticky filter bar ---- */
 .dv-cat-filter-bar {
   position: sticky;
-  top: 76px;          /* header height */
+  top: var(--dv-header-h, 76px);
   z-index: 40;
   background: rgba(247, 249, 253, 0.92);
   backdrop-filter: saturate(180%) blur(12px);
@@ -118,7 +118,7 @@
   box-shadow: 0 4px 14px rgba(28, 43, 94, .06);
 }
 @media (max-width: 768px) {
-  .dv-cat-filter-bar { top: 64px; padding: 10px 0 8px; }
+  .dv-cat-filter-bar { padding: 10px 0 8px; }
 }
 
 .dv-cat-filters {
@@ -187,6 +187,13 @@
   width: 6px; height: 6px;
   background: var(--navy);
   border-radius: 50%;
+}
+.dv-cat-pill.is-initial {
+  animation: dvPillEntry .48s cubic-bezier(.34, 1.56, .64, 1) forwards;
+}
+@keyframes dvPillEntry {
+  from { transform: scale(.82) translateY(5px); opacity: .4; }
+  to   { transform: scale(1)   translateY(0);   opacity: 1; }
 }
 
 /* Search bar inside sticky bar */
@@ -585,6 +592,32 @@
 .dv-m1-grid::-webkit-scrollbar { width: 6px; }
 .dv-m1-grid::-webkit-scrollbar-thumb { background: var(--gray-mid); border-radius: 6px; }
 
+/* Footer "Ver catálogo completo" — visible solo fuera del catálogo */
+.dv-m1-foot {
+  padding: 14px 24px 20px;
+  border-top: 1px solid var(--gray-mid);
+  display: flex;
+  justify-content: center;
+  background: var(--gray-soft);
+}
+.dv-m1-catalog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 24px;
+  border-radius: 100px;
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: .875rem;
+  cursor: pointer;
+  transition: all .22s ease;
+  box-shadow: 0 6px 18px rgba(28, 43, 94, .22);
+}
+.dv-m1-catalog-link:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(28, 43, 94, .30); }
+
 /* Tarjeta de servicio */
 .dv-svc-card {
   background: #fff;
@@ -694,6 +727,19 @@
   .dv-m2 { grid-template-columns: 1fr; }
   .dv-m2-right { min-height: 260px; }
 }
+
+/* Sin imágenes: columna única compacta, panel derecho oculto */
+.dv-m2.dv-m2--no-img {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+.dv-m2.dv-m2--no-img .dv-m2-right { display: none; }
+/* Close btn sobre fondo claro cuando no hay imagen */
+.dv-m2.dv-m2--no-img .dv-m2-close-abs {
+  background: rgba(28, 43, 94, .1);
+  color: var(--navy);
+}
+.dv-m2.dv-m2--no-img .dv-m2-close-abs:hover { background: rgba(28, 43, 94, .2); }
 
 /* Lado izquierdo */
 .dv-m2-left {

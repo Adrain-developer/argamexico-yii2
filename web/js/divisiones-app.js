@@ -45,12 +45,21 @@
           </button>
           <div class="dv-m1-header" id="dvM1Header"></div>
           <div class="dv-m1-grid"   id="dvM1Grid"></div>
+          <footer class="dv-m1-foot" id="dvM1Foot">
+            <button class="dv-m1-catalog-link" id="dvM1CatalogLink" type="button">
+              Ver catálogo completo
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </footer>
         </div>
       </div>
 
       <!-- Modal 2: Detalle del Servicio -->
       <div class="dv-m2-backdrop" id="dvM2Backdrop" role="dialog" aria-modal="true">
         <div class="dv-m2" id="dvM2">
+          <button class="dv-close dv-m2-close-abs" id="dvM2Close" aria-label="Cerrar" type="button">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
           <div class="dv-m2-left">
             <button class="dv-back-btn" id="dvM2Back" type="button">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
@@ -92,9 +101,6 @@
             </div>
           </div>
           <div class="dv-m2-right" id="dvM2Right">
-            <button class="dv-close dv-m2-close-abs" id="dvM2Close" aria-label="Cerrar" type="button">
-              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
             <div class="dv-banner-track"  id="dvBannerTrack"></div>
             <button class="dv-banner-nav dv-banner-prev" id="dvBannerPrev" aria-label="Anterior" type="button">
               <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
@@ -218,6 +224,10 @@
     return d.innerHTML;
   }
 
+  function isCatalogPage() {
+    return !!document.getElementById('dvCatalog');
+  }
+
   /* ============================================================
      Modal 1 — Servicios de la División
      ============================================================ */
@@ -257,6 +267,8 @@
     }).join('');
 
     bindServiceCards(division);
+    const m1Foot = document.getElementById('dvM1Foot');
+    if (m1Foot) m1Foot.style.display = isCatalogPage() ? 'none' : '';
     m1Backdrop.classList.add('open');
     document.body.classList.add('dv-no-scroll');
     pushHistoryState('m1');
@@ -332,6 +344,18 @@
     ].join('');
 
     renderBanners(service);
+
+    // Back button: label y acción según contexto de página
+    const backBtn  = document.getElementById('dvM2Back');
+    const backSVG  = `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>`;
+    backBtn.innerHTML = isCatalogPage()
+      ? `${backSVG} Atrás`
+      : `${backSVG} Ver todos los servicios`;
+
+    // Panel de imágenes: ocultar cuando no hay banners con src real
+    const hasImages = Array.isArray(service.banners) && service.banners.length > 0 &&
+      service.banners.some(b => (typeof b === 'string' ? b : (b?.src || '')).trim() !== '');
+    document.getElementById('dvM2').classList.toggle('dv-m2--no-img', !hasImages);
 
     const addBtn = document.getElementById('dvBtnAddQuote');
     const inCart = state.cart.some(c => c.serviceId === service.id);
@@ -605,7 +629,21 @@
     m1Backdrop.addEventListener('click', e => { if (e.target === m1Backdrop) closeModal1(); });
 
     document.getElementById('dvM2Close').addEventListener('click', () => closeModal2());
-    document.getElementById('dvM2Back').addEventListener('click', () => closeModal2());
+    document.getElementById('dvM2Back').addEventListener('click', () => {
+      if (isCatalogPage()) {
+        closeModal2();
+      } else {
+        const slug       = state.modal1Div?.slug;
+        const catalogUrl = (window.ARGA_URLS && window.ARGA_URLS.catalogo) || 'index.php?r=site%2Fcatalogo';
+        const sep        = catalogUrl.includes('?') ? '&' : '?';
+        window.location.href = catalogUrl + (slug ? `${sep}division=${encodeURIComponent(slug)}` : '');
+      }
+    });
+    document.getElementById('dvM1CatalogLink').addEventListener('click', () => {
+      closeModal1(true);
+      const catalogUrl = (window.ARGA_URLS && window.ARGA_URLS.catalogo) || 'index.php?r=site%2Fcatalogo';
+      window.location.href = catalogUrl;
+    });
     m2Backdrop.addEventListener('click', e => {
       if (e.target === m2Backdrop) { closeModal2(); closeModal1(); }
     });
@@ -1013,7 +1051,28 @@
       }
     }
 
+    // Sticky filter bar: top dinámico = altura real del site-header
+    function syncFilterTop() {
+      const h = (document.getElementById('siteHeader') || {}).offsetHeight || 76;
+      document.documentElement.style.setProperty('--dv-header-h', h + 'px');
+    }
+    syncFilterTop();
+    window.addEventListener('resize', syncFilterTop, { passive: true });
+
     buildFilters();
+
+    // Scroll active pill to center on initial load with entry animation
+    if (activeSlug !== 'all') {
+      setTimeout(() => {
+        const activePill = filters.querySelector('.dv-cat-pill.active');
+        if (activePill) {
+          activePill.classList.add('is-initial');
+          activePill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          setTimeout(() => activePill.classList.remove('is-initial'), 800);
+        }
+      }, 120);
+    }
+
     renderGrid();
 
     // Sticky bar shadow on scroll
