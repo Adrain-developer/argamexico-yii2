@@ -1075,12 +1075,25 @@
       }
     }
 
-    // Sticky filter bar: top dinámico = altura real del site-header
+    // Filter bar fixed: top = altura real del site-header; spacer compensa el espacio liberado
     function syncFilterTop() {
-      const h = (document.getElementById('siteHeader') || {}).offsetHeight || 76;
-      document.documentElement.style.setProperty('--dv-header-h', h + 'px');
+      const siteHeader = document.getElementById('siteHeader');
+      const filterBar  = document.getElementById('dvCatFilterBar');
+      if (!filterBar) return;
+
+      const headerH = (siteHeader || {}).offsetHeight || 76;
+      document.documentElement.style.setProperty('--dv-header-h', headerH + 'px');
+
+      let spacer = document.getElementById('dvCatFilterSpacer');
+      if (!spacer) {
+        spacer = document.createElement('div');
+        spacer.id = 'dvCatFilterSpacer';
+        filterBar.parentNode.insertBefore(spacer, filterBar.nextSibling);
+      }
+      spacer.style.height = filterBar.offsetHeight + 'px';
     }
-    syncFilterTop();
+    // requestAnimationFrame garantiza que el layout esté calculado antes de medir alturas
+    requestAnimationFrame(syncFilterTop);
     window.addEventListener('resize', syncFilterTop, { passive: true });
 
     buildFilters();
@@ -1099,15 +1112,16 @@
 
     renderGrid();
 
-    // Sticky bar shadow on scroll
+    // Sombra del filter bar: aparece al superar el hero
     const filterBar = document.getElementById('dvCatFilterBar');
-    if (filterBar && 'IntersectionObserver' in window) {
-      const sentinel = document.createElement('div');
-      sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
-      filterBar.parentNode.insertBefore(sentinel, filterBar);
-      new IntersectionObserver(([entry]) => {
-        filterBar.classList.toggle('is-stuck', !entry.isIntersecting);
-      }, { threshold: 0 }).observe(sentinel);
+    const heroEl    = document.querySelector('.dv-cat-hero');
+    if (filterBar) {
+      const checkShadow = () => {
+        const heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom : -1;
+        filterBar.classList.toggle('is-stuck', heroBottom <= 0);
+      };
+      window.addEventListener('scroll', checkShadow, { passive: true });
+      checkShadow();
     }
   }
 
