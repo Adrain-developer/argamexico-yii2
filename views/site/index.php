@@ -37,7 +37,7 @@ $clientesLogos = [
       <div class="slide-content">
         <h1>Higiene Industrial</h1>
         <p>Reconocimiento y evaluación de agentes físicos: ruido, iluminación, vibraciones, temperaturas y electricidad estática. Acreditados por la EMA.</p>
-        <a href="<?= Url::toRoute(['argalabs/higiene']) ?>" class="btn-cta">Ver Más</a>
+        <a href="" class="btn-cta">Ver Más</a>
       </div>
     </div>
 
@@ -50,7 +50,7 @@ $clientesLogos = [
       <div class="slide-content">
         <h1>Estudios de Seguridad<br>y Consultoría</h1>
         <p>Cumplimiento normativo STPS en instalaciones, maquinaria, sustancias químicas, ergonomía y factores de riesgo psicosocial.</p>
-        <a href="<?= Url::toRoute(['argaconsultores/seguridadlaboral']) ?>" class="btn-cta">Ver Más</a>
+        <a href="" class="btn-cta">Ver Más</a>
       </div>
     </div>
 
@@ -63,7 +63,7 @@ $clientesLogos = [
       <div class="slide-content">
         <h1>Recipientes a Presión<br>y Dictaminaciones</h1>
         <p>Dictaminación de calderas, recipientes criogénicos y tuberías. Ensayos no destructivos: ultrasonido, partículas magnéticas y líquidos penetrantes.</p>
-        <a href="<?= Url::toRoute(['argaconsultores/index']) ?>" class="btn-cta">Ver Más</a>
+        <a href="" class="btn-cta">Ver Más</a>
       </div>
     </div>
 
@@ -76,7 +76,7 @@ $clientesLogos = [
       <div class="slide-content">
         <h1>Sistemas Contra<br>Incendios</h1>
         <p>Diseño, instalación y mantenimiento de sistemas de extinción, alarma, detección, hidrantes y rociadores. +30 años de experiencia en México y LATAM.</p>
-        <a href="<?= Url::toRoute(['argafire/index']) ?>" class="btn-cta">Ver Más</a>
+        <a href="" class="btn-cta">Ver Más</a>
       </div>
     </div>
 
@@ -89,7 +89,7 @@ $clientesLogos = [
       <div class="slide-content">
         <h1>Capacitación</h1>
         <p>Cursos registrados ante STPS y PROFEPA: LOTO, espacios confinados, trabajo en altura, montacargas, brigadas contra incendio y más.</p>
-        <a href="<?= Url::toRoute(['argatraining/index']) ?>" class="btn-cta">Ver Más</a>
+        <a href="" class="btn-cta">Ver Más</a>
       </div>
     </div>
 
@@ -301,7 +301,7 @@ $clientesLogos = [
           <div class="policy-divider"></div>
           <p class="policy-title">Política de Privacidad</p>
           <p class="policy-desc">Protección de datos personales conforme a la Ley Federal, aplicada a toda la información recopilada, procesada y resguardada por ARGA Group.</p>
-          <a href="<?= Url::toRoute(['site/avisoprivacidad']) ?>" class="policy-link">Ver documento →</a>
+          <a href="" class="policy-link">Ver documento →</a>
         </div>
 
         <div class="policy-card">
@@ -315,7 +315,7 @@ $clientesLogos = [
           <div class="policy-divider"></div>
           <p class="policy-title">Código de Ética</p>
           <p class="policy-desc">Compromiso de actuar con integridad, honestidad y objetividad. Rechazo a prácticas de corrupción, dentro del alcance de nuestra acreditación EMA.</p>
-          <a href="<?= Url::toRoute(['site/codigoetica']) ?>" class="policy-link">Ver documento →</a>
+          <a href="" class="policy-link">Ver documento →</a>
         </div>
 
         <div class="policy-card">
@@ -328,7 +328,7 @@ $clientesLogos = [
           <div class="policy-divider"></div>
           <p class="policy-title">Procedimiento de Quejas</p>
           <p class="policy-desc">Canal formal para atención de quejas bajo los valores de Honestidad, Calidad, Compromiso, Profesionalismo, Discreción y Lealtad.</p>
-          <a href="<?= Url::toRoute(['site/quejas']) ?>" class="policy-link">Ver documento →</a>
+          <a href="" class="policy-link">Ver documento →</a>
         </div>
 
       </div>
@@ -375,7 +375,7 @@ $clientesLogos = [
     <div class="team-info">
       <h2 class="gradient-text-outline">EQUIPO<br>DE<br>TRABAJO</h2>
       <p>Dicha experiencia ha quedado demostrada en empresas del giro de la construcción, petroquímica, alimentaría, industrial, comercial y de servicios. Donde el principal objetivo ha sido brindar un servicio de calidad, garantizando la integridad física de los colaboradores, la productividad, la continuidad del negocio, las afectaciones ambientales y la reducción de pérdidas por sanciones administrativas.</p>
-      <a href="<?= Url::toRoute(['contactos/create']) ?>" class="btn-secondary">Contáctanos</a>
+      <a href="" class="btn-secondary">Contáctanos</a>
     </div>
   </div>
 </section>
@@ -465,7 +465,7 @@ $clientesLogos = [
           </li>
           <li>
             <span class="contact-icon">🌐</span>
-            <a href="<?= Url::toRoute(['contactos/create']) ?>" style="color:inherit;">Formulario de contacto →</a>
+            <a href="" style="color:inherit;">Formulario de contacto →</a>
           </li>
         </ul>
       </div>
