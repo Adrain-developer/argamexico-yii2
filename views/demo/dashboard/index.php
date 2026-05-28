@@ -158,7 +158,7 @@
         </div>
       </a>
 
-      <a href="#" class="admin-card">
+      <a href="/demo/dashboard/edit-division" class="admin-card">
         <span class="admin-card-icon red"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span>
         <h3>Servicios</h3>
         <p>Administra individualmente cada servicio, sus imágenes y detalles del curso asociado.</p>
@@ -168,7 +168,7 @@
         </div>
       </a>
 
-      <a href="#" class="admin-card">
+      <a href="/demo/dashboard/edit-division" class="admin-card">
         <span class="admin-card-icon teal"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
         <h3>Cursos</h3>
         <p>Publica o edita los detalles de los cursos disponibles. Constancias DC-3 y diplomados.</p>
@@ -178,7 +178,7 @@
         </div>
       </a>
 
-      <a href="#" class="admin-card">
+      <a href="/demo/dashboard/edit-division" class="admin-card">
         <span class="admin-card-icon amber"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
         <h3>DS3 / Folios</h3>
         <p>Administra los folios DS3 y sus respectivas empresas. Renueva constancias y registra incidencias.</p>
@@ -188,7 +188,7 @@
         </div>
       </a>
 
-      <a href="#" class="admin-card">
+      <a href="/demo/dashboard/edit-division" class="admin-card">
         <span class="admin-card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></span>
         <h3>Consultores</h3>
         <p>Publica, edita o elimina los detalles de la sección de Consultores.</p>
@@ -198,7 +198,7 @@
         </div>
       </a>
 
-      <a href="#" class="admin-card">
+      <a href="/demo/dashboard/edit-division" class="admin-card">
         <span class="admin-card-icon red"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
         <h3>Noticias / Blog</h3>
         <p>Crea y publica artículos del blog. Categorías, imágenes destacadas y SEO.</p>
@@ -208,7 +208,7 @@
         </div>
       </a>
 
-      <a href="#" class="admin-card">
+      <a href="/demo/dashboard/edit-division" class="admin-card">
         <span class="admin-card-icon teal"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
         <h3>Ads / Banners</h3>
         <p>Administra los banners promocionales y el carrusel destacado de la home.</p>
@@ -218,7 +218,7 @@
         </div>
       </a>
 
-      <a href="#" class="admin-card">
+      <a href="/demo/dashboard/edit-division" class="admin-card">
         <span class="admin-card-icon amber"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/><path d="M1 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/></svg></span>
         <h3>Equipo</h3>
         <p>Edita los miembros del equipo de trabajo y sus credenciales.</p>
@@ -228,7 +228,7 @@
         </div>
       </a>
 
-      <a href="#" class="admin-card">
+      <a href="/demo/dashboard/edit-division" class="admin-card">
         <span class="admin-card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"/><line x1="3" y1="22" x2="21" y2="22"/></svg></span>
         <h3>Contenido general</h3>
         <p>Edita el contenido editable del sitio: textos del hero, secciones, footer.</p>
