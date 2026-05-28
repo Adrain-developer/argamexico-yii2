@@ -122,22 +122,22 @@
 
     <!-- STATS ROW -->
     <div class="admin-stats-row">
-      <div class="admin-stat">
+      <div class="admin-stat" style="--stat-icon:url('data:image/svg+xml,%3Csvg viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%231f3b8a%22 stroke-width=%222%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z%22/%3E%3C/svg%3E')">
         <p class="label">Divisiones activas</p>
         <p class="value">8</p>
         <span class="trend up"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> +1 este mes</span>
       </div>
-      <div class="admin-stat">
+      <div class="admin-stat" style="--stat-icon:url('data:image/svg+xml,%3Csvg viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%231f3b8a%22 stroke-width=%222%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z%22/%3E%3Cpolyline points=%2212 2 12 12%22/%3E%3Cpolyline points=%223.27 6.96 12 12.01 20.73 6.96%22/%3E%3C/svg%3E')">
         <p class="label">Servicios totales</p>
         <p class="value">42</p>
         <span class="trend up"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg> +3 nuevos</span>
       </div>
-      <div class="admin-stat">
+      <div class="admin-stat" style="--stat-icon:url('data:image/svg+xml,%3Csvg viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%231f3b8a%22 stroke-width=%222%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z%22/%3E%3Cpolyline points=%2214 2 14 8 20 8%22/%3E%3Cline x1=%2216%22 y1=%2213%22 x2=%228%22 y2=%2213%22/%3E%3Cline x1=%2216%22 y1=%2217%22 x2=%228%22 y2=%2217%22/%3E%3C/svg%3E')">
         <p class="label">Cotizaciones</p>
         <p class="value">128</p>
         <span class="trend up">+12% vs. mes anterior</span>
       </div>
-      <div class="admin-stat">
+      <div class="admin-stat" style="--stat-icon:url('data:image/svg+xml,%3Csvg viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%231f3b8a%22 stroke-width=%222%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M9 11l3 3L22 4%22/%3E%3Cpath d=%22M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11%22/%3E%3C/svg%3E')">
         <p class="label">Folios DS3</p>
         <p class="value">1,247</p>
         <span class="trend down">-2% vs. mes anterior</span>
