@@ -288,6 +288,10 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff;
   border: 1px solid var(--c-border);
   color: var(--c-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 .btn-icon:hover { border-color: var(--c-navy); color: var(--c-navy); }
 .btn-icon.dark { background: rgba(255,255,255,0.10); color: #fff; border: none; backdrop-filter: blur(8px); }
