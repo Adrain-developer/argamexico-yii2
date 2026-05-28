@@ -62,7 +62,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
             'rules'           => [
-                'equipo/add' => 'equipo/create',
+                'equipo/add'                      => 'equipo/create',
+                'demo'                            => 'demo/index',
+                'demo/dashboard/edit-division'    => 'demo/edit-division',
+                'demo/dashboard'                  => 'demo/dashboard',
             ],
         ],
         'assetManager' => [
