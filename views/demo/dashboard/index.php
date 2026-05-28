@@ -78,9 +78,9 @@
     </nav>
     <div class="sidebar-foot">
       <div style="display:flex; align-items:center; gap:10px">
-        <div style="width:36px;height:36px;border-radius:50%;background:var(--g-title);color:#fff;display:grid;place-items:center;font-family:var(--ff-display);font-weight:800;font-size:13px">JM</div>
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--g-title);color:#fff;display:grid;place-items:center;font-family:var(--ff-display);font-weight:800;font-size:13px">AM</div>
         <div style="flex:1; min-width: 0">
-          <div style="font-family:var(--ff-display);font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Juan Manuel</div>
+          <div style="font-family:var(--ff-display);font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Ing Abraham Mendoza</div>
           <div style="font-size:11px;color:var(--c-text-mid)">Administrador</div>
         </div>
         <button class="btn-icon" aria-label="Salir" title="Salir" style="width:32px;height:32px"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></button>
@@ -103,8 +103,8 @@
       <button class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Buscar</button>
       <button class="btn-icon" aria-label="Notificaciones"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></button>
       <div class="admin-user">
-        <span class="avatar">JM</span>
-        <span style="font-family:var(--ff-display);font-weight:700;font-size:13px">Juan Manuel</span>
+        <span class="avatar">AM</span>
+        <span style="font-family:var(--ff-display);font-weight:700;font-size:13px">Ing Abraham Mendoza</span>
       </div>
     </div>
 
