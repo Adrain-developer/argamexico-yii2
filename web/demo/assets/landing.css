@@ -231,7 +231,7 @@
 .ad-slide.accent-teal .ad-slide-bg::after { background: linear-gradient(110deg, rgba(13,27,61,.92) 0%, rgba(43,183,180,.7) 60%, rgba(43,183,180,.2) 100%); }
 .ad-slide.accent-red .ad-slide-bg::after  { background: linear-gradient(110deg, rgba(13,27,61,.92) 0%, rgba(196,23,46,.65) 60%, rgba(196,23,46,.2) 100%); }
 .ad-slide.accent-navy .ad-slide-bg::after { background: linear-gradient(110deg, rgba(13,27,61,.95) 0%, rgba(31,59,138,.7) 60%, rgba(31,59,138,.2) 100%); }
-.ad-slide > * { position: relative; z-index: 1; }
+.ad-slide > * { position: revert-rule; z-index: 1; }
 .ad-slide .eyebrow { background: rgba(255,255,255,0.10); color: #fff; }
 .ad-slide h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); color: #fff; margin: var(--s-3) 0; max-width: 22ch; }
 .ad-slide p { color: rgba(255,255,255,0.88); margin: 0 0 var(--s-5); max-width: 38ch; font-size: var(--fs-15); }

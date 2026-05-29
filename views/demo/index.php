@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/demo/styles.css" />
+  <link rel="stylesheet" href="/demo/assets/arga.css" />
+  <link rel="stylesheet" href="/demo/assets/landing.css?v=1">
 </head>
 <body>
 
@@ -623,6 +625,43 @@
     </div>
   </section>
 
+    <!-- ADS · banners en carrusel (NUEVA SECCIÓN) -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-head" style="text-align:left; margin-bottom: 28px">
+        <span class="eyebrow">Promociones y novedades</span>
+        <h2 style="margin:8px 0 0">Lo que está pasando ahora</h2>
+      </div>
+      <div class="ad-carousel" data-carousel data-autoplay="6000" id="adCarousel">
+        <div class="carousel-track"></div>
+        <button class="carousel-arrow prev light" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="carousel-arrow next light" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <div style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:3"><div class="carousel-dots"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS / BLOG (NUEVA SECCIÓN) -->
+  <section class="section section-soft reveal" id="noticias">
+    <div class="container">
+      <div class="section-head" style="text-align:left; display:flex; align-items:flex-end; justify-content:space-between; gap: 16px; flex-wrap:wrap">
+        <div>
+          <span class="eyebrow">Blog ARGA</span>
+          <h2 style="margin:8px 0 4px">Últimas noticias y artículos</h2>
+          <p class="lead" style="margin:0">Actualizaciones normativas, casos de éxito y mejores prácticas de la industria.</p>
+        </div>
+        <a href="#" class="btn btn-outline">Ver todo el blog
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="news-grid" id="newsGrid"></div>
+    </div>
+  </section>
+
 
   <!-- ===== CLIENTES ===== -->
   <section class="section clients-section reveal" id="clientes">
@@ -902,6 +941,9 @@
   </svg>
 
   <script src="/demo/script.js"></script>
+  <script src="/demo/assets/data.js"></script>
+  <script src="/demo/assets/landing-extras.js"></script>
+  <script src="/demo/assets/arga.js"></script>
 </body>
 
 </html>
