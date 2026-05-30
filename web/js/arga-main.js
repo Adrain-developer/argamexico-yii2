@@ -116,79 +116,96 @@ mainNav.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ---- Mascota Tigre: desliza desde borde izquierdo o derecho ----
+// ---- Mascota Tigre: administrable, desliza desde el borde con CTA de WhatsApp ----
 (function () {
   const unit   = document.getElementById('tigreUnit');
   const img    = document.getElementById('tigreImg');
   const bubble = document.getElementById('tigreBubble');
   const bText  = document.getElementById('tigreBubbleText');
+  const cta    = document.getElementById('tigreCta');
+  const closeB = document.getElementById('tigreClose');
+  const dataEl = document.getElementById('mascotaData');
 
-  const MESSAGES = [
-    '¿EN TU EMPRESA HAY TRABAJO EN BIPEDESTACIÓN?',
-    '¿Ya tienes tu Análisis de Riesgo de Incendio?',
-    '¿Cumples con la NOM-002-STPS?',
-    '¿Tus trabajadores tienen capacitación en SST?',
-    '¿Conoces nuestro laboratorio acreditado?',
-    '¿Necesitas auditorías de seguridad e higiene?',
-    '¿Tienes programa de protección civil?',
-  ];
+  if (!unit || !img || !bubble || !bText || !dataEl) return;
+
+  let MASCOTAS = [];
+  try { MASCOTAS = JSON.parse(dataEl.textContent) || []; } catch (e) { MASCOTAS = []; }
+  if (!MASCOTAS.length) return;
 
   const SHOW_MS = 9800;   // ms que permanece visible
   const MIN_INT = 9000;   // espera mínima entre apariciones
   const MAX_INT = 18000;  // espera máxima
 
-  let active   = false;
-  let hiddenTX = 'translateX(110%)';
+  let active     = false;
+  let hiddenTX   = 'translateX(110%)';
+  let idx        = 0;     // rotación secuencial del pool
+  let centerLeft = false; // alterna lado de las mascotas centrales
+  let current    = null;
 
   function rnd(a, b) { return Math.random() * (b - a) + a; }
 
-  function buildEdge() {
-    // Solo eje X: derecha o izquierda, siempre anclado al fondo
-    if (Math.random() < 0.5) {
-      return { side: 'right', hidden: 'translateX(110%)', visible: 'translateX(0)', flip: false };
-    }
-    return { side: 'left', hidden: 'translateX(-110%)', visible: 'translateX(0)', flip: true };
+  // Lado real en pantalla según la posición administrada
+  function sideFor(m) {
+    if (m.posicion === 'izquierda') return 'left';
+    if (m.posicion === 'derecha')   return 'right';
+    centerLeft = !centerLeft;        // 'centro' alterna izquierda/derecha
+    return centerLeft ? 'left' : 'right';
+  }
+
+  // Ajuste tipográfico: menos caracteres => letra más grande
+  function fitClass(text) {
+    const n = text.length;
+    if (n <= 22) return 'fs-xl';
+    if (n <= 35) return 'fs-lg';
+    if (n <= 50) return 'fs-md';
+    return 'fs-sm';
   }
 
   function show() {
     if (active) return;
     active = true;
 
-    const cfg = buildEdge();
-    hiddenTX  = cfg.hidden;
+    current = MASCOTAS[idx % MASCOTAS.length];
+    idx++;
 
-    // Posicionar: siempre bottom:0, alternar left/right
-    unit.style.bottom = '0px';
+    const side   = sideFor(current);
+    const hidden = side === 'left' ? 'translateX(-110%)' : 'translateX(110%)';
+    hiddenTX = hidden;
+
+    // Anclar al fondo (CSS gestiona el safe-area de iOS) y alternar borde
+    unit.style.bottom = '';
     unit.style.top    = '';
-    if (cfg.side === 'right') {
-      unit.style.right = '0px';
-      unit.style.left  = '';
+    if (side === 'right') {
+      unit.style.right = '0px'; unit.style.left = '';
     } else {
-      unit.style.left  = '0px';
-      unit.style.right = '';
+      unit.style.left = '0px'; unit.style.right = '';
     }
+    unit.classList.toggle('side-left', side === 'left');
+    unit.classList.toggle('side-right', side === 'right');
 
-    // Voltear imagen para que siempre mire hacia dentro de la pantalla
-    img.style.transform = cfg.flip ? 'scaleX(-1)' : 'none';
+    // Imagen ya viene pre-orientada: NO se voltea
+    img.src = current.imagen;
 
-    // Elegir mensaje aleatorio
-    bText.textContent = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
+    // Mensaje + ajuste de tamaño
+    bText.textContent = current.mensaje;
+    bubble.classList.remove('fs-xl', 'fs-lg', 'fs-md', 'fs-sm');
+    bubble.classList.add(fitClass(current.mensaje));
     bubble.classList.remove('visible');
 
-    // Mostrar unit en posición oculta (off-screen) antes de animar
+    // CTA WhatsApp
+    if (cta) cta.href = current.wa;
+
+    // Posición oculta antes de animar
     unit.style.transition = 'none';
-    unit.style.transform  = cfg.hidden;
+    unit.style.transform  = hidden;
     unit.style.display    = 'flex';
-    void unit.offsetHeight; // forzar reflow
+    void unit.offsetHeight; // reflow
 
     // Animar entrada
     unit.style.transition = 'transform 0.7s cubic-bezier(0, 0, 0.2, 1)';
-    unit.style.transform  = cfg.visible;
+    unit.style.transform  = 'translateX(0)';
 
-    // Mostrar burbuja al terminar la animación de entrada
     setTimeout(() => bubble.classList.add('visible'), 750);
-
-    // Auto-ocultar después de SHOW_MS
     setTimeout(doHide, SHOW_MS);
   }
 
@@ -203,9 +220,14 @@ mainNav.querySelectorAll('a').forEach(link => {
     }, 750);
   }
 
-  // Click en tigre o burbuja: ocultar antes de tiempo
-  img.addEventListener('click', doHide);
-  bubble.addEventListener('click', doHide);
+  function openWa() {
+    if (current && current.wa) window.open(current.wa, '_blank', 'noopener');
+  }
+
+  // Click en tigre o burbuja abre WhatsApp; el botón cerrar sólo oculta
+  img.addEventListener('click', openWa);
+  bubble.addEventListener('click', openWa);
+  if (closeB) closeB.addEventListener('click', (e) => { e.stopPropagation(); doHide(); });
 
   function scheduleNext() {
     setTimeout(show, rnd(MIN_INT, MAX_INT));

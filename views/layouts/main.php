@@ -83,7 +83,7 @@ $ogMascota = $mascotasData[0]['imagen'] ?? null;
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/sidebar.css">
 
   <!-- New ARGA design system -->
-  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=9">
+  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=10">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script>
@@ -388,7 +388,7 @@ $_showBc = $isAdmin && !($_cid === 'site' && $_aid === 'admin');
 <script src="<?= Yii::$app->homeUrl ?>js/cart.js"></script>
 
 <!-- New ARGA main JS -->
-<script src="<?= Yii::$app->homeUrl ?>js/arga-main.js?v=3"></script>
+<script src="<?= Yii::$app->homeUrl ?>js/arga-main.js?v=4"></script>
 
 <?php $this->endBody() ?>
 </body>

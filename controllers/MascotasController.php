@@ -23,8 +23,9 @@ class MascotasController extends Controller
             'verbs' => [
                 'class'   => VerbFilter::class,
                 'actions' => [
-                    'delete' => ['POST'],
-                    'toggle' => ['POST'],
+                    'delete'  => ['POST'],
+                    'toggle'  => ['POST'],
+                    'reorder' => ['POST'],
                 ],
             ],
         ];
@@ -61,6 +62,21 @@ class MascotasController extends Controller
             'model'    => $model,
             'imagenes' => Mascotas::availableImages(),
         ]);
+    }
+
+    /**
+     * Reordena las mascotas según el array de IDs recibido (drag & drop).
+     * Normaliza el campo `orden` a 1..n para evitar empalmes.
+     */
+    public function actionReorder(): Response
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        $ids = (array) Yii::$app->request->post('ids', []);
+        $orden = 1;
+        foreach ($ids as $id) {
+            Mascotas::updateAll(['orden' => $orden++], ['id' => (int) $id]);
+        }
+        return $this->asJson(['ok' => true]);
     }
 
     public function actionToggle(int $id): Response

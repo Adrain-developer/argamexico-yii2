@@ -2172,3 +2172,9 @@ textarea, select, label, div {
   line-height: 20px;
   text-align: center;
 }
+
+/* Drag & drop reorder en tabla de mascotas (admin) */
+#mascota-table tr[draggable="true"] { cursor: default; }
+#mascota-table .drag-handle { cursor: grab; }
+#mascota-table .drag-handle:active { cursor: grabbing; }
+#mascota-table tr.dragging { opacity: .5; background: #eef3fb; }
