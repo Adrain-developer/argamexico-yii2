@@ -140,7 +140,9 @@ class Mascotas extends ActiveRecord
 
     public function getWaLink(): string
     {
-        $texto = self::WA_PREFIJO . ' ' . $this->mensaje;
+        // Prefijo + 2 saltos de línea + mensaje en negrita + link (para preview OG)
+        $url   = \Yii::$app->urlManager->createAbsoluteUrl(['/site/index']);
+        $texto = self::WA_PREFIJO . "\n\n*" . $this->mensaje . "*\n\n" . $url;
         return 'https://wa.me/' . $this->getWaNumero() . '?text=' . rawurlencode($texto);
     }
 

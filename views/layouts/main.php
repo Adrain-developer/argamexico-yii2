@@ -57,6 +57,10 @@ $ogMascota = $mascotasData[0]['imagen'] ?? null;
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
   <?php if ($ogMascota): ?>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<?= Html::encode($this->title) ?>">
+  <meta property="og:description" content="ARGA Group México — Seguridad, Higiene y Protección Civil.">
+  <meta property="og:url" content="<?= Html::encode(Url::current([], true)) ?>">
   <meta property="og:image" content="<?= Html::encode(Url::to($ogMascota, true)) ?>">
   <meta name="twitter:image" content="<?= Html::encode(Url::to($ogMascota, true)) ?>">
   <meta name="twitter:card" content="summary_large_image">
@@ -83,7 +87,7 @@ $ogMascota = $mascotasData[0]['imagen'] ?? null;
   <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/sidebar.css">
 
   <!-- New ARGA design system -->
-  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=10">
+  <link rel="stylesheet" href="<?= Yii::$app->homeUrl ?>css/arga-main.css?v=11">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script>

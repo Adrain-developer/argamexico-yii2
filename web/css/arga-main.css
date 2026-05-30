@@ -1632,14 +1632,20 @@ body.page-admin .grid-view {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  bottom: 0;                /* siempre anclado al fondo */
+  bottom: env(safe-area-inset-bottom, 0px); /* respeta el área segura de iOS */
   pointer-events: none;
   transition: transform 0.7s cubic-bezier(0, 0, 0.2, 1);
 }
 
+/* Contenedor del tigre + CTA flotante */
+#tigreImgWrap {
+  position: relative;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
 #tigreImg {
   width: 198px;
-  flex-shrink: 0;
   display: block;
   cursor: pointer;
   pointer-events: auto;
@@ -1649,26 +1655,77 @@ body.page-admin .grid-view {
 }
 #tigreImg:hover { filter: drop-shadow(0 8px 28px rgba(0,0,0,.45)); }
 
+/* CTA WhatsApp discreto sobre el tigre */
+#tigreCta {
+  position: absolute;
+  bottom: 14px;
+  right: 6px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,.28);
+  pointer-events: auto;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#tigreCta:hover { transform: scale(1.08); box-shadow: 0 5px 16px rgba(0,0,0,.36); }
+#tigreCta svg { width: 20px; height: 20px; display: block; }
+#tigreUnit.side-left #tigreCta { right: auto; left: 6px; }
+
+/* Botón cerrar discreto */
+#tigreClose {
+  align-self: flex-end;
+  width: 24px;
+  height: 24px;
+  margin-bottom: -4px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(38,46,100,.55);
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity .3s ease, background .2s ease;
+}
+#tigreUnit:hover #tigreClose,
+#tigreClose:focus { opacity: 1; }
+#tigreClose:hover { background: rgba(38,46,100,.85); }
+
 /* Burbuja encima del tigre */
 #tigreBubble {
   background: var(--white);
   border-radius: 12px 12px 12px 12px;
   padding: 10px 14px;
-  max-width: 185px;
+  max-width: 200px;
   box-shadow: 0 4px 18px rgba(38,46,100,.18);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--navy);
-  line-height: 1.4;
+  line-height: 1.35;
   text-align: center;
   pointer-events: auto;
-  cursor: default;
+  cursor: pointer;
   opacity: 0;
   transform: translateY(8px) scale(0.9);
   transition: opacity 0.35s ease, transform 0.35s ease;
   /* pequeña flecha apuntando hacia abajo */
   position: relative;
 }
+
+/* Auto-fit tipográfico: menos texto => letra más grande */
+#tigreBubble.fs-xl { font-size: 18px; line-height: 1.25; }
+#tigreBubble.fs-lg { font-size: 15px; }
+#tigreBubble.fs-md { font-size: 13px; }
+#tigreBubble.fs-sm { font-size: 11.5px; line-height: 1.4; }
 #tigreBubble::after {
   content: '';
   position: absolute;
@@ -1750,7 +1807,13 @@ body.page-admin .grid-view {
   .clients-grid { grid-template-columns: repeat(2, 1fr); }
   .slide-arrow { width: 38px; height: 38px; font-size: 20px; }
   #tigreImg { width: 132px; }
-  #tigreBubble { max-width: 140px; font-size: 11px; padding: 8px 11px; }
+  #tigreBubble { max-width: 150px; padding: 8px 11px; }
+  #tigreBubble.fs-xl { font-size: 15px; }
+  #tigreBubble.fs-lg { font-size: 13px; }
+  #tigreBubble.fs-md { font-size: 11.5px; }
+  #tigreBubble.fs-sm { font-size: 10.5px; }
+  #tigreCta { width: 32px; height: 32px; bottom: 10px; }
+  #tigreCta svg { width: 17px; height: 17px; }
 
   /* Bordes redondeados reducidos en mobile */
   .mvv-gradient-bg { border-radius: 0 0 40px 40px; }
