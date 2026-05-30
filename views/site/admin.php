@@ -94,5 +94,14 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-6">
+            <div class="card height185">
+                <div class="card-body">
+                    <h5 class="card-title">Módulo de <strong>Mascota Tigre</strong></h5>
+                    <p class="card-text">Elige el tigre, su diálogo (máx 65 caracteres) y el CTA de WhatsApp que aparece flotando en el sitio.</p>
+                    <a href="<?= Url::toRoute('/mascotas') ?>" class="btn btn-primary">Ir a Mascota</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
