@@ -388,7 +388,7 @@ $_showBc = $isAdmin && !($_cid === 'site' && $_aid === 'admin');
 <script src="<?= Yii::$app->homeUrl ?>js/cart.js"></script>
 
 <!-- New ARGA main JS -->
-<script src="<?= Yii::$app->homeUrl ?>js/arga-main.js?v=2"></script>
+<script src="<?= Yii::$app->homeUrl ?>js/arga-main.js?v=3"></script>
 
 <?php $this->endBody() ?>
 </body>
